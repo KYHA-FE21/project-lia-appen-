@@ -1,7 +1,14 @@
-import React from 'react';
+import './badge.scss';
 
-const Badge = ({ children }) => {
-  return <p className="badge">{children}</p>;
+const Badge = ({ children, width, fontSize, opacity }) => {
+  return (
+    <div
+      className="badge"
+      style={{ width: width, fontSize: fontSize, opacity: opacity }}
+    >
+      <p>{children}</p>
+    </div>
+  );
 };
 
 export default Badge;

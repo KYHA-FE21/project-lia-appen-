@@ -1,0 +1,17 @@
+.primary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.7em;
+  gap: 0.5em;
+  padding: 0.8em 1em;
+  background: #4d243d;
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
