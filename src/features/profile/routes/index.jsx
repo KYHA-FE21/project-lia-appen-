@@ -2,10 +2,11 @@ import React from 'react';
 import Title from '../components/title';
 import InputField from '../components/input_field';
 import { Phone, GraduationCap, Star, Puzzle } from 'lucide-react';
+import Checkbox from '../components/checkbox';
 
 const index = () => {
   return (
-    <div style={{display: 'flex', gap: '1em', flexDirection: 'column', width: 'calc(1200px - 4em)', height: '100vh', backgroundColor: 'red', margin: '0 auto'}}>
+    <div style={{display: 'flex', gap: '1em', flexDirection: 'column', width: 'min(100%, 1200px)', height: '100vh', backgroundColor: 'red', margin: '0 auto', padding: '1em'}}>
       <section>
         <Title>Göran Arvdissson</Title>
       </section>
@@ -20,6 +21,11 @@ const index = () => {
       <section>
         <Title underline={true}>Önskemål praktik</Title>
         <InputField img={<Puzzle color='white' size={24} />}>Yrkesroll</InputField>
+        <div style={{display: 'flex'}}>
+          <Checkbox>Remote</Checkbox>
+          <Checkbox>På plats</Checkbox>
+          <Checkbox>Hyrbrid</Checkbox>
+        </div>
       </section>
       
     </div>

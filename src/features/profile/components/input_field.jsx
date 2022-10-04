@@ -1,11 +1,11 @@
 import React from 'react'
 
-const inputField = ({children, img}) => {
+const InputField = ({children, img}) => {
   return (
-    <div style={{display: 'flex'}}>
-      {img}<input style={{ display: 'flex', margin: '1em', padding: '0.5em', background: 'none', border: 'none', borderBottom: '0.15em solid #fff', borderRadius: '0.4em'}} placeholder={children} />
+    <div style={{display: 'flex', alignItems: 'center'}}>
+      {img}<input style={{ display: 'flex', margin: '1em', padding: '0.3em 0.5em', background: 'none', border: 'none', borderBottom: '0.13em solid #fff', borderRadius: '0.2em'}} placeholder={children} />
     </div>
   )
 }
 
-export default inputField;
+export default InputField;
