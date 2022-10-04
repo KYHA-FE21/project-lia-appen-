@@ -5,7 +5,7 @@
   display: flex;
   width: 50%;
   height: 2.2em;
-  border-radius: 0.5em;
+  border-radius: 8px;
   align-items: center;
   overflow: hidden;
   box-shadow: 1px 1px 2px black;
@@ -13,28 +13,13 @@
     font-size: 0.7em;
     font-weight: bold;
     color: white;
-    margin: 20px;
-    padding: 0;
+    padding: 0 2em;
   }
-  .card-button-icon {
+  .secondary-button-icon {
     font-size: 1.4em;
     height: 100%;
     width: 25%;
     margin-left: auto;
     float: right;
-  }
-  .accept-button {
-    background-color: #32ba78;
-  }
-  .decline-button {
-    background-color: #fd6d6d;
-  }
-  .accept-button-alt {
-    background: #4d243d;
-    color: #32ba78;
-  }
-  .decline-button-alt {
-    background: #4d243d;
-    color: #fd6d6d;
   }
 }

@@ -11,7 +11,7 @@ import {
 import './card.scss';
 import SecondaryButton from '../buttons/secondary-button';
 
-const Card = ({ type }) => {
+const Card = ({ title }) => {
   return (
     <div className="card-container">
       <div className="card-top">
@@ -20,10 +20,10 @@ const Card = ({ type }) => {
       </div>
       <div className="card-badges">
         <Badge>HTML</Badge>
-        <Badge>CSS</Badge>
+        <Badge opacity=".3">CSS</Badge>
         <Badge>JS</Badge>
-        <Badge>NODE</Badge>
-        <Badge>REACT</Badge>
+        <Badge opacity=".3">NODE</Badge>
+        <Badge opacity=".3">REACT</Badge>
       </div>
       <div className="card-info-container">
         <div className="card-info">
@@ -40,10 +40,10 @@ const Card = ({ type }) => {
         </div>
       </div>
       <div className="card-buttons">
-        <SecondaryButton logo={<X />} bgColor="#fd6d6d">
+        <SecondaryButton logo={<X />} bg="#fd6d6d">
           Neka
         </SecondaryButton>
-        <SecondaryButton logo={<Check />} bgColor="#32ba78">
+        <SecondaryButton logo={<Check />} bg="#32ba78">
           Acceptera
         </SecondaryButton>
       </div>

@@ -1,13 +1,6 @@
 import './secondary-button.scss';
 
-const SecondaryButton = ({
-  children,
-  width,
-  fontSize,
-  logo,
-  color,
-  bgColor,
-}) => {
+const SecondaryButton = ({ children, width, fontSize, logo, color, bg }) => {
   return (
     <>
       <button
@@ -17,13 +10,15 @@ const SecondaryButton = ({
         <p>{children}</p>
         {logo ? (
           <div
-            className="card-button-icon"
+            className="secondary-button-icon"
             style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              width: width,
+              fontSize: fontSize,
               color: color,
-              backgroundColor: bgColor,
+              background: bg,
             }}
           >
             {logo}

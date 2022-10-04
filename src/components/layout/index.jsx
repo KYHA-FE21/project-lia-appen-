@@ -5,7 +5,15 @@ import Footer from '../footer/footer';
 
 const Layout = () => {
   return (
-    <div style={{ background: 'black' }}>
+    <div
+      style={{
+        background: 'linear-gradient(to bottom, #4d243d, #fd6d6d)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1em',
+        padding: '1em',
+      }}
+    >
       <header>Header</header>
       <Card type="Front-End Utvecklare" />
       <Card type="Front-End Utvecklare" />

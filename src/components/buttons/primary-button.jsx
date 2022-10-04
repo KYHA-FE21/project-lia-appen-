@@ -1,13 +1,18 @@
 import './primary-button.scss';
 
-const PrimaryButton = ({ children, width, fontSize, logo }) => {
+const PrimaryButton = ({ children, width, fontSize, color, bg, logo }) => {
   return (
     <button
       className="primary-button"
-      style={{ width: width, fontSize: fontSize }}
+      style={{
+        width: width,
+        fontSize: fontSize,
+        color: color,
+        background: bg,
+      }}
     >
-      {logo ? logo : ''}
       <p>{children}</p>
+      {logo ? logo : ''}
     </button>
   );
 };

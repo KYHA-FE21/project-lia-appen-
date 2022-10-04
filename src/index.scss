@@ -2,7 +2,11 @@
     create react app - This will import normalize css which will reset it
 */
 @import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap');
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+}
 
 *,
 *::before,
@@ -97,7 +101,7 @@ button {
   padding: 0;
   border: 0;
   font-size: 100%;
-  /* font: inherit; */
+  font: inherit;
   vertical-align: baseline;
   user-select: none;
 }
@@ -168,7 +172,6 @@ button {
 }
 
 * {
-  font-family: 'Open Sans', sans-serif;
 }
 
 h1,
