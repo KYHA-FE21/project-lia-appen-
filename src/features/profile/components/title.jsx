@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Title = ({children, underline}) => {
+const Title = ({children, underline, img, size}) => {
   return (
     <>
-          <h1 style={(underline) ? {paddingBottom: '0.5em', fontWeight: 'bold', fontSize: '1.3rem', borderBottom: '1px solid #fff' } : {fontSize: '1.2rem', fontWeight: 'bold'}}>{children}</h1>
-     </>
+          <h1 className={`${(underline) ? 'border-b padding-b-05 bold size-3' : `flex gap-05 bold ${size}`}`}>{img}{children}</h1>
+    </>
   )
 }
 
