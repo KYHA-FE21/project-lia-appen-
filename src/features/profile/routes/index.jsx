@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Title from '../components/title';
 import InputField from '../components/input_field';
-import { Phone, GraduationCap, Star, Puzzle, Map, Edit, MapPin, CalendarDays} from 'lucide-react';
+import { Phone, GraduationCap, Star, Puzzle, Map, MapPin, CalendarDays} from 'lucide-react';
 import InputButton from '../components/input-button';
 import Layout from '../components/layout';
 import Section from '../components/section';
@@ -12,10 +12,33 @@ import './index.scss';
 const Index = () => {
 
   const [radioButton, setRadioButton] = useState();
+  
+  const [input, setInput] = useState({
+    phone: null,
+    school: null,
+    expertise: null,
+    about: null,
+    role: null
+  });
 
   const changeRadioHandler = (e) => {
     setRadioButton(e.target.value);
   };
+
+  const changeInputHandler = (e) => {
+    console.log(e.target)
+    setInput(
+      {...input, 
+        [e.target.id]:e.target.value
+      }
+    );
+  };
+
+  const saveHandler = (e) => {
+    e.preventDefault();
+
+    console.log('save', radioButton, input)
+  }
 
   return (
     <Layout>
@@ -35,25 +58,28 @@ const Index = () => {
         
         <Title underline={true}>Om mig</Title>
         
-        <InputField img={
+        <InputField prefix='phone' change={changeInputHandler} 
+        img={
           <Phone 
             color='white' 
             size={24} 
           />}>Telefonnummer</InputField>
        
-        <InputField img={
+        <InputField prefix='school' change={changeInputHandler} 
+        img={
           <GraduationCap 
             color='white' 
             size={24} 
           />}>Skola / Utbildning</InputField>
         
-        <InputField img={
+        <InputField prefix='expertise' change={changeInputHandler} 
+        img={
           <Star 
             color='white' 
             size={24} 
           />}>Kompentenser</InputField>
         
-        <TextArea>Kort beskrivning av dig själv</TextArea>
+        <TextArea prefix='about' change={changeInputHandler}>Kort beskrivning av dig själv</TextArea>
 
       </Section>
 
@@ -61,7 +87,8 @@ const Index = () => {
         
         <Title underline={true}>Önskemål praktik</Title>
         
-        <InputField img={
+        <InputField prefix='role' change={changeInputHandler} 
+        img={
           <Puzzle 
             color='white'
             size={24} 
@@ -105,7 +132,7 @@ const Index = () => {
 
       </Section>
 
-      <button type='button'>Spara</button>
+      <button onClick={saveHandler} type='button'>Spara</button>
 
     </Layout>
   )

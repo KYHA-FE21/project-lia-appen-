@@ -9,4 +9,3 @@ const Avatar = ({children}) => {
 }
 
 export default Avatar;
-
