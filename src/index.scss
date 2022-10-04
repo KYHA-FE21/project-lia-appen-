@@ -1,14 +1,17 @@
-/*
-    create react app - This will import normalize css which will reset it
-*/
-@import-normalize; 
-@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap');
 
-*, *::before, *::after {
-  box-sizing: border-box;
+/* create react app - This will import normalize css */
+@import-normalize;
+
+:root {
+	font-family: 'Open Sans', sans-serif;
 }
 
-//custom reset
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+// custom reset
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -54,21 +57,17 @@ table {
 	border-spacing: 0;
 }
 input, button, textarea, select {
-  font: inherit;
+	font: inherit;
 }
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+	overflow-wrap: break-word;
 }
 img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 textarea, select, input, button { outline: none; }
 
-* {
-    font-family: 'Open Sans', sans-serif;
-}
-
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cousine', monospace;
+		font-family: 'Cousine', monospace;
 }

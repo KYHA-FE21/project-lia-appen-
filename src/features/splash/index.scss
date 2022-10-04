@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+  gap: 4px;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-3 {
+  gap: 12px;
+}
+
+.text-xl {
+  font-size: 2rem;
+}
+
+.m-4 {
+  padding: 16px;
+}
