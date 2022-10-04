@@ -1,7 +1,7 @@
 import React from "react";
 import { CalendarDays, CheckCircle, Info, MapPin, Star } from "lucide-react";
 
-import "./information.css";
+import "./information.scss";
 import InfoItem from "./components/info-item";
 import Badge from "./components/badge";
 import Review from "./components/review";
