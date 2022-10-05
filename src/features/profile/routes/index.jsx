@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '../components/title';
 import InputField from '../components/input_field';
-import { Phone, GraduationCap, Star, Puzzle, Map, MapPin, CalendarDays} from 'lucide-react';
+import { Phone, GraduationCap, Star, Puzzle, MapPin, CalendarDays} from 'lucide-react';
 import InputButton from '../components/input-button';
 import LayoutContainer from '../components/layout-container';
 import Avatar from '../components/avatar';
@@ -25,7 +25,7 @@ const Index = () => {
           <Title size={[1]} img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
         </LayoutContainer>
 
-        <LayoutContainer styleDirection='space-evenly' gap={[1]}>
+        <LayoutContainer styleDirection='space-evenly' gap={[1]} padding={[0, 2]}>
           <div className='badges'>Node</div>
           <div className='badges'>JS</div>
           <div className='badges'>CSS</div>
@@ -41,26 +41,26 @@ const Index = () => {
 
       <LayoutContainer direction='column' gap={[3]} padding={[2, 1]}>
         
-        <Title>Om mig</Title>
+        <Title size={[1.1]} bold={700}>Om mig</Title>
         
-        <InputField prefix='phone'
+        <InputField type='text' prefix='phone'
         img={
           <Phone 
-            color='white' 
+            color='black' 
             size={24} 
           />}>Telefonnummer</InputField>
        
-        <InputField prefix='school' 
+        <InputField type='text' prefix='school' 
         img={
           <GraduationCap 
-            color='white' 
+            color='black' 
             size={24} 
           />}>Skola / Utbildning</InputField>
         
-        <InputField prefix='expertise'
+        <InputField type='text' prefix='expertise'
         img={
           <Star 
-            color='white' 
+            color='black' 
             size={24} 
           />}>Kompentenser</InputField>
         
@@ -68,21 +68,19 @@ const Index = () => {
 
       </LayoutContainer>
 
-      <LayoutContainer direction='column' padding={[1,4]}>
+      <LayoutContainer direction='column' padding={[2, 1]} gap={[2]}>
         
-        <Title>Önskemål praktik</Title>
+        <Title size={[1.1]} bold={700}>Önskemål praktik</Title>
         
-        <InputField prefix='role'
+        <InputField type='text' prefix='role'
         img={
           <Puzzle 
-            color='white'
+            color='black'
             size={24} 
           />}>Yrkesroll</InputField>
         
         <LayoutContainer direction='column' gap={[1]}>
-          
-          <Title img={<Map color='white' size={24} />}>Praktikplats</Title>
-          
+            
           <LayoutContainer styleDirection='space-evenly'>
 
             <InputButton 
@@ -111,7 +109,7 @@ const Index = () => {
 
       </LayoutContainer>
 
-      <LayoutContainer direction='column' gap={[3]} padding={[1, 5, 1, 2]}>
+      <LayoutContainer direction='column' styleDirection='center'>
         <InputButton type='button' className='button'>Spara</InputButton>
       </LayoutContainer>
       
