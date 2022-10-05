@@ -1,6 +1,7 @@
+@use 'sass:math';
+
 .flex {
   display: flex;
-  gap: 4px;
 }
 
 .flex-row {
@@ -19,18 +20,122 @@
   justify-content: center;
 }
 
-.gap-1 {
-  gap: 4px;
+.items-stretch {
+  align-items: stretch;
 }
 
-.gap-3 {
-  gap: 12px;
+.place-self-stretch {
+  place-self: stretch;
 }
 
-.text-xl {
-  font-size: 2rem;
+.grow {
+  flex-grow: 1;
 }
 
-.m-4 {
-  padding: 16px;
+.place-self-center {
+  place-self: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+@for $index from 1 through 16 {
+  .gap-#{$index} {
+    gap: #{$index * 4px};
+  }
+
+  .m-#{$index} {
+    margin: #{$index * 4px};
+  }
+
+  .mx-#{$index} {
+    margin-left: #{$index * 4px};
+    margin-right: #{$index * 4px};
+  }
+
+  .h-#{$index} {
+    height: #{$index * 4px};
+  }
+
+  .p-#{$index} {
+    padding: #{$index * 4px};
+  }
+}
+
+$sizes: 'sm', 'base', 'md', 'lg';
+
+@each $size in $sizes {
+  $index: index($sizes, $size);
+
+  .text-#{$size} {
+    font-size: #{$index * 0.5rem};
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+i {
+  font-style: italic;
+}
+
+.rounded-md {
+  border-radius: 8px;
+}
+
+$colors: (
+  'white': white,
+  'black': black,
+  'primary': #4d243d
+);
+
+@each $color,
+$value in $colors {
+  .text-#{$color} {
+    color: $value;
+  }
+
+  .bg-#{$color} {
+    background-color: $value;
+  }
+}
+
+$leading-sizes: 'none', 'tight', 'snug', 'normal', 'relaxed', 'loose';
+
+@each $size in $leading-sizes {
+  $index: index($leading-sizes, $size);
+
+  .leading-#{$size} {
+    line-height: #{1 * (math.div($index - 1, 5)) + 1};
+  }
+}
+
+.no-underline {
+  text-decoration-line: none;
+}
+
+.font-display {
+  font-family: 'Cousine', monospace;
+}
+
+$tracking-sizes: (
+  'tighter': -0.075em,
+  'normal': 0em
+);
+
+@each $name,
+$size in $tracking-sizes {
+  .tracking-#{$name} {
+    letter-spacing: $size;
+  }
+}
+
+.shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px #000000;
 }
