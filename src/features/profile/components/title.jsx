@@ -17,7 +17,7 @@ const Title = ({children, img, size, bold}) => {
     <h2 style={{
       fontSize: styleSize || 1+'rem',
       fontWeight: styleBold || 400
-    }}>{img}{children}
+    }}>{img}<br />{children}
     </h2>
   )
 }

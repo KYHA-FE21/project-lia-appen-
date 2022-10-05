@@ -11,7 +11,7 @@ import './index.scss';
 const Index = () => {
 
   return (
-    <LayoutContainer direction='column' gap={[2]}>
+    <LayoutContainer direction='column' gap={[1]}>
 
       <LayoutContainer gap={[3]} styleDirection='center'>
           <Avatar />
@@ -20,9 +20,9 @@ const Index = () => {
       <LayoutContainer direction='column' gap={[3]} styleDirection='center'>
         <Title size={[1.5]} bold={700}>Sofie Larsson</Title>
 
-        <LayoutContainer gap={[2]} styleDirection='space-evenly'>
+        <LayoutContainer gap={[1]} styleDirection='space-evenly'>
           <Title size={[1]} img={<MapPin color='black' size={18} />}>Gävle</Title>
-          <Title size={[1]} img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
+          <Title size={[1]} img={<CalendarDays color='black' size={18} />}>28 nov-4 apr 2022</Title>
         </LayoutContainer>
 
         <LayoutContainer styleDirection='space-evenly' gap={[1]} padding={[1, 2]}>
