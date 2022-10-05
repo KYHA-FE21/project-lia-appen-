@@ -1,10 +1,12 @@
-/*
-    create react app - This will import normalize css which will reset it
-*/
-@import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap');
 
-* {
+/* create react app - This will import normalize css */
+@import-normalize;
+
+/* Dennis CSS reset */
+@import './styles/reset.scss';
+
+:root {
   font-family: 'Open Sans', sans-serif;
 }
 
