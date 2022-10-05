@@ -4,10 +4,10 @@
 @import-normalize;
 
 /* Dennis CSS reset */
-@import "./styles/reset.scss";
+@import './styles/reset.scss';
 
 :root {
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1,
@@ -16,5 +16,5 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Cousine', monospace;
+  font-family: 'Cousine', monospace;
 }
