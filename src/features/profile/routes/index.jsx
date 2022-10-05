@@ -35,7 +35,12 @@ const Index = () => {
         </div>
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' gap='3' padding='1'>
+      <LayoutContainer type='flex' gap={1} styleDirection='space-evenly' padding={[4, 0]}>
+        <button type='button' className='button'>Om mig</button>
+        <button type='button' className='button'>Önskemål</button>
+      </LayoutContainer>
+
+      <LayoutContainer type='flex' direction='column' gap={3} padding={[2, 1]}>
         
         <Title underline={true}>Om mig</Title>
         
@@ -64,7 +69,7 @@ const Index = () => {
 
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' padding='1'>
+      <LayoutContainer type='flex' direction='column' padding={[1,4]}>
         
         <Title underline={true}>Önskemål praktik</Title>
         
@@ -107,7 +112,7 @@ const Index = () => {
 
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' gap='3' padding='1'>
+      <LayoutContainer type='flex' direction='column' gap='3' padding={[1, 5, 1, 2]}>
         <button type='button' className='button'>Spara</button>
       </LayoutContainer>
       
