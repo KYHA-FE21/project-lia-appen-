@@ -7,7 +7,7 @@ const SecondaryButton = ({ children, width, fontSize, logo, color, bg }) => {
         className="secondary-button"
         style={{ width: width, fontSize: fontSize }}
       >
-        <p>{children}</p>
+        <span className="secondary-button-text">{children}</span>
         {logo ? (
           <div
             className="secondary-button-icon"

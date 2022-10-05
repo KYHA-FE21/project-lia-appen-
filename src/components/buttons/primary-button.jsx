@@ -11,7 +11,7 @@ const PrimaryButton = ({ children, width, fontSize, color, bg, logo }) => {
         background: bg,
       }}
     >
-      <p>{children}</p>
+      <span>{children}</span>
       {logo ? logo : ''}
     </button>
   );

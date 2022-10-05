@@ -3,10 +3,10 @@ import './badge.scss';
 const Badge = ({ children, width, fontSize, opacity }) => {
   return (
     <div
-      className="badge"
+      className="badge-container"
       style={{ width: width, fontSize: fontSize, opacity: opacity }}
     >
-      <p>{children}</p>
+      <span className="badge-text">{children}</span>
     </div>
   );
 };

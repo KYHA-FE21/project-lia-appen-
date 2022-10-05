@@ -10,12 +10,13 @@ import {
 } from 'lucide-react';
 import './card.scss';
 import SecondaryButton from '../buttons/secondary-button';
+import InfoText from '../info-text/info-text';
 
-const Card = ({ title }) => {
+const Card = ({ title, badges }) => {
   return (
-    <div className="card-container">
+    <article className="card-container">
       <div className="card-top">
-        <h3>Front-End Utvecklare</h3>
+        <h2>Front-End Utvecklare</h2>
         <PrimaryButton width="30%" logo={<Info size={16} />}>
           Läs Mer
         </PrimaryButton>
@@ -27,20 +28,12 @@ const Card = ({ title }) => {
         <Badge opacity=".3">NODE</Badge>
         <Badge opacity=".3">REACT</Badge>
       </div>
-      <div className="card-info-container">
-        <div className="card-info">
-          <CalendarDays size={20} />
-          <p>2022-11 to 2023-06</p>
-        </div>
-        <div className="card-info">
-          <CheckCircle size={20} />
-          <p>Remote, Office</p>
-        </div>
-        <div className="card-info">
-          <MapPin size={20} />
-          <p>Gävleborgs län</p>
-        </div>
-      </div>
+      <InfoText
+        startTime="2022-11"
+        endTime="2023-05"
+        workModel="Remote"
+        location="Gävleborg"
+      />
       <div className="card-buttons">
         <SecondaryButton width="50%" logo={<X />} bg="#fd6d6d">
           Neka
@@ -49,7 +42,7 @@ const Card = ({ title }) => {
           Acceptera
         </SecondaryButton>
       </div>
-    </div>
+    </article>
   );
 };
 
