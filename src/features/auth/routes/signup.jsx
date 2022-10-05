@@ -18,13 +18,12 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetchPost('/api/signup', { email, password });
+    fetchPost('/api/user/signup', { email, password });
   };
 
   const navigate = useNavigate();
   React.useEffect(() => {
-    // Validate response and redirect
-    if (data === 'User created') navigate('/profile');
+    if (data) navigate('/profile');
   }, [data]);
 
   React.useEffect(() => {
@@ -59,7 +58,7 @@ const Signup = () => {
 
           <Btn title="SIGN UP" loading={loading} disabled={notSame} />
         </form>
-        <Path links={[{ path: '/signin', title: 'Already registered?' }]} />
+        <Path links={[{ path: '/signin', title: 'Already Registered?' }]} />
         <External />
       </div>
     </div>

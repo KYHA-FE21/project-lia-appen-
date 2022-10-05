@@ -16,13 +16,12 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetchPost('/api/signin', { email, password });
+    fetchPost('/api/user/signin', { email, password });
   };
 
   const navigate = useNavigate();
   React.useEffect(() => {
-    // Validate response and redirect
-    if (data === 'User created') navigate('/profile');
+    if (data) navigate('/profile');
   }, [data]);
 
   return (
@@ -51,7 +50,7 @@ const Signin = () => {
         <Path
           links={[
             { path: '/signup', title: 'Create Account' },
-            { path: '/reset', title: 'Forgot Password?' },
+            { path: '/reset/*', title: 'Forgot Password?' },
           ]}
         />
         <External />
