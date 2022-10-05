@@ -1,10 +1,8 @@
 import React from 'react'
 
-const Avatar = ({children}) => {
+const Avatar = () => {
   return (
-      <div className='flex center avatar'>
-          {children}
-      </div>
+      <div className='flex center avatar'></div>
   )
 }
 

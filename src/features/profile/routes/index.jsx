@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Title from '../components/title';
 import InputField from '../components/input_field';
 import { Phone, GraduationCap, Star, Puzzle, Map, MapPin, CalendarDays} from 'lucide-react';
 import InputButton from '../components/input-button';
-import Layout from '../components/layout';
+import LayoutContainer from '../components/layout-container';
 import Section from '../components/section';
 import Avatar from '../components/avatar';
 import TextArea from '../components/textArea';
@@ -11,75 +11,57 @@ import './index.scss';
 
 const Index = () => {
 
-  const [radioButton, setRadioButton] = useState();
-  
-  const [input, setInput] = useState({
-    phone: null,
-    school: null,
-    expertise: null,
-    about: null,
-    role: null
-  });
-
-  const changeRadioHandler = (e) => {
-    setRadioButton(e.target.value);
-  };
-
-  const changeInputHandler = (e) => {
-    console.log(e.target)
-    setInput(
-      {...input, 
-        [e.target.id]:e.target.value
-      }
-    );
-  };
-
-  const saveHandler = (e) => {
-    e.preventDefault();
-
-    console.log('save', radioButton, input)
-  }
-
   return (
-    <Layout>
+    <LayoutContainer>
 
       <Section header={true}>
-        <Avatar>LIA</Avatar>
-        <Title>Göran Arvdissson</Title>
-        
-        <div className='flex gap-2'> 
-          <Title size='size-1' img={<MapPin color='white' size={14} />}>Välj plats</Title>
-          <Title size='size-1' img={<CalendarDays color='white' size={14} />}>Välj period</Title>
+          <div className='bgBlur'></div>
+          <Avatar />
+      </Section>
+
+      <Section header={true}>
+        <Title size='1.8rem'>Sofie Larsson</Title>
+
+        <div className='flex gap-2'>
+          <Title size='size-1' img={<MapPin color='black' size={18} />}>Gävle</Title>
+          <Title size='size-1' img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
         </div>
 
+        <div className='flex evenly gap-1'>
+          <div className='badges'>Node</div>
+          <div className='badges'>JS</div>
+          <div className='badges'>CSS</div>
+          <div className='badges'>HTML</div>
+          <div className='badges'>REACT</div>
+        </div>
       </Section>
 
       <Section>
         
         <Title underline={true}>Om mig</Title>
         
-        <InputField prefix='phone' change={changeInputHandler} 
+        <InputField prefix='phone'
         img={
           <Phone 
             color='white' 
             size={24} 
           />}>Telefonnummer</InputField>
        
-        <InputField prefix='school' change={changeInputHandler} 
+        <InputField prefix='school' 
         img={
           <GraduationCap 
             color='white' 
             size={24} 
           />}>Skola / Utbildning</InputField>
         
-        <InputField prefix='expertise' change={changeInputHandler} 
+        <InputField prefix='expertise'
         img={
           <Star 
             color='white' 
             size={24} 
           />}>Kompentenser</InputField>
         
-        <TextArea prefix='about' change={changeInputHandler}>Kort beskrivning av dig själv</TextArea>
+        <TextArea prefix='about'>Kort beskrivning av dig själv</TextArea>
 
       </Section>
 
@@ -87,7 +69,7 @@ const Index = () => {
         
         <Title underline={true}>Önskemål praktik</Title>
         
-        <InputField prefix='role' change={changeInputHandler} 
+        <InputField prefix='role'
         img={
           <Puzzle 
             color='white'
@@ -103,28 +85,22 @@ const Index = () => {
             <InputButton 
               id={1} 
               type='radio' 
-              checked={radioButton === 'Remote'} 
               value='Remote' 
               label='Remote' 
-              changed={changeRadioHandler} 
             />
 
             <InputButton 
               id={2} 
               type='radio' 
-              checked={radioButton === 'På plats'} 
               value='På plats' 
               label='På plats' 
-              changed={changeRadioHandler} 
             />
 
             <InputButton 
               id={3} 
               type='radio'
-              checked={radioButton === 'Hybrid'} 
               value='Hybrid' 
               label='Hyrbrid' 
-              changed={changeRadioHandler} 
             />
 
           </div>
@@ -132,9 +108,12 @@ const Index = () => {
 
       </Section>
 
-      <button onClick={saveHandler} type='button'>Spara</button>
+      <Section>
+        <button type='button' className='button'>Spara</button>
+      </Section>
+      
 
-    </Layout>
+    </LayoutContainer>
   )
 };
 

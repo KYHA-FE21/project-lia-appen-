@@ -1,9 +1,8 @@
 .container {
     width: min(100%, 1200px);
     height: 100%;
-    background-color: darkgray;
+    background-color: #fff;
     margin: 0 auto;
-    padding: 3em 1em;
 }
 
 .flex {
@@ -12,6 +11,10 @@
 
 .column {
     flex-direction: column;
+}
+
+.padding-inline-4 {
+    padding-inline: 1em;
 }
 
 .gap-05 {
@@ -98,13 +101,54 @@
     }
 }
 
-.avatar {
-    border-radius: 100%;
-    background-color: grey;
-    width: 6em;
-    height: 6em;
+.bgBlur {
+    background-image: url(https://images.pexels.com/photos/3763152/pexels-photo-3763152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(5px) brightness(0.5);
+    width: 105%;
+    height: 30vh;
+    clip-path: polygon(0 0, 100% 0%, 100% 53%, 0 100%);
+    overflow: hidden;
 }
 
-button {
+.avatar {
+    position: absolute;
+    top:6em;
+    border-radius: 100%;
+    background-image: url(https://images.pexels.com/photos/3763152/pexels-photo-3763152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 8em;
+    height: 8em;
+    box-shadow: 0 0 5px #000;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1em;
+    background-color: #4D243D;
+    border-radius: 1em;
+    color: white;
+    max-width: 8em;
+    height: 2.5em;
+    box-shadow: 0 0 5px #000;
+}
+
+.badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    background-color: #4D243D;
+    border-radius: 1em;
+    color: white;
+    width: fit-content;
+    height: 1em;
+    box-shadow: 0 0 5px #000;
+    font-size: 0.7rem;
 }
