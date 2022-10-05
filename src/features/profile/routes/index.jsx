@@ -25,7 +25,7 @@ const Index = () => {
           <Title size={[1]} img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
         </LayoutContainer>
 
-        <LayoutContainer styleDirection='space-evenly' gap={[1]} padding={[0, 2]}>
+        <LayoutContainer styleDirection='space-evenly' gap={[1]} padding={[1, 2]}>
           <div className='badges'>Node</div>
           <div className='badges'>JS</div>
           <div className='badges'>CSS</div>
