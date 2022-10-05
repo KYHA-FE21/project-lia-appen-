@@ -1,10 +1,24 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 
-const Title = ({children, underline, img, size}) => {
+const Title = ({children, img, size, bold}) => {
+  
+  const [styleSize, setStyleSize] = useState();
+  const [styleBold, setStyleBold] = useState();
+
+  useEffect(() => {
+    if (size !== undefined) setStyleSize(size.join('rem ') + 'rem')
+  }, [size])
+
+  useEffect(() => {
+    if (bold !== undefined) setStyleBold(bold)
+  }, [bold])
+  
   return (
-    <>
-          <h1 style={{fontSize: size}} className={`${(underline) ? 'border-b padding-b-05 bold size-3' : `flex gap-05 bold`}`}>{img}{children}</h1>
-    </>
+    <h2 style={{
+      fontSize: styleSize || 1+'rem',
+      fontWeight: styleBold || 400
+    }}>{img}{children}
+    </h2>
   )
 }
 

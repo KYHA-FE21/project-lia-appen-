@@ -3,10 +3,13 @@ import './index.scss';
 
 const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding}) => {
 
-  const styleGap = gap + 'em';
-  
+  const [styleGap, setStyleGap] = useState();
   const [styleMargin, setStyleMargin] = useState();
   const [stylePadding, setStylePadding] = useState();
+
+  useEffect(() => {
+    if (gap !== undefined) setStyleGap(gap.join('em ') + 'em')
+  }, [gap])
 
   useEffect(()=>{
     if (padding !== undefined) setStylePadding(padding.join('em ') + 'em')
@@ -18,7 +21,7 @@ const LayoutContainer = ({ children, gap, type, direction, styleDirection, margi
 
   return (
     <div style={{ 
-        display: type, 
+        display: type || 'flex', 
         flexDirection: 
         direction, 
         gap: styleGap, 

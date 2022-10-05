@@ -11,38 +11,37 @@ import './index.scss';
 const Index = () => {
 
   return (
-    <LayoutContainer type='flex' direction='column' gap='2'>
+    <LayoutContainer direction='column' gap={[2]}>
 
-      <LayoutContainer type='flex' gap='3' styleDirection='center'>
-          <div className='bgBlur'></div>
+      <LayoutContainer gap={[3]} styleDirection='center'>
           <Avatar />
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' gap='3' styleDirection='center'>
-        <Title size='1.8rem'>Sofie Larsson</Title>
+      <LayoutContainer direction='column' gap={[3]} styleDirection='center'>
+        <Title size={[1.5]} bold={700}>Sofie Larsson</Title>
 
-        <div className='flex gap-2'>
-          <Title size='size-1' img={<MapPin color='black' size={18} />}>Gävle</Title>
-          <Title size='size-1' img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
-        </div>
+        <LayoutContainer gap={[2]} styleDirection='space-evenly'>
+          <Title size={[1]} img={<MapPin color='black' size={18} />}>Gävle</Title>
+          <Title size={[1]} img={<CalendarDays color='black' size={18} />}>28 nov-4 apr <br />2022</Title>
+        </LayoutContainer>
 
-        <div className='flex evenly gap-1'>
+        <LayoutContainer styleDirection='space-evenly' gap={[1]}>
           <div className='badges'>Node</div>
           <div className='badges'>JS</div>
           <div className='badges'>CSS</div>
           <div className='badges'>HTML</div>
           <div className='badges'>REACT</div>
-        </div>
+        </LayoutContainer>
       </LayoutContainer>
 
-      <LayoutContainer type='flex' gap={1} styleDirection='space-evenly' padding={[4, 0]}>
-        <button type='button' className='button'>Om mig</button>
-        <button type='button' className='button'>Önskemål</button>
+      <LayoutContainer gap={[1]} styleDirection='space-evenly' padding={[4, 0]}>
+        <InputButton type='button' className='button'>Ändra profil</InputButton>
+        <InputButton type='button' className='button'>Ändra LIA-sökning</InputButton>
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' gap={3} padding={[2, 1]}>
+      <LayoutContainer direction='column' gap={[3]} padding={[2, 1]}>
         
-        <Title underline={true}>Om mig</Title>
+        <Title>Om mig</Title>
         
         <InputField prefix='phone'
         img={
@@ -69,9 +68,9 @@ const Index = () => {
 
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' padding={[1,4]}>
+      <LayoutContainer direction='column' padding={[1,4]}>
         
-        <Title underline={true}>Önskemål praktik</Title>
+        <Title>Önskemål praktik</Title>
         
         <InputField prefix='role'
         img={
@@ -80,11 +79,11 @@ const Index = () => {
             size={24} 
           />}>Yrkesroll</InputField>
         
-        <div className='flex column gap-1'>
+        <LayoutContainer direction='column' gap={[1]}>
           
           <Title img={<Map color='white' size={24} />}>Praktikplats</Title>
           
-          <div className='flex evenly'>
+          <LayoutContainer styleDirection='space-evenly'>
 
             <InputButton 
               id={1} 
@@ -107,13 +106,13 @@ const Index = () => {
               label='Hyrbrid' 
             />
 
-          </div>
-        </div>
+          </LayoutContainer>
+        </LayoutContainer>
 
       </LayoutContainer>
 
-      <LayoutContainer type='flex' direction='column' gap='3' padding={[1, 5, 1, 2]}>
-        <button type='button' className='button'>Spara</button>
+      <LayoutContainer direction='column' gap={[3]} padding={[1, 5, 1, 2]}>
+        <InputButton type='button' className='button'>Spara</InputButton>
       </LayoutContainer>
       
 

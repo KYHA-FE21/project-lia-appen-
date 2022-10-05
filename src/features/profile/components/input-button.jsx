@@ -1,10 +1,10 @@
 import React from 'react'
 
-const InputButton = ({id, value, label, type, checked, changed}) => {
+const InputButton = ({children, id, value, label, type, checked, changed}) => {
   return (
     <>
-      <input id={id} type={type} value={value} checked={checked} onChange={changed} className='flex gap-1' />
-      <label htmlFor={id} className='flex center evenly'>{label}</label>
+      <input id={id} type={type} value={value || children} checked={checked} onChange={changed} className='flex center gap-1' />
+      {(label !== undefined) ? <label htmlFor={id} className='flex center evenly'>{label}</label> : <></>}
     </>
   )
 }

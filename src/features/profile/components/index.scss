@@ -127,17 +127,19 @@
     box-shadow: 0 0 5px #000;
 }
 
-.button {
+input[type=button] {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em;
     background-color: #4D243D;
+    border: none;
     border-radius: 1em;
     color: white;
-    max-width: 8em;
+    min-width: 8em;
+    width: fit-content;
     height: 2.5em;
     box-shadow: 0 0 5px #000;
+    padding: 0 1em;
 }
 
 .badges {
