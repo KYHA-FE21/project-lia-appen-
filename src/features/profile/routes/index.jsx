@@ -4,7 +4,6 @@ import InputField from '../components/input_field';
 import { Phone, GraduationCap, Star, Puzzle, Map, MapPin, CalendarDays} from 'lucide-react';
 import InputButton from '../components/input-button';
 import LayoutContainer from '../components/layout-container';
-import Section from '../components/section';
 import Avatar from '../components/avatar';
 import TextArea from '../components/textArea';
 import './index.scss';
@@ -12,14 +11,14 @@ import './index.scss';
 const Index = () => {
 
   return (
-    <LayoutContainer>
+    <LayoutContainer type='flex' direction='column' gap='2'>
 
-      <Section header={true}>
+      <LayoutContainer type='flex' gap='3' styleDirection='center'>
           <div className='bgBlur'></div>
           <Avatar />
-      </Section>
+      </LayoutContainer>
 
-      <Section header={true}>
+      <LayoutContainer type='flex' direction='column' gap='3' styleDirection='center'>
         <Title size='1.8rem'>Sofie Larsson</Title>
 
         <div className='flex gap-2'>
@@ -34,9 +33,9 @@ const Index = () => {
           <div className='badges'>HTML</div>
           <div className='badges'>REACT</div>
         </div>
-      </Section>
+      </LayoutContainer>
 
-      <Section>
+      <LayoutContainer type='flex' direction='column' gap='3' padding='1'>
         
         <Title underline={true}>Om mig</Title>
         
@@ -63,9 +62,9 @@ const Index = () => {
         
         <TextArea prefix='about'>Kort beskrivning av dig själv</TextArea>
 
-      </Section>
+      </LayoutContainer>
 
-      <Section>
+      <LayoutContainer type='flex' direction='column' padding='1'>
         
         <Title underline={true}>Önskemål praktik</Title>
         
@@ -106,11 +105,11 @@ const Index = () => {
           </div>
         </div>
 
-      </Section>
+      </LayoutContainer>
 
-      <Section>
+      <LayoutContainer type='flex' direction='column' gap='3' padding='1'>
         <button type='button' className='button'>Spara</button>
-      </Section>
+      </LayoutContainer>
       
 
     </LayoutContainer>
