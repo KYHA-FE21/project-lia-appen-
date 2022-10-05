@@ -2,7 +2,7 @@ function InfoProperty({icon, text}) {
 	return (
 		<li className="info-property">
 			{icon}
-			<div>{text}</div>
+			<span>{text}</span>
 		</li>
 	);
 }

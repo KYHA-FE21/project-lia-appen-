@@ -2,10 +2,10 @@ function InfoStat({ title, value, unit }) {
 	return (
 		<li className="info-stat">
 			<h2>{title}</h2>
-			<div>
+			<article>
 				{value}
 				<span>{unit}</span>
-			</div>
+			</article>
 		</li>
 	);
 }

@@ -16,6 +16,10 @@ main {
 		justify-content: space-between;
 		align-items: center;
 	}
+	h1 {
+		text-align: center;
+		font-size: 1.75rem;
+	}
 	hr {
 		width: 100%;
 		border-color: #9c9c9c;
@@ -46,7 +50,7 @@ main {
 			font-weight: bold;
 			color: #bfbfbf;
 			text-align: center;
-			min-width: 7ch;
+			min-width: 17%;
 			text-transform: uppercase;
 			background-color: #784456;
 			padding: 0.25em 0.75em;
@@ -54,20 +58,21 @@ main {
 		}
 	}
 	.info-stats {
-		$gap: 1em;
+		$gap: 0.5em;
 		display: grid;
-		grid-template-columns: calc(25% - $gap) 30% calc(25% - $gap);
+		grid-template-columns: calc(30% - $gap) 35% calc(30% - $gap);
 		gap: $gap;
-		justify-content: space-around;
+		justify-content: center;
 		.info-stat {
 			display: flex;
 			flex-direction: column;
 			gap: 1em;
 			h2 {
+				height: 2.5rem;
 				color: white;
 				text-align: center;
 			}
-			div {
+			article {
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -93,7 +98,6 @@ main {
 		}
 	}
 	.info-nav {
-		//display-flex gap-2 .space-evenly
 		display: flex;
 		gap: 1em;
 		justify-content: space-evenly;
