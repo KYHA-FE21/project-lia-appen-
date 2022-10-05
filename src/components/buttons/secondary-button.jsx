@@ -12,11 +12,6 @@ const SecondaryButton = ({ children, width, fontSize, logo, color, bg }) => {
           <div
             className="secondary-button-icon"
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: width,
-              fontSize: fontSize,
               color: color,
               background: bg,
             }}

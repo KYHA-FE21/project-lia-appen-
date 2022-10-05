@@ -16,7 +16,9 @@ const Card = ({ title }) => {
     <div className="card-container">
       <div className="card-top">
         <h3>Front-End Utvecklare</h3>
-        <PrimaryButton logo={<Info size={20} />}>Läs Mer</PrimaryButton>
+        <PrimaryButton width="30%" logo={<Info size={16} />}>
+          Läs Mer
+        </PrimaryButton>
       </div>
       <div className="card-badges">
         <Badge>HTML</Badge>
@@ -32,7 +34,7 @@ const Card = ({ title }) => {
         </div>
         <div className="card-info">
           <CheckCircle size={20} />
-          <p>Remote</p>
+          <p>Remote, Office</p>
         </div>
         <div className="card-info">
           <MapPin size={20} />
@@ -40,10 +42,10 @@ const Card = ({ title }) => {
         </div>
       </div>
       <div className="card-buttons">
-        <SecondaryButton logo={<X />} bg="#fd6d6d">
+        <SecondaryButton width="50%" logo={<X />} bg="#fd6d6d">
           Neka
         </SecondaryButton>
-        <SecondaryButton logo={<Check />} bg="#32ba78">
+        <SecondaryButton width="50%" logo={<Check />} bg="#32ba78">
           Acceptera
         </SecondaryButton>
       </div>

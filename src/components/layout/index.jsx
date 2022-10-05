@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div
       style={{
-        background: 'linear-gradient(to bottom, #4d243d, #fd6d6d)',
+        background: 'linear-gradient(to bottom, black , #4d243d)',
         display: 'flex',
         flexDirection: 'column',
         gap: '1em',

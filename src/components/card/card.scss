@@ -2,7 +2,7 @@
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.2em;
   padding: 0.8em;
   background: linear-gradient(
     180deg,
@@ -42,9 +42,9 @@
   .card-info-container {
     font-size: 0.8em;
     display: grid;
-    grid-template-columns: repeat(2, auto);
     width: 100%;
-    gap: 1em 0em;
+    grid-template-columns: repeat(2, 50%);
+    gap: 1em 1em;
 
     .card-info {
       display: flex;
