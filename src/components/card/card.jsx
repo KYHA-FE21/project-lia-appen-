@@ -1,13 +1,6 @@
 import Badge from '../badge/badge';
 import PrimaryButton from '../buttons/primary-button';
-import {
-  Info,
-  CalendarDays,
-  CheckCircle,
-  MapPin,
-  Check,
-  X,
-} from 'lucide-react';
+import { Info, Check, X } from 'lucide-react';
 import './card.scss';
 import SecondaryButton from '../buttons/secondary-button';
 import InfoText from '../info-text/info-text';
