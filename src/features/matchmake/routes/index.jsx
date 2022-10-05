@@ -1,80 +1,59 @@
 import React from "react";
 import { CalendarDays, CheckCircle, Info, MapPin, Star } from "lucide-react";
 
-import "./information.scss";
-import InfoItem from "./components/info-item";
-import Badge from "./components/badge";
-import Review from "./components/review";
+import "./index.scss";
+import Container from "../components/container";
+import InfoProperty from "../components/info-property";
+import InfoStat from "../components/info-stat";
+import InfoReview from "../components/info-review";
+import Badge from "../components/badge";
 
 const index = () => {
 	return (
-		<main className="padding-2">
-			<div id="company-information" className="display-grid gap-2 color-bg padding-1 padding-top-2 padding-bottom-2 radius-20 shadow">
-				{/* Rating and info */}
-				<div className="topinfo">
-					<div className="display-flex">
-						<Star fill="yellow" />
-						<Star fill="yellow" />
-						<Star fill="yellow" />
-						<Star fill="yellow" />
-						<Star fill="yellow" />
-					</div>
-					<div>
-						<Info className="info-icon" />
-					</div>
-				</div>
-				{/* Info  */}
-				<ul className="info text-white">
-					<InfoItem icon={<CalendarDays />} text="2022-11 to 2023-06" />
-					<InfoItem icon={<MapPin />} text="Gävleborg" />
-					<InfoItem icon={<CheckCircle />} text="Hybrid" />
-					<InfoItem icon={<CheckCircle />} text="Remote" />
-				</ul>
-				<hr />
-				{/* Badges  */}
-				<ul className="display-flex center flex-wrap gap-1">
-					<Badge text="node" />
-					<Badge text="js" />
-					<Badge text="ts" />
-					<Badge text="html" />
-					<Badge text="react" />
-				</ul>
-				<hr />
-				{/* Statistics  */}
-				<ul className="stats">
-					<li className="stats-item">
-						<h2>LIA-platser</h2>
-						<div>
-							2<span>st</span>
-						</div>
-					</li>
-					<li className="stats-item">
-						<h2>Antagningsgrad</h2>
-						<div>
-							75<span>%</span>
-						</div>
-					</li>
-					<li className="stats-item">
-						<h2>Responstid</h2>
-						<div>
-							3<span>h</span>
-						</div>
-					</li>
-				</ul>
-				<hr />
-				{/* Reviews  */}
-				<ul className="display-grid gap-2">
-					<Review info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-					<Review info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-					<Review info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-				</ul>
-				{/* Navigation  */}
-				<nav className="display-flex gap-2 space-evenly">
-					<button className="button">Nästa</button>
-					<button className="button">Nästa</button>
-				</nav>
-			</div>
-		</main>
+		<Container id="matchmake-info">
+			<Container className="info-header">
+				<Container display="flex">
+					<Star style={{ fill: "yellow" }} size="30" />
+					<Star style={{ fill: "yellow" }} size="30" />
+					<Star style={{ fill: "yellow" }} size="30" />
+					<Star style={{ fill: "yellow" }} size="30" />
+					<Star style={{ fill: "yellow" }} size="30" />
+				</Container>
+				<Container>
+					<Info className="info-icon" style={{ color: "white" }} size="50" />
+				</Container>
+			</Container>
+			<Container type="ul" className="info-properties">
+				<InfoProperty icon={<CalendarDays />} text="2022-11 to 2023-06" />
+				<InfoProperty icon={<MapPin />} text="Gävleborg" />
+				<InfoProperty icon={<CheckCircle />} text="Hybrid" />
+				<InfoProperty icon={<CheckCircle />} text="Remote" />
+			</Container>
+			<hr />
+			<Container type="ul" className="info-badges">
+				<Badge text="node" />
+				<Badge text="js" />
+				<Badge text="ts" />
+				<Badge text="html" />
+				<Badge text="react" />
+			</Container>
+			<hr />
+			<Container type="ul" className="info-stats">
+				<InfoStat title="LIA-platser" value="2" unit="st" />
+				<InfoStat title="Antagningsgrad" value="75" unit="%" />
+				<InfoStat title="Responstid" value="3" unit="h" />
+			</Container>
+			<hr />
+			<Container type="ul" className="info-reviews">
+				<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
+				<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
+				<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
+			</Container>
+			<Container type="nav" className="info-nav">
+				<button className="button">Nästa</button>
+				<button className="button">Nästa</button>
+			</Container>
+		</Container>
 	);
 };
 
