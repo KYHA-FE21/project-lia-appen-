@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding}) => {
+const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding, wrap}) => {
 
   const [styleGap, setStyleGap] = useState();
   const [styleMargin, setStyleMargin] = useState();
@@ -28,7 +28,8 @@ const LayoutContainer = ({ children, gap, type, direction, styleDirection, margi
         alignItems: styleDirection, 
         justifyContent: styleDirection,
         margin: styleMargin,
-        padding: stylePadding
+        padding: stylePadding,
+        flexWrap: wrap || 'nowrap'
       }} 
       className='container'>
       {children} 

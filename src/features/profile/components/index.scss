@@ -92,6 +92,17 @@
     }
 }
 
+.title {
+    display: flex;
+    gap: 0.5em;
+} 
+
+.subTitle {
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding-left: 1.2em;
+}
+
 .bgBlur {
     background-image: url(https://images.pexels.com/photos/3763152/pexels-photo-3763152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     background-position: top center;

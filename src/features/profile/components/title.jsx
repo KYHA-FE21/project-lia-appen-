@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Title = ({children, img, size, bold}) => {
+const Title = ({children, img, size, bold, subTitle}) => {
   
   const [styleSize, setStyleSize] = useState();
   const [styleBold, setStyleBold] = useState();
@@ -14,11 +14,13 @@ const Title = ({children, img, size, bold}) => {
   }, [bold])
   
   return (
-    <h2 style={{
-      fontSize: styleSize || 1+'rem',
-      fontWeight: styleBold || 400
-    }}>{img}<br />{children}
-    </h2>
+    <>
+      <h2 className={`${(img !== undefined) ? 'title' : '' }`} style={{
+        fontSize: styleSize || 1 + 'rem',
+        fontWeight: styleBold || 400
+      }}><span>{img}</span>{children}<br /><span className='subTitle'>{subTitle}</span>
+      </h2>
+    </> 
   )
 }
 
