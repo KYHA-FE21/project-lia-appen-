@@ -1,0 +1,77 @@
+body {
+  margin: 0rem;
+}
+
+.questContainer {
+  display: flex;
+  justify-content: center;
+
+  .questOverviewContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; // calc(100vh -headerheight)
+    max-width: 35rem;
+    padding: 3rem;
+
+    .overviewUpperContent {
+      .overviewTextcontet {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        h1 {
+          font-size: 1.5rem;
+          margin: 1rem;
+        }
+        h1,
+        p {
+          text-align: center;
+        }
+        p {
+          max-width: 25rem;
+        }
+      }
+      .overviewListContent {
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .overviewLowerContent {
+      display: flex;
+
+      a {
+        width: 50%;
+
+        .questBtn {
+          width: 100%;
+        }
+      }
+
+      a:nth-child(1) {
+        margin-right: 0.3rem;
+      }
+      a:nth-child(2) {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .questContainer {
+    .questOverviewContent {
+      padding: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .questContainer {
+    .questOverviewContent {
+      padding: 1rem;
+    }
+  }
+}

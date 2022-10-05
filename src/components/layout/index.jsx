@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <>
-      <header>Header</header>
+      {/* <header>Header</header> */}
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </>
   );
 };
