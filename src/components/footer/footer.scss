@@ -1,0 +1,23 @@
+footer {
+  font-size: 1.8em;
+  height: 2em;
+  background-color: #4d243d;
+  color: black;
+
+  .footer-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      height: 100%;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

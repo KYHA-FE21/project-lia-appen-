@@ -1,0 +1,8 @@
+.info-container {
+  color: black;
+  display: grid;
+  font-size: 0.8em;
+  width: 100%;
+  grid-template-columns: repeat(2, 50%);
+  gap: 1em 1em;
+}
