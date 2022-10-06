@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LayoutContainer from '../components/layout-container';
 
 import Avatar from '../components/sections/avatar';
@@ -11,14 +11,32 @@ const Index = () => {
 
   const company = true;
 
+  const about = {
+    student: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    company: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  }
+
+  const role = {
+    student: 'Front end utvecklare',
+    company: ''
+  }
+
+  const name = {
+    student: 'Sofie Larsson',
+    company: 'SoftTech Design'
+  }
+
   return (
     <>
       {(company) ? <Avatar /> : <></>}
 
       <LayoutContainer direction='column' gap={[1]}>
 
-        <Information styleDirection='center' name={`${(company) ? 'SoftTech Design' : 'Sofie Larsson'}`} role={`${(company) ? 'Sara Berg (HR-chef)' : 'Front end utvecklare'}`} />
-        {(company) ? <EditMenu /> : <><Badges /><EditMenu /></>}
+        <Information 
+        styleDirection='center' 
+        name={`${company ? name.company : name.student}`} role={`${company ? role.company : role.student}`} 
+        about={`${company ? about.company : about.student}`}/>
+        {company ? <EditMenu /> : <><Badges /><EditMenu /></>}
         
         
 

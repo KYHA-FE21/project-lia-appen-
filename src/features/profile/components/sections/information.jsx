@@ -3,7 +3,7 @@ import LayoutContainer from '../layout-container';
 import Title from '../title';
 import { Phone, MapPin, CalendarDays } from 'lucide-react';
 
-const Information = ({name, role}) => {
+const Information = ({name, role, about}) => {
     return (
         <LayoutContainer padding={[2,0, 0, 0]} direction='column' gap={[3]} styleDirection='center'>
             <Title size={[1.5]} bold={700} subTitle={role}>{name}</Title>
@@ -16,7 +16,7 @@ const Information = ({name, role}) => {
             </LayoutContainer>
 
             <LayoutContainer maxWidth='800px' lineHeight={[1.5]} padding={[0, 1]}>
-                <Title size={[1]}>Om studenten: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Title>
+                <Title size={[1]}>{about}</Title>
             </LayoutContainer>
 
         </LayoutContainer>
