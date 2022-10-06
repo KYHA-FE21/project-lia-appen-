@@ -1,0 +1,17 @@
+.badge-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4d243d;
+  width: 17%;
+  opacity: 1;
+  border-radius: 2em;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+  .badge-text {
+    font-size: 0.6em;
+    padding: 0.5em;
+    font-weight: bold;
+  }
+}
