@@ -1,6 +1,14 @@
 import './primary-button.scss';
 
-const PrimaryButton = ({ children, width, fontSize, color, bg, logo }) => {
+const PrimaryButton = ({
+  children,
+  width,
+  fontSize,
+  color,
+  bg,
+  logo,
+  onClick,
+}) => {
   return (
     <button
       className="primary-button"
@@ -10,6 +18,7 @@ const PrimaryButton = ({ children, width, fontSize, color, bg, logo }) => {
         color: color,
         background: bg,
       }}
+      onClick={onClick}
     >
       <span>{children}</span>
       {logo ? logo : ''}
