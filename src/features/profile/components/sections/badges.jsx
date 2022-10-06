@@ -4,7 +4,7 @@ import LayoutContainer from '../layout-container';
 const Badges = () => {
     return (
         <LayoutContainer direction='column' gap={[3]} styleDirection='center'>
-            <LayoutContainer styleDirection='space-evenly' gap={[1]} padding={[1, 2]}>
+            <LayoutContainer styleDirection='center' gap={[1.5]} padding={[1, 2]}>
                 <div className='badges'>Node</div>
                 <div className='badges'>JS</div>
                 <div className='badges'>CSS</div>

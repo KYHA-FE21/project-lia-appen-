@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LayoutContainer from '../components/layout-container';
 
 import Avatar from '../components/sections/avatar';
@@ -9,15 +9,21 @@ import './index.scss';
 
 const Index = () => {
 
+  const company = true;
+
   return (
-    <LayoutContainer direction='column' gap={[1]}>
+    <>
+      {(company) ? <Avatar /> : <></>}
 
-      <Avatar />
-      <Information />
-      <Badges />
-      <EditMenu />
+      <LayoutContainer direction='column' gap={[1]}>
 
-    </LayoutContainer>
+        <Information styleDirection='center' name={`${(company) ? 'SoftTech Design' : 'Sofie Larsson'}`} role={`${(company) ? 'Sara Berg (HR-chef)' : 'Front end utvecklare'}`} />
+        {(company) ? <EditMenu /> : <><Badges /><EditMenu /></>}
+        
+        
+
+      </LayoutContainer>
+    </>
   )
 };
 

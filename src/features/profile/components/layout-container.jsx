@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding, wrap}) => {
+const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding, wrap, width, maxWidth, lineHeight}) => {
 
   const [styleGap, setStyleGap] = useState();
   const [styleMargin, setStyleMargin] = useState();
   const [stylePadding, setStylePadding] = useState();
+  const [styleLineHeight, setStyleLineHeight] = useState();
+
+  useEffect(() => {
+    if (lineHeight !== undefined) setStyleLineHeight(lineHeight.join('em ') + 'em')
+  }, [lineHeight])
 
   useEffect(() => {
     if (gap !== undefined) setStyleGap(gap.join('em ') + 'em')
@@ -21,6 +26,7 @@ const LayoutContainer = ({ children, gap, type, direction, styleDirection, margi
 
   return (
     <div style={{ 
+        width: width || 'min(100%, 1200px)',
         display: type || 'flex', 
         flexDirection: 
         direction, 
@@ -29,7 +35,9 @@ const LayoutContainer = ({ children, gap, type, direction, styleDirection, margi
         justifyContent: styleDirection,
         margin: styleMargin,
         padding: stylePadding,
-        flexWrap: wrap || 'nowrap'
+        flexWrap: wrap || 'nowrap',
+        lineHeight: styleLineHeight,
+        maxWidth: maxWidth
       }} 
       className='container'>
       {children} 

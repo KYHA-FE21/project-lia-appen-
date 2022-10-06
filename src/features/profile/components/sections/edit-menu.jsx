@@ -24,7 +24,7 @@ const EditMenu = () => {
 
     return (
         <>
-            <LayoutContainer gap={[1]} styleDirection='space-evenly' padding={[4, 0]}>
+            <LayoutContainer gap={[1]} styleDirection='center' padding={[3, 0]}>
                 <InputButton type='button' className='button' click={changeAboutMeHandler}>Ändra profil</InputButton>
                 <InputButton type='button' className='button' click={changeLiaHandler}>Ändra LIA-sökning</InputButton>
             </LayoutContainer>

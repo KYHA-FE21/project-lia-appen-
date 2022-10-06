@@ -49,7 +49,7 @@ const Lia = () => {
 
             </LayoutContainer>
 
-            <LayoutContainer direction='column' styleDirection='center'>
+            <LayoutContainer direction='column' styleDirection='center' padding={[2,0]}>
                 <InputButton type='button' className='button'>Spara</InputButton>
             </LayoutContainer>
         </>
