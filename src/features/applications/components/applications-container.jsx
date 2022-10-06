@@ -71,19 +71,21 @@ const ApplicationsContainer = () => {
       </div>
       {applicantList.map((a, i) => {
         return (
-          <Card
-            id={'application-card-' + i}
-            title={a.title}
-            startTime={a.startTime}
-            endTime={a.endTime}
-            workModel={a.workModel}
-            location={a.location}
-            companyBadges={myBadges}
-            applicantBadges={a.badges}
-            readMoreButtonOnClick={() => gotoModal(i)}
-            denyButtonOnClick={() => removeApplication(i)}
-            acceptButtonOnClick={() => addApplication(i)}
-          />
+          <div key={a + i}>
+            <Card
+              id={'application-card-' + i}
+              title={a.title}
+              startTime={a.startTime}
+              endTime={a.endTime}
+              workModel={a.workModel}
+              location={a.location}
+              companyBadges={myBadges}
+              applicantBadges={a.badges}
+              readMoreButtonOnClick={() => gotoModal(i)}
+              denyButtonOnClick={() => removeApplication(i)}
+              acceptButtonOnClick={() => addApplication(i)}
+            />
+          </div>
         );
       })}
       {openModal && (

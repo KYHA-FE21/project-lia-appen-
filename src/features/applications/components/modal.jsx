@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Badge from '../../../components/badge/badge';
 import InfoText from '../../../components/info-text/info-text';
 import './modal.scss';
@@ -38,9 +39,22 @@ const Modal = ({ applicantList, companyBadges, index, setOpenModal }) => {
           />
         </div>
         <div className="modal-bottom-contoller">
+          <button className="modal-arrow-left">
+            <ChevronLeft />
+          </button>
           <span>
             {currentIndex + 1} / {applicantList.length}
           </span>
+          <button
+            className="modal-arrow-right"
+            onClick={
+              currentIndex != applicantList.lenght
+                ? setCurrentIndex(currentIndex + 1)
+                : setCurrentIndex(0)
+            }
+          >
+            <ChevronRight />
+          </button>
         </div>
       </div>
     </div>

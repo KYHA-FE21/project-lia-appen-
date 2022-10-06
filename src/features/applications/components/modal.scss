@@ -19,8 +19,14 @@
     margin: 2em 1em;
 
     .modal-bottom-contoller {
-      span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      color: white;
+      button {
         color: white;
+        background: transparent;
       }
     }
     .modal-card {
