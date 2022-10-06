@@ -96,7 +96,7 @@
 }
 
 @for $num from 1 through 100 {
-  @if $num % 8==0 or $num == 100 {
+  @if $num % 8==0 or $num ==100 {
     .h-#{$num} {
       height: #{$num * 4px};
     }
@@ -121,13 +121,20 @@ $sizes: (
   "lg": 1.125rem,
   "xl": 1.25rem,
   "2xl": 1.5rem,
-  "3xl": 1.875rem
+  "3xl": 1.875rem,
+  "6xl": 3.75rem
 );
 
 @each $name,
 $size in $sizes {
   .text-#{$name} {
     font-size: #{$size};
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-#{$name} {
+      font-size: #{$size};
+    }
   }
 }
 
@@ -206,14 +213,18 @@ $size in $tracking-sizes {
   .md\:m-auto {
     margin: auto;
   }
-  
+
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .md\:my-auto {
     margin-top: auto;
     margin-bottom: auto;
+  }
+
+  .md\:h-32 {
+    height: 128px;
   }
 }

@@ -12,8 +12,8 @@ function Splash() {
   return (
     <FlexContainer direction="col" gap="12" className="items-stretch">
       <FlexContainer direction="col" gap="4" className="mx-8">
-        <div className="h-16">
-          <h1 className="text-3xl text-center tracking-tighter">
+        <div className="h-16 md:h-32 flex items-center justify-center">
+          <h1 className="text-3xl md:text-6xl text-center tracking-tighter">
             <span>Hitta din </span>
             <AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
           </h1>
