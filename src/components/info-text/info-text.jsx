@@ -8,28 +8,31 @@ const InfoText = ({
   location,
   width,
   fontSize,
-  color,
+  color = 'black',
 }) => {
+  let clr;
+  if (color === 'light') clr = 'text-black';
+  else if (color === 'dark') clr = 'text-white';
+
   return (
     <div
-      className="info-container"
+      className={`info-container ${clr}`}
       style={{
         width: width,
         fontSize: fontSize,
-        color: color,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
+      <div className="flex items-center gap-2">
         <CalendarDays size={20} />
         <span>
           {startTime} to {endTime}
         </span>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
+      <div className="flex items-center gap-2">
         <CheckCircle size={20} />
         <span>{workModel}</span>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5em' }}>
+      <div className="flex items-center gap-2">
         <MapPin size={20} />
         <span>{location}</span>
       </div>

@@ -1,10 +1,10 @@
 import './badge.scss';
 
-const Badge = ({ children, width, fontSize, opacity }) => {
+const Badge = ({ children, disabled = false }) => {
+  const opacity = disabled ? 'opacity-5' : 'opacity-10';
   return (
     <div
-      className="badge-container"
-      style={{ width: width, fontSize: fontSize, opacity: opacity }}
+      className={`badge-container flex justify-center items-center flex-1 color-white bg-primary ${opacity}`}
     >
       <span className="badge-text">{children}</span>
     </div>

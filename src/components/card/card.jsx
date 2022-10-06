@@ -24,17 +24,13 @@ const Card = ({
       return applicantBadges.some((e) => e === badge) ? (
         <Badge>{badge}</Badge>
       ) : (
-        <Badge opacity="0.3">{badge}</Badge>
+        <Badge disabled>{badge}</Badge>
       );
     });
   }
 
   return (
-    <article
-      className="card-container"
-      id={id}
-      style={{ background: background }}
-    >
+    <article className="card-container" id={id}>
       <div className="card-top">
         <h2>{title}</h2>
         <PrimaryButton
@@ -45,7 +41,7 @@ const Card = ({
           Läs Mer
         </PrimaryButton>
       </div>
-      <div className="card-badges">{drawBadges()}</div>
+      <div className="card-badges items-stretch gap-4">{drawBadges()}</div>
       <InfoText
         startTime={startTime}
         endTime={endTime}
@@ -56,16 +52,16 @@ const Card = ({
         <SecondaryButton
           width="50%"
           logo={<X />}
-          bg="#fd6d6d"
           onClick={denyButtonOnClick}
+          bg="deny"
         >
           Neka
         </SecondaryButton>
         <SecondaryButton
           width="50%"
           logo={<Check />}
-          bg="#32ba78"
           onClick={acceptButtonOnClick}
+          bg="accept"
         >
           Acceptera
         </SecondaryButton>
