@@ -12,8 +12,8 @@ const routes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Applications />}>
-          {/* <Route index element={<Splash />}></Route> */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Applications />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/matchmake" element={<Matchmake />}></Route>
