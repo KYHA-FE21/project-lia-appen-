@@ -18,3 +18,13 @@ h5,
 h6 {
   font-family: 'Cousine', monospace;
 }
+
+strong {
+  font-weight: 700;
+}
+
+i {
+  font-style: italic;
+}
+
+@import "./styles/utilities.scss"
