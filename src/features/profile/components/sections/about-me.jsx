@@ -4,13 +4,18 @@ import LayoutContainer from '../layout-container';
 import InputButton from '../input-button';
 import TextArea from '../textArea';
 import { Phone, GraduationCap, Star } from 'lucide-react';
+import SelectorHeader from './selector_header';
 
 const AboutMe = () => {
     return (
         <>
+            <SelectorHeader>Ändra profil</SelectorHeader>
             <LayoutContainer 
                 direction='column' 
-                gap={[3]} >
+                gap={[3]}
+                padding={[0, 1]}>
+
+                
 
                 <Title 
                     size={[1.1]} 

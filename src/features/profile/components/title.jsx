@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react'
 
 const Title = ({children, img, size, bold, subTitle}) => {
@@ -14,7 +15,8 @@ const Title = ({children, img, size, bold, subTitle}) => {
   }, [bold])
   
   return (
-    <h2 className={`${(img !== undefined) ? 'title' : '' }`} style={{
+    <h2 className={`${(img !== undefined) ? 'title' : '' }`} 
+    style={{
       fontSize: styleSize || 1 + 'rem',
       fontWeight: styleBold || 400
     }}><span>{img}</span>{children}<br /><span className='subTitle'>{subTitle}</span>

@@ -4,6 +4,7 @@ import Avatar from '../components/sections/avatar';
 import Badges from '../components/sections/badges';
 import EditMenu from '../components/sections/edit-menu';
 import Information from '../components/sections/information';
+import SelectorHeader from '../components/sections/selector_header';
 import './index.scss';
 
 const Index = () => {
@@ -33,7 +34,9 @@ const Index = () => {
         : 
         
         <LayoutContainer direction='column' gap={[1]}>
-
+          
+          <SelectorHeader>Profil</SelectorHeader> 
+          
           <Information
             styleDirection='center'
             name='Sofie Larsson'
@@ -41,7 +44,11 @@ const Index = () => {
             school='HiG'
             date='28 nov - 4 apr 2022'
           />
+
+          <SelectorHeader reverse={true}>Kompetenser</SelectorHeader> 
+
           <Badges />
+          
           <EditMenu />
 
         </LayoutContainer>
