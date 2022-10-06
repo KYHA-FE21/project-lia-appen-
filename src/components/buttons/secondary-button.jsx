@@ -1,13 +1,14 @@
 import './secondary-button.scss';
 
 const SecondaryButton = ({
-  children,
   width,
   fontSize,
   logo,
   color,
   bgColor,
   onClick,
+  className = "",
+  children
 }) => {
   let buttonBgColor;
   let buttonTextColor;
@@ -17,7 +18,7 @@ const SecondaryButton = ({
   return (
     <>
       <button
-        className="secondary-button flex items-center rounded-md"
+        className={`secondary-button flex items-center rounded-md ${className}`}
         style={{ width: width, fontSize: fontSize }}
         onClick={onClick}
       >

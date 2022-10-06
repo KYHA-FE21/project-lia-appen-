@@ -1,21 +1,22 @@
-import './primary-button.scss';
+import "./primary-button.scss";
 
 const PrimaryButton = ({
-  children,
   width,
   fontSize,
-  color = 'primary',
+  color = "primary",
   logo,
   onClick,
+  className = "",
+  children,
 }) => {
-  let colorway = '';
-  if (color == 'primary') colorway = 'text-white bg-primary';
-  else if (color == 'white') colorway = 'text-black bg-white';
-  else if (color == 'black') colorway = 'text-white bg-black';
+  let colors = "";
+  if (color === "primary") colors = "text-white bg-primary";
+  else if (color === "white") colors = "text-black bg-white";
+  else if (color === "black") colors = "text-white bg-black";
 
   return (
     <button
-      className={`primary-button flex justify-center items-center gap-1 p-2 rounded-md ${colorway}`}
+      className={`primary-button flex justify-center items-center gap-1 p-2 rounded-md ${colors} ${className}`}
       style={{
         width: width,
         fontSize: fontSize,
@@ -23,7 +24,7 @@ const PrimaryButton = ({
       onClick={onClick}
     >
       <span>{children}</span>
-      {logo ? logo : ''}
+      {logo ? logo : ""}
     </button>
   );
 };
