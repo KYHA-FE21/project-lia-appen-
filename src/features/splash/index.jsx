@@ -29,7 +29,7 @@ function Splash() {
       </FlexContainer>
 
       <FlexContainer direction="col" className="mx-4 items-center">
-        <Card className="looking-for">
+        <Card className="splash-cards-max-width-md">
           <CardTitle className="text-2xl">Jag letar efter</CardTitle>
           <FlexContainer gap="4" className="items-stretch">
             <LinkButton className="text-base p-4" href="#student">
@@ -43,6 +43,15 @@ function Splash() {
       </FlexContainer>
 
       <SalesPitchSection />
+
+      <FlexContainer direction="col" className="mx-4 items-center">
+        <Card className="splash-cards-max-width-lg">
+          <CardTitle>Vad väntar du på?</CardTitle>
+          <LinkButton href="#" className="p-4 text-lg">
+            Registrera dig!
+          </LinkButton>
+        </Card>
+      </FlexContainer>
     </FlexContainer>
   );
 }

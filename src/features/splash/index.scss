@@ -1,8 +1,13 @@
 @use "sass:math";
 
-.looking-for {
+.splash-cards-max-width-md {
   width: 100%;
   max-width: 768px;
+}
+
+.splash-cards-max-width-lg {
+  width: 100%;
+  max-width: 1024px;
 }
 
 .flex {
