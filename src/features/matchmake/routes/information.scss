@@ -1,0 +1,115 @@
+#matchmake-info {
+	overflow: hidden;
+	margin: auto;
+	max-width: 600px;
+	box-shadow: 0px 0px 1px 1px black, 1px 2px 5px 2px black;
+	display: grid;
+	gap: 0.5em;
+	background-color:hsl(0, 0%, 50%);
+	padding: 1em;
+	border-radius: 20px;
+	.info-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	h1 {
+		text-align: center;
+		font-size: 1.75rem;
+	}
+	hr {
+		width: 100%;
+		border-color: #9c9c9c;
+	}
+	.info-properties {
+		font-size: 0.75rem;
+		display: grid;
+		grid-template: repeat(2, 1fr) / repeat(2, max-content);
+		justify-content: space-evenly;
+		gap: 1em;
+		.info-property {
+			color: white;
+			width: max-content;
+			white-space: nowrap;
+			align-items: center;
+			display: flex;
+			gap: 0.5em;
+		}
+	}
+	.info-badges {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		.info-badge {
+			font-size: 0.75em;
+			font-weight: bold;
+			color: #bfbfbf;
+			text-align: center;
+			min-width: 17%;
+			text-transform: uppercase;
+			background-color: #784456;
+			padding: 0.25em 0.75em;
+			border-radius: 100vw;
+		}
+	}
+	.info-stats {
+		$gap: 1em;
+		display: flex;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-content: center;
+		gap: $gap;
+		.info-stat {
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			align-items: center;
+			max-width: calc((1 / 3 * 100%) - $gap);
+			min-width: calc((1 / 3 * 100%) - $gap);
+			> &:nth-child(2) {
+				article {
+					width: 100%;
+				}
+			}
+			h2 {
+				font-size: 0.9rem;
+				height: 2rem;
+				white-space: wrap;
+			}
+			article {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 75%;
+				aspect-ratio: 1;
+				background-color: white;
+				border-radius: 100vw;
+				font-size: 1.5rem;
+				span {
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+	.info-reviews {
+		background-color:hsl(0, 0%, 40%);
+		border-radius: 10px;
+		display: grid;
+		gap: 2em;
+		overflow: auto;
+		height: 23ch;
+		padding: 1em;
+		.info-review {
+			display: grid;
+			gap: 0.25em;
+			background-color: #bfbfbf;
+			padding: 1em;
+			border-radius: 10px;
+		}
+	}
+	.info-nav {
+		display: flex;
+		gap: 1em;
+		justify-content: space-evenly;
+	}
+}

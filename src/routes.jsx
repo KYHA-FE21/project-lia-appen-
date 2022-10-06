@@ -16,7 +16,7 @@ const routes = () => {
           {/* <Route index element={<Splash />}></Route> */}
           <Route path="/login" element={<Login />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/matchmake/:id" element={<Matchmake />}></Route>
+          <Route path="/matchmake" element={<Matchmake />}></Route>
           <Route path="/applications" element={<Applications />}></Route>
         </Route>
       </Routes>

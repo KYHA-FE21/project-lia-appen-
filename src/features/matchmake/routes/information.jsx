@@ -1,13 +1,15 @@
 import React from "react";
 import { CalendarDays, CheckCircle, Info, MapPin, Star } from "lucide-react";
 
+import "./information.scss";
+
 import Container from "../components/container";
 import InfoProperty from "../components/info-property";
 import InfoStat from "../components/info-stat";
 import InfoReview from "../components/info-review";
 import Badge from "../components/badge";
 
-function Information({ data }) {
+function Information({ data, setData, setSearchParams }) {
 	if (!data)
 		return (
 			<Container type="section" id="matchmake-info">
@@ -55,8 +57,26 @@ function Information({ data }) {
 					<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
 				</Container>
 				<Container type="nav" className="info-nav">
-					<button className="button">Nästa</button>
-					<button className="button">Gör test</button>
+					<button
+						className="button"
+						onClick={() => {
+							setData(false);
+						}}
+					>
+						Nästa
+					</button>
+					<button
+						className="button"
+						onClick={() => {
+							setSearchParams((prev) => {
+								prev.set("action", "questions");
+								prev.set("question", "0");
+								return prev;
+							});
+						}}
+					>
+						Gör test
+					</button>
 				</Container>
 			</Container>
 		);
