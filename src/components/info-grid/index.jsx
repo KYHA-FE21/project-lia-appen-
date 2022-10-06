@@ -9,7 +9,7 @@ const InfoGrid = ({ entries = [], width, fontSize, color = "black", className = 
         fontSize: fontSize,
       }}
     >
-      {entries.map((entry) => <InfoGridEntry key={entry.icon} icon={entry.icon} children={entry.children} />)}
+      {entries.map((entry, index) => <InfoGridEntry key={index + entry.children} icon={entry.icon} children={entry.children} />)}
     </div>
   );
 };
