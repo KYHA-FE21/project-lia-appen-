@@ -1,7 +1,11 @@
-import React from 'react';
+import ApplicationsContainer from '../components/applications-container';
 
-const index = () => {
-  return <div>index</div>;
+const Index = () => {
+  return (
+    <div>
+      <ApplicationsContainer />
+    </div>
+  );
 };
 
-export default index;
+export default Index;
