@@ -10,7 +10,7 @@ import SalesPitchSection from "./components/sections/sales-pitch";
 
 function Splash() {
   return (
-    <FlexContainer direction="col" gap="12">
+    <FlexContainer direction="col" gap="12" className="items-stretch">
       <FlexContainer direction="col" gap="4" className="mx-8">
         <div className="h-16">
           <h1 className="text-3xl text-center tracking-tighter">
@@ -28,8 +28,8 @@ function Splash() {
         </div>
       </FlexContainer>
 
-      <FlexContainer direction="col" className="mx-4">
-        <Card>
+      <FlexContainer direction="col" className="mx-4 items-center">
+        <Card className="looking-for">
           <CardTitle className="text-2xl">Jag letar efter</CardTitle>
           <FlexContainer gap="4" className="items-stretch">
             <LinkButton className="text-base p-4" href="#student">

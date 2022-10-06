@@ -1,7 +1,16 @@
 @use "sass:math";
 
+.looking-for {
+  width: 100%;
+  max-width: 768px;
+}
+
 .flex {
   display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .flex-row {
@@ -14,6 +23,14 @@
 
 .items-center {
   align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
 }
 
 .justify-center {
@@ -58,12 +75,43 @@
     margin-right: #{$index * 4px};
   }
 
-  .h-#{$index} {
-    height: #{$index * 4px};
-  }
-
   .p-#{$index} {
     padding: #{$index * 4px};
+  }
+}
+
+/* auto */
+.m-auto {
+  margin: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@for $num from 1 through 100 {
+  @if $num % 8==0 or $num == 100 {
+    .h-#{$num} {
+      height: #{$num * 4px};
+    }
+
+    .w-#{$num} {
+      width: #{$num * 4px}
+    }
+
+    .max-h-#{$num} {
+      max-height: #{$num * 4px};
+    }
+
+    .max-w-#{$num} {
+      max-width: #{$num * 4px}
+    }
   }
 }
 
@@ -76,7 +124,8 @@ $sizes: (
   "3xl": 1.875rem
 );
 
-@each $name, $size in $sizes {
+@each $name,
+$size in $sizes {
   .text-#{$name} {
     font-size: #{$size};
   }
@@ -143,4 +192,28 @@ $size in $tracking-sizes {
 
 .shadow {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px #000000;
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
+  .md\:m-auto {
+    margin: auto;
+  }
+  
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .md\:my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }
