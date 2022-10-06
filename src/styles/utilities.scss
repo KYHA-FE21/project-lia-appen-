@@ -94,8 +94,8 @@ $colors: (
   'white': white,
   'black': black,
   'primary': #4d243d,
-  'accept': #32ba78,
-  'deny': #fd6d6d,
+  'green': #32ba78,
+  'red': #fd6d6d,
 );
 
 @each $color, $value in $colors {

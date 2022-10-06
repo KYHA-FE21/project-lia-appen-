@@ -6,13 +6,13 @@ const SecondaryButton = ({
   fontSize,
   logo,
   color,
-  bg,
+  bgColor,
   onClick,
 }) => {
   let buttonBgColor;
   let buttonTextColor;
   if (color) buttonTextColor = `text-${color}`;
-  if (bg) buttonBgColor = `bg-${bg}`;
+  if (bgColor) buttonBgColor = `bg-${bgColor}`;
 
   return (
     <>
