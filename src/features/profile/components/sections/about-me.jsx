@@ -1,7 +1,6 @@
 import React from 'react'
 import Title from '../title';
 import LayoutContainer from '../layout-container';
-import InputField from '../input_field';
 import InputButton from '../input-button';
 import TextArea from '../textArea';
 import { Phone, GraduationCap, Star } from 'lucide-react';
@@ -9,37 +8,68 @@ import { Phone, GraduationCap, Star } from 'lucide-react';
 const AboutMe = () => {
     return (
         <>
-            <LayoutContainer direction='column' gap={[3]} >
+            <LayoutContainer 
+                direction='column' 
+                gap={[3]} >
 
-                <Title size={[1.1]} bold={700}>Om mig</Title>
+                <Title 
+                    size={[1.1]} 
+                    bold={700}>Om mig</Title>
 
-                <InputField type='text' prefix='phone'
-                    img={
-                        <Phone
-                            color='black'
-                            size={24}
-                        />}>Telefonnummer</InputField>
+                <LayoutContainer 
+                    styleDirection='center' 
+                    gap={[1]}>
 
-                <InputField type='text' prefix='school'
-                    img={
-                        <GraduationCap
-                            color='black'
-                            size={24}
-                        />}>Skola / Utbildning</InputField>
+                    <Phone
+                        color='black'
+                        size={24}/>
 
-                <InputField type='text' prefix='expertise'
-                    img={
-                        <Star
-                            color='black'
-                            size={24}
-                        />}>Kompentenser</InputField>
+                    <InputButton 
+                        type='text'
+                        placeholder='Telefonnummer'/>
 
-                <TextArea prefix='about'>Kort beskrivning av dig själv</TextArea>
+                </LayoutContainer>
+
+                <LayoutContainer 
+                    styleDirection='center' 
+                    gap={[1]}>
+
+                    <GraduationCap
+                        color='black'
+                        size={24}/>
+
+                    <InputButton 
+                        type='text'
+                        placeholder='Skola / Utbildning'/>
+
+                </LayoutContainer>
+
+                <LayoutContainer 
+                    styleDirection='center' 
+                    gap={[1]}>
+
+                    <Star
+                        color='black'
+                        size={24}/>
+                    
+                    <InputButton 
+                        type='text'
+                        placeholder='Kompentenser'/>
+
+                </LayoutContainer>
+
+                <TextArea>Kort beskrivning av dig själv</TextArea>
 
             </LayoutContainer>
 
-            <LayoutContainer direction='column' styleDirection='center' padding={[2,0]}>
-                <InputButton type='button' className='button'>Spara</InputButton>
+            <LayoutContainer 
+                direction='column' 
+                styleDirection='center' 
+                padding={[2,0]}>
+                
+                <InputButton 
+                    className='button'>Spara</InputButton>
+
             </LayoutContainer>
         </>
     )

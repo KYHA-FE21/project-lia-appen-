@@ -1,27 +1,42 @@
 import React from 'react'
 import Title from '../title';
 import LayoutContainer from '../layout-container';
-import InputField from '../input_field';
 import InputButton from '../input-button';
 import { Puzzle } from 'lucide-react';
 
 const Lia = () => {
     return (
         <>
-            <LayoutContainer direction='column' padding={[2, 1]} gap={[2]}>
+            <LayoutContainer 
+                direction='column' 
+                padding={[2, 1]} 
+                gap={[2]}>
 
-                <Title size={[1.1]} bold={700}>Önskemål praktik</Title>
+                <Title 
+                    size={[1.1]} 
+                    bold={700}>Önskemål praktik</Title>
 
-                <InputField type='text' prefix='role'
-                    img={
-                        <Puzzle
-                            color='black'
-                            size={24}
-                        />}>Yrkesroll</InputField>
+                <LayoutContainer 
+                    styleDirection='center'
+                    gap={[1]}>
 
-                <LayoutContainer direction='column' gap={[1]}>
+                    <Puzzle
+                        color='black'
+                        size={24}/>
 
-                    <LayoutContainer styleDirection='space-evenly'>
+                    <InputButton
+                        type='text'
+                        placeholder='Yrkesroll' />
+
+                </LayoutContainer>
+
+                <LayoutContainer 
+                    direction='column' 
+                    gap={[1]}>
+
+                    <LayoutContainer 
+                    gap={[1]} 
+                    styleDirection='center'>
 
                         <InputButton
                             id={1}
@@ -49,8 +64,14 @@ const Lia = () => {
 
             </LayoutContainer>
 
-            <LayoutContainer direction='column' styleDirection='center' padding={[2,0]}>
-                <InputButton type='button' className='button'>Spara</InputButton>
+            <LayoutContainer 
+                direction='column' 
+                styleDirection='center' 
+                padding={[2,0]}>
+                
+                <InputButton 
+                    className='button'>Spara</InputButton>
+
             </LayoutContainer>
         </>
     )

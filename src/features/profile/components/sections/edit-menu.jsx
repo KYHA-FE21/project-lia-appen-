@@ -10,23 +10,26 @@ const EditMenu = () => {
     const [open, setOpen] = useState(false);
     const [content, setContent] = useState();
 
-    const changeAboutMeHandler = () => {
-        console.log('aboutme');
+    const clickHandler = (e) => {
         setOpen(true)
-        setContent(<AboutMe />)
-    }
-
-    const changeLiaHandler = () => {
-        console.log('Lia');
-        setOpen(true)
-        setContent(<Lia />)
+        setContent(e.target.value === 'Ändra profil' ? <AboutMe /> : <Lia />)
     }
 
     return (
         <>
-            <LayoutContainer gap={[1]} styleDirection='center' padding={[1, 0]}>
-                <InputButton type='button' className='button' click={changeAboutMeHandler}>Ändra profil</InputButton>
-                <InputButton type='button' className='button' click={changeLiaHandler}>Ändra LIA-sökning</InputButton>
+            <LayoutContainer 
+                gap={[1]} 
+                styleDirection='center'
+                padding={[1, 0]}>
+                
+                <InputButton 
+                    className='button' 
+                    click={clickHandler}>Ändra profil</InputButton>
+                
+                <InputButton 
+                    className='button' 
+                    click={clickHandler}>Ändra LIA-sökning</InputButton>
+
             </LayoutContainer>
 
             <Modal open={open} >{content}</Modal>
