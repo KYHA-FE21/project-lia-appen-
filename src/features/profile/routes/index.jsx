@@ -1,7 +1,7 @@
 import React from 'react';
+import Badge from '../../../components/badge/badge';
 import LayoutContainer from '../components/layout-container';
 import Avatar from '../components/sections/avatar';
-import Badges from '../components/sections/badges';
 import EditMenu from '../components/sections/edit-menu';
 import Information from '../components/sections/information';
 import SelectorHeader from '../components/sections/selector_header';
@@ -9,7 +9,7 @@ import './index.scss';
 
 const Index = () => {
 
-  const company = false;
+  const company = true;
 
   return (
     <>
@@ -47,7 +47,13 @@ const Index = () => {
 
           <SelectorHeader reverse={true}>Kompetenser</SelectorHeader> 
 
-          <Badges />
+          <LayoutContainer gap={[1]} styleDirection='center'>
+            <Badge>Node</Badge>
+            <Badge>JS</Badge>
+            <Badge>HTML</Badge>
+            <Badge>CSS</Badge>
+            <Badge>React</Badge>
+          </LayoutContainer>
           
           <EditMenu />
 
