@@ -8,7 +8,7 @@ function FlexContainer({
   children,
 }) {
   return (
-    <div className={`flex flex-${direction} gap-${gap} ${className}`.trim()}>
+    <div className={`flex flex-${direction} gap-${gap} ${className}`}>
       {children}
     </div>
   );

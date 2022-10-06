@@ -1,18 +1,19 @@
-import Card from "../card";
+import Card, { CardTitle } from "../card";
 import FlexContainer from "../flex-container";
 import LinkButton from "../link-button";
+import ProseParagraph from "../prose-paragraph";
 
 function SalesPitchSection() {
   return (
     <FlexContainer direction="col" gap="4" className="items-center mx-4">
-      <FlexContainer direction="col" className="text-md items-center">
+      <FlexContainer direction="col" className="text-2xl items-center">
         <span className="font-display">Hur funkar det</span>
         <FlexContainer className="items-center" gap="4">
           <span className="font-display">som</span>
           <LinkButton
             bgColor="primary"
             textColor="white"
-            className="text-base"
+            className="text-sm"
             href="#student"
           >
             Student
@@ -20,7 +21,7 @@ function SalesPitchSection() {
           <LinkButton
             bgColor="white"
             textColor="black"
-            className="text-base"
+            className="text-sm"
             href="#företag"
           >
             Företag
@@ -30,11 +31,11 @@ function SalesPitchSection() {
       </FlexContainer>
 
       <Card className="place-self-stretch">
-        <strong className="place-self-center">Student</strong>
-        <p className="leading-normal">
+        <CardTitle>Student</CardTitle>
+        <ProseParagraph>
           Efter att du har skapat din profil, får du möjligheten att ansöka till
           företag som matchar dina preferenser.
-        </p>
+        </ProseParagraph>
       </Card>
 
       <FlexContainer
@@ -43,28 +44,26 @@ function SalesPitchSection() {
       >
         <strong className="font-display text-center">Exempel:</strong>
         <Card className="place-self-stretch">
-          <strong className="place-self-center">
-            Söker frontend studenter!
-          </strong>
+          <CardTitle>Söker frontend studenter!</CardTitle>
         </Card>
       </FlexContainer>
 
       <Card className="place-self-stretch">
-        <strong className="place-self-center">Matchar företaget dig?</strong>
-        <p className="leading-normal text-justify">
+        <CardTitle>Matchar företaget dig?</CardTitle>
+        <ProseParagraph>
           När du har läst igenom företagets preferenser och tycker att det
           passar dig, får du chansen att besvara frågor som är skrivna av
           företaget.
-        </p>
+        </ProseParagraph>
       </Card>
 
       <Card className="place-self-stretch">
-        <strong className="place-self-center">Fråga #1</strong>
+        <CardTitle>Fråga #1</CardTitle>
       </Card>
 
       <Card className="place-self-stretch">
-        <strong className="place-self-center">Lyckas du med frågorna?</strong>
-        <p className="leading-normal text-justify">
+        <CardTitle>Lyckas du med frågorna?</CardTitle>
+        <ProseParagraph>
           Om dina svar stämmer överrens med vad företaget frågar, får du
           tillgång att skicka din profil till företaget.
           <strong>
@@ -72,12 +71,12 @@ function SalesPitchSection() {
             skicka med som företaget ska ta ställning till.
           </strong>
           Sedan är det bara att vänta på svar. 🤞
-        </p>
+        </ProseParagraph>
       </Card>
 
       <Card className="place-self-stretch">
-        <strong className="place-self-center">Vad väntar du på?</strong>
-        <LinkButton className="p-6 text-md">
+        <CardTitle>Vad väntar du på?</CardTitle>
+        <LinkButton href="#" className="p-4 text-lg">
           Registrera dig!
         </LinkButton>
       </Card>

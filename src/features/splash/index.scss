@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 .flex {
   display: flex;
@@ -67,13 +67,18 @@
   }
 }
 
-$sizes: 'sm', 'base', 'md', 'lg';
+$sizes: (
+  "sm": 0.875rem,
+  "base": 1rem,
+  "lg": 1.125rem,
+  "xl": 1.25rem,
+  "2xl": 1.5rem,
+  "3xl": 1.875rem
+);
 
-@each $size in $sizes {
-  $index: index($sizes, $size);
-
-  .text-#{$size} {
-    font-size: #{$index * 0.5rem};
+@each $name, $size in $sizes {
+  .text-#{$name} {
+    font-size: #{$size};
   }
 }
 
@@ -90,9 +95,9 @@ i {
 }
 
 $colors: (
-  'white': white,
-  'black': black,
-  'primary': #4d243d
+  "white": white,
+  "black": black,
+  "primary": #4d243d
 );
 
 @each $color,
@@ -106,7 +111,7 @@ $value in $colors {
   }
 }
 
-$leading-sizes: 'none', 'tight', 'snug', 'normal', 'relaxed', 'loose';
+$leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
 
 @each $size in $leading-sizes {
   $index: index($leading-sizes, $size);
@@ -121,12 +126,12 @@ $leading-sizes: 'none', 'tight', 'snug', 'normal', 'relaxed', 'loose';
 }
 
 .font-display {
-  font-family: 'Cousine', monospace;
+  font-family: "Cousine", monospace;
 }
 
 $tracking-sizes: (
-  'tighter': -0.075em,
-  'normal': 0em
+  "tighter": -0.075em,
+  "normal": 0em
 );
 
 @each $name,
