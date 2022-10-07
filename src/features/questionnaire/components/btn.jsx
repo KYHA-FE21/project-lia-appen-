@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/components.scss';
 
-const btn = ({ title, type = 'button', disabled = false }) => {
+const btn = ({ title, type = 'button', disabled = false, backgroundColor = '#4d243d' }) => {
   return (
     <div>
-      <button className="questBtn" type={type} disabled={disabled}>
+      <button style={{ backgroundColor }} className="questBtn" type={type} disabled={disabled}>
         {title}
       </button>
     </div>
