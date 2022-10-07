@@ -5,7 +5,7 @@ import { Facebook, Linkedin, Twitter } from 'lucide-react';
 const externalAuth = () => {
   return (
     <div className="authExternalContainer">
-      <p>or</p>
+      <p>eller</p>
       <div className="authExternalBtns">
         <Link to="/">
           <button className="authFacebook">

@@ -32,7 +32,7 @@ const Signin = () => {
           <TextField
             icon={<Mail strokeWidth={1} />}
             type="email"
-            placeholder="Email"
+            placeholder="E-post"
             value={email}
             setValue={setEmail}
             isError={error?.type === 'email' && error.message}
@@ -40,17 +40,17 @@ const Signin = () => {
           <TextField
             icon={<Lock strokeWidth={1} />}
             type="password"
-            placeholder="Password"
+            placeholder="Lösenord"
             value={password}
             setValue={setPassword}
             isError={error?.type === 'password' && error.message}
           />
-          <Btn title="SIGN IN" loading={loading} />
+          <Btn title="LOGGA IN" loading={loading} />
         </form>
         <Path
           links={[
-            { path: '/signup', title: 'Create Account' },
-            { path: '/reset/*', title: 'Forgot Password?' },
+            { path: '/signup', title: 'Skapa Konto' },
+            { path: '/reset/*', title: 'Glöm Lösenord?' },
           ]}
         />
         <External />

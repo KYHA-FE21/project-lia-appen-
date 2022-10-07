@@ -39,7 +39,7 @@ const Signup = () => {
           <TextField
             icon={<Mail strokeWidth={1} />}
             type="email"
-            placeholder="Email"
+            placeholder="E-post"
             value={email}
             setValue={setEmail}
             isError={error?.type === 'email' && error.message}
@@ -48,17 +48,17 @@ const Signup = () => {
             <TextField
               icon={<Lock strokeWidth={1} />}
               type="password"
-              placeholder="Password"
+              placeholder="Lösenord"
               value={password}
               setValue={setPassword}
               isError={error?.type === 'password' && error.message}
             />
-            <TextField type="password" placeholder="Password again" value={password2} setValue={setPassword2} />
+            <TextField type="password" placeholder="Repetera lösenord" value={password2} setValue={setPassword2} />
           </div>
 
-          <Btn title="SIGN UP" loading={loading} disabled={notSame} />
+          <Btn title="BLI MEDLEM" loading={loading} disabled={notSame} />
         </form>
-        <Path links={[{ path: '/signin', title: 'Already Registered?' }]} />
+        <Path links={[{ path: '/signin', title: 'Redan Medlem?' }]} />
         <External />
       </div>
     </div>
