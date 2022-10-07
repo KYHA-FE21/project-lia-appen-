@@ -8,7 +8,6 @@ import Container from "../components/container";
 import QuestionAlternative from "../components/question-alternative";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import PrimaryButton from "../../../components/buttons/primary-button";
 
 function Questions({ data, setData, searchParams, setSearchParams }) {
 	const [question, setQuestion] = useState(0);
@@ -25,18 +24,25 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-questions" className={"card shadow gradient"}>
+				<Container type="section" id="matchmake-questions" className={"card linear shadow"}>
 					<Heading
 						props={{
 							heading: "Frågor",
 							subheading: question + 1 + "/" + data.questions.length,
-							icon: <PrimaryButton logo={<XCircle color="white" size="30" className="padding-1" />} />,
+							icon: (
+								<XCircle
+									color="black"
+									size="30"
+									onClick={() => {
+										setData(false);
+									}}
+								/>
+							),
 						}}
 					/>
 					<hr />
-
 					<Container className="questions-question">
-						<Container className="questions-text shadow gradient">
+						<Container className="questions-text linear shadow">
 							<h2>{data?.questions[question]?.title}</h2>
 							<span>{data?.questions[question]?.body}</span>
 						</Container>

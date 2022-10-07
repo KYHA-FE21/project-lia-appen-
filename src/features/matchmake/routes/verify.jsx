@@ -15,7 +15,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-verify" className={"card"}>
+				<Container type="section" id="matchmake-verify" className={"card gradient shadow"}>
 					{loading && (
 						<Heading
 							props={{

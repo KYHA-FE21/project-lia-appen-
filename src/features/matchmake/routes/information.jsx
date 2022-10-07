@@ -13,7 +13,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 function Information({ data, setData, setSearchParams }) {
 	if (!data)
 		return (
-			<Container type="section" id="matchmake-info" className={"card shadow"}>
+			<Container type="section" id="matchmake-info" className={"card gradient shadow"}>
 				<Heading
 					props={{
 						heading: "Laddar...",
@@ -24,7 +24,7 @@ function Information({ data, setData, setSearchParams }) {
 		);
 	else
 		return (
-			<Container type="section" id="matchmake-info" className={"card"}>
+			<Container type="section" id="matchmake-info" className={"card gradient shadow"}>
 				<Heading
 					props={{
 						heading: "Systemutvecklare",
@@ -35,7 +35,7 @@ function Information({ data, setData, setSearchParams }) {
 					<InfoText startTime="2022-11" endTime="2023-05" workModel="Remote" location="Gävleborg" />
 				</Container>
 				<hr />
-				
+
 				<Container type="ul" className="info-badges">
 					<Badge>Node</Badge>
 					<Badge>JS</Badge>
