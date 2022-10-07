@@ -2,8 +2,9 @@ function Heading({ props }) {
 	const { heading, subheading, icon } = props;
 	return (
 		<h1 className="heading">
-			{heading} <span>{icon}</span>
-			<small>{subheading}</small>
+			{heading}
+			{icon && <span>{icon}</span>}
+			{subheading && <small>{subheading}</small>}
 		</h1>
 	);
 }
