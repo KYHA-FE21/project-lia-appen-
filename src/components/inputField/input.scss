@@ -1,0 +1,59 @@
+$shadow-default: 1px 2px 3px rgba(0, 0, 0, 0.2);
+$border-radius: 8px;
+$color-secondary: rgba(250, 250, 250, 0.5);
+$padding-default: 0.8rem 1rem;
+$font-size: 0.9rem;
+
+.globalInputContainer {
+  position: relative;
+  margin-bottom: 1rem;
+  background-color: rgba(250, 250, 250, 0.07);
+  border-radius: $border-radius;
+  box-shadow: $shadow-default;
+
+  .globalInputContent {
+    display: flex;
+    align-items: center;
+    padding: $padding-default;
+
+    .globalInputIcon {
+      color: $color-secondary;
+      padding-right: 0.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .globalInputField {
+      background-color: transparent;
+      border: none;
+      color: white;
+      width: 100%;
+      font-size: $font-size;
+    }
+
+    .globalInputField:focus {
+      outline: none;
+    }
+  }
+
+  .globalInputError {
+    position: absolute;
+    top: -40%;
+    left: 10%;
+    color: #fd6d6d;
+    font-size: 0.8rem;
+  }
+}
+
+.globalInputFieldFocus {
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.globalInputFieldError {
+  border: 1px solid #fd6d6d35;
+}
+
+.globalInputContainer:hover {
+  cursor: text;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.35);
+}
