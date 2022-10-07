@@ -11,18 +11,30 @@ const Modal = ({
   companyBadges,
   index,
   setOpenModal,
-  removeApplication,
 }) => {
-  function removeFromList(i) {
-    if (applicantList.length == 1) setOpenModal(false);
-    removeApplication(i);
+  const [currentIndex, setCurrentIndex] = useState(index);
+
+  function remove(i, m) {
+    let animationDir;
+    m === 'r'
+      ? (animationDir = 'animate-right')
+      : (animationDir = 'animate-left');
+
+    document.getElementById('modal-card').classList.add(animationDir);
+    setTimeout(() => {
+      if (applicantList.length === 1) {
+        setOpenModal(false);
+      } else if (i === applicantList.length - 1) setCurrentIndex(0);
+      setApplicantList(applicantList.filter((re, r) => r !== i));
+      document.getElementById('modal-card').classList.remove(animationDir);
+      document.getElementById('modal-card').classList.add('animate-from-top');
+    }, 500);
   }
 
-  const [currentIndex, setCurrentIndex] = useState(index);
   return (
     <div className="modal-background">
       <div className="modal-container">
-        <div className="modal-card">
+        <div className="modal-card" id="modal-card">
           <div
             style={{
               display: 'flex',
@@ -79,7 +91,7 @@ const Modal = ({
               width="50%"
               logo={<X />}
               bg="#fd6d6d"
-              onClick={() => removeFromList(currentIndex)}
+              onClick={() => remove(currentIndex, 'l')}
             >
               Neka
             </SecondaryButton>
@@ -87,7 +99,7 @@ const Modal = ({
               width="50%"
               logo={<Check />}
               bg="#32ba78"
-              onClick={() => removeFromList(currentIndex)}
+              onClick={() => remove(currentIndex, 'r')}
             >
               Acceptera
             </SecondaryButton>
@@ -97,7 +109,7 @@ const Modal = ({
           <button
             className="modal-arrow-left"
             onClick={() =>
-              currentIndex != 0
+              currentIndex !== 0
                 ? setCurrentIndex(currentIndex - 1)
                 : setCurrentIndex(applicantList.length - 1)
             }
@@ -110,7 +122,7 @@ const Modal = ({
           <button
             className="modal-arrow-right"
             onClick={() =>
-              currentIndex != applicantList.length - 1
+              currentIndex !== applicantList.length - 1
                 ? setCurrentIndex(currentIndex + 1)
                 : setCurrentIndex(0)
             }

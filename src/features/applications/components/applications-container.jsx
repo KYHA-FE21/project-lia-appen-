@@ -1,6 +1,6 @@
 import Card from '../../../components/card/card';
 import applications from './mock-data';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Modal from './modal';
 import './applications-container.scss';
 
@@ -34,6 +34,7 @@ const ApplicationsContainer = () => {
   applicantList.sort((a, b) => b.badges.length - a.badges.length);
 
   function removeApplication(i) {
+    console.log(i);
     setApplicantList(applicantList.filter((re, r) => r !== i));
   }
   function removeLeft(i) {
@@ -98,7 +99,6 @@ const ApplicationsContainer = () => {
           companyBadges={myBadges}
           index={currentIndex}
           setOpenModal={setOpenModal}
-          removeApplication={() => removeApplication(currentIndex)}
         />
       )}
     </div>

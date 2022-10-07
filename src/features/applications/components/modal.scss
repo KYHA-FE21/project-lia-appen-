@@ -65,3 +65,16 @@
     }
   }
 }
+
+.animate-from-top {
+  animation: slideFromTop 0.5s ease-in-out forwards;
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
