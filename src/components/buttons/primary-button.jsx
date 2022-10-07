@@ -23,8 +23,8 @@ const PrimaryButton = ({
       }}
       onClick={onClick}
     >
-      <span>{children}</span>
-      {logo ? logo : ""}
+      {children && <span>{children}</span>}
+      {logo && logo}
     </button>
   );
 };
