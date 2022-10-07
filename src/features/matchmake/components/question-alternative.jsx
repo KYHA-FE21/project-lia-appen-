@@ -1,11 +1,9 @@
-function QuestionAlternative({text, type, checked}) {
+function QuestionAlternative({ text, type, checked, name }) {
 	return (
-		<li className="questions-alternative">
-			<label>
-				<input type={type} name="answer" defaultChecked={checked}/>
-				<span>{text}</span>
-			</label>
-		</li>
+		<label className="questions-alternative">
+			<input type={type} defaultChecked={checked} name={name} />
+			<span>{text}</span>
+		</label>
 	);
 }
 

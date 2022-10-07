@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { XCircle } from "lucide-react";
+import { Check, X, XCircle } from "lucide-react";
 
 import "./questions.scss";
 
 import Container from "../components/container";
 import QuestionAlternative from "../components/question-alternative";
 import Heading from "../components/heading";
+import SecondaryButton from "../../../components/buttons/secondary-button";
 
-function Questions({ data, searchParams, setSearchParams }) {
+function Questions({ data, setData, searchParams, setSearchParams }) {
 	const [question, setQuestion] = useState(0);
 	useEffect(() => {
 		setQuestion(parseInt(searchParams.get("question")) || 0);
@@ -23,40 +24,38 @@ function Questions({ data, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-questions">
+				<Container type="section" id="matchmake-questions" className={"card"}>
 					<Heading
 						props={{
 							heading: "Frågor",
 							subheading: question + 1 + "/" + data.questions.length,
 							icon: (
 								<XCircle
-									color="white"
+									color="black"
 									size="30"
 									onClick={() => {
-										setSearchParams();
+										setData(false);
 									}}
 								/>
 							),
 						}}
-					></Heading>
-
+					/>
 					<hr />
 					<Container className="questions-question">
 						<Container className="questions-text">
 							<h2>{data?.questions[question]?.title}</h2>
 							<span>{data?.questions[question]?.body}</span>
 						</Container>
-						<Container type="ul" className="questions-alternatives">
-							<QuestionAlternative type="radio" text="Answer 1" />
-							<QuestionAlternative type="radio" text="Answer 2" />
-							<QuestionAlternative type="radio" text="Answer 3" />
-							<QuestionAlternative type="radio" text="Answer 4" />
+						<Container type="form" className="questions-alternatives">
+							{data?.questions[question]?.answers.map((answer, index) => (
+								<QuestionAlternative type="radio" text={answer} name={data?.questions[question]?.id} key={index} />
+							))}
 						</Container>
 					</Container>
 					<hr />
-					<Container type="nav" className="questions-nav">
-						<button
-							className="button"
+					<Container type="nav" className="nav">
+						<span
+							style={{ width: "100%" }}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);
@@ -64,10 +63,12 @@ function Questions({ data, searchParams, setSearchParams }) {
 								});
 							}}
 						>
-							Föregående
-						</button>
-						<button
-							className="button"
+							<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
+								Föregående
+							</SecondaryButton>
+						</span>
+						<span
+							style={{ width: "100%" }}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question + 1);
@@ -75,8 +76,10 @@ function Questions({ data, searchParams, setSearchParams }) {
 								});
 							}}
 						>
-							Nästa
-						</button>
+							<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
+								Nästa
+							</SecondaryButton>
+						</span>
 					</Container>
 				</Container>
 			)}

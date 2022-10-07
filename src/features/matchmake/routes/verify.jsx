@@ -1,37 +1,51 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { XCircle } from "lucide-react";
+import { Check, X, XCircle } from "lucide-react";
 
 import "./verify.scss";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
+import SecondaryButton from "../../../components/buttons/secondary-button";
 
-function Verify({ data, setSearchParams }) {
+function Verify({ data, setData, setSearchParams }) {
 	const [verified, setVerified] = useState(false);
 	const [loading, setLoading] = useState(false);
 	return (
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-verify">
-					{loading && <>loading...</>}
+				<Container type="section" id="matchmake-verify" className={"card"}>
+					{loading && (
+						<Heading
+							props={{
+								heading: "Laddar...",
+								style: {
+									justifyContent: "center",
+								},
+							}}
+						/>
+					)}
 					{!loading && verified && (
 						<>
 							<Heading
 								props={{
-									heading: "Grattis",
+									heading: "Skickat",
+									subheading: "Tryck på tillbaks för att få ett se ett nytt kort.",
+									icon: <Check color="black" size="30" />,
 								}}
 							></Heading>
 							<Container type="nav" className="verify-nav">
-								<button
-									className="button"
+								<span
+									style={{ width: "100%" }}
 									onClick={() => {
-										setSearchParams();
+										setData(false);
 									}}
 								>
-									Tillbaks
-								</button>
+									<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
+										Tillbaks
+									</SecondaryButton>
+								</span>
 							</Container>
 						</>
 					)}
@@ -40,22 +54,22 @@ function Verify({ data, setSearchParams }) {
 							<Heading
 								props={{
 									heading: "Bekräfta",
-									subheading: "Besvarade frågor 2/" + data.questions.length,
+									subheading: `Besvarade frågor ${data.answers.length}/${data.questions.length}`,
 									icon: (
 										<XCircle
-											color="white"
+											color="black"
 											size="30"
 											onClick={() => {
-												setSearchParams();
+												setData(false);
 											}}
 										/>
 									),
 								}}
-							></Heading>
+							/>
 							<p>Är du säker på att du vill skicka dina svar och få en chans att ansöka? </p>
-							<Container type="nav" className="verify-nav">
-								<button
-									className="button"
+							<Container type="nav" className="nav">
+								<span
+									style={{ width: "100%" }}
 									onClick={() => {
 										setSearchParams((prev) => {
 											prev.set("action", "questions");
@@ -65,10 +79,12 @@ function Verify({ data, setSearchParams }) {
 										});
 									}}
 								>
-									Tillbaks
-								</button>
-								<button
-									className="button"
+									<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
+										Tillbaks
+									</SecondaryButton>
+								</span>
+								<span
+									style={{ width: "100%" }}
 									onClick={() => {
 										setLoading(true);
 										setVerified(true);
@@ -77,8 +93,10 @@ function Verify({ data, setSearchParams }) {
 										}, 1_000);
 									}}
 								>
-									Skicka in
-								</button>
+									<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
+										Skicka in
+									</SecondaryButton>
+								</span>
 							</Container>
 						</>
 					)}

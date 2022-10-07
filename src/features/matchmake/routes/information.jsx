@@ -1,48 +1,46 @@
 import React from "react";
-import { CalendarDays, CheckCircle, Info, MapPin, Star } from "lucide-react";
+import { Check, Info, X } from "lucide-react";
 
 import "./information.scss";
 
 import Container from "../components/container";
-import InfoProperty from "../components/info-property";
 import InfoStat from "../components/info-stat";
-import InfoReview from "../components/info-review";
-import Badge from "../components/badge";
+import Heading from "../components/heading";
+import Badge from "../../../components/badge/badge";
+import InfoText from "../../../components/info-text/info-text";
+import SecondaryButton from "../../../components/buttons/secondary-button";
 
 function Information({ data, setData, setSearchParams }) {
 	if (!data)
 		return (
-			<Container type="section" id="matchmake-info">
-				<h1>Loading</h1>
+			<Container type="section" id="matchmake-info" className={"card"}>
+				<Heading
+					props={{
+						heading: "Laddar...",
+						style: { justifyContent: "center" },
+					}}
+				/>
 			</Container>
 		);
 	else
 		return (
-			<Container type="section" id="matchmake-info">
-				<Container type="article" className="info-header">
-					<Container type="article" display="flex">
-						<Star fill="yellow" size="20" />
-						<Star fill="yellow" size="20" />
-						<Star fill="yellow" size="20" />
-						<Star fill="yellow" size="20" />
-						<Star fill="yellow" size="20" />
-					</Container>
-					<Info color="white" size="30" />
-				</Container>
-				<h1>Systemutvecklare</h1>
+			<Container type="section" id="matchmake-info" className={"card"}>
+				<Heading
+					props={{
+						heading: "Systemutvecklare",
+						icon: <Info color="black" size="30" />,
+					}}
+				/>
 				<Container type="ul" className="info-properties">
-					<InfoProperty icon={<CalendarDays />} text="2022-11 to 2023-06" />
-					<InfoProperty icon={<MapPin />} text="Gävleborg" />
-					<InfoProperty icon={<CheckCircle />} text="Hybrid" />
-					<InfoProperty icon={<CheckCircle />} text="Remote" />
+					<InfoText startTime="2022-11" endTime="2023-05" workModel="Remote" location="Gävleborg" />
 				</Container>
 				<hr />
 				<Container type="ul" className="info-badges">
-					<Badge text="node" />
-					<Badge text="js" />
-					<Badge text="ts" />
-					<Badge text="html" />
-					<Badge text="react" />
+					<Badge>Node</Badge>
+					<Badge>JS</Badge>
+					<Badge>CSS</Badge>
+					<Badge>HTML</Badge>
+					<Badge>React</Badge>
 				</Container>
 				<hr />
 				<Container type="ul" className="info-stats">
@@ -51,22 +49,20 @@ function Information({ data, setData, setSearchParams }) {
 					<InfoStat title="Responstid" value="3" unit="h" />
 				</Container>
 				<hr />
-				<Container type="ul" className="info-reviews">
-					<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-					<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-					<InfoReview info="info" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto!" />
-				</Container>
-				<Container type="nav" className="info-nav">
-					<button
-						className="button"
+
+				<Container type="nav" className="nav">
+					<span
+						style={{ width: "100%" }}
 						onClick={() => {
 							setData(false);
 						}}
 					>
-						Nästa
-					</button>
-					<button
-						className="button"
+						<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
+							Neka
+						</SecondaryButton>
+					</span>
+					<span
+						style={{ width: "100%" }}
 						onClick={() => {
 							setSearchParams((prev) => {
 								prev.set("action", "questions");
@@ -75,8 +71,10 @@ function Information({ data, setData, setSearchParams }) {
 							});
 						}}
 					>
-						Gör test
-					</button>
+						<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
+							Gör test
+						</SecondaryButton>
+					</span>
 				</Container>
 			</Container>
 		);
