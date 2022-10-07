@@ -1,18 +1,30 @@
-import './primary-button.scss';
+import "./primary-button.scss";
 
-const PrimaryButton = ({ children, width, fontSize, color, bg, logo }) => {
+const PrimaryButton = ({
+  width,
+  fontSize,
+  color = "primary",
+  logo,
+  onClick,
+  className = "",
+  children,
+}) => {
+  let colors = "";
+  if (color === "primary") colors = "text-white bg-primary";
+  else if (color === "white") colors = "text-black bg-white";
+  else if (color === "black") colors = "text-white bg-black";
+
   return (
     <button
-      className="primary-button"
+      className={`primary-button flex justify-center items-center gap-1 p-2 rounded-md ${colors} ${className}`}
       style={{
         width: width,
         fontSize: fontSize,
-        color: color,
-        background: bg,
       }}
+      onClick={onClick}
     >
       <span>{children}</span>
-      {logo ? logo : ''}
+      {logo ? logo : ""}
     </button>
   );
 };
