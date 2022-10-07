@@ -54,7 +54,7 @@ function Verify({ data, setData, setSearchParams }) {
 							<Heading
 								props={{
 									heading: "Bekräfta",
-									subheading: `Besvarade frågor ${data.answers.length}/${data.questions.length}`,
+									subheading: `Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`,
 									icon: (
 										<XCircle
 											color="black"

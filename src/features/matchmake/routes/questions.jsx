@@ -11,6 +11,13 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 
 function Questions({ data, setData, searchParams, setSearchParams }) {
 	const [question, setQuestion] = useState(0);
+	function handleChange(event) {
+		setData((prev) => {
+			prev.answers[question] = event.target.value;
+			return prev;
+		});
+		setQuestion(event.target.name);
+	}
 	useEffect(() => {
 		setQuestion(parseInt(searchParams.get("question")) || 0);
 		if (question === data?.questions?.length) {
@@ -19,16 +26,16 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 				return prev;
 			});
 		}
-	}, [searchParams, setSearchParams, data, question]);
+	}, [data, searchParams, setSearchParams, question]);
 	return (
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-questions" className={"card linear shadow"}>
+				<Container type="section" id="matchmake-questions" className={"card gradient shadow"}>
 					<Heading
 						props={{
 							heading: "Frågor",
-							subheading: question + 1 + "/" + data.questions.length,
+							subheading: parseInt(searchParams.get("question")) + 1 + "/" + data.questions.length,
 							icon: (
 								<XCircle
 									color="black"
@@ -42,13 +49,13 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 					/>
 					<hr />
 					<Container className="questions-question">
-						<Container className="questions-text linear shadow">
+						<Container className="questions-text gradient shadow">
 							<h2>{data?.questions[question]?.title}</h2>
 							<span>{data?.questions[question]?.body}</span>
 						</Container>
 						<Container type="form" className="questions-alternatives">
 							{data?.questions[question]?.answers.map((answer, index) => (
-								<QuestionAlternative type="radio" text={answer} name={data?.questions[question]?.id} key={index} />
+								<QuestionAlternative type="radio" text={answer} name={data?.questions[question]?.id} key={`${data?.questions[question]?.id}${index}`} handleChange={handleChange} value={index + 1} checked={data.answers[question] === (index + 1).toString()} />
 							))}
 						</Container>
 					</Container>

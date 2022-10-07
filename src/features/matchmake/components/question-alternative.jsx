@@ -1,7 +1,7 @@
-function QuestionAlternative({ text, type, checked, name }) {
+function QuestionAlternative({ text, type, name, value, checked, handleChange }) {
 	return (
 		<label className="questions-alternative">
-			<input type={type} defaultChecked={checked} name={name} />
+			<input type={type} name={name} value={value} checked={checked} onChange={handleChange} />
 			<span>{text}</span>
 		</label>
 	);
