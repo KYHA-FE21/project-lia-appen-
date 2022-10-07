@@ -1,6 +1,6 @@
 import React from 'react';
-import Badge from '../../../components/badge/badge';
-import LayoutContainer from '../components/layout-container';
+import Badge from '../../../components/badge';
+import Wrapper from '../components/wrapper';
 import Avatar from '../components/sections/avatar';
 import EditMenu from '../components/sections/edit-menu';
 import Information from '../components/sections/information';
@@ -18,7 +18,7 @@ const Index = () => {
         <>
           <Avatar /> 
 
-          <LayoutContainer direction='column' gap={[1]}>
+          <Wrapper direction='column' gap={[1]}>
 
             <Information
               styleDirection='center'
@@ -27,13 +27,13 @@ const Index = () => {
 
             <EditMenu />
 
-          </LayoutContainer>
+          </Wrapper>
         
         </>
 
         : 
         
-        <LayoutContainer direction='column' gap={[1]}>
+        <Wrapper direction='column' gap={[1]}>
           
           <SelectorHeader>Profil</SelectorHeader> 
           
@@ -47,17 +47,17 @@ const Index = () => {
 
           <SelectorHeader reverse={true}>Kompetenser</SelectorHeader> 
 
-          <LayoutContainer gap={[1]} styleDirection='center' padding={[0,0,2,0]}>
-            <Badge width='fit-content'>Node</Badge>
-            <Badge width='fit-content'>JS</Badge>
-            <Badge width='fit-content'>HTML</Badge>
-            <Badge width='fit-content'>CSS</Badge>
-            <Badge width='fit-content'>React</Badge>
-          </LayoutContainer>
+          <Wrapper gap={[1]} styleDirection='center' padding={[0,1,2,1]}>
+            <Badge width='fit-content' className='text-white'>Node</Badge>
+            <Badge width='fit-content' className='text-white'>JS</Badge>
+            <Badge width='fit-content' className='text-white'>HTML</Badge>
+            <Badge width='fit-content' className='text-white'>CSS</Badge>
+            <Badge width='fit-content' className='text-white'>React</Badge>
+          </Wrapper>
           
           <EditMenu />
 
-        </LayoutContainer>
+        </Wrapper>
         
       }
 

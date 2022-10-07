@@ -1,10 +1,10 @@
 import React from 'react'
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 import Title from '../title';
 
 const SelectorHeader = ({children, reverse}) => {
   return (
-    <LayoutContainer 
+    <Wrapper 
       width='100%' 
       gap={[3]} 
       styleDirection='center'>
@@ -14,7 +14,7 @@ const SelectorHeader = ({children, reverse}) => {
         <Title size={[1.5]} bold={[700]}>{children}</Title>
       </div>
         
-    </LayoutContainer>
+    </Wrapper>
   )
 }
 

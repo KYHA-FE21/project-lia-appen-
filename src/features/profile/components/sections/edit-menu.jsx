@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 import { Modal } from '../modal';
 import AboutMe from './about-me';
 import Lia from './lia';
@@ -11,13 +11,14 @@ const EditMenu = () => {
     const [content, setContent] = useState();
 
     const clickHandler = (e) => {
+        console.log(e)
         setOpen(true)
-        setContent(e.target.value === 'Ändra profil' ? <AboutMe /> : <Lia />)
+        setContent(e.target.innerText === 'Ändra profil' ? <AboutMe /> : <Lia />)
     }
 
     return (
         <>
-            <LayoutContainer 
+            <Wrapper 
                 gap={[1]} 
                 styleDirection='center'
                 padding={[0, 0, 3, 0]}>
@@ -25,7 +26,7 @@ const EditMenu = () => {
                                 
                 <PrimaryButton onClick={clickHandler}>Ändra LIA-sökning</PrimaryButton>
 
-            </LayoutContainer>
+            </Wrapper>
 
             <Modal open={open} >{content}</Modal>
         </>

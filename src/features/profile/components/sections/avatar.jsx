@@ -1,9 +1,9 @@
 import React from 'react'
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 
 const Avatar = () => {
   return (
-    <LayoutContainer 
+    <Wrapper 
       width='100%' 
       gap={[3]} 
       styleDirection='center'>
@@ -11,7 +11,7 @@ const Avatar = () => {
         <div className='bgBlur'></div>
         <div className='flex center avatar'></div>
         
-    </LayoutContainer>
+    </Wrapper>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-const LayoutContainer = ({ children, gap, type, direction, styleDirection, margin, padding, wrap, width, maxWidth, lineHeight}) => {
+const Wrapper = ({ children, gap, type, direction, styleDirection, margin, padding, wrap, width, maxWidth, lineHeight}) => {
 
   const [styleGap, setStyleGap] = useState();
   const [styleMargin, setStyleMargin] = useState();
@@ -45,4 +45,4 @@ const LayoutContainer = ({ children, gap, type, direction, styleDirection, margi
   )
 }
 
-export default LayoutContainer;
+export default Wrapper;

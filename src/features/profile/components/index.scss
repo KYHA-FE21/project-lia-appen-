@@ -193,4 +193,20 @@ dialog {
     height: 100%;
     border: none;
     padding:0;
+
+    .closeButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top:1em;
+        right:1em;
+        width: 1.5em;
+        height: 1.5em;
+        color: white;
+        font-size: 1rem;
+        border-radius: 100%;
+        background-color: rgb(153, 5, 5);
+        box-shadow: 0 0 5px #fff;
+    }
 }

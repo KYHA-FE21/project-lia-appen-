@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from '../title';
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 import InputButton from '../input-button';
 import PrimaryButton from '../../../../components/buttons/primary-button';
 import TextArea from '../textArea';
@@ -11,7 +11,7 @@ const AboutMe = () => {
     return (
         <>
             <SelectorHeader>Ändra profil</SelectorHeader>
-            <LayoutContainer 
+            <Wrapper 
                 direction='column' 
                 gap={[3]}
                 padding={[0, 1]}>
@@ -20,7 +20,7 @@ const AboutMe = () => {
                     size={[1.1]} 
                     bold={700}>Om mig</Title>
 
-                <LayoutContainer 
+                <Wrapper 
                     styleDirection='center' 
                     gap={[1]}>
 
@@ -32,9 +32,9 @@ const AboutMe = () => {
                         type='text'
                         placeholder='Telefonnummer'/>
 
-                </LayoutContainer>
+                </Wrapper>
 
-                <LayoutContainer 
+                <Wrapper 
                     styleDirection='center' 
                     gap={[1]}>
 
@@ -46,9 +46,9 @@ const AboutMe = () => {
                         type='text'
                         placeholder='Skola / Utbildning'/>
 
-                </LayoutContainer>
+                </Wrapper>
 
-                <LayoutContainer 
+                <Wrapper 
                     styleDirection='center' 
                     gap={[1]}>
 
@@ -60,20 +60,20 @@ const AboutMe = () => {
                         type='text'
                         placeholder='Kompentenser'/>
 
-                </LayoutContainer>
+                </Wrapper>
 
                 <TextArea>Kort beskrivning av dig själv</TextArea>
 
-            </LayoutContainer>
+            </Wrapper>
 
-            <LayoutContainer 
+            <Wrapper 
                 direction='column' 
                 styleDirection='center' 
                 padding={[2,0]}>
                 
                 <PrimaryButton>Spara</PrimaryButton>
 
-            </LayoutContainer>
+            </Wrapper>
         </>
     )
 }

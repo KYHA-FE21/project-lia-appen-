@@ -1,12 +1,12 @@
 import React from 'react'
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 import Title from '../title';
 import { Phone, MapPin, CalendarDays } from 'lucide-react';
 
 const Information = ({ name, role, school, date }) => {
 
     return (
-        <LayoutContainer 
+        <Wrapper 
             padding={[2,0, 0, 0]} 
             direction='column' 
             gap={[3]} 
@@ -16,7 +16,7 @@ const Information = ({ name, role, school, date }) => {
                 bold={700} 
                 subTitle={role}>{name}</Title>
             
-            <LayoutContainer 
+            <Wrapper 
                 wrap='wrap' 
                 gap={[1]} 
                 styleDirection='center'>
@@ -40,18 +40,18 @@ const Information = ({ name, role, school, date }) => {
                             img={<CalendarDays color='black' size={18} />}>{date}</Title>
                     </> : <></>
                 }
-            </LayoutContainer>
+            </Wrapper>
 
-            <LayoutContainer 
+            <Wrapper 
                 maxWidth='800px' 
                 lineHeight={[1.5]} 
                 padding={[0, 1]}>
                 
                 <Title 
                     size={[1]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Title>
-            </LayoutContainer>
+            </Wrapper>
 
-        </LayoutContainer>
+        </Wrapper>
     )
 }
 

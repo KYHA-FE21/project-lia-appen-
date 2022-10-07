@@ -1,14 +1,16 @@
 import React from 'react'
 import Title from '../title';
-import LayoutContainer from '../layout-container';
+import Wrapper from '../wrapper';
 import InputButton from '../input-button';
 import PrimaryButton from '../../../../components/buttons/primary-button';
+import SelectorHeader from './selector_header';
 import { Puzzle } from 'lucide-react';
 
 const Lia = () => {
     return (
         <>
-            <LayoutContainer 
+            <SelectorHeader>Ändra Önskemål</SelectorHeader>
+            <Wrapper 
                 direction='column' 
                 padding={[2, 1]} 
                 gap={[2]}>
@@ -17,7 +19,7 @@ const Lia = () => {
                     size={[1.1]} 
                     bold={700}>Önskemål praktik</Title>
 
-                <LayoutContainer 
+                <Wrapper 
                     styleDirection='center'
                     gap={[1]}>
 
@@ -29,13 +31,13 @@ const Lia = () => {
                         type='text'
                         placeholder='Yrkesroll' />
 
-                </LayoutContainer>
+                </Wrapper>
 
-                <LayoutContainer 
+                <Wrapper 
                     direction='column' 
                     gap={[1]}>
 
-                    <LayoutContainer 
+                    <Wrapper 
                     gap={[1]} 
                     styleDirection='center'>
 
@@ -60,19 +62,19 @@ const Lia = () => {
                             label='Hyrbrid'
                         />
 
-                    </LayoutContainer>
-                </LayoutContainer>
+                    </Wrapper>
+                </Wrapper>
 
-            </LayoutContainer>
+            </Wrapper>
 
-            <LayoutContainer 
+            <Wrapper 
                 direction='column' 
                 styleDirection='center' 
                 padding={[2,0]}>
                 
                 <PrimaryButton>Spara</PrimaryButton>
 
-            </LayoutContainer>
+            </Wrapper>
         </>
     )
 }
