@@ -1,14 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const Layout = () => {
+  const { pathname } = useLocation();
+  const excludedRoutes = ['signin', 'signup', 'reset'];
+  const noHeadOrFoot = excludedRoutes.includes(pathname.split('/')[1]);
+
   return (
     <>
-      <header>Header</header>
+      {!noHeadOrFoot && <header>Header</header>}
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      {!noHeadOrFoot && <footer>Footer</footer>}
     </>
   );
 };
