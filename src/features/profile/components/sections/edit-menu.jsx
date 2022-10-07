@@ -23,7 +23,7 @@ const EditMenu = () => {
                 padding={[0, 0, 3, 0]}>
                 <PrimaryButton onClick={clickHandler}>Ändra profil</PrimaryButton>
                                 
-                <PrimaryButton click={clickHandler}>Ändra LIA-sökning</PrimaryButton>
+                <PrimaryButton onClick={clickHandler}>Ändra LIA-sökning</PrimaryButton>
 
             </LayoutContainer>
 
