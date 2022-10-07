@@ -9,7 +9,7 @@ import './index.scss';
 
 const Index = () => {
 
-  const company = true;
+  const company = false;
 
   return (
     <>
@@ -47,12 +47,12 @@ const Index = () => {
 
           <SelectorHeader reverse={true}>Kompetenser</SelectorHeader> 
 
-          <LayoutContainer gap={[1]} styleDirection='center'>
-            <Badge>Node</Badge>
-            <Badge>JS</Badge>
-            <Badge>HTML</Badge>
-            <Badge>CSS</Badge>
-            <Badge>React</Badge>
+          <LayoutContainer gap={[1]} styleDirection='center' padding={[0,0,2,0]}>
+            <Badge width='fit-content'>Node</Badge>
+            <Badge width='fit-content'>JS</Badge>
+            <Badge width='fit-content'>HTML</Badge>
+            <Badge width='fit-content'>CSS</Badge>
+            <Badge width='fit-content'>React</Badge>
           </LayoutContainer>
           
           <EditMenu />

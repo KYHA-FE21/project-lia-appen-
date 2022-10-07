@@ -2,6 +2,7 @@ import React from 'react'
 import Title from '../title';
 import LayoutContainer from '../layout-container';
 import InputButton from '../input-button';
+import PrimaryButton from '../../../../components/buttons/primary-button';
 import { Puzzle } from 'lucide-react';
 
 const Lia = () => {
@@ -69,8 +70,7 @@ const Lia = () => {
                 styleDirection='center' 
                 padding={[2,0]}>
                 
-                <InputButton 
-                    className='button'>Spara</InputButton>
+                <PrimaryButton>Spara</PrimaryButton>
 
             </LayoutContainer>
         </>

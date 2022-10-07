@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import LayoutContainer from '../layout-container';
-import InputButton from '../input-button';
 import { Modal } from '../modal';
 import AboutMe from './about-me';
 import Lia from './lia';
+import PrimaryButton from '../../../../components/buttons/primary-button';
 
 const EditMenu = () => {
 
@@ -20,15 +20,10 @@ const EditMenu = () => {
             <LayoutContainer 
                 gap={[1]} 
                 styleDirection='center'
-                padding={[1, 0]}>
-                
-                <InputButton 
-                    className='button' 
-                    click={clickHandler}>Ändra profil</InputButton>
-                
-                <InputButton 
-                    className='button' 
-                    click={clickHandler}>Ändra LIA-sökning</InputButton>
+                padding={[0, 0, 3, 0]}>
+                <PrimaryButton onClick={clickHandler}>Ändra profil</PrimaryButton>
+                                
+                <PrimaryButton click={clickHandler}>Ändra LIA-sökning</PrimaryButton>
 
             </LayoutContainer>
 

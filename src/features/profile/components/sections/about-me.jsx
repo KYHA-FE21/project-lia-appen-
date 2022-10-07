@@ -2,6 +2,7 @@ import React from 'react'
 import Title from '../title';
 import LayoutContainer from '../layout-container';
 import InputButton from '../input-button';
+import PrimaryButton from '../../../../components/buttons/primary-button';
 import TextArea from '../textArea';
 import { Phone, GraduationCap, Star } from 'lucide-react';
 import SelectorHeader from './selector_header';
@@ -14,8 +15,6 @@ const AboutMe = () => {
                 direction='column' 
                 gap={[3]}
                 padding={[0, 1]}>
-
-                
 
                 <Title 
                     size={[1.1]} 
@@ -72,8 +71,7 @@ const AboutMe = () => {
                 styleDirection='center' 
                 padding={[2,0]}>
                 
-                <InputButton 
-                    className='button'>Spara</InputButton>
+                <PrimaryButton>Spara</PrimaryButton>
 
             </LayoutContainer>
         </>
