@@ -1,10 +1,23 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Check } from 'lucide-react';
 import Badge from '../../../components/badge/badge';
 import InfoText from '../../../components/info-text/info-text';
 import './modal.scss';
+import SecondaryButton from '../../../components/buttons/secondary-button';
 
-const Modal = ({ applicantList, companyBadges, index, setOpenModal }) => {
+const Modal = ({
+  applicantList,
+  setApplicantList,
+  companyBadges,
+  index,
+  setOpenModal,
+  removeApplication,
+}) => {
+  function removeFromList(i) {
+    if (applicantList.length == 1) setOpenModal(false);
+    removeApplication(i);
+  }
+
   const [currentIndex, setCurrentIndex] = useState(index);
   return (
     <div className="modal-background">
@@ -18,7 +31,12 @@ const Modal = ({ applicantList, companyBadges, index, setOpenModal }) => {
             }}
           >
             <h2>{applicantList[currentIndex].type}</h2>
-            <button onClick={() => setOpenModal(false)}>X</button>
+            <button
+              className="modal-close-button"
+              onClick={() => setOpenModal(false)}
+            >
+              X
+            </button>
           </div>
           <div className="card-badges">
             {companyBadges.map((badge) => {
@@ -37,9 +55,53 @@ const Modal = ({ applicantList, companyBadges, index, setOpenModal }) => {
             workModel={applicantList[currentIndex].workModel}
             location={applicantList[currentIndex].location}
           />
+          <div className="modal-description-container">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Asperiores delectus quaerat velit maiores perferendis blanditiis,
+              voluptatem ducimus omnis ea natus totam libero consectetur
+              repellat. Exercitationem a ea eum atque, minus accusantium,
+              dignissimos iure amet vel ducimus maxime ipsum neque blanditiis
+              eveniet debitis itaque magnam, dicta nisi aliquam officia sunt
+              dolorem ut.
+              <br />
+              <br /> Est, vero dolor delectus incidunt nesciunt alias, similique
+              odit dicta tempora voluptates adipisci debitis vitae. Temporibus
+              asperiores ducimus voluptatum! Libero quam qui quisquam
+              consectetur laborum pariatur harum odit maiores, tempore enim
+              suscipit asperiores. Fugiat porro veritatis temporibus vero quia,
+              odit nisi nemo molestias provident cupiditate nulla, voluptatem
+              nam facilis.
+            </p>
+          </div>
+          <div className="card-buttons">
+            <SecondaryButton
+              width="50%"
+              logo={<X />}
+              bg="#fd6d6d"
+              onClick={() => removeFromList(currentIndex)}
+            >
+              Neka
+            </SecondaryButton>
+            <SecondaryButton
+              width="50%"
+              logo={<Check />}
+              bg="#32ba78"
+              onClick={() => removeFromList(currentIndex)}
+            >
+              Acceptera
+            </SecondaryButton>
+          </div>
         </div>
         <div className="modal-bottom-contoller">
-          <button className="modal-arrow-left">
+          <button
+            className="modal-arrow-left"
+            onClick={() =>
+              currentIndex != 0
+                ? setCurrentIndex(currentIndex - 1)
+                : setCurrentIndex(applicantList.length - 1)
+            }
+          >
             <ChevronLeft />
           </button>
           <span>
@@ -47,8 +109,8 @@ const Modal = ({ applicantList, companyBadges, index, setOpenModal }) => {
           </span>
           <button
             className="modal-arrow-right"
-            onClick={
-              currentIndex != applicantList.lenght
+            onClick={() =>
+              currentIndex != applicantList.length - 1
                 ? setCurrentIndex(currentIndex + 1)
                 : setCurrentIndex(0)
             }

@@ -34,23 +34,26 @@ const ApplicationsContainer = () => {
   applicantList.sort((a, b) => b.badges.length - a.badges.length);
 
   function removeApplication(i) {
+    setApplicantList(applicantList.filter((re, r) => r !== i));
+  }
+  function removeLeft(i) {
     document
       .getElementById('application-card-' + i)
       .classList.add('animate-left');
     setTimeout(() => {
-      setApplicantList(applicantList.filter((re, r) => r !== i));
+      removeApplication(i);
       document
         .getElementById('application-card-' + i)
         .classList.remove('animate-left');
     }, 500);
   }
 
-  function addApplication(i) {
+  function removeRight(i) {
     document
       .getElementById('application-card-' + i)
       .classList.add('animate-right');
     setTimeout(() => {
-      setApplicantList(applicantList.filter((re, r) => r !== i));
+      removeApplication(i);
       document
         .getElementById('application-card-' + i)
         .classList.remove('animate-right');
@@ -82,8 +85,8 @@ const ApplicationsContainer = () => {
               companyBadges={myBadges}
               applicantBadges={a.badges}
               readMoreButtonOnClick={() => gotoModal(i)}
-              denyButtonOnClick={() => removeApplication(i)}
-              acceptButtonOnClick={() => addApplication(i)}
+              denyButtonOnClick={() => removeLeft(i)}
+              acceptButtonOnClick={() => removeRight(i)}
             />
           </div>
         );
@@ -91,9 +94,11 @@ const ApplicationsContainer = () => {
       {openModal && (
         <Modal
           applicantList={applicantList}
+          setApplicantList={setApplicantList}
           companyBadges={myBadges}
           index={currentIndex}
           setOpenModal={setOpenModal}
+          removeApplication={() => removeApplication(currentIndex)}
         />
       )}
     </div>
