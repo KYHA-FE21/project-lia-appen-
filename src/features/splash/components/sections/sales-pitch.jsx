@@ -31,7 +31,7 @@ function SalesPitchSection() {
       </FlexContainer>
 
       <FlexContainer className="justify-center">
-        <div className="splash-cards-max-width-lg">
+        <div className="splash-cards-max-width-xl">
           <Card>
             <CardTitle>Student</CardTitle>
             <ProseParagraph textAlign="center">
@@ -43,7 +43,7 @@ function SalesPitchSection() {
       </FlexContainer>
 
       <FlexContainer className="justify-center">
-        <div className="splash-cards-max-width-lg">
+        <div className="splash-cards-max-width-xl">
           <FlexContainer direction="col" desktopDirection="row" gap="4">
             <Card className="flex-1">
               <CardTitle>Söker frontend studenter!</CardTitle>
@@ -62,7 +62,7 @@ function SalesPitchSection() {
       </FlexContainer>
 
       <FlexContainer className="justify-center">
-        <div className="splash-cards-max-width-lg">
+        <div className="splash-cards-max-width-xl">
           <FlexContainer direction="col" desktopDirection="row" gap="4">
             <Card className="flex-1">
               <CardTitle>Fråga #1</CardTitle>

@@ -1,4 +1,4 @@
-import Splash from "..";
+import Splash from "../index";
 
 function Route() {
   return <Splash />

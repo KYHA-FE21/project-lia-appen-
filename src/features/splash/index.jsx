@@ -45,7 +45,7 @@ function Splash() {
       <SalesPitchSection />
 
       <FlexContainer direction="col" className="mx-4 items-center">
-        <Card className="splash-cards-max-width-lg">
+        <Card className="splash-cards-max-width-xl">
           <CardTitle>Vad väntar du på?</CardTitle>
           <LinkButton href="#" className="p-4 text-lg">
             Registrera dig!
