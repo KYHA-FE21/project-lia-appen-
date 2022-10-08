@@ -19,7 +19,6 @@ const InputField = ({
     setError(isError);
   }, [isError]);
 
-
   let classes = []
   if (error) classes.push('globalInputFieldError')
 
