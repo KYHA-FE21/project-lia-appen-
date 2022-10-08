@@ -62,12 +62,27 @@
     margin-right: #{$index * 4px};
   }
 
-  .h-#{$index} {
-    height: #{$index * 4px};
+  .my-#{$index} {
+    margin-top: #{$index * 4px};
+    margin-bottom: #{$index * 4px};
   }
 
   .p-#{$index} {
     padding: #{$index * 4px};
+  }
+
+  .px-#{$index} {
+    padding-left: #{$index * 4px};
+    padding-right: #{$index * 4px};
+  }
+
+  .py-#{$index} {
+    padding-top: #{$index * 4px};
+    padding-bottom: #{$index * 4px};
+  }
+
+  .h-#{$index} {
+    height: #{$index * 4px};
   }
 }
 
