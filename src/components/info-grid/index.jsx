@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const InfoGrid = ({ entries = [], width, fontSize, color = "black", className = "" }) => {
+function InfoGrid ({ entries = [], width, fontSize, color = "black", className = "" }) {
   return (
     <div
       className={`info-container text-${color} ${className}`}
