@@ -14,9 +14,8 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 	function handleChange(event) {
 		setData((prev) => {
 			prev.answers[question] = event.target.value;
-			return prev;
+			return { ...prev };
 		});
-		setQuestion(event.target.name);
 	}
 	useEffect(() => {
 		setQuestion(parseInt(searchParams.get("question")) || 0);
@@ -35,7 +34,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 					<Heading
 						props={{
 							heading: "Frågor",
-							subheading: parseInt(searchParams.get("question")) + 1 + "/" + data.questions.length,
+							subheading: question + 1 + "/" + data.questions.length,
 							icon: (
 								<XCircle
 									color="black"
