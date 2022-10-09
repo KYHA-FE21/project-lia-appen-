@@ -1,11 +1,11 @@
-import { createElement } from "react";
+import { createElement, forwardRef } from "react";
 
-function Container({ className, children, type, display, style: styleProp, id }) {
+const Container = forwardRef(({ className, children, type, display, style: styleProp, id }, ref)=>{
 	const style = {
 		display,
 		...styleProp,
 	};
-	return createElement(type || "div", { id, className, style }, children);
-}
+	return createElement(type || "div", { ref, id, className, style }, children);
+})
 
 export default Container;
