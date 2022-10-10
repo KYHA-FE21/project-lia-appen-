@@ -1,235 +1,65 @@
 @use "sass:math";
 
 .splash-cards-max-width-md {
-  width: 100%;
-  max-width: 768px;
+	width: 100%;
+	max-width: 768px;
 }
 
 .splash-cards-max-width-xl {
-  width: 100%;
-  max-width: 1280px;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.flex-row {
-  flex-direction: row;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.items-start {
-  align-items: flex-start;
-}
-
-.items-end {
-  align-items: flex-end;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.items-stretch {
-  align-items: stretch;
-}
-
-.place-self-stretch {
-  place-self: stretch;
-}
-
-.grow {
-  flex-grow: 1;
-}
-
-.place-self-center {
-  place-self: center;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-@for $index from 1 through 16 {
-  .gap-#{$index} {
-    gap: #{$index * 4px};
-  }
-
-  .m-#{$index} {
-    margin: #{$index * 4px};
-  }
-
-  .mx-#{$index} {
-    margin-left: #{$index * 4px};
-    margin-right: #{$index * 4px};
-  }
-
-  .p-#{$index} {
-    padding: #{$index * 4px};
-  }
-}
-
-/* auto */
-.m-auto {
-  margin: auto;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-@for $num from 1 through 100 {
-  @if $num % 8==0 or $num ==100 {
-    .h-#{$num} {
-      height: #{$num * 4px};
-    }
-
-    .w-#{$num} {
-      width: #{$num * 4px}
-    }
-
-    .max-h-#{$num} {
-      max-height: #{$num * 4px};
-    }
-
-    .max-w-#{$num} {
-      max-width: #{$num * 4px}
-    }
-  }
+	width: 100%;
+	max-width: 1280px;
 }
 
 $sizes: (
-  "sm": 0.875rem,
-  "base": 1rem,
-  "lg": 1.125rem,
-  "xl": 1.25rem,
-  "2xl": 1.5rem,
-  "3xl": 1.875rem,
-  "6xl": 3.75rem
+	"sm": 0.875rem,
+	"base": 1rem,
+	"lg": 1.125rem,
+	"xl": 1.25rem,
+	"2xl": 1.5rem,
+	"3xl": 1.875rem,
+	"6xl": 3.75rem
 );
-
-@each $name,
-$size in $sizes {
-  .text-#{$name} {
-    font-size: #{$size};
-  }
-
-  @media (min-width: 768px) {
-    .md\:text-#{$name} {
-      font-size: #{$size};
-    }
-  }
-}
-
-strong {
-  font-weight: 700;
-}
-
-i {
-  font-style: italic;
-}
-
-.rounded-md {
-  border-radius: 8px;
-}
-
-$colors: (
-  "white": white,
-  "black": black,
-  "primary": #4d243d
-);
-
-@each $color,
-$value in $colors {
-  .text-#{$color} {
-    color: $value;
-  }
-
-  .bg-#{$color} {
-    background-color: $value;
-  }
-}
-
-$leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
-
-@each $size in $leading-sizes {
-  $index: index($leading-sizes, $size);
-
-  .leading-#{$size} {
-    line-height: #{1 * (math.div($index - 1, 5)) + 1};
-  }
-}
-
-.no-underline {
-  text-decoration-line: none;
-}
-
-.font-display {
-  font-family: "Cousine", monospace;
-}
-
-$tracking-sizes: (
-  "tighter": -0.075em,
-  "normal": 0em
-);
-
-@each $name,
-$size in $tracking-sizes {
-  .tracking-#{$name} {
-    letter-spacing: $size;
-  }
-}
-
-.shadow {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px #000000;
-}
 
 @media (min-width: 768px) {
-  .md\:flex-row {
-    flex-direction: row;
-  }
 
-  .md\:flex-col {
-    flex-direction: column;
-  }
+	@each $name,
+	$size in $sizes {
+		.md\:text-#{$name} {
+			font-size: #{$size};
+		}
+	}
 
-  .md\:m-auto {
-    margin: auto;
-  }
+	.md\:flex-row {
+		flex-direction: row;
+	}
 
-  .md\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
+	.md\:flex-col {
+		flex-direction: column;
+	}
 
-  .md\:my-auto {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+	.md\:m-auto {
+		margin: auto;
+	}
 
-  .md\:h-32 {
-    height: 128px;
+	.md\:mx-auto {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.md\:my-auto {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.md\:h-32 {
+		height: 128px;
+	}
+
+  .md\:items-start {
+    align-items: flex-start;
   }
+}
+
+.-m-3 {
+  margin: -12px;
 }

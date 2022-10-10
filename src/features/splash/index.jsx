@@ -1,12 +1,12 @@
 import "./index.scss";
 
 import AnimatedText from "./components/animated-text";
-import Card, { CardTitle } from "./components/card";
 import FlexContainer from "./components/flex-container";
 import LinkButton from "./components/link-button";
 import ProseParagraph from "./components/prose-paragraph";
 
 import SalesPitchSection from "./components/sections/sales-pitch";
+import Card, { CardHeader } from "../../components/card";
 
 function Splash() {
   return (
@@ -30,7 +30,9 @@ function Splash() {
 
       <FlexContainer direction="col" className="mx-4 items-center">
         <Card className="splash-cards-max-width-md">
-          <CardTitle className="text-2xl">Jag letar efter</CardTitle>
+          <CardHeader className="text-2xl place-self-center">
+            <strong>Jag letar efter</strong>
+          </CardHeader>
           <FlexContainer gap="4" className="items-stretch">
             <LinkButton className="text-base p-4" href="#student">
               Student
@@ -46,7 +48,9 @@ function Splash() {
 
       <FlexContainer direction="col" className="mx-4 items-center">
         <Card className="splash-cards-max-width-xl">
-          <CardTitle>Vad väntar du på?</CardTitle>
+          <CardHeader className="place-self-center">
+            <strong>Vad väntar du på?</strong>
+          </CardHeader>
           <LinkButton href="#" className="p-4 text-lg">
             Registrera dig!
           </LinkButton>
