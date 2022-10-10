@@ -16,9 +16,9 @@ function SecondaryButton({
 			style={{ width: width, fontSize: fontSize }}
 			{...restProps}
 		>
-			{children && <span className="p-2 px-4 secondary-button-text">{children}</span>}
+			{children && <span className="flex items-center p-3 px-4 secondary-button-text">{children}</span>}
 			{icon && (
-				<div className={`secondary-button-icon flex justify-center items-center p-1 px-4 text-${color} bg-${bgColor}`}>
+				<div className={`secondary-button-icon flex justify-center items-center p-3 px-4 text-${color} bg-${bgColor}`}>
 					{icon}
 				</div>
 			)}
