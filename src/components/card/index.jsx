@@ -6,7 +6,7 @@ function Card({
 }) {
 	return (
 		<article className="shadow card-bg" id={id}>
-			<div className="card-container gradient">
+			<div className="card-container gap-5 p-3 gradient">
 				{children}
 			</div>
 		</article>
@@ -14,7 +14,7 @@ function Card({
 }
 
 export function CardHeader({ children }) {
-	return <div className="card-top">{children}</div>;
+	return <div className="card-top py-2">{children}</div>;
 }
 
 export function CardBadges({ children }) {
