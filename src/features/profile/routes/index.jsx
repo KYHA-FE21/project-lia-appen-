@@ -33,7 +33,7 @@ const Index = () => {
 
         : 
         
-        <Wrapper direction='column' gap={[1]}>
+        <Wrapper width="unset" direction='column' gap={[1]}>
           
           <SelectorHeader>Profil</SelectorHeader> 
           
