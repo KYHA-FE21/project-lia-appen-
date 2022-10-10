@@ -1,15 +1,12 @@
 .card-container {
 	display: flex;
 	flex-direction: column;
-	gap: 1.2em;
-	padding: 0.8em;
 	backdrop-filter: blur(10.5px);
 	-webkit-backdrop-filter: blur(10.5px);
 	border-radius: 1em;
 	transition: all 1s ease-out;
 
 	.card-top {
-		padding: 0.2em 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
