@@ -5,7 +5,7 @@ function Card({
 	children,
 }) {
 	return (
-		<article className="shadow card-bg" id={id}>
+		<article className="shadow card-bg rounded-lg overflow-hidden" id={id}>
 			<div className="card-container gap-5 p-3 gradient">
 				{children}
 			</div>

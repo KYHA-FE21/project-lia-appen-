@@ -115,6 +115,10 @@ $size in $sizes {
 	border-radius: 8px;
 }
 
+.rounded-lg {
+	border-radius: 16px;
+}
+
 $colors: (
 	"white": white,
 	"black": black,
