@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Check, X, XCircle } from "lucide-react";
 
-import "./questions.scss";
-
 import Container from "../components/container";
 import QuestionAlternative from "../components/question-alternative";
 import Heading from "../components/heading";
@@ -30,9 +28,9 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-questions" className={"card gradient shadow"}>
+				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow max-width"}>
 					<Heading
-						props={{
+						{...{
 							heading: "Frågor",
 							subheading: question + 1 + "/" + data.questions.length,
 							icon: (
@@ -47,21 +45,21 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 						}}
 					/>
 					<hr />
-					<Container className="questions-question">
-						<Container className="questions-text gradient shadow">
+					<Container display="grid" className="questions-question gap-4">
+						<Container display="grid" className="questions-text gap-3 p-4 rounded-md gradient shadow">
 							<h2>{data?.questions[question]?.title}</h2>
 							<span>{data?.questions[question]?.body}</span>
 						</Container>
-						<Container type="form" className="questions-alternatives">
+						<Container type="form" display="grid" className="gap-2">
 							{data?.questions[question]?.answers.map((answer, index) => (
 								<QuestionAlternative type="radio" text={answer} name={data?.questions[question]?.id} key={`${data?.questions[question]?.id}${index}`} handleChange={handleChange} value={index + 1} checked={data.answers[question] === (index + 1).toString()} />
 							))}
 						</Container>
 					</Container>
 					<hr />
-					<Container type="nav" className="nav">
+					<Container type="nav" display="flex" className="gap-3 justify-evenly">
 						<span
-							style={{ width: "100%" }}
+							className="w-100"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);
@@ -74,7 +72,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							</SecondaryButton>
 						</span>
 						<span
-							style={{ width: "100%" }}
+							className="w-100"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question + 1);

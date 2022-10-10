@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Check, X, XCircle } from "lucide-react";
 
-import "./verify.scss";
-
 import Container from "../components/container";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
@@ -15,29 +13,27 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" id="matchmake-verify" className={"card gradient shadow"}>
+				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow max-width"}>
 					{loading && (
 						<Heading
-							props={{
+							{...{
 								heading: "Laddar...",
-								style: {
-									justifyContent: "center",
-								},
+								className: "justify-center",
 							}}
 						/>
 					)}
 					{!loading && verified && (
 						<>
 							<Heading
-								props={{
+								{...{
 									heading: "Skickat",
 									subheading: "Tryck på tillbaks för att få ett se ett nytt kort.",
 									icon: <Check color="black" size="30" />,
 								}}
 							></Heading>
-							<Container type="nav" className="verify-nav">
+							<Container type="nav" display="flex" className="gap-3 justify-evenly">
 								<span
-									style={{ width: "100%" }}
+									className="w-100"
 									onClick={() => {
 										setData(false);
 									}}
@@ -52,7 +48,7 @@ function Verify({ data, setData, setSearchParams }) {
 					{!loading && !verified && (
 						<>
 							<Heading
-								props={{
+								{...{
 									heading: "Bekräfta",
 									subheading: `Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`,
 									icon: (
@@ -67,9 +63,9 @@ function Verify({ data, setData, setSearchParams }) {
 								}}
 							/>
 							<p>Är du säker på att du vill skicka dina svar och få en chans att ansöka? </p>
-							<Container type="nav" className="nav">
+							<Container type="nav" display="flex" className="gap-3 justify-evenly">
 								<span
-									style={{ width: "100%" }}
+									className="w-100"
 									onClick={() => {
 										setSearchParams((prev) => {
 											prev.set("action", "questions");
@@ -84,7 +80,7 @@ function Verify({ data, setData, setSearchParams }) {
 									</SecondaryButton>
 								</span>
 								<span
-									style={{ width: "100%" }}
+									className="w-100"
 									onClick={() => {
 										setLoading(true);
 										setVerified(true);

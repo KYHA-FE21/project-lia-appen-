@@ -3,8 +3,13 @@ main {
 	background-color: rgb(231, 217, 235);
 }
 
-.card {
-	max-width: 1280px;
+.max-width {
+	max-width: 800px;
+}
+
+hr {
+	width: 100%;
+	border-color: #9c9c9c;
 }
 
 .shadow {
@@ -30,4 +35,27 @@ main {
 
 .justify-evenly {
 	justify-content: space-evenly;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-end {
+	justify-content: end;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+@for $index from 1 through 4 {
+	$percent: 100 / 4 * $index;
+	.w-#{$percent} {
+		width: #{$percent * 1%};
+	}
+}
+
+.rounded-pill {
+	border-radius: 100vw;
 }

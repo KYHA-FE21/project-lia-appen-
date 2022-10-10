@@ -1,21 +1,14 @@
-function Heading({ props }) {
-	const { heading, subheading, icon, className: propClassName, style: propStyle } = props;
-	const className = "" + ` ${propClassName}`;
+import Container from "./container";
+
+function Heading({ heading, subheading, icon, className }) {
 	return (
-		<h1 className={className} style={{ display: "grid", gap:"0.8em" }}>
-			<span
-				style={{
-					fontSize: "1.5rem",
-					display: "flex",
-					justifyContent: "space-between",
-					...propStyle,
-				}}
-			>
-				<span>{heading}</span>
+		<Container type="h1" display="grid" className={`gap-1 ${className && className}`}>
+			<Container type="span" display="flex" className="text-2xl justify-between">
+				<span className="flex items-center">{heading}</span>
 				{icon && <span>{icon}</span>}
-			</span>
-			{subheading && <small style={{ textAlign: "center" }}>{subheading}</small>}
-		</h1>
+			</Container>
+			{subheading && <small className="text-center text-m">{subheading}</small>}
+		</Container>
 	);
 }
 
