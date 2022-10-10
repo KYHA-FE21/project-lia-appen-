@@ -21,7 +21,7 @@
 
   <CardButtons>
     <SecondaryButton
-      logo={<X />}
+      icon={<X />}
       onClick={denyButtonOnClick}
       bgColor="red"
       className="flex-1"
@@ -29,7 +29,7 @@
       Neka
     </SecondaryButton>
     <SecondaryButton
-      logo={<Check />}
+      icon={<Check />}
       onClick={acceptButtonOnClick}
       bgColor="green"
       className="flex-1"
