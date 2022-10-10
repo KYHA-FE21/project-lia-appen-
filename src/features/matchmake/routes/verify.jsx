@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Check, X, XCircle } from "lucide-react";
+import { Check, CheckCircle2, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
@@ -28,20 +28,30 @@ function Verify({ data, setData, setSearchParams }) {
 								{...{
 									heading: "Skickat",
 									subheading: "Tryck på tillbaks för att få ett se ett nytt kort.",
-									icon: <Check color="black" size="30" />,
+									icon: (
+										<CheckCircle2
+											color="black"
+											size="30"
+											onClick={() => {
+												setData(false);
+											}}
+										/>
+									),
 								}}
 							></Heading>
-							<Container type="nav" display="flex" className="gap-3 justify-evenly">
-								<span
-									className="w-100"
+							<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
+								<SecondaryButton
+									width="100%"
+									icon={<Check />}
+									bgColor="green"
+									className="text-white w-full"
+									fontSize={"0.75rem"}
 									onClick={() => {
 										setData(false);
 									}}
 								>
-									<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
-										Tillbaks
-									</SecondaryButton>
-								</span>
+									Tillbaks
+								</SecondaryButton>
 							</Container>
 						</>
 					)}
@@ -63,9 +73,13 @@ function Verify({ data, setData, setSearchParams }) {
 								}}
 							/>
 							<p>Är du säker på att du vill skicka dina svar och få en chans att ansöka? </p>
-							<Container type="nav" display="flex" className="gap-3 justify-evenly">
-								<span
-									className="w-100"
+							<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
+								<SecondaryButton
+									width="100%"
+									icon={<X />}
+									bgColor="red"
+									className="text-white"
+									fontSize={"0.75rem"}
 									onClick={() => {
 										setSearchParams((prev) => {
 											prev.set("action", "questions");
@@ -75,12 +89,14 @@ function Verify({ data, setData, setSearchParams }) {
 										});
 									}}
 								>
-									<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
-										Tillbaks
-									</SecondaryButton>
-								</span>
-								<span
-									className="w-100"
+									Tillbaks
+								</SecondaryButton>
+								<SecondaryButton
+									width="100%"
+									icon={<Check />}
+									bgColor="green"
+									className="text-white"
+									fontSize={"0.75rem"}
 									onClick={() => {
 										setLoading(true);
 										setVerified(true);
@@ -89,10 +105,8 @@ function Verify({ data, setData, setSearchParams }) {
 										}, 1_000);
 									}}
 								>
-									<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
-										Skicka in
-									</SecondaryButton>
-								</span>
+									Skicka in
+								</SecondaryButton>
 							</Container>
 						</>
 					)}

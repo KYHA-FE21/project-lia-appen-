@@ -3,7 +3,6 @@ import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react"
 
 import Container from "../components/container";
 import Heading from "../components/heading";
-import Badge from "../../../components/badge/";
 import InfoGrid from "../../../components/info-grid/";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
@@ -48,12 +47,11 @@ function Information({ data, setData, setSearchParams }) {
 					<InfoStats />
 					<hr />
 
-					<Container type="nav" display="flex" className="gap-3 justify-evenly">
+					<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
 						<SecondaryButton
-							width="100%"
 							icon={<X />}
 							bgColor="red"
-							className="text-white"
+							className="text-white w-full"
 							fontSize={"0.75rem"}
 							onClick={() => {
 								setData(false);
@@ -62,10 +60,9 @@ function Information({ data, setData, setSearchParams }) {
 							Neka
 						</SecondaryButton>
 						<SecondaryButton
-							width="100%"
 							icon={<Check />}
 							bgColor="green"
-							className="text-white"
+							className="text-white w-full"
 							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {

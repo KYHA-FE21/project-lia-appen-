@@ -57,12 +57,12 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 						</Container>
 					</Container>
 					<hr />
-					<Container type="nav" display="flex" className="gap-3 justify-evenly">
+					<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
 						<SecondaryButton
 							width="100%"
 							icon={<X />}
 							bgColor="red"
-							className="text-white"
+							className="text-white w-full"
 							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {
@@ -77,7 +77,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							width="100%"
 							icon={<Check />}
 							bgColor="green"
-							className="text-white"
+							className="text-white w-full"
 							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {
