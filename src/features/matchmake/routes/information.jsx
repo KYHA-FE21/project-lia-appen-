@@ -1,16 +1,17 @@
 import React from "react";
-import { Check, Info, X } from "lucide-react";
+import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
-import Badge from "../../../components/badge/badge";
-import InfoText from "../../../components/info-text/info-text";
+import Badge from "../../../components/badge/";
+import InfoGrid from "../../../components/info-grid/";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
+import generateBadges from "../../../components/badge/generate-badges";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow max-width"}>
+		<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur m-auto overflow-hidden gradient shadow max-width"}>
 			{!data && (
 				<Heading
 					{...{
@@ -27,35 +28,45 @@ function Information({ data, setData, setSearchParams }) {
 							icon: <Info color="black" size="30" />,
 						}}
 					/>
-					<Container type="ul" className="info-properties">
-						<InfoText startTime="2022-11" endTime="2023-05" workModel="Remote" location="Gävleborg" />
+					<Container type="article">
+						<InfoGrid
+							fontSize={"0.75rem"}
+							entries={[
+								{ icon: <CalendarDays size="20" />, children: "2022-11 till 2023-05" },
+								{ icon: <MapPin size="20" />, children: "Gävleborg" },
+								{ icon: <CheckCircle size="20" />, children: "Remote" },
+								{ icon: <CheckCircle size="20" />, children: "Hybrid" },
+							]}
+						/>
 					</Container>
 					<hr />
 
-					<Container type="ul" display="flex" className="flex-wrap justify-between">
-						<Badge>Node</Badge>
-						<Badge>JS</Badge>
-						<Badge>CSS</Badge>
-						<Badge>HTML</Badge>
-						<Badge>React</Badge>
+					<Container type="ul" display="flex" className="flex-wrap justify-center gap-2 text-white">
+						{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}
 					</Container>
 					<hr />
 					<InfoStats />
 					<hr />
 
 					<Container type="nav" display="flex" className="gap-3 justify-evenly">
-						<span
-							className="w-100"
+						<SecondaryButton
+							width="100%"
+							icon={<X />}
+							bgColor="red"
+							className="text-white"
+							fontSize={"0.75rem"}
 							onClick={() => {
 								setData(false);
 							}}
 						>
-							<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
-								Neka
-							</SecondaryButton>
-						</span>
-						<span
-							className="w-100"
+							Neka
+						</SecondaryButton>
+						<SecondaryButton
+							width="100%"
+							icon={<Check />}
+							bgColor="green"
+							className="text-white"
+							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("action", "questions");
@@ -64,10 +75,8 @@ function Information({ data, setData, setSearchParams }) {
 								});
 							}}
 						>
-							<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
-								Gör test
-							</SecondaryButton>
-						</span>
+							Gör test
+						</SecondaryButton>
 					</Container>
 				</>
 			)}

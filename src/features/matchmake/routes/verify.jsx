@@ -13,7 +13,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow max-width"}>
+				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur m-auto overflow-hidden gradient shadow max-width"}>
 					{loading && (
 						<Heading
 							{...{

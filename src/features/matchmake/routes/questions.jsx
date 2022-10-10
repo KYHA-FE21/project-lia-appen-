@@ -28,7 +28,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow max-width"}>
+				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur m-auto overflow-hidden gradient shadow max-width"}>
 					<Heading
 						{...{
 							heading: "Frågor",
@@ -58,8 +58,12 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 					</Container>
 					<hr />
 					<Container type="nav" display="flex" className="gap-3 justify-evenly">
-						<span
-							className="w-100"
+						<SecondaryButton
+							width="100%"
+							icon={<X />}
+							bgColor="red"
+							className="text-white"
+							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);
@@ -67,12 +71,14 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 								});
 							}}
 						>
-							<SecondaryButton width="100%" logo={<X />} bg="#fd6d6d">
-								Föregående
-							</SecondaryButton>
-						</span>
-						<span
-							className="w-100"
+							Föregående
+						</SecondaryButton>
+						<SecondaryButton
+							width="100%"
+							icon={<Check />}
+							bgColor="green"
+							className="text-white"
+							fontSize={"0.75rem"}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question + 1);
@@ -80,10 +86,8 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 								});
 							}}
 						>
-							<SecondaryButton width="100%" logo={<Check />} bg="#32ba78">
-								Nästa
-							</SecondaryButton>
-						</span>
+							Nästa
+						</SecondaryButton>
 					</Container>
 				</Container>
 			)}
