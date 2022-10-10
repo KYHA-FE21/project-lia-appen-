@@ -13,7 +13,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 function Information({ data, setData, setSearchParams }) {
 	if (!data)
 		return (
-			<Container type="section" id="matchmake-info" className={"card gradient shadow"}>
+			<Container type="section" id="matchmake-info" display="flex" className={"card flex-col gradient shadow"} style={{maxWidth:"1280px"}}>
 				<Heading
 					props={{
 						heading: "Laddar...",
@@ -24,7 +24,7 @@ function Information({ data, setData, setSearchParams }) {
 		);
 	else
 		return (
-			<Container type="section" id="matchmake-info" className={"card gradient shadow"}>
+			<Container type="section" id="matchmake-info" display="flex" className={"card flex-col gap-4 p-3 rounded-md blur margin-auto overflow-hidden gradient shadow"}>
 				<Heading
 					props={{
 						heading: "Systemutvecklare",
@@ -51,7 +51,7 @@ function Information({ data, setData, setSearchParams }) {
 				</Container>
 				<hr />
 
-				<Container type="nav" className="nav">
+				<Container type="nav" display="flex" className="nav gap-3 justify-evenly">
 					<span
 						style={{ width: "100%" }}
 						onClick={() => {

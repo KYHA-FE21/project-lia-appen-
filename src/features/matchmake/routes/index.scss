@@ -4,22 +4,7 @@ main {
 }
 
 .card {
-	overflow: hidden;
 	max-width: 1280px;
-	margin: auto;
-
-	display: flex;
-	flex-direction: column;
-	gap: 1.2em;
-	padding: 0.8em;
-	backdrop-filter: blur(10.5px);
-	-webkit-backdrop-filter: blur(10.5px);
-	border-radius: 1em;
-}
-.nav {
-	display: flex;
-	gap: 0.8em;
-	justify-content: space-evenly;
 }
 
 .shadow {
@@ -28,4 +13,21 @@ main {
 
 .gradient {
 	background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.1) 10%, hsla(0, 0%, 0%, 0.05) 50%, hsla(0, 0%, 0%, 0.1) 90%);
+}
+
+.blur {
+	backdrop-filter: blur(10.5px);
+	-webkit-backdrop-filter: blur(10.5px);
+}
+
+.margin-auto {
+	margin: auto;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
 }
