@@ -37,6 +37,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 								<XCircle
 									color="black"
 									size="30"
+									style={{cursor:"pointer"}}
 									onClick={() => {
 										setData(false);
 									}}
@@ -63,7 +64,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							icon={<X />}
 							bgColor="red"
 							className="text-white w-full"
-							fontSize={"0.75rem"}
+							fontSize="0.75rem"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);
@@ -78,7 +79,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							icon={<Check />}
 							bgColor="green"
 							className="text-white w-full"
-							fontSize={"0.75rem"}
+							fontSize="0.75rem"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question + 1);

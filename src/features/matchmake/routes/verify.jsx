@@ -32,6 +32,7 @@ function Verify({ data, setData, setSearchParams }) {
 										<CheckCircle2
 											color="black"
 											size="30"
+											style={{ cursor: "pointer" }}
 											onClick={() => {
 												setData(false);
 											}}
@@ -45,7 +46,7 @@ function Verify({ data, setData, setSearchParams }) {
 									icon={<Check />}
 									bgColor="green"
 									className="text-white w-full"
-									fontSize={"0.75rem"}
+									fontSize="0.75rem"
 									onClick={() => {
 										setData(false);
 									}}
@@ -65,6 +66,7 @@ function Verify({ data, setData, setSearchParams }) {
 										<XCircle
 											color="black"
 											size="30"
+											style={{ cursor: "pointer" }}
 											onClick={() => {
 												setData(false);
 											}}
@@ -79,7 +81,7 @@ function Verify({ data, setData, setSearchParams }) {
 									icon={<X />}
 									bgColor="red"
 									className="text-white"
-									fontSize={"0.75rem"}
+									fontSize="0.75rem"
 									onClick={() => {
 										setSearchParams((prev) => {
 											prev.set("action", "questions");
@@ -96,7 +98,7 @@ function Verify({ data, setData, setSearchParams }) {
 									icon={<Check />}
 									bgColor="green"
 									className="text-white"
-									fontSize={"0.75rem"}
+									fontSize="0.75rem"
 									onClick={() => {
 										setLoading(true);
 										setVerified(true);

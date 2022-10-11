@@ -52,7 +52,7 @@ function Information({ data, setData, setSearchParams }) {
 							icon={<X />}
 							bgColor="red"
 							className="text-white w-full"
-							fontSize={"0.75rem"}
+							fontSize="0.75rem"
 							onClick={() => {
 								setData(false);
 							}}
@@ -63,7 +63,7 @@ function Information({ data, setData, setSearchParams }) {
 							icon={<Check />}
 							bgColor="green"
 							className="text-white w-full"
-							fontSize={"0.75rem"}
+							fontSize="0.75rem"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("action", "questions");
