@@ -9,10 +9,11 @@ import InfoStats from "../components/info-stats";
 import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
 import Loading from "../components/loading";
+import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Container type="section" display="flex" className="flex-col py-3 gap-3 rounded-md blur mx-auto overflow-hidden gradient shadow w-full max-width" style={{ height: "max-content" }}>
+		<Card className="cardfix mx-auto w-full max-width">
 			{!data && (
 				<>
 					<Heading
@@ -38,21 +39,19 @@ function Information({ data, setData, setSearchParams }) {
 						<InfoGrid
 							fontSize={"0.75rem"}
 							entries={[
-								{ icon: <CalendarDays size="20" />, children: "2022-11 till 2023-05" },
-								{ icon: <MapPin size="20" />, children: "Gävleborg" },
-								{ icon: <CheckCircle size="20" />, children: "Remote" },
-								{ icon: <CheckCircle size="20" />, children: "Hybrid" },
+								{ icon: <CalendarDays size="20" />, children: <span className="text-bold">2022-11 till 2023-05</span> },
+								{ icon: <MapPin size="20" />, children: <span className="text-bold">Gävleborg</span> },
+								{ icon: <CheckCircle size="20" />, children: <span className="text-bold">Remote</span> },
+								{ icon: <CheckCircle size="20" />, children: <span className="text-bold">Hybrid</span> },
 							]}
 						/>
 					</Container>
 					<HorizontalRow className="px-3" />
-					<Container type="ul" display="flex" className="px-3 flex-wrap justify-center gap-2 text-white">
-						{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}
-					</Container>
+					<CardBadges className="badgesfix">{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}</CardBadges>
 					<HorizontalRow className="px-3" />
 					<InfoStats className="px-3" />
 					<HorizontalRow className="px-3" />
-					<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10 mx-auto">
+					<CardButtons className="px-3 h-10">
 						<SecondaryButton
 							icon={<X />}
 							bgColor="red"
@@ -77,10 +76,10 @@ function Information({ data, setData, setSearchParams }) {
 						>
 							Gör test
 						</SecondaryButton>
-					</Container>
+					</CardButtons>
 				</>
 			)}
-		</Container>
+		</Card>
 	);
 }
 

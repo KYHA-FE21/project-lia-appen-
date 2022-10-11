@@ -7,6 +7,7 @@ import QuestionAlternative from "../components/question-alternative";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import HorizontalRow from "../components/hr";
+import Card, { CardButtons } from "../../../components/card";
 
 function Questions({ data, setData, searchParams, setSearchParams }) {
 	const [question, setQuestion] = useState(0);
@@ -29,7 +30,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" display="flex" className="flex-col py-3 gap-3 rounded-md blur mx-auto overflow-hidden gradient shadow w-full max-width" style={{ height: "max-content" }}>
+				<Card className="cardfix mx-auto w-full max-width">
 					<Heading
 						className="px-3"
 						{...{
@@ -59,12 +60,12 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 						</Container>
 					</Container>
 					<HorizontalRow className="px-3" />
-					<Container type="nav" display="flex" className="gap-3 px-3 justify-evenly w-full h-10 mx-auto">
+					<CardButtons className="px-3 h-10">
 						<SecondaryButton
 							icon={<X />}
 							bgColor="red"
 							className="text-white w-full text-base"
-							style={question === 0 ? { color: "grey", fontSize: "0.875rem" } : { fontSize: "0.875rem" }}
+							style={question === 0 ? { color: "darkgrey", fontSize: "0.875rem" } : { fontSize: "0.875rem" }}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);
@@ -87,8 +88,8 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 						>
 							Nästa
 						</SecondaryButton>
-					</Container>
-				</Container>
+					</CardButtons>
+				</Card>
 			)}
 		</>
 	);

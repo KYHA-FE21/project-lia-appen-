@@ -6,6 +6,7 @@ import Container from "../components/container";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import Loading from "../components/loading";
+import Card, { CardButtons } from "../../../components/card";
 
 function Verify({ data, setData, setSearchParams }) {
 	const [verified, setVerified] = useState(false);
@@ -14,7 +15,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" display="flex" className="flex-col py-3 gap-3 rounded-md blur mx-auto overflow-hidden gradient shadow w-full max-width" style={{ height: "max-content" }}>
+				<Card className="cardfix mx-auto w-full max-width">
 					{loading && (
 						<>
 							<Heading
@@ -46,7 +47,7 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							></Heading>
-							<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10">
+							<CardButtons className="px-3 h-10">
 								<SecondaryButton
 									icon={<Check />}
 									bgColor="green"
@@ -57,7 +58,7 @@ function Verify({ data, setData, setSearchParams }) {
 								>
 									Tillbaks
 								</SecondaryButton>
-							</Container>
+							</CardButtons>
 						</>
 					)}
 					{!loading && !verified && (
@@ -82,7 +83,7 @@ function Verify({ data, setData, setSearchParams }) {
 							<Container type="p" className="px-3">
 								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
 							</Container>
-							<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10 mx-auto">
+							<CardButtons className="px-3 h-10">
 								<SecondaryButton
 									icon={<X />}
 									bgColor="red"
@@ -112,10 +113,10 @@ function Verify({ data, setData, setSearchParams }) {
 								>
 									Skicka in
 								</SecondaryButton>
-							</Container>
+							</CardButtons>
 						</>
 					)}
-				</Container>
+				</Card>
 			)}
 		</>
 	);
