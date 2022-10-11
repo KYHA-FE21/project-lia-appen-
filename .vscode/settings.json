@@ -1,0 +1,8 @@
+{
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"javascript.format.semicolons": "insert",
+	"prettier.jsxSingleQuote": false,
+	"prettier.singleQuote": false,
+	"prettier.useTabs": true
+}
