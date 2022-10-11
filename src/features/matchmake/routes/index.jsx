@@ -19,9 +19,9 @@ const Index = () => {
 				if (!data) {
 					setData({
 						questions: [
-							{ id: 0, title: "Fråga 1", body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur harum atque quibusdam vel placeat enim doloremque nisi cumque eos. Deserunt quam eum ullam quidem molestias! Hic omnis doloremque maiores ipsa?", answers: ["Svar 1", "Svar 2", "Svar 3", "Svar 4"] },
+							{ id: 0, title: "Fråga 1", body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, fuga maxime! Illo exercitationem dicta delectus tenetur nobis ex ea aliquam?", answers: ["Svar 1", "Svar 2", "Svar 3", "Svar 4"] },
 							{ id: 1, title: "Fråga 2", body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur harum atque quibusdam vel placeat enim doloremque nisi cumque eos. Deserunt quam eum ullam quidem molestias! Hic omnis doloremque maiores ipsa?", answers: ["Svar 1", "Svar 2", "Svar 3"] },
-							{ id: 2, title: "Fråga 3", body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur harum atque quibusdam vel placeat enim doloremque nisi cumque eos. Deserunt quam eum ullam quidem molestias! Hic omnis doloremque maiores ipsa?", answers: ["Svar 1", "Svar 2"] },
+							{ id: 2, title: "Fråga 3", body: "Gillar du React?", answers: ["Ja!"] },
 						],
 						answers: {},
 					});

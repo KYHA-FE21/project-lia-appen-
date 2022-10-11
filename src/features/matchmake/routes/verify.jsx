@@ -5,6 +5,7 @@ import { Check, CheckCircle2, X, XCircle } from "lucide-react";
 import Container from "../components/container";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
+import Loading from "../components/loading";
 
 function Verify({ data, setData, setSearchParams }) {
 	const [verified, setVerified] = useState(false);
@@ -13,18 +14,23 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur m-auto overflow-hidden gradient shadow max-width"}>
+				<Container type="section" display="flex" className="flex-col py-3 gap-3 rounded-md blur mx-auto overflow-hidden gradient shadow w-full max-width" style={{ height: "max-content" }}>
 					{loading && (
-						<Heading
-							{...{
-								heading: "Laddar...",
-								className: "justify-center",
-							}}
-						/>
+						<>
+							<Heading
+								className="px-3"
+								{...{
+									heading: "Laddar...",
+									className: "justify-center",
+								}}
+							/>
+							<Loading />
+						</>
 					)}
 					{!loading && verified && (
 						<>
 							<Heading
+								className="px-3"
 								{...{
 									heading: "Skickat",
 									subheading: "Tryck på tillbaks för att få ett se ett nytt kort.",
@@ -40,13 +46,11 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							></Heading>
-							<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
+							<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10">
 								<SecondaryButton
-									width="100%"
 									icon={<Check />}
 									bgColor="green"
-									className="text-white w-full"
-									fontSize="0.75rem"
+									className="text-white w-full text-sm"
 									onClick={() => {
 										setData(false);
 									}}
@@ -59,6 +63,7 @@ function Verify({ data, setData, setSearchParams }) {
 					{!loading && !verified && (
 						<>
 							<Heading
+								className="px-3"
 								{...{
 									heading: "Bekräfta",
 									subheading: `Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`,
@@ -74,14 +79,14 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							/>
-							<p>Är du säker på att du vill skicka dina svar och få en chans att ansöka? </p>
-							<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
+							<Container type="p" className="px-3">
+								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
+							</Container>
+							<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10 mx-auto">
 								<SecondaryButton
-									width="100%"
 									icon={<X />}
 									bgColor="red"
-									className="text-white"
-									fontSize="0.75rem"
+									className="text-white w-full text-sm"
 									onClick={() => {
 										setSearchParams((prev) => {
 											prev.set("action", "questions");
@@ -94,11 +99,9 @@ function Verify({ data, setData, setSearchParams }) {
 									Tillbaks
 								</SecondaryButton>
 								<SecondaryButton
-									width="100%"
 									icon={<Check />}
 									bgColor="green"
-									className="text-white"
-									fontSize="0.75rem"
+									className="text-white w-full text-sm"
 									onClick={() => {
 										setLoading(true);
 										setVerified(true);

@@ -7,27 +7,34 @@ import InfoGrid from "../../../components/info-grid/";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
 import generateBadges from "../../../components/badge/generate-badges";
+import HorizontalRow from "../components/hr";
+import Loading from "../components/loading";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Container type="section" display="flex" className={"flex-col gap-4 p-3 rounded-md blur m-auto overflow-hidden gradient shadow max-width"}>
+		<Container type="section" display="flex" className="flex-col py-3 gap-3 rounded-md blur mx-auto overflow-hidden gradient shadow w-full max-width" style={{ height: "max-content" }}>
 			{!data && (
-				<Heading
-					{...{
-						heading: "Laddar...",
-						className: "justify-center",
-					}}
-				/>
+				<>
+					<Heading
+						className="px-3"
+						{...{
+							heading: "Laddar...",
+							className: "justify-center",
+						}}
+					/>
+					<Loading />
+				</>
 			)}
 			{data && (
 				<>
 					<Heading
+						className="px-3"
 						{...{
 							heading: "Systemutvecklare",
 							icon: <Info color="black" size="30" />,
 						}}
 					/>
-					<Container type="article">
+					<Container className="px-3" type="article">
 						<InfoGrid
 							fontSize={"0.75rem"}
 							entries={[
@@ -38,21 +45,18 @@ function Information({ data, setData, setSearchParams }) {
 							]}
 						/>
 					</Container>
-					<hr />
-
-					<Container type="ul" display="flex" className="flex-wrap justify-center gap-2 text-white">
+					<HorizontalRow className="px-3" />
+					<Container type="ul" display="flex" className="px-3 flex-wrap justify-center gap-2 text-white">
 						{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}
 					</Container>
-					<hr />
-					<InfoStats />
-					<hr />
-
-					<Container type="nav" display="flex" className="gap-3 justify-evenly w-full h-10">
+					<HorizontalRow className="px-3" />
+					<InfoStats className="px-3" />
+					<HorizontalRow className="px-3" />
+					<Container type="nav" display="flex" className="px-3 gap-3 justify-evenly w-full h-10 mx-auto">
 						<SecondaryButton
 							icon={<X />}
 							bgColor="red"
-							className="text-white w-full"
-							fontSize="0.75rem"
+							className="text-white w-full text-sm"
 							onClick={() => {
 								setData(false);
 							}}
@@ -62,8 +66,7 @@ function Information({ data, setData, setSearchParams }) {
 						<SecondaryButton
 							icon={<Check />}
 							bgColor="green"
-							className="text-white w-full"
-							fontSize="0.75rem"
+							className="text-white w-full text-sm"
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("action", "questions");
