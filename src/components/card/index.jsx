@@ -1,26 +1,25 @@
 import "./index.scss";
 
-function Card({
-  id,
-  children,
-}) {
-  return (
-    <article className="card-container" id={id}>
-      {children}
-    </article>
-  );
+function Card({ id, className = "", children }) {
+	return (
+		<article className={`flex shadow card-bg rounded-lg overflow-hidden ${className}`} id={id}>
+			<div className="card-container flex-1 gap-5 p-3 gradient">
+				{children}
+			</div>
+		</article>
+	);
 }
 
-export function CardHeader({ children }) {
-  return <div className="card-top">{children}</div>;
+export function CardHeader({ className = "", children }) {
+	return <div className={`card-top py-2 ${className}`}>{children}</div>;
 }
 
-export function CardBadges({ children }) {
-  return <div className="card-badges items-stretch gap-4">{children}</div>;
+export function CardBadges({ className = "", children }) {
+	return <div className={`card-badges items-stretch gap-4 ${className}`}>{children}</div>;
 }
 
-export function CardButtons({ children }) {
-  return <div className="card-buttons items-stretch gap-4">{children}</div>;
+export function CardButtons({ className = "", children }) {
+	return <div className={`card-buttons items-stretch gap-4 ${className}`}>{children}</div>;
 }
 
 export default Card;

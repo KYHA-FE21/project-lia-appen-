@@ -1,148 +1,258 @@
-@use 'sass:math';
+@use "sass:math";
 
 .flex {
-  display: flex;
+	display: flex;
 }
 
 .flex-1 {
-  flex: 1 1 0%;
+	flex: 1 1 0%;
 }
 
 .flex-row {
-  flex-direction: row;
+	flex-direction: row;
 }
 
 .flex-col {
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .items-center {
-  align-items: center;
+	align-items: center;
+}
+
+.items-start {
+	align-items: flex-start;
+}
+
+.items-end {
+	align-items: flex-end;
 }
 
 .justify-center {
-  justify-content: center;
+	justify-content: center;
 }
 
 .items-stretch {
-  align-items: stretch;
+	align-items: stretch;
 }
 
 .place-self-stretch {
-  place-self: stretch;
+	place-self: stretch;
 }
 
 .grow {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 .place-self-center {
-  place-self: center;
+	place-self: center;
 }
 
 .text-center {
-  text-align: center;
+	text-align: center;
 }
 
 .text-justify {
-  text-align: justify;
+	text-align: justify;
 }
 
 @for $index from 1 through 16 {
-  .gap-#{$index} {
-    gap: #{$index * 4px};
-  }
+	.gap-#{$index} {
+		gap: #{$index * 4px};
+	}
 
-  .m-#{$index} {
-    margin: #{$index * 4px};
-  }
+	.m-#{$index} {
+		margin: #{$index * 4px};
+	}
 
-  .mx-#{$index} {
-    margin-left: #{$index * 4px};
-    margin-right: #{$index * 4px};
-  }
+	.mx-#{$index} {
+		margin-left: #{$index * 4px};
+		margin-right: #{$index * 4px};
+	}
 
-  .h-#{$index} {
-    height: #{$index * 4px};
-  }
+	.my-#{$index} {
+		margin-top: #{$index * 4px};
+		margin-bottom: #{$index * 4px};
+	}
 
-  .p-#{$index} {
-    padding: #{$index * 4px};
-  }
+	.p-#{$index} {
+		padding: #{$index * 4px};
+	}
+
+	.px-#{$index} {
+		padding-left: #{$index * 4px};
+		padding-right: #{$index * 4px};
+	}
+
+	.py-#{$index} {
+		padding-top: #{$index * 4px};
+		padding-bottom: #{$index * 4px};
+	}
+
+	.h-#{$index} {
+		height: #{$index * 4px};
+	}
+
+	.w-#{$index} {
+		width: #{$index * 4px};
+	}
 }
 
 $sizes: (
-  'sm': 0.875rem,
-  'base': 1rem,
-  'lg': 1.125rem,
-  'xl': 1.25rem,
-  '2xl': 1.5rem,
-  '3xl': 1.875rem,
+	"sm": 0.875rem,
+	"base": 1rem,
+	"lg": 1.125rem,
+	"xl": 1.25rem,
+	"2xl": 1.5rem,
+	"3xl": 1.875rem,
+	"6xl": 3.75rem
 );
 
-@each $name, $size in $sizes {
-  .text-#{$name} {
-    font-size: #{$size};
-  }
+@each $name,
+$size in $sizes {
+	.text-#{$name} {
+		font-size: #{$size};
+	}
 }
 
 .rounded-md {
-  border-radius: 8px;
+	border-radius: 8px;
+}
+
+.rounded-lg {
+	border-radius: 16px;
 }
 
 $colors: (
-  'white': white,
-  'black': black,
-  'primary': #4d243d,
-  'green': #32ba78,
-  'red': #fd6d6d,
+	"white": white,
+	"black": black,
+	"primary": #4d243d,
+	"green": #32ba78,
+	"red": #fd6d6d,
 );
 
-@each $color, $value in $colors {
-  .text-#{$color} {
-    color: $value;
-  }
+@each $color,
+$value in $colors {
+	.text-#{$color} {
+		color: $value;
+	}
 
-  .bg-#{$color} {
-    background-color: $value;
-  }
+	.bg-#{$color} {
+		background-color: $value;
+	}
 }
 
-$leading-sizes: 'none', 'tight', 'snug', 'normal', 'relaxed', 'loose';
+$leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
 
 @each $size in $leading-sizes {
-  $index: index($leading-sizes, $size);
+	$index: index($leading-sizes, $size);
 
-  .leading-#{$size} {
-    line-height: #{1 * (math.div($index - 1, 5)) + 1};
-  }
+	.leading-#{$size} {
+		line-height: #{1 * (math.div($index - 1, 5)) + 1};
+	}
 }
 
 .no-underline {
-  text-decoration-line: none;
+	text-decoration-line: none;
 }
 
 .font-display {
-  font-family: 'Cousine', monospace;
+	font-family: "Cousine", monospace;
 }
 
 $tracking-sizes: (
-  'tighter': -0.075em,
-  'normal': 0em,
+	"tighter": -0.075em,
+	"normal": 0em,
 );
 
-@each $name, $size in $tracking-sizes {
-  .tracking-#{$name} {
-    letter-spacing: $size;
-  }
-}
-
-.shadow {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px #000000;
+@each $name,
+$size in $tracking-sizes {
+	.tracking-#{$name} {
+		letter-spacing: $size;
+	}
 }
 
 @for $number from 0 through 10 {
-  .opacity-#{$number} {
-    opacity: #{$number * 0.1};
-  }
+	.opacity-#{$number} {
+		opacity: #{$number * 0.1};
+	}
+}
+
+$fractions: (
+	"1\\/2": 50%,
+	"1\\/3": #{math.percentage(math.div(1, 3))},
+	"2\\/3": #{math.percentage(math.div(2, 3))},
+	"1\\/4": 25%,
+	"3\\/4": 75%,
+);
+
+@each $name,
+$val in $fractions {
+	.w-#{$name} {
+		width: $val;
+	}
+}
+
+.w-full {
+	width: 100%;
+}
+
+.h-full {
+	height: 100%;
+}
+
+.shadow {
+	box-shadow: 0px 0px 0px 1px hsla(0, 0%, 0%, 0.25),
+		1px 1px 2px 1px hsla(0, 0%, 0%, 0.75);
+}
+
+.gradient {
+	background: linear-gradient(180deg,
+			hsla(0, 0%, 0%, 0.1) 10%,
+			hsla(0, 0%, 0%, 0.05) 50%,
+			hsla(0, 0%, 0%, 0.1) 90%);
+}
+
+.blur {
+	backdrop-filter: blur(10.5px);
+	-webkit-backdrop-filter: blur(10.5px);
+}
+
+/* auto */
+.m-auto {
+	margin: auto;
+}
+
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.my-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-end {
+	justify-content: end;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.rounded-pill {
+	border-radius: 100vw;
 }

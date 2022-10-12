@@ -7,7 +7,7 @@
 @import './styles/reset.scss';
 
 :root {
-  font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1,
@@ -16,15 +16,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cousine', monospace;
+	font-family: 'Cousine', monospace;
 }
 
 strong {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 i {
-  font-style: italic;
+	font-style: italic;
+}
+
+button {
+	cursor: pointer;
 }
 
 @import "./styles/utilities.scss"
