@@ -24,7 +24,7 @@ function ParentComponent() {
 				handleChange={handleChange}
 				value={inputVal}
 			/>
-			<div className="bg-black">
+			<div className="bg-black p-4">
 			<InputField
 				icon={<User className="text-white" />}
 				id="name"

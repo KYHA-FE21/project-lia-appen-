@@ -32,7 +32,7 @@ const InputField = ({
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input
 					ref={ref}
-					className={`globalInputContent globalInputField flex ${classes} ${className}`}
+					className={`globalInputContent globalInputField ${classes} ${className}`}
 					value={value}
 					onChange={handleChange}
 					{...restProps}
