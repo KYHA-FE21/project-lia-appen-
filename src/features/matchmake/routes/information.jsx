@@ -13,7 +13,7 @@ import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Card className="cardfix mx-auto w-full max-width">
+		<Card className="cardfix mx-auto max-w-screen-sm">
 			{!data && (
 				<>
 					<Heading

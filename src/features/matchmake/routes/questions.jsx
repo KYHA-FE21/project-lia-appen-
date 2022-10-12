@@ -30,7 +30,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto w-full max-width">
+				<Card className="cardfix mx-auto max-w-screen-sm">
 					<Heading
 						className="px-3"
 						{...{

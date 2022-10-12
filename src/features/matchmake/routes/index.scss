@@ -1,17 +1,25 @@
 main {
 	padding: 12px;
 }
-.max-width {
-	max-width: 600px;
-}
+
 .cardfix {
 	> div {
 		padding: 12px 0;
 	}
 }
+
 .badgesfix {
 	justify-content: center !important;
 }
+
 .text-bold {
 	font-weight: bold;
+}
+
+.max-w-max {
+	width: max-content;
+}
+
+.max-w-screen-sm {
+	max-width: 640px;
 }

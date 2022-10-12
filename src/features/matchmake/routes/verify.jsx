@@ -15,7 +15,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto w-full max-width">
+				<Card className="cardfix mx-auto max-w-screen-sm">
 					{loading && (
 						<>
 							<Heading
@@ -34,7 +34,6 @@ function Verify({ data, setData, setSearchParams }) {
 								className="px-3"
 								{...{
 									heading: "Skickat",
-									subheading: "Tryck på tillbaks för att få ett se ett nytt kort.",
 									icon: (
 										<CheckCircle2
 											color="black"
@@ -47,6 +46,9 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							></Heading>
+							<Container type="p" className="px-3 text-center">
+								Tryck på tillbaks för att få ett se ett nytt kort.
+							</Container>
 							<CardButtons className="px-3 h-10">
 								<SecondaryButton
 									icon={<Check />}
