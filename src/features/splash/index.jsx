@@ -7,6 +7,7 @@ import ProseParagraph from "./components/prose-paragraph";
 
 import SalesPitchSection from "./components/sections/sales-pitch";
 import Card, { CardHeader } from "../../components/card";
+import { Rocket } from "lucide-react";
 
 function Splash() {
 	return (
@@ -38,7 +39,9 @@ function Splash() {
 						</FlexContainer>
 					</Card>
 				</FlexContainer>
-				<FlexContainer className="flex-1"></FlexContainer>
+				<FlexContainer className="flex-1 justify-center items-center">
+					<Rocket size={128}/>
+				</FlexContainer>
 			</FlexContainer>
 
 			<SalesPitchSection />
