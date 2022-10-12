@@ -5,7 +5,7 @@ import { Link as LucideLink, Star, Contact, Menu } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="bg-primary text-white">
       <div className="footer-container">
         <Link to="/applications">
           <LucideLink />
