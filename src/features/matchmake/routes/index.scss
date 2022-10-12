@@ -11,15 +11,6 @@ main {
 .badgesfix {
 	justify-content: center !important;
 }
-
-.font-bold {
-	font-weight: 700;
-}
-
-.max-w-max {
-	width: max-content;
-}
-
-.max-w-screen-sm {
-	max-width: 640px;
+.min-height {
+	min-height: 500px;
 }

@@ -30,7 +30,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto max-w-screen-sm">
+				<Card className="cardfix mx-auto max-w-screen-sm min-height">
 					<Heading
 						className="px-3"
 						{...{
@@ -60,7 +60,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 						</Container>
 					</Container>
 					<HorizontalRow className="px-3" />
-					<CardButtons className="px-3 h-10">
+					<CardButtons className="px-3 h-10 mt-auto">
 						<SecondaryButton
 							icon={<X />}
 							bgColor="red"

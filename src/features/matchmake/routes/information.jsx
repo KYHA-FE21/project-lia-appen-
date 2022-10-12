@@ -1,5 +1,5 @@
 import React from "react";
-import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react";
+import { CalendarDays, Check, CheckCircle, Hourglass, Info, MapPin, X } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
@@ -13,14 +13,14 @@ import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Card className="cardfix mx-auto max-w-screen-sm">
+		<Card className="cardfix mx-auto max-w-screen-sm min-height">
 			{!data && (
 				<>
 					<Heading
 						className="px-3"
 						{...{
 							heading: "Laddar...",
-							className: "justify-center",
+							icon: <Hourglass color="black" size="30" />,
 						}}
 					/>
 					<Loading />
@@ -51,7 +51,7 @@ function Information({ data, setData, setSearchParams }) {
 					<HorizontalRow className="px-3" />
 					<InfoStats className="px-3" />
 					<HorizontalRow className="px-3" />
-					<CardButtons className="px-3 h-10">
+					<CardButtons className="px-3 h-10 mt-auto">
 						<SecondaryButton
 							icon={<X />}
 							bgColor="red"

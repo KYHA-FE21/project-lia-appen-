@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Check, CheckCircle2, X, XCircle } from "lucide-react";
+import { Check, CheckCircle2, Hourglass, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
@@ -15,14 +15,14 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto max-w-screen-sm">
+				<Card className="cardfix mx-auto max-w-screen-sm min-height">
 					{loading && (
 						<>
 							<Heading
 								className="px-3"
 								{...{
 									heading: "Laddar...",
-									className: "justify-center",
+									icon: <Hourglass color="black" size="30" />,
 								}}
 							/>
 							<Loading />
@@ -49,7 +49,7 @@ function Verify({ data, setData, setSearchParams }) {
 							<Container type="p" className="px-3 text-center">
 								Tryck på tillbaks för att få ett se ett nytt kort.
 							</Container>
-							<CardButtons className="px-3 h-10">
+							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton
 									icon={<Check />}
 									bgColor="green"
@@ -69,7 +69,6 @@ function Verify({ data, setData, setSearchParams }) {
 								className="px-3"
 								{...{
 									heading: "Bekräfta",
-									subheading: `Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`,
 									icon: (
 										<XCircle
 											color="black"
@@ -82,10 +81,13 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							/>
+							<Container type="p" className="px-3 text-center">
+								{`Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`}
+							</Container>
 							<Container type="p" className="px-3">
 								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
 							</Container>
-							<CardButtons className="px-3 h-10">
+							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton
 									icon={<X />}
 									bgColor="red"
