@@ -1,5 +1,7 @@
-function index() {
-	return <div>splash</div>;
-};
+import Splash from "../index";
 
-export default index;
+function Route() {
+  return <Splash />
+}
+
+export default Route;
