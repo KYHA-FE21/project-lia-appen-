@@ -30,10 +30,10 @@ function Splash() {
 							<strong>Jag letar efter</strong>
 						</CardHeader>
 						<FlexContainer gap="4" className="items-stretch">
-							<LinkButton className="text-base p-4" href="#student">
+							<LinkButton className="text-base p-4" href="/signup">
 								Student
 							</LinkButton>
-							<LinkButton className="text-base p-4" href="#företag">
+							<LinkButton className="text-base p-4" href="/signup">
 								Företag
 							</LinkButton>
 						</FlexContainer>
@@ -51,7 +51,7 @@ function Splash() {
 					<CardHeader className="place-self-center">
 						<strong>Vad väntar du på?</strong>
 					</CardHeader>
-					<LinkButton href="#" className="p-4 text-lg">
+					<LinkButton href="/signup" className="p-4 text-lg">
 						Registrera dig!
 					</LinkButton>
 				</Card>

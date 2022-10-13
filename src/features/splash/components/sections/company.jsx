@@ -58,7 +58,7 @@ function CompanySection() {
 						</CardHeader>
 						<ProseParagraph textAlign="center">
 							Efter att man har skapat sin gratis företagsprofil, öppnas
-							möjligheten att lägga upp en annons och hitta intreserade sökande.
+							möjligheten att lägga upp en annons och hitta intresserade sökande.
 						</ProseParagraph>
 					</Card>
 				</div>
