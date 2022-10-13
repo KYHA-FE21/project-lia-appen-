@@ -14,13 +14,9 @@ function SecondaryButton({
 			style={{ width, fontSize, backgroundColor: "rgba(0, 0, 0, 0.3)" }}
 			{...restProps}
 		>
-			{children && (
-				<span className="flex font-bold w-full h-full overflow-hidden items-center p-3 px-4">{children}</span>
-			)}
+			{children && <span className="flex font-bold w-full h-full overflow-hidden items-center p-3 px-4">{children}</span>}
 			{icon && (
-				<div
-					className={`ml-auto aspect-square h-full flex justify-center items-center p-1 text-${color} bg-${bgColor}`}
-				>
+				<div className={`ml-auto aspect-square h-full flex justify-center items-center p-1 text-${color} bg-${bgColor}`}>
 					{icon}
 				</div>
 			)}
