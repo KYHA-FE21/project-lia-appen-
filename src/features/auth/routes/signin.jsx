@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles/auth.scss";
 import { Mail, Lock } from "lucide-react";
-import TextField from "../components/textField";
 import Logo from "../components/logo";
 import Path from "../components/path";
-import Btn from "../components/btn";
 import External from "../components/external";
+import Button from "../../../components/buttons";
+import InputField from "../../../components/input-field";
 import usePOST from "../hooks/usePost";
 import { useNavigate } from "react-router-dom";
 
@@ -29,23 +29,23 @@ const Signin = () => {
 			<div className="authContent">
 				<Logo />
 				<form onSubmit={handleSubmit}>
-					<TextField
+					<InputField
 						icon={<Mail strokeWidth={1} />}
 						type="email"
 						placeholder="E-post"
 						value={email}
-						setValue={setEmail}
+						handleChange={(e) => setEmail(e.target.value)}
 						isError={error?.type === "email" && error.message}
 					/>
-					<TextField
+					<InputField
 						icon={<Lock strokeWidth={1} />}
 						type="password"
 						placeholder="Lösenord"
 						value={password}
-						setValue={setPassword}
+						handleChange={(e) => setPassword(e.target.value)}
 						isError={error?.type === "password" && error.message}
 					/>
-					<Btn title="LOGGA IN" loading={loading} />
+					<Button children="LOGGA IN" loading={loading} className="w-full" />
 				</form>
 				<Path
 					links={[

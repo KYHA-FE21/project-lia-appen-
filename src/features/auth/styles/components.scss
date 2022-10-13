@@ -20,102 +20,37 @@ $primary-color-disabled: #4d243d7a;
 }
 
 //-------------------------------TextField
-.authInputContainer {
-	position: relative;
-	margin-bottom: 1rem;
-	background-color: rgba(250, 250, 250, 0.07);
-	border-radius: $border-radius;
-	box-shadow: $shadow-default;
-
-	.authInputContent {
-		display: flex;
-		align-items: center;
-		padding: $padding-default;
-
-		.authInputIcon {
-			color: $color-secondary;
-			padding-right: 0.3rem;
-			display: flex;
-			align-items: center;
-		}
-
-		.authInputField {
-			background-color: transparent;
-			border: none;
-			color: white;
-			width: 100%;
-			font-size: $font-size;
-		}
-
-		.authInputField:focus {
-			outline: none;
-		}
-	}
-
-	.authInputError {
-		position: absolute;
-		top: -40%;
-		left: 10%;
-		color: #fd6d6d;
-		font-size: 0.8rem;
-	}
+.globalInputIcon {
+	color: $color-secondary !important;
 }
 
-.authSignupPasswordContainer {
-	.authInputContainer:nth-child(2) {
-		.authInputField {
-			padding: 0.2rem 0rem;
-		}
-	}
+.globalInputField {
+	color: white;
 }
 
 @media only screen and (min-width: 400px) {
 	.authSignupPasswordContainer {
 		display: flex;
 
-		.authInputContainer {
+		.globalInputContainer {
 			width: 50%;
 		}
 
-		.authInputContainer:first-child {
+		.globalInputContainer:first-child {
 			margin-right: 0.5rem;
 		}
 	}
 }
 
-.authInputFieldFocus {
-	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
-}
-
-.authInputFieldError {
-	border: 1px solid #fd6d6d35;
-}
-
-.authInputContainer:hover {
-	cursor: text;
-	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
-}
-
 //-------------------------------Btn
-.authBtn {
-	width: 100%;
+button {
 	margin-bottom: 2rem;
-	padding: $padding-default;
-	border-radius: $border-radius;
 	font-size: $font-size;
-	box-shadow: $shadow-default;
-	border: none;
-	color: white;
-	background-color: $primary-color;
 }
 
-.authBtn:disabled {
+button:disabled {
 	background-color: $primary-color-disabled;
 	color: $color-secondary;
-}
-
-.authBtn:hover {
-	cursor: pointer;
 }
 
 //-------------------------------Path

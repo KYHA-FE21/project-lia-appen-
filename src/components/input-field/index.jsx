@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.scss";
 
-const InputField = ({ icon = null, isError = false, value, handleChange, ...restProps }) => {
+const InputField = ({ icon = null, isError = false, value, handleChange, className = "", ...restProps }) => {
 	const ref = useRef(null);
 	const [error, setError] = useState(null);
 
@@ -22,7 +22,7 @@ const InputField = ({ icon = null, isError = false, value, handleChange, ...rest
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input
 					ref={ref}
-					className={` globalInputField ${classes}`}
+					className={`globalInputContent globalInputField ${classes} ${className}`}
 					value={value}
 					onChange={handleChange}
 					{...restProps}
