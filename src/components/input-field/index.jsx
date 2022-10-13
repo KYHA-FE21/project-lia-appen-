@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.scss";
 
-const InputField = ({
-	icon = null,
-	isError = false,
-	value,
-	handleChange,
-	className = "",
-	...restProps
-}) => {
+const InputField = ({ icon = null, isError = false, value, handleChange, className = "", ...restProps }) => {
 	const ref = useRef(null);
 	const [error, setError] = useState(null);
 
@@ -21,13 +14,10 @@ const InputField = ({
 	}, [isError]);
 
 	let classes = [];
-	if (error) classes.push('globalInputFieldError');
+	if (error) classes.push("globalInputFieldError");
 
 	return (
-		<div
-			className="globalInputContainer"
-			onClick={handleClick}
-		>
+		<div className="globalInputContainer" onClick={handleClick}>
 			<div className="globalInputContent">
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input

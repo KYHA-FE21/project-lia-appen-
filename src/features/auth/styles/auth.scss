@@ -1,0 +1,35 @@
+body {
+	margin: 0rem;
+}
+
+.authContainer {
+	min-height: 100vh;
+	min-width: 100vw;
+	background: linear-gradient(to bottom, #111318, #4d243d);
+
+	.authContent {
+		max-width: 35rem;
+		margin-bottom: 5rem;
+	}
+
+	.authResetResponseContent {
+		text-align: center;
+		color: #32ba78;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.authContainer {
+		.authContent {
+			padding: 2rem;
+		}
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.authContainer {
+		.authContent {
+			padding: 1rem;
+		}
+	}
+}
