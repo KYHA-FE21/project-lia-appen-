@@ -272,3 +272,11 @@ $val in $fractions {
 .mt-auto {
 	margin-top: auto;
 }
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.gradient-bg {
+	background: linear-gradient(180deg, rgba(80, 35, 60, 0.25) 0%, rgba(80, 35, 60, 0.8) 100%);
+}
