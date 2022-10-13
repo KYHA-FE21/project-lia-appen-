@@ -13,7 +13,6 @@ import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-		<Container className="p-3">
 			<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height">
 				{!data && (
 					<>
@@ -53,7 +52,7 @@ function Information({ data, setData, setSearchParams }) {
 						<HorizontalRow className="px-3" />
 						<InfoStats className="text-white" />
 						<HorizontalRow className="px-3" />
-						<CardButtons className="px-3 h-10 mt-auto">
+						<CardButtons className="px-3 mt-auto">
 							<SecondaryButton
 								icon={<X color="white" />}
 								bgColor="red"
@@ -82,7 +81,6 @@ function Information({ data, setData, setSearchParams }) {
 					</>
 				)}
 			</Card>
-		</Container>
 	);
 }
 
