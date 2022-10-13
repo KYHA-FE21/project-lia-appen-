@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const iconBtn = ({ icon, onClick, disabled }) => {
-  return (
-    <button className="questIconBtn" type="button" onClick={onClick} disabled={disabled}>
-      {icon}
-    </button>
-  );
+	return (
+		<button className="questIconBtn shadow bg-primary mx-2 p-2" type="button" onClick={onClick} disabled={disabled}>
+			{icon}
+		</button>
+	);
 };
 
 export default iconBtn;
