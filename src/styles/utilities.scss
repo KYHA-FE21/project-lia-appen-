@@ -256,3 +256,43 @@ $val in $fractions {
 .rounded-pill {
 	border-radius: 100vw;
 }
+
+.font-bold {
+	font-weight: 700;
+}
+
+.max-w-max {
+	width: max-content;
+}
+
+.max-w-screen-sm {
+	max-width: 640px;
+}
+
+.mt-auto {
+	margin-top: auto;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.gradient-bg {
+	background: linear-gradient(180deg, rgba(80, 35, 60, 0.25) 0%, rgba(80, 35, 60, 0.8) 100%);
+}
+
+.aspect-square {
+	aspect-ratio: 1 / 1;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.mb-auto {
+	margin-bottom: auto;
+}
