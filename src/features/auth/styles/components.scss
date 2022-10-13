@@ -8,184 +8,184 @@ $primary-color-disabled: #4d243d7a;
 
 //-------------------------------Logo
 .authLogoContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 4rem;
 
-  .authLogo {
-    max-width: 12rem;
-    height: auto;
-  }
+	.authLogo {
+		max-width: 12rem;
+		height: auto;
+	}
 }
 
 //-------------------------------TextField
 .authInputContainer {
-  position: relative;
-  margin-bottom: 1rem;
-  background-color: rgba(250, 250, 250, 0.07);
-  border-radius: $border-radius;
-  box-shadow: $shadow-default;
+	position: relative;
+	margin-bottom: 1rem;
+	background-color: rgba(250, 250, 250, 0.07);
+	border-radius: $border-radius;
+	box-shadow: $shadow-default;
 
-  .authInputContent {
-    display: flex;
-    align-items: center;
-    padding: $padding-default;
+	.authInputContent {
+		display: flex;
+		align-items: center;
+		padding: $padding-default;
 
-    .authInputIcon {
-      color: $color-secondary;
-      padding-right: 0.3rem;
-      display: flex;
-      align-items: center;
-    }
+		.authInputIcon {
+			color: $color-secondary;
+			padding-right: 0.3rem;
+			display: flex;
+			align-items: center;
+		}
 
-    .authInputField {
-      background-color: transparent;
-      border: none;
-      color: white;
-      width: 100%;
-      font-size: $font-size;
-    }
+		.authInputField {
+			background-color: transparent;
+			border: none;
+			color: white;
+			width: 100%;
+			font-size: $font-size;
+		}
 
-    .authInputField:focus {
-      outline: none;
-    }
-  }
+		.authInputField:focus {
+			outline: none;
+		}
+	}
 
-  .authInputError {
-    position: absolute;
-    top: -40%;
-    left: 10%;
-    color: #fd6d6d;
-    font-size: 0.8rem;
-  }
+	.authInputError {
+		position: absolute;
+		top: -40%;
+		left: 10%;
+		color: #fd6d6d;
+		font-size: 0.8rem;
+	}
 }
 
 .authSignupPasswordContainer {
-  .authInputContainer:nth-child(2) {
-    .authInputField {
-      padding: 0.2rem 0rem;
-    }
-  }
+	.authInputContainer:nth-child(2) {
+		.authInputField {
+			padding: 0.2rem 0rem;
+		}
+	}
 }
 
 @media only screen and (min-width: 400px) {
-  .authSignupPasswordContainer {
-    display: flex;
+	.authSignupPasswordContainer {
+		display: flex;
 
-    .authInputContainer {
-      width: 50%;
-    }
+		.authInputContainer {
+			width: 50%;
+		}
 
-    .authInputContainer:first-child {
-      margin-right: 0.5rem;
-    }
-  }
+		.authInputContainer:first-child {
+			margin-right: 0.5rem;
+		}
+	}
 }
 
 .authInputFieldFocus {
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
 }
 
 .authInputFieldError {
-  border: 1px solid #fd6d6d35;
+	border: 1px solid #fd6d6d35;
 }
 
 .authInputContainer:hover {
-  cursor: text;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.35);
+	cursor: text;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
 }
 
 //-------------------------------Btn
 .authBtn {
-  width: 100%;
-  margin-bottom: 2rem;
-  padding: $padding-default;
-  border-radius: $border-radius;
-  font-size: $font-size;
-  box-shadow: $shadow-default;
-  border: none;
-  color: white;
-  background-color: $primary-color;
+	width: 100%;
+	margin-bottom: 2rem;
+	padding: $padding-default;
+	border-radius: $border-radius;
+	font-size: $font-size;
+	box-shadow: $shadow-default;
+	border: none;
+	color: white;
+	background-color: $primary-color;
 }
 
 .authBtn:disabled {
-  background-color: $primary-color-disabled;
-  color: $color-secondary;
+	background-color: $primary-color-disabled;
+	color: $color-secondary;
 }
 
 .authBtn:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 //-------------------------------Path
 .authLinkContent {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  a {
-    color: $color-secondary;
-    text-decoration: none;
-  }
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.8rem;
+	a {
+		color: $color-secondary;
+		text-decoration: none;
+	}
 }
 
 //-------------------------------External
 .authExternalContainer {
-  width: 100%;
-  text-align: center;
-  color: white;
+	width: 100%;
+	text-align: center;
+	color: white;
 
-  p {
-    display: flex;
-    flex-direction: row;
-    font-size: $font-size;
-    margin-bottom: 1rem;
-  }
+	p {
+		display: flex;
+		flex-direction: row;
+		font-size: $font-size;
+		margin-bottom: 1rem;
+	}
 
-  p:before,
-  p:after {
-    content: '';
-    flex: 1 1;
-    border-bottom: 1px solid;
-    border-color: $color-secondary;
-    margin: auto;
-  }
-  p:before {
-    margin-right: 10px;
-  }
-  p:after {
-    margin-left: 10px;
-  }
+	p:before,
+	p:after {
+		content: "";
+		flex: 1 1;
+		border-bottom: 1px solid;
+		border-color: $color-secondary;
+		margin: auto;
+	}
+	p:before {
+		margin-right: 10px;
+	}
+	p:after {
+		margin-left: 10px;
+	}
 
-  .authExternalBtns {
-    display: flex;
-    justify-content: center;
+	.authExternalBtns {
+		display: flex;
+		justify-content: center;
 
-    button {
-      margin: 0 0.5rem;
-      color: $color-secondary;
-      border: none;
-      padding: 0.6rem 0.8rem;
-      border-radius: $border-radius;
-      svg {
-        fill: white;
-      }
-    }
+		button {
+			margin: 0 0.5rem;
+			color: $color-secondary;
+			border: none;
+			padding: 0.6rem 0.8rem;
+			border-radius: $border-radius;
+			svg {
+				fill: white;
+			}
+		}
 
-    button:hover {
-      cursor: pointer;
-    }
+		button:hover {
+			cursor: pointer;
+		}
 
-    .authFacebook {
-      background-color: #4267b2;
-    }
+		.authFacebook {
+			background-color: #4267b2;
+		}
 
-    .authTwitter {
-      background-color: #00acee;
-    }
+		.authTwitter {
+			background-color: #00acee;
+		}
 
-    .authLinkedin {
-      background-color: #0072b1;
-    }
-  }
+		.authLinkedin {
+			background-color: #0072b1;
+		}
+	}
 }
