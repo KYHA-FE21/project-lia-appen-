@@ -3,7 +3,7 @@ import Wrapper from '../wrapper';
 import { Modal } from '../modal';
 import AboutMe from './about-me';
 import Lia from './lia';
-import PrimaryButton from '../../../../components/buttons/primary-button';
+import PrimaryButton from '../../../../components/buttons/index';
 
 const EditMenu = () => {
 
