@@ -23,7 +23,7 @@ function Information({ data, setData, setSearchParams }) {
 							icon: <Hourglass color="white" size="30" />,
 						}}
 					/>
-					<Loading />
+					<Loading color="white" size="80%" />
 				</>
 			)}
 			{data && (

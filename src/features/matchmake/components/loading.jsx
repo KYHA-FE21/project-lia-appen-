@@ -1,22 +1,8 @@
+import { Loader } from "lucide-react";
 import "./loading.scss";
 
-function Loading() {
-	return (
-		<div class="lds-spinner m-auto w-full h-10">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	);
+function Loading({ size, color }) {
+	return <Loader className="spinner aspect-squared m-auto" color={color} size={size} />;
 }
 
 export default Loading;
