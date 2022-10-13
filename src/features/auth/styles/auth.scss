@@ -1,15 +1,28 @@
-body {
-	margin: 0rem;
-}
-
 .authContainer {
 	min-height: 100vh;
-	min-width: 100vw;
 	background: linear-gradient(to bottom, #111318, #4d243d);
 
 	.authContent {
 		max-width: 35rem;
 		margin-bottom: 5rem;
+
+		.globalInputIcon {
+			color: rgba(250, 250, 250, 0.5) !important;
+		}
+
+		.globalInputField {
+			color: white;
+		}
+
+		button {
+			margin-bottom: 2rem;
+			font-size: 0.9rem;
+		}
+
+		button:disabled {
+			background-color: #4d243d7a;
+			color: rgba(250, 250, 250, 0.5);
+		}
 	}
 
 	.authResetResponseContent {

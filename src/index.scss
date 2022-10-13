@@ -31,4 +31,11 @@ button {
 	cursor: pointer;
 }
 
-@import "./styles/utilities.scss"
+@import "./styles/utilities.scss";
+
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}

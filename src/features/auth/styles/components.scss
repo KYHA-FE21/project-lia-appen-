@@ -1,21 +1,10 @@
 $border-radius: 8px;
 $color-secondary: rgba(250, 250, 250, 0.5);
-$font-size: 0.9rem;
-$primary-color-disabled: #4d243d7a;
 
 //-------------------------------Logo
 .authLogo {
 	max-width: 12rem;
 	height: auto;
-}
-
-//-------------------------------TextField
-.globalInputIcon {
-	color: $color-secondary !important;
-}
-
-.globalInputField {
-	color: white;
 }
 
 @media only screen and (min-width: 400px) {
@@ -30,17 +19,6 @@ $primary-color-disabled: #4d243d7a;
 			margin-right: 0.5rem;
 		}
 	}
-}
-
-//-------------------------------Btn
-button {
-	margin-bottom: 2rem;
-	font-size: $font-size;
-}
-
-button:disabled {
-	background-color: $primary-color-disabled;
-	color: $color-secondary;
 }
 
 //-------------------------------Path
