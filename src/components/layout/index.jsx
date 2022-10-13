@@ -3,15 +3,19 @@ import Header from '../header';
 import Footer from '../footer/index';
 
 const Layout = () => {
-	return (
-		<>
-			<Header />
-			<main>
-				<Outlet />
-			</main>
-			<Footer />
-		</>
-	);
+  const { pathname } = useLocation();
+  const excludedRoutes = ['signin', 'signup', 'reset'];
+  const noHeadOrFoot = excludedRoutes.includes(pathname.split('/')[1]);
+
+  return (
+    <>
+      {!noHeadOrFoot && <Header />}
+      <main>
+        <Outlet />
+      </main>
+      {!noHeadOrFoot && <Footer />}
+    </>
+  );
 };
 
 export default Layout;
