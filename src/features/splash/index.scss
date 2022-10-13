@@ -76,3 +76,20 @@ $sizes: (
 .-m-3 {
 	margin: -12px;
 }
+
+.splash-mb-2 {
+	margin-bottom: 8px;
+}
+
+.splash-h-48 {
+	height: 184px;
+}
+
+pre {
+	-moz-osx-font-smoothing: auto;
+	-webkit-font-smoothing: auto;
+	font-family: monospace;
+	overflow-x: auto;
+	white-space: pre;
+	word-wrap: normal;
+}

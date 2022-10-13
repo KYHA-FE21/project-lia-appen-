@@ -1,21 +1,29 @@
-import Card, { CardBadges, CardButtons, CardHeader } from "../../../../components/card";
-import SecondaryButton from "../../../../components/buttons/secondary-button"
-import InfoGrid from "../../../../components/info-grid";
-import generateBadges from "../../../../components/badge/generate-badges";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import FlexContainer from "../flex-container";
 import LinkButton from "../link-button";
-import ProseParagraph from "../prose-paragraph";
-import { ArrowRight, Calendar, CheckCircle, ClipboardCheck, MapPin } from "lucide-react";
+import CompanySection from "./company";
+import StudentSection from "./student";
 
 function SalesPitchSection() {
-	const companyCard = {
-		badges: ["HTML", "CSS", "JavaScript", "Git"],
-		infoGridEntries: [
-			{ icon: <Calendar />, children: '2022-11 - 2023-06' },
-			{ icon: <CheckCircle />, children: 'Hybrid' },
-			{ icon: <MapPin />, children: 'Gävleborgslän' }
-		]
+	const location = useLocation();
+	const [selection, setSelection] = useState(location.hash.replace("#", ""));
+
+	function handleSelectionClick(ev) {
+		ev.preventDefault();
+
+		const { hash } = ev.target;
+
+		setSelection(hash.replace("#", ""));
 	}
+
+	const selectedBtn = { bgColor: "primary", textColor: "white" };
+	const unSelectedBtn = { bgColor: "white", textColor: "black" };
+
+	useEffect(() => {
+		const el = document.getElementById(selection);
+		if (el) el.scrollIntoView({ behavior: "smooth" });
+	}, [selection]);
 
 	return (
 		<FlexContainer direction="col" gap="8" className="items-stretch mx-4">
@@ -24,18 +32,18 @@ function SalesPitchSection() {
 				<FlexContainer className="items-center" gap="4">
 					<span className="font-display">som</span>
 					<LinkButton
-						bgColor="primary"
-						textColor="white"
+						{...(selection === "student" ? selectedBtn : unSelectedBtn)}
 						className="text-sm"
 						href="#student"
+						onClick={handleSelectionClick}
 					>
 						Student
 					</LinkButton>
 					<LinkButton
-						bgColor="white"
-						textColor="black"
+						{...(selection === "company" ? selectedBtn : unSelectedBtn)}
 						className="text-sm"
-						href="#företag"
+						href="#company"
+						onClick={handleSelectionClick}
 					>
 						Företag
 					</LinkButton>
@@ -43,84 +51,8 @@ function SalesPitchSection() {
 				</FlexContainer>
 			</FlexContainer>
 
-			<FlexContainer className="justify-center">
-				<div className="splash-cards-max-width-xl">
-					<Card>
-						<CardHeader className="place-self-center">
-							<strong>Student</strong>
-						</CardHeader>
-						<ProseParagraph textAlign="center">
-							Efter att du har skapat din profil, får du möjligheten att ansöka
-							till företag som matchar dina preferenser.
-						</ProseParagraph>
-					</Card>
-				</div>
-			</FlexContainer>
-
-			<FlexContainer className="justify-center">
-				<div className="splash-cards-max-width-xl">
-					<FlexContainer className="md:items-start" direction="col" desktopDirection="row" gap="4">
-						<Card className="flex-1">
-							<CardHeader>
-								<strong>Söker frontend studenter!</strong>
-							</CardHeader>
-							<CardBadges>
-								{generateBadges(companyCard.badges, companyCard.badges, { className: 'flex-1' })}
-							</CardBadges>
-							<InfoGrid entries={companyCard.infoGridEntries} />
-							<CardButtons className="text-white">
-								<SecondaryButton className="flex-1" bgColor="" color="white" icon={<ArrowRight />}>Nästa</SecondaryButton>
-								<SecondaryButton className="flex-1" bgColor="primary" color="white" icon={<ClipboardCheck />}>Ansök</SecondaryButton>
-							</CardButtons>
-						</Card>
-
-						<Card className="flex-1">
-							<CardHeader><strong>Matchar företaget dig?</strong></CardHeader>
-							<ProseParagraph>
-								När du har läst igenom företagets preferenser och tycker att det
-								passar dig, får du chansen att besvara frågor som är skrivna av
-								företaget.
-							</ProseParagraph>
-						</Card>
-					</FlexContainer>
-				</div>
-			</FlexContainer>
-
-			<FlexContainer className="justify-center">
-				<div className="splash-cards-max-width-xl">
-					<FlexContainer className="md:items-start" direction="col" desktopDirection="row" gap="4">
-						<Card className="flex-1">
-							<CardHeader><strong>Fråga #1</strong></CardHeader>
-							<div className="bg-black -m-3 p-3 py-6 text-white">
-								<ProseParagraph>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vel doloremque rem rerum eveniet laudantium nulla? Magnam tenetur repellendus minus!</ProseParagraph>
-							</div>
-							<FlexContainer gap="3" direction="col" className="py-3">
-								<div className="flex flex-1 gap-4 py-2"><input type="radio" name="exampleQuestion" id="exampleQuestion" /> <label className="flex-1" htmlFor="exampleQuestion">Svar 1</label></div>
-								<div className="flex flex-1 gap-4 py-2"><input type="radio" name="exampleQuestion" id="exampleQuestion2" /> <label className="flex-1" htmlFor="exampleQuestion2">Svar 2</label></div>
-								<div className="flex flex-1 gap-4 py-2"><input type="radio" name="exampleQuestion" id="exampleQuestion3" /> <label className="flex-1" htmlFor="exampleQuestion3">Svar 3</label></div>
-								<div className="flex flex-1 gap-4 py-2"><input type="radio" name="exampleQuestion" id="exampleQuestion4" /> <label className="flex-1" htmlFor="exampleQuestion4">Svar 4</label></div>
-							</FlexContainer>
-							<CardButtons className="text-white">
-								<SecondaryButton className="flex-1" bgColor="" color="white" icon={<ArrowRight />}>Tillbaka</SecondaryButton>
-								<SecondaryButton className="flex-1" bgColor="primary" color="white">Nästa fråga</SecondaryButton>
-							</CardButtons>
-						</Card>
-
-						<Card className="flex-1">
-							<CardHeader><strong>Lyckas du med frågorna?</strong></CardHeader>
-							<ProseParagraph>
-								<span>Om dina svar stämmer överrens med vad företaget frågar, får du
-									tillgång att skicka din profil till företaget. </span>
-								<strong>
-									Vi skickar bara dina preferenser, din profiltext och länkar du
-									vill skicka med som företaget ska ta ställning till.
-								</strong>
-								<span> Sedan är det bara att vänta på svar. 🤞</span>
-							</ProseParagraph>
-						</Card>
-					</FlexContainer>
-				</div>
-			</FlexContainer>
+			{selection === "student" && <StudentSection />}
+			{selection === "company" && <CompanySection />}
 		</FlexContainer>
 	);
 }

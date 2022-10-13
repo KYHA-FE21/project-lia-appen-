@@ -11,10 +11,10 @@ import { Rocket } from "lucide-react";
 
 function Splash() {
 	return (
-		<FlexContainer direction="col" gap="12" className="items-stretch">
+		<FlexContainer direction="col" gap="12" className="items-stretch splash-mb-2">
 			<FlexContainer gap="4" direction="col" desktopDirection="row" className="p-3 splash-cards-max-width-xl min-h-screen md:mx-auto">
 				<FlexContainer direction="col" className="flex-1 flex items-center justify-center gap-6">
-					<h1 className="h-16 md:h-32 text-3xl md:text-6xl tracking-tighter place-self-stretch">
+					<h1 className="splash-mb-2 h-16 md:h-32 text-3xl md:text-6xl tracking-tighter place-self-stretch">
 						<span>Hitta din </span>
 						<AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
 					</h1>
