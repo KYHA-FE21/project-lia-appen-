@@ -175,7 +175,7 @@ function CompanySection() {
 									className: "flex-1",
 								})}
 							</CardBadges>
-							<InfoGrid entries={studentCard.infoGridEntries} />
+							<InfoGrid entries={studentCard.infoGridEntries} className="text-sm" />
 							<CardButtons className="text-white">
 								<SecondaryButton
 									className="flex-1"

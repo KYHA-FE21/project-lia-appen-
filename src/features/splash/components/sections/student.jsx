@@ -54,7 +54,7 @@ function StudentSection() {
 									className: "flex-1",
 								})}
 							</CardBadges>
-							<InfoGrid entries={companyCard.infoGridEntries} />
+							<InfoGrid entries={companyCard.infoGridEntries} className="text-sm" />
 							<CardButtons className="text-white">
 								<SecondaryButton
 									className="flex-1"
@@ -97,7 +97,7 @@ function StudentSection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<Card className="flex-1">
+						<Card className="flex-1 overflow-hidden">
 							<CardHeader>
 								<strong>Fråga #1</strong>
 							</CardHeader>
