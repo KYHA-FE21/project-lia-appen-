@@ -1,4 +1,5 @@
 main {
+	@extend .gradient-bg;
 	padding: 12px;
 }
 
@@ -11,6 +12,15 @@ main {
 .badgesfix {
 	justify-content: center !important;
 }
+
 .min-height {
 	min-height: 500px;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.gradient-bg {
+	background: linear-gradient(180deg, rgba(77, 36, 61, 0.25) 0%, rgba(77, 36, 61, 0.8) 100%);
 }

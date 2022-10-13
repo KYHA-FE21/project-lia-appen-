@@ -17,10 +17,10 @@ function Information({ data, setData, setSearchParams }) {
 			{!data && (
 				<>
 					<Heading
-						className="px-3"
+						className="text-2xl text-white px-3"
 						{...{
 							heading: "Laddar...",
-							icon: <Hourglass color="black" size="30" />,
+							icon: <Hourglass color="white" size="30" />,
 						}}
 					/>
 					<Loading />
@@ -29,15 +29,16 @@ function Information({ data, setData, setSearchParams }) {
 			{data && (
 				<>
 					<Heading
-						className="px-3"
+						className="text-2xl text-white px-3"
 						{...{
 							heading: "Systemutvecklare",
-							icon: <Info color="black" size="30" />,
+							icon: <Info color="white" size="30" />,
 						}}
 					/>
 					<Container className="px-3" type="article">
 						<InfoGrid
 							fontSize={"0.75rem"}
+							color="white"
 							entries={[
 								{ icon: <CalendarDays size="20" />, children: <span className="font-bold">2022-11 till 2023-05</span> },
 								{ icon: <MapPin size="20" />, children: <span className="font-bold">Gävleborg</span> },
@@ -49,11 +50,11 @@ function Information({ data, setData, setSearchParams }) {
 					<HorizontalRow className="px-3" />
 					<CardBadges className="badgesfix">{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}</CardBadges>
 					<HorizontalRow className="px-3" />
-					<InfoStats className="px-3" />
+					<InfoStats className="text-white" />
 					<HorizontalRow className="px-3" />
 					<CardButtons className="px-3 h-10 mt-auto">
 						<SecondaryButton
-							icon={<X />}
+							icon={<X color="white" />}
 							bgColor="red"
 							className="text-white w-full text-sm"
 							onClick={() => {
@@ -63,7 +64,7 @@ function Information({ data, setData, setSearchParams }) {
 							Neka
 						</SecondaryButton>
 						<SecondaryButton
-							icon={<Check />}
+							icon={<Check color="white" />}
 							bgColor="green"
 							className="text-white w-full text-sm"
 							onClick={() => {

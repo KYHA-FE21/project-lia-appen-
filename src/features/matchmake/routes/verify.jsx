@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Check, CheckCircle2, Hourglass, X, XCircle } from "lucide-react";
+import { Check, Hourglass, Rocket, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
@@ -19,10 +19,10 @@ function Verify({ data, setData, setSearchParams }) {
 					{loading && (
 						<>
 							<Heading
-								className="px-3"
+								className="text-2xl text-white px-3"
 								{...{
 									heading: "Laddar...",
-									icon: <Hourglass color="black" size="30" />,
+									icon: <Hourglass color="white" size="30" />,
 								}}
 							/>
 							<Loading />
@@ -31,14 +31,14 @@ function Verify({ data, setData, setSearchParams }) {
 					{!loading && verified && (
 						<>
 							<Heading
-								className="px-3"
+								className="text-2xl text-white px-3"
 								{...{
 									heading: "Skickat",
 									icon: (
-										<CheckCircle2
-											color="black"
+										<Rocket
+											color="white"
 											size="30"
-											style={{ cursor: "pointer" }}
+											className="cursor-pointer"
 											onClick={() => {
 												setData(false);
 											}}
@@ -46,12 +46,12 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							></Heading>
-							<Container type="p" className="px-3 text-center">
+							<Container type="p" className="px-3 text-center text-white">
 								Tryck på tillbaks för att få ett se ett nytt kort.
 							</Container>
 							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton
-									icon={<Check />}
+									icon={<Check color="white" />}
 									bgColor="green"
 									className="text-white w-full text-sm"
 									onClick={() => {
@@ -66,12 +66,12 @@ function Verify({ data, setData, setSearchParams }) {
 					{!loading && !verified && (
 						<>
 							<Heading
-								className="px-3"
+								className="text-2xl text-white px-3"
 								{...{
 									heading: "Bekräfta",
 									icon: (
 										<XCircle
-											color="black"
+											color="white"
 											size="30"
 											style={{ cursor: "pointer" }}
 											onClick={() => {
@@ -81,15 +81,15 @@ function Verify({ data, setData, setSearchParams }) {
 									),
 								}}
 							/>
-							<Container type="p" className="px-3 text-center">
+							<Container type="p" className="px-3 text-center text-white">
 								{`Besvarade frågor ${Object.entries(data.answers).length}/${data.questions.length}`}
 							</Container>
-							<Container type="p" className="px-3">
+							<Container type="p" className="px-3 text-white">
 								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
 							</Container>
 							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton
-									icon={<X />}
+									icon={<X color="white" />}
 									bgColor="red"
 									className="text-white w-full text-sm"
 									onClick={() => {
@@ -104,7 +104,7 @@ function Verify({ data, setData, setSearchParams }) {
 									Tillbaks
 								</SecondaryButton>
 								<SecondaryButton
-									icon={<Check />}
+									icon={<Check color="white" />}
 									bgColor="green"
 									className="text-white w-full text-sm"
 									onClick={() => {

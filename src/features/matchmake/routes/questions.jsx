@@ -32,14 +32,14 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 			{data && (
 				<Card className="cardfix mx-auto max-w-screen-sm min-height">
 					<Heading
-						className="px-3"
+						className="text-2xl text-white px-3"
 						{...{
 							heading: "Frågor",
 							icon: (
 								<XCircle
-									color="black"
+								className="cursor-pointer"
+									color="white"
 									size="30"
-									style={{ cursor: "pointer" }}
 									onClick={() => {
 										setData(false);
 									}}
@@ -50,10 +50,10 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 					<HorizontalRow className="px-3" />
 					<Container display="grid" className="gap-3">
 						<Container display="flex" className="flex-col gap-3">
-							<h2 className="px-3 text-xl">{data?.questions[question]?.title}</h2>
+							<h2 className="px-3 text-xl text-white">{data?.questions[question]?.title}</h2>
 							<Container className="p-3 bg-black text-white text-base">{data?.questions[question]?.body}</Container>
 						</Container>
-						<Container type="form" display="flex" className="flex-col p-3 gap-3">
+						<Container type="form" display="flex" className="flex-col text-white p-3 gap-3">
 							{data?.questions[question]?.answers.map((answer, index) => (
 								<QuestionAlternative type="radio" text={answer} name={data?.questions[question]?.id} key={`${data?.questions[question]?.id}${index}`} handleChange={handleChange} value={index + 1} checked={data.answers[question] === (index + 1).toString()} />
 							))}
@@ -62,7 +62,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 					<HorizontalRow className="px-3" />
 					<CardButtons className="px-3 h-10 mt-auto">
 						<SecondaryButton
-							icon={<X />}
+							icon={<X color="white" />}
 							bgColor="red"
 							className="text-white w-full text-base"
 							style={question === 0 ? { color: "darkgrey", fontSize: "0.875rem" } : { fontSize: "0.875rem" }}
@@ -76,7 +76,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							Föregående
 						</SecondaryButton>
 						<SecondaryButton
-							icon={<Check />}
+							icon={<Check color="white" />}
 							bgColor="green"
 							className="text-white w-full text-sm"
 							onClick={() => {
