@@ -1,6 +1,6 @@
 main {
-	@extend .gradient-bg;
 	padding: 12px;
+	background: linear-gradient(180deg, rgba(80, 35, 60, 0.25) 0%, rgba(80, 35, 60, 0.8) 100%);
 }
 
 .cardfix {
@@ -15,12 +15,4 @@ main {
 
 .min-height {
 	min-height: 500px;
-}
-
-.cursor-pointer {
-	cursor: pointer;
-}
-
-.gradient-bg {
-	background: linear-gradient(180deg, rgba(77, 36, 61, 0.25) 0%, rgba(77, 36, 61, 0.8) 100%);
 }
