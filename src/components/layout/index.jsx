@@ -1,5 +1,6 @@
-import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import Header from '../header/header';
+import Footer from '../footer/index';
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -8,11 +9,11 @@ const Layout = () => {
 
   return (
     <>
-      {!noHeadOrFoot && <header>Header</header>}
+      {!noHeadOrFoot && <Header />}
       <main>
         <Outlet />
       </main>
-      {!noHeadOrFoot && <footer>Footer</footer>}
+      {!noHeadOrFoot && <Footer />}
     </>
   );
 };
