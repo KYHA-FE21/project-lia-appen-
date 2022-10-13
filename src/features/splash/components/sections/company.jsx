@@ -1,10 +1,8 @@
 import {
-	ArrowRight,
 	Building,
 	Calendar,
 	CheckCircle,
 	CheckCircle2,
-	ClipboardCheck,
 	MapPin,
 	X,
 } from "lucide-react";
@@ -32,7 +30,7 @@ const studentCard = {
 		"Jag är nyfiken på nya tekniker och bibliotek och intresserad av att skapa projekt i polyglot miljön där många språk utövas. En riktig challenge gillar jag!",
 };
 
-const companyBadges = ["JavaScript", "Angular", "React", "Git"]
+const companyBadges = ["JavaScript", "Angular", "React", "Git"];
 
 const question = `let i;
 for (i=1; i &lt;= 100; i++) {
@@ -53,12 +51,13 @@ function CompanySection() {
 			>
 				<div className="splash-cards-max-width-xl">
 					<Card>
-						<CardHeader className="place-self-center">
+						<CardHeader>
 							<strong>Företag</strong>
 						</CardHeader>
-						<ProseParagraph textAlign="center">
+						<ProseParagraph>
 							Efter att man har skapat sin gratis företagsprofil, öppnas
-							möjligheten att lägga upp en annons och hitta intresserade sökande.
+							möjligheten att lägga upp en annons och hitta intresserade
+							sökande.
 						</ProseParagraph>
 					</Card>
 				</div>
@@ -95,7 +94,7 @@ function CompanySection() {
 
 						<Card className="flex-1">
 							<CardHeader>
-								<label htmlFor="sampleQuestion">Skriv din första fråga</label>
+								<label htmlFor="sampleQuestion" className="font-bold">Skriv din första fråga</label>
 							</CardHeader>
 							<div className="-m-3">
 								<textarea
@@ -106,34 +105,34 @@ function CompanySection() {
 								/>
 							</div>
 							<FlexContainer gap="3" direction="col" className="py-3">
-									<InputField
-										className="flex flex-1 gap-4"
-										type="text"
-										name="exampleQuestion"
-										id="exampleQuestion"
-										defaultValue="Detta är FizzBuzz"
-									/>
-									<InputField
-										className="flex flex-1 gap-4"
-										type="text"
-										name="exampleQuestion"
-										id="exampleQuestion2"
-										defaultValue="Detta är programmerat i JavaScript"
-									/>
-									<InputField
-										className="flex flex-1 gap-4"
-										type="text"
-										name="exampleQuestion"
-										id="exampleQuestion3"
-										defaultValue="Svaret är Buzz 100"
-									/>
-									<InputField
-										className="flex flex-1 gap-4"
-										type="text"
-										name="exampleQuestion"
-										id="exampleQuestion4"
-										defaultValue="Svar 4"
-									/>
+								<InputField
+									className="flex flex-1 gap-4"
+									type="text"
+									name="exampleQuestion"
+									id="exampleQuestion"
+									defaultValue="Detta är FizzBuzz"
+								/>
+								<InputField
+									className="flex flex-1 gap-4"
+									type="text"
+									name="exampleQuestion"
+									id="exampleQuestion2"
+									defaultValue="Detta är programmerat i JavaScript"
+								/>
+								<InputField
+									className="flex flex-1 gap-4"
+									type="text"
+									name="exampleQuestion"
+									id="exampleQuestion3"
+									defaultValue="Svaret är Buzz 100"
+								/>
+								<InputField
+									className="flex flex-1 gap-4"
+									type="text"
+									name="exampleQuestion"
+									id="exampleQuestion4"
+									defaultValue="Svar 4"
+								/>
 							</FlexContainer>
 							<CardButtons className="text-white">
 								<SecondaryButton
@@ -167,7 +166,10 @@ function CompanySection() {
 									className: "flex-1",
 								})}
 							</CardBadges>
-							<InfoGrid entries={studentCard.infoGridEntries} className="text-sm" />
+							<InfoGrid
+								entries={studentCard.infoGridEntries}
+								className="text-sm"
+							/>
 							<CardButtons className="text-white">
 								<SecondaryButton
 									className="flex-1"

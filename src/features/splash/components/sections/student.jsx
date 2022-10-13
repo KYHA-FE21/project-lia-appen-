@@ -1,8 +1,18 @@
-import { ArrowRight, Calendar, CheckCircle, ClipboardCheck, MapPin } from "lucide-react";
+import {
+	ArrowRight,
+	Calendar,
+	CheckCircle,
+	ClipboardCheck,
+	MapPin,
+} from "lucide-react";
 
 import generateBadges from "../../../../components/badge/generate-badges";
 import SecondaryButton from "../../../../components/buttons/secondary-button";
-import Card, { CardBadges, CardButtons, CardHeader } from "../../../../components/card";
+import Card, {
+	CardBadges,
+	CardButtons,
+	CardHeader,
+} from "../../../../components/card";
 import InfoGrid from "../../../../components/info-grid";
 import FlexContainer from "../flex-container";
 import ProseParagraph from "../prose-paragraph";
@@ -10,10 +20,10 @@ import ProseParagraph from "../prose-paragraph";
 const companyCard = {
 	badges: ["HTML", "CSS", "JavaScript", "Git"],
 	infoGridEntries: [
-		{ icon: <Calendar />, children: '2022-11 - 2023-06' },
-		{ icon: <CheckCircle />, children: 'Hybrid' },
-		{ icon: <MapPin />, children: 'Gävleborgslän' }
-	]
+		{ icon: <Calendar />, children: "2022-11 - 2023-06" },
+		{ icon: <CheckCircle />, children: "Hybrid" },
+		{ icon: <MapPin />, children: "Gävleborgslän" },
+	],
 };
 
 function StudentSection() {
@@ -26,10 +36,10 @@ function StudentSection() {
 			>
 				<div className="splash-cards-max-width-xl">
 					<Card>
-						<CardHeader className="place-self-center">
+						<CardHeader>
 							<strong>Student</strong>
 						</CardHeader>
-						<ProseParagraph textAlign="center">
+						<ProseParagraph>
 							Efter att du har skapat din gratis profil, får du möjligheten att
 							ansöka till företag som matchar dina preferenser.
 						</ProseParagraph>
@@ -54,7 +64,10 @@ function StudentSection() {
 									className: "flex-1",
 								})}
 							</CardBadges>
-							<InfoGrid entries={companyCard.infoGridEntries} className="text-sm" />
+							<InfoGrid
+								entries={companyCard.infoGridEntries}
+								className="text-sm"
+							/>
 							<CardButtons className="text-white">
 								<SecondaryButton
 									className="flex-1"
