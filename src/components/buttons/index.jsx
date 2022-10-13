@@ -1,5 +1,3 @@
-import "./primary-button.scss";
-
 function Button({
 	width,
 	fontSize,
@@ -16,7 +14,7 @@ function Button({
 
 	return (
 		<button
-			className={`primary-button p-3 px-4 flex justify-center items-center gap-1 rounded-md ${colors} ${className}`}
+			className={`shadow p-3 flex justify-center items-center gap-1 rounded-md ${colors} ${className}`}
 			style={{ width: width, fontSize: fontSize }}
 			{...restProps}
 		>
