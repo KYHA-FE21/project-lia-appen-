@@ -280,3 +280,19 @@ $val in $fractions {
 .gradient-bg {
 	background: linear-gradient(180deg, rgba(80, 35, 60, 0.25) 0%, rgba(80, 35, 60, 0.8) 100%);
 }
+
+.aspect-square {
+	aspect-ratio: 1 / 1;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.mb-auto {
+	margin-bottom: auto;
+}
