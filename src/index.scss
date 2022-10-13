@@ -4,7 +4,7 @@
 @import-normalize;
 
 /* Dennis CSS reset */
-@import "./styles/reset.scss";
+@import './styles/reset.scss';
 
 :root {
 	font-family: 'Open Sans', sans-serif;
@@ -18,3 +18,17 @@ h5,
 h6 {
 	font-family: 'Cousine', monospace;
 }
+
+strong {
+	font-weight: 700;
+}
+
+i {
+	font-style: italic;
+}
+
+button {
+	cursor: pointer;
+}
+
+@import "./styles/utilities.scss"
