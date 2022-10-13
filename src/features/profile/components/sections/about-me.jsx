@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../title';
 import Wrapper from '../wrapper';
 import InputButton from '../input-button';
-import PrimaryButton from '../../../../components/buttons/primary-button';
+import PrimaryButton from '../../../../components/buttons/index';
 import TextArea from '../textArea';
 import { Phone, GraduationCap, Star } from 'lucide-react';
 import SelectorHeader from './selector_header';
