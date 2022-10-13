@@ -40,8 +40,8 @@ const Reset = () => {
 	}, [password, password2]);
 
 	return (
-		<div className="authContainer">
-			<div className="authContent">
+		<div className="authContainer flex justify-center items-center">
+			<div className="authContent w-full p-12">
 				<Logo />
 				{!data ? (
 					<>
@@ -82,7 +82,7 @@ const Reset = () => {
 					</>
 				) : (
 					<>
-						<div className="authResetResponseContent">{data}</div>
+						<div className="text-center text-green">{data}</div>
 					</>
 				)}
 			</div>

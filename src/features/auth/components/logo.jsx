@@ -3,7 +3,7 @@ import "../styles/components.scss";
 
 const logo = () => {
 	return (
-		<div className="authLogoContainer flex justify-center w-full">
+		<div className="mb-16 flex justify-center w-full">
 			<img src="/logo.svg" alt="Logo" className="authLogo" />
 		</div>
 	);

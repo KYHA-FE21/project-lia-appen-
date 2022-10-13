@@ -25,8 +25,8 @@ const Signin = () => {
 	}, [data]);
 
 	return (
-		<div className="authContainer">
-			<div className="authContent">
+		<div className="authContainer flex justify-center items-center">
+			<div className="authContent w-full p-12">
 				<Logo />
 				<form onSubmit={handleSubmit}>
 					<InputField
