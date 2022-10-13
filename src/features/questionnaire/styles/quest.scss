@@ -1,0 +1,34 @@
+
+.questContent {
+	min-height: calc(100vh - 2em); // calc(100vh -headerheight)
+	max-width: 35rem;
+
+	button:disabled {
+		background-color: #4d243d7a;
+		color: rgba(250, 250, 250, 0.5);
+	}
+
+	.overviewUpperContent {
+		p {
+			max-width: 25rem;
+		}
+	}
+
+	.overviewLowerContent {
+		a {
+			width: 50%;
+		}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.questContent {
+		padding: 2rem;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.questContent {
+		padding: 1rem;
+	}
+}

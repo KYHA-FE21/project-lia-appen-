@@ -7,6 +7,7 @@
 // custom reset
 html,
 body,
+main,
 div,
 span,
 applet,
@@ -111,8 +112,13 @@ section {
 	display: block;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	line-height: 1;
+	height: 100%;
 }
 
 ol,
