@@ -114,8 +114,8 @@ function StudentSection() {
 									{"}"}
 								</pre>
 							</div>
-							<FlexContainer gap="3" direction="col" className="py-3">
-								<div className="flex flex-1 gap-4 py-2">
+							<FlexContainer gap="4" direction="col" className="py-3">
+								<div className="flex flex-1 gap-4">
 									<input
 										type="radio"
 										name="exampleQuestion"
@@ -125,7 +125,7 @@ function StudentSection() {
 										Detta är FizzBuzz
 									</label>
 								</div>
-								<div className="flex flex-1 gap-4 py-2">
+								<div className="flex flex-1 gap-4">
 									<input
 										type="radio"
 										name="exampleQuestion"
@@ -135,7 +135,7 @@ function StudentSection() {
 										Detta är programmerat i JavaScript
 									</label>
 								</div>
-								<div className="flex flex-1 gap-4 py-2">
+								<div className="flex flex-1 gap-4">
 									<input
 										type="radio"
 										name="exampleQuestion"
@@ -145,7 +145,7 @@ function StudentSection() {
 										Svaret är Buzz 100
 									</label>
 								</div>
-								<div className="flex flex-1 gap-4 py-2">
+								<div className="flex flex-1 gap-4">
 									<input
 										type="radio"
 										name="exampleQuestion"

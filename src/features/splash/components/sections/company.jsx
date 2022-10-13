@@ -106,42 +106,34 @@ function CompanySection() {
 								/>
 							</div>
 							<FlexContainer gap="3" direction="col" className="py-3">
-								<div className="flex flex-1 gap-4">
 									<InputField
-										className="flex-1"
+										className="flex flex-1 gap-4"
 										type="text"
 										name="exampleQuestion"
 										id="exampleQuestion"
 										defaultValue="Detta är FizzBuzz"
 									/>
-								</div>
-								<div className="flex flex-1 gap-4">
 									<InputField
-										className="flex-1"
+										className="flex flex-1 gap-4"
 										type="text"
 										name="exampleQuestion"
 										id="exampleQuestion2"
 										defaultValue="Detta är programmerat i JavaScript"
 									/>
-								</div>
-								<div className="flex flex-1 gap-4">
 									<InputField
-										className="flex-1"
+										className="flex flex-1 gap-4"
 										type="text"
 										name="exampleQuestion"
 										id="exampleQuestion3"
 										defaultValue="Svaret är Buzz 100"
 									/>
-								</div>
-								<div className="flex flex-1 gap-4">
 									<InputField
-										className="flex-1"
+										className="flex flex-1 gap-4"
 										type="text"
 										name="exampleQuestion"
 										id="exampleQuestion4"
 										defaultValue="Svar 4"
 									/>
-								</div>
 							</FlexContainer>
 							<CardButtons className="text-white">
 								<SecondaryButton
