@@ -13,7 +13,7 @@ const AboutMe = () => {
             <Wrapper 
                 direction='column' 
                 gap={[3]}
-                padding={[0, 1]}>
+                padding={[5, 1, 0, 1]}>
 
                 <Title size={[1.5]} >Om mig</Title>
 
@@ -39,7 +39,7 @@ const AboutMe = () => {
             <Wrapper
                 direction='column'
                 gap={[3]}
-                padding={[3, 1]}>
+                padding={[7, 1, 7, 1]}>
 
                 <Title size={[1.5]} >Önskemål LIA</Title>
 
@@ -85,7 +85,7 @@ const AboutMe = () => {
 
             <Wrapper 
                 styleDirection='center' 
-                padding={[2,0]}
+                padding={[0, 0, 5, 0]}
                 gap={[1]}>
 
                 <PrimaryButton>Spara</PrimaryButton>

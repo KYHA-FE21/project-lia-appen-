@@ -45,7 +45,7 @@ const Index = () => {
           />
 
           <Wrapper
-            padding={[2, 0, 0, 0]}
+            padding={[5, 0, 0, 0]}
             direction='column'
             gap={[3]}
             styleDirection='center'>
