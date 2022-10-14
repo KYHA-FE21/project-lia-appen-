@@ -10,7 +10,7 @@ const Header = () => {
 					<img className="logo" src="./logo.svg" alt="Shows the logotype" />
 				</Link>
 
-				<Link to="/signin" title="Signin" className="h-full px-4">
+				<Link to="/signin" title="Signin" className="px-4">
 					<LogIn size={24} color="white" />
 				</Link>
 			</div>
