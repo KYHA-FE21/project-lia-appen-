@@ -1,15 +1,15 @@
 import React from 'react'
-import Wrapper from '../wrapper';
-import Title from '../title';
+import Wrapper from '../components/wrapper';
+import Title from '../components/title';
 import { Phone, MapPin, CalendarDays } from 'lucide-react';
 
 const Information = ({ name, role, school, date }) => {
 
     return (
         <Wrapper 
-            padding={[2,0, 0, 0]} 
+            padding={[5, 0, 0, 0]} 
             direction='column' 
-            gap={[3]} 
+            gap={[5]} 
             styleDirection='center'>
             <Title 
                 size={[1.5]} 

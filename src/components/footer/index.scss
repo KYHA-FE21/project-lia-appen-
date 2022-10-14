@@ -1,7 +1,8 @@
-footer {
+.main-footer {
+  position: sticky;
+  bottom: 0;
   background-color: #4d243d;
   margin-top: auto;
-  padding: 1em;
 
   .footer-container {
     height: 100%;
