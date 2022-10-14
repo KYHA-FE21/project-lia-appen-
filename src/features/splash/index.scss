@@ -10,6 +10,24 @@
 	max-width: 1280px;
 }
 
+.splash-hero {
+	position: relative;
+
+	&::before {
+		content: "";
+		top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+		background-size: cover;
+		filter: brightness(0.5);
+		-webkit-filter: brightness(0.5);
+		background-image: url('../../../public/background.jpg');
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+}
+
 $sizes: (
 	"sm": 0.875rem,
 	"base": 1rem,
