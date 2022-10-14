@@ -26,7 +26,7 @@ function SalesPitchSection() {
 	}, [selection]);
 
 	return (
-		<FlexContainer direction="col" gap="4" className="items-stretch mx-4">
+		<FlexContainer direction="col" gap="16" className="items-stretch mx-4">
 			<FlexContainer direction="col" className="text-2xl items-center">
 				<span className="font-display">Hur funkar det</span>
 				<FlexContainer className="items-center" gap="4">
