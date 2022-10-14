@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Badge from "../../../components/badge";
 import Wrapper from "../components/wrapper";
 import Avatar from "../sections/avatar";
@@ -9,14 +9,16 @@ import Title from "../components/title";
 import "./index.scss";
 import Button from "../../../components/buttons";
 import { Edit2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Index = () => {
-	const company = true;
+	const [searchParams] = useSearchParams()
+
+	const [isCompany] = useState(searchParams.get('company'))
 
 	return (
 		<main>
-			{company ? (
+			{isCompany ? (
 				<>
 					<Avatar />
 
