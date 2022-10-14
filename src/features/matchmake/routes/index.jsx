@@ -31,7 +31,7 @@ const Index = () => {
 		}
 	}, [actionExists, setSearchParams, data]);
 	return (
-		<Container className="gradient-bg p-3">
+		<Container type="main" display="flex" className="gradient-bg p-3 h-full items-center justify-center">
 			{action === "questions" && <Questions searchParams={searchParams} setSearchParams={setSearchParams} data={data} setData={setData} />}
 			{action === "verify" && <Verify setSearchParams={setSearchParams} data={data} setData={setData} />}
 			{!actionExists && <Information data={data} setData={setData} setSearchParams={setSearchParams} />}

@@ -13,7 +13,7 @@ import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-			<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height">
+			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height max-h-max w-full">
 				{!data && (
 					<>
 						<Heading
@@ -23,7 +23,7 @@ function Information({ data, setData, setSearchParams }) {
 								icon: <Hourglass color="white" size="30" />,
 							}}
 						/>
-						<Loading color="white" size="80%" />
+						<Loading color="white" className="h-15 w-15" />
 					</>
 				)}
 				{data && (

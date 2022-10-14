@@ -15,7 +15,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height">
+				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height max-h-max w-full">
 					{loading && (
 						<>
 							<Heading
@@ -25,7 +25,7 @@ function Verify({ data, setData, setSearchParams }) {
 									icon: <Hourglass color="white" size="30" />,
 								}}
 							/>
-							<Loading color="white" size="80%" />
+							<Loading color="white" className="h-15 w-15" />
 						</>
 					)}
 					{!loading && verified && (
