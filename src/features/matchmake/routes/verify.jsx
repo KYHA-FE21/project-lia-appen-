@@ -15,7 +15,7 @@ function Verify({ data, setData, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height max-h-max w-full">
+				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height h-max w-full">
 					{loading && (
 						<>
 							<Heading

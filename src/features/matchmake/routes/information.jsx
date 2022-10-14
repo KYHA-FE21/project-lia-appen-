@@ -13,7 +13,7 @@ import Card, { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ data, setData, setSearchParams }) {
 	return (
-			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height max-h-max w-full">
+			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
 				{!data && (
 					<>
 						<Heading
