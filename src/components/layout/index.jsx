@@ -10,9 +10,7 @@ const Layout = () => {
   return (
     <>
       {!noHeadOrFoot && <Header />}
-      <main>
         <Outlet />
-      </main>
       {!noHeadOrFoot && <Footer />}
     </>
   );

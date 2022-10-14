@@ -1,6 +1,6 @@
 import React from 'react'
-import Wrapper from '../wrapper';
-import Title from '../title';
+import Wrapper from '../components/wrapper';
+import Title from '../components/title';
 import { Phone, MapPin, CalendarDays } from 'lucide-react';
 
 const Information = ({ name, role, school, date }) => {
