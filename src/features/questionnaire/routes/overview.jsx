@@ -45,7 +45,7 @@ const Overview = () => {
 					</div>
 				</div>
 				<div className="overviewLowerContent flex mb-4">
-					<Link className="no-underline mr-1" to="/company/edit">
+					<Link className="no-underline mr-1" to="/profile">
 						<Button children="TILLBAKA" className="w-full" />
 					</Link>
 					<Link className="no-underline ml-1" to="/profile">
