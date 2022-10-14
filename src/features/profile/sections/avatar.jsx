@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrapper from '../wrapper';
+import Wrapper from '../components/wrapper';
 
 const Avatar = () => {
   return (

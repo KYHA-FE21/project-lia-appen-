@@ -1,6 +1,6 @@
 import React from 'react'
-import Wrapper from '../wrapper';
-import Title from '../title';
+import Wrapper from '../components/wrapper';
+import Title from '../components/title';
 
 const SelectorHeader = ({children, reverse}) => {
   return (

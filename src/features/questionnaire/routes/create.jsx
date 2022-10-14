@@ -3,6 +3,7 @@ import Button from "../../../components/buttons";
 import TextArea from "../components/TextArea";
 import IconBtn from "../components/iconBtn";
 import { X, Check, Plus, Minus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Create = () => {
 	const [amount, setAmount] = React.useState(3);
@@ -13,7 +14,10 @@ const Create = () => {
 			label: (
 				<span className="flex items-center text-sm">
 					Svarsalternativ #{i} - {type}{" "}
-					<span className="ml-2" style={{ color: type === "Fel" ? "#FD6D6D" : "#32BA78" }}>
+					<span
+						className="ml-2"
+						style={{ color: type === "Fel" ? "#FD6D6D" : "#32BA78" }}
+					>
 						{type === "Fel" ? <X /> : <Check />}
 					</span>
 				</span>
@@ -62,7 +66,9 @@ const Create = () => {
 		<div className="flex justify-center">
 			<div className="questContent flex flex-col justify-between p-12">
 				<div>
-					<h1 className="text-2xl mb-3 text-center">Skapa/Redigera verifieringsfråga</h1>
+					<h1 className="text-2xl mb-3 text-center">
+						Skapa/Redigera verifieringsfråga
+					</h1>
 					{questions.map((item, qi) => (
 						<TextArea
 							key={item.id}
@@ -96,8 +102,12 @@ const Create = () => {
 					</div>
 				</div>
 				<div className="createLowerContent">
-					<Button children="SPARA" className="w-full bg-green mb-8" />
-					<Button children="TA BORT" className="w-full bg-primary mb-8" disabled={true} />
+					<Link to="/questionnaire/overview/*" className="no-underline">
+						<Button className="w-full bg-green mb-8">SPARA</Button>
+						<Button className="w-full bg-primary mb-8" disabled={true}>
+							TA BORT
+						</Button>
+					</Link>
 				</div>
 			</div>
 		</div>
