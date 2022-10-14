@@ -14,7 +14,7 @@ function Splash() {
 		<FlexContainer
 			direction="col"
 			gap="16"
-			className="splash-hero-wrapper items-stretch splash-mb-2"
+			className="items-stretch splash-mb-2"
 		>
 			<div className="splash-hero">
 				<FlexContainer

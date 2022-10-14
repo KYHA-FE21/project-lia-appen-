@@ -1,7 +1,11 @@
 import Splash from "../index";
 
 function Route() {
-  return <Splash />
+	return (
+		<main className="splash-hero-wrapper">
+			<Splash />
+		</main>
+	);
 }
 
 export default Route;
