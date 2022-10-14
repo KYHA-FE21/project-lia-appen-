@@ -47,7 +47,7 @@ function Verify({ data, setData, setSearchParams }) {
 								}}
 							></Heading>
 							<Container type="p" className="px-3 text-center text-white">
-								Tryck på tillbaks för att få ett se ett nytt kort.
+								Tryck på tillbaka för att få ett se ett nytt kort.
 							</Container>
 							<CardButtons className="px-3 mt-auto">
 								<SecondaryButton
@@ -58,7 +58,7 @@ function Verify({ data, setData, setSearchParams }) {
 										setData(false);
 									}}
 								>
-									Tillbaks
+									Tillbaka
 								</SecondaryButton>
 							</CardButtons>
 						</>
@@ -101,7 +101,7 @@ function Verify({ data, setData, setSearchParams }) {
 										});
 									}}
 								>
-									Tillbaks
+									Tillbaka
 								</SecondaryButton>
 								<SecondaryButton
 									icon={<Check color="white" />}
