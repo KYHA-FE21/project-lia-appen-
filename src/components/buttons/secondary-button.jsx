@@ -1,5 +1,3 @@
-import "./secondary-button.scss";
-
 function SecondaryButton({
 	width,
 	fontSize,
