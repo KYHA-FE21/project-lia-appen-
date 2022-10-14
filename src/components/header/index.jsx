@@ -7,7 +7,7 @@ const Header = () => {
 		<header className="main-header h-max">
 			<div className="header-container max-w-screen-xl mx-auto">
 				<Link to="/" className="p-3 -ml-7">
-					<img className="logo" src="./logo.svg" alt="Shows the logotype" />
+					<img className="logo" src="/logo.svg" alt="Shows the logotype" />
 				</Link>
 
 				<Link to="/signin" title="Signin" className="px-4">
