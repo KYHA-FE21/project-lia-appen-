@@ -12,13 +12,15 @@ function SecondaryButton({
 }) {
 	return (
 		<button
-			className={`secondary-button flex items-center justify-center rounded-md ${className}`}
-			style={{ width: width, fontSize: fontSize }}
+			className={`shadow overflow-hidden flex items-center justify-center rounded-md ${className}`}
+			style={{ width, fontSize, backgroundColor: "rgba(0, 0, 0, 0.3)" }}
 			{...restProps}
 		>
-			{children && <span className="flex items-center p-3 px-4 secondary-button-text">{children}</span>}
+			{children && (
+				<span className="flex font-bold w-full h-full overflow-hidden items-center p-3 px-4">{children}</span>
+			)}
 			{icon && (
-				<div className={`secondary-button-icon flex justify-center items-center p-1 text-${color} bg-${bgColor}`}>
+				<div className={`ml-auto p-2 h-full flex justify-center items-center p-1 text-${color} bg-${bgColor}`}>
 					{icon}
 				</div>
 			)}

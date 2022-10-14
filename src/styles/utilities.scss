@@ -65,6 +65,22 @@
 		margin: #{$index * 4px};
 	}
 
+	.ml-#{$index} {
+		margin-left: #{$index * 4px};
+	}
+
+	.mr-#{$index} {
+		margin-right: #{$index * 4px};
+	}
+
+	.mt-#{$index} {
+		margin-top: #{$index * 4px};
+	}
+
+	.mb-#{$index} {
+		margin-bottom: #{$index * 4px};
+	}
+
 	.mx-#{$index} {
 		margin-left: #{$index * 4px};
 		margin-right: #{$index * 4px};
@@ -77,6 +93,22 @@
 
 	.p-#{$index} {
 		padding: #{$index * 4px};
+	}
+
+	.pl-#{$index} {
+		padding-left: #{$index * 4px};
+	}
+
+	.pr-#{$index} {
+		padding-right: #{$index * 4px};
+	}
+
+	.pt-#{$index} {
+		padding-top: #{$index * 4px};
+	}
+
+	.pb-#{$index} {
+		padding-bottom: #{$index * 4px};
 	}
 
 	.px-#{$index} {
@@ -105,11 +137,10 @@ $sizes: (
 	"xl": 1.25rem,
 	"2xl": 1.5rem,
 	"3xl": 1.875rem,
-	"6xl": 3.75rem
+	"6xl": 3.75rem,
 );
 
-@each $name,
-$size in $sizes {
+@each $name, $size in $sizes {
 	.text-#{$name} {
 		font-size: #{$size};
 	}
@@ -131,8 +162,7 @@ $colors: (
 	"red": #fd6d6d,
 );
 
-@each $color,
-$value in $colors {
+@each $color, $value in $colors {
 	.text-#{$color} {
 		color: $value;
 	}
@@ -165,8 +195,7 @@ $tracking-sizes: (
 	"normal": 0em,
 );
 
-@each $name,
-$size in $tracking-sizes {
+@each $name, $size in $tracking-sizes {
 	.tracking-#{$name} {
 		letter-spacing: $size;
 	}
@@ -186,8 +215,7 @@ $fractions: (
 	"3\\/4": 75%,
 );
 
-@each $name,
-$val in $fractions {
+@each $name, $val in $fractions {
 	.w-#{$name} {
 		width: $val;
 	}
@@ -202,15 +230,11 @@ $val in $fractions {
 }
 
 .shadow {
-	box-shadow: 0px 0px 0px 1px hsla(0, 0%, 0%, 0.25),
-		1px 1px 2px 1px hsla(0, 0%, 0%, 0.75);
+	box-shadow: 0px 0px 0px 1px hsla(0, 0%, 0%, 0.25), 1px 1px 2px 1px hsla(0, 0%, 0%, 0.75);
 }
 
 .gradient {
-	background: linear-gradient(180deg,
-			hsla(0, 0%, 0%, 0.1) 10%,
-			hsla(0, 0%, 0%, 0.05) 50%,
-			hsla(0, 0%, 0%, 0.1) 90%);
+	background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.1) 10%, hsla(0, 0%, 0%, 0.05) 50%, hsla(0, 0%, 0%, 0.1) 90%);
 }
 
 .blur {
@@ -219,6 +243,10 @@ $val in $fractions {
 }
 
 /* auto */
+.h-auto {
+	height: auto;
+}
+
 .m-auto {
 	margin: auto;
 }

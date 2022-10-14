@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './footer.scss';
+import './index.scss';
 
 import { Link as LucideLink, Star, Contact, Menu } from 'lucide-react';
 

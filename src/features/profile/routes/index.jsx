@@ -1,10 +1,11 @@
 import React from 'react';
 import Badge from '../../../components/badge';
 import Wrapper from '../components/wrapper';
-import Avatar from '../components/sections/avatar';
-import EditMenu from '../components/sections/edit-menu';
-import Information from '../components/sections/information';
-import SelectorHeader from '../components/sections/selector_header';
+import Avatar from '../sections/avatar';
+import AboutMe from '../sections/about-me';
+import Information from '../sections/information';
+import SelectorHeader from '../sections/selector_header';
+import Title from '../components/title';
 import './index.scss';
 
 const Index = () => {
@@ -12,7 +13,7 @@ const Index = () => {
   const company = false;
 
   return (
-    <>
+    <main>
       {(company) ? 
         
         <>
@@ -24,8 +25,6 @@ const Index = () => {
               styleDirection='center'
               name='Mooi Design'
               />
-
-            <EditMenu />
 
           </Wrapper>
         
@@ -45,7 +44,14 @@ const Index = () => {
             date='28 nov - 4 apr 2022'
           />
 
-          <SelectorHeader reverse={true}>Kompetenser</SelectorHeader> 
+          <Wrapper
+            padding={[2, 0, 0, 0]}
+            direction='column'
+            gap={[3]}
+            styleDirection='center'>
+          <Title size={[1.5]}>Kompetenser</Title>
+
+         </Wrapper>
 
           <Wrapper gap={[1]} styleDirection='center' padding={[0,1,2,1]}>
             <Badge width='fit-content' className='text-white'>Node</Badge>
@@ -55,13 +61,13 @@ const Index = () => {
             <Badge width='fit-content' className='text-white'>React</Badge>
           </Wrapper>
           
-          <EditMenu />
+          <AboutMe />
 
         </Wrapper>
         
       }
 
-    </>
+    </main>
   )
 };
 
