@@ -5,8 +5,8 @@ import "./index.scss";
 const Header = () => {
 	return (
 		<header className="main-header h-max">
-			<div className="header-container">
-				<Link to="/" className="p-3">
+			<div className="header-container max-w-screen-xl mx-auto">
+				<Link to="/" className="p-3 -ml-7">
 					<img className="logo" src="./logo.svg" alt="Shows the logotype" />
 				</Link>
 

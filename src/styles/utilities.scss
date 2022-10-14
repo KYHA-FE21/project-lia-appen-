@@ -301,6 +301,16 @@ $fractions: (
 	max-width: 640px;
 }
 
+.max-w-screen-lg {
+	width: 100%;
+	max-width: 1024px;
+}
+
+.max-w-screen-xl {
+	width: 100%;
+	max-width: 1280px;
+}
+
 .mt-auto {
 	margin-top: auto;
 }
