@@ -4,7 +4,7 @@ import Footer from '../footer/index';
 
 const Layout = () => {
   const { pathname } = useLocation();
-  const excludedRoutes = ['login', 'register', 'reset'];
+  const excludedRoutes = ['signin', 'signup', 'reset'];
   const noHeadOrFoot = excludedRoutes.includes(pathname.split('/')[1]);
 
   return (
