@@ -46,7 +46,7 @@ const Reset = () => {
 				{!data ? (
 					<>
 						{id === "*" ? (
-							<form onSubmit={handleGetResetCredentials}>
+							<form onSubmit={handleGetResetCredentials} className="flex gap-3 flex-col">
 								<InputField
 									icon={<Mail strokeWidth={1} />}
 									type="email"
@@ -58,7 +58,7 @@ const Reset = () => {
 								<Button children="FORTSÄTT" loading={loading} disabled={notSame} className="w-full" />
 							</form>
 						) : (
-							<form onSubmit={handleReset}>
+							<form onSubmit={handleReset} className="flex gap-3 flex-col">
 								<div className="authSignupPasswordContainer">
 									<InputField
 										icon={<Lock strokeWidth={1} />}
