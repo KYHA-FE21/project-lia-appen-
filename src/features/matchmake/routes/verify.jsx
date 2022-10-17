@@ -11,6 +11,15 @@ import Card, { CardButtons } from "../../../components/card";
 function Verify({ data, setData, setSearchParams }) {
 	const [verified, setVerified] = useState(false);
 	const [loading, setLoading] = useState(false);
+
+	function handleSubmit() {
+		setLoading(true);
+		setVerified(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 1_000);
+	}
+	
 	return (
 		<>
 			{!data && <Navigate to="/matchmake" />}
@@ -103,18 +112,7 @@ function Verify({ data, setData, setSearchParams }) {
 								>
 									Tillbaka
 								</SecondaryButton>
-								<SecondaryButton
-									icon={<Check color="white" />}
-									bgColor="green"
-									className="text-white w-full text-sm"
-									onClick={() => {
-										setLoading(true);
-										setVerified(true);
-										setTimeout(() => {
-											setLoading(false);
-										}, 1_000);
-									}}
-								>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={handleSubmit}>
 									Skicka in
 								</SecondaryButton>
 							</CardButtons>
