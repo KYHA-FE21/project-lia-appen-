@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/components.scss";
 
-const TextArea = ({ label, placeholder, rows, id, value, setValue }) => {
+const TextArea = ({ label, placeholder, rows, id, value, setValue, ...restProps }) => {
 	return (
 		<div className="my-6">
 			<label htmlFor={id}>{label}</label>
@@ -13,6 +13,7 @@ const TextArea = ({ label, placeholder, rows, id, value, setValue }) => {
 					placeholder={placeholder}
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
+					{...restProps}
 				></textarea>
 			</div>
 		</div>

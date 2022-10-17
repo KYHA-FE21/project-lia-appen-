@@ -5,9 +5,10 @@ import IconBtn from "../components/iconBtn";
 import { X, Check, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Create = () => {
+const Create = ({ handleSubmit }) => {
 	const [amount, setAmount] = React.useState(3);
-	const [data, setData] = React.useState(["", "", ""]);
+	const [questionBody, setQuestionBody] = React.useState("");
+	const [data, setData] = React.useState(["", ""]);
 
 	const newAnswear = (i, type = "Fel") => {
 		return {
@@ -28,16 +29,7 @@ const Create = () => {
 		};
 	};
 
-	const initialState = [
-		{
-			label: "Huvudtext för frågan:",
-			placeholder: "Aaa",
-			rows: 12,
-			id: "questMain",
-		},
-		newAnswear(1, "Rätt"),
-		newAnswear(2),
-	];
+	const initialState = [newAnswear(1, "Rätt"), newAnswear(2)];
 
 	const reducer = (state, action) => {
 		switch (action.type) {
@@ -62,13 +54,36 @@ const Create = () => {
 		console.log(data);
 	}, [data]);
 
+	function handleQuestionnaireSubmit (ev) {
+		ev.preventDefault()
+
+		const { questionbody, question1, question2, question3, question4 } = ev.target.elements
+
+		console.log(data)
+
+		// validate
+
+		// handleSubmit({... })
+	}
+
 	return (
 		<div className="flex justify-center">
-			<div className="questContent flex flex-col justify-between p-12">
+			<form className="questContent flex flex-col justify-between p-12" onSubmit={handleQuestionnaireSubmit}>
 				<div>
 					<h1 className="text-2xl mb-3 text-center">
 						Skapa/Redigera verifieringsfråga
 					</h1>
+					<TextArea
+						label="Huvudtext för frågan:"
+						placeholder="Aaa"
+						rows="12"
+						id="question-body"
+						value={questionBody}
+						setValue={(a) => {
+							setQuestionBody(a);
+						}}
+						name={"questionbody"}
+					/>
 					{questions.map((item, qi) => (
 						<TextArea
 							key={item.id}
@@ -85,31 +100,32 @@ const Create = () => {
 									})
 								);
 							}}
+							name={"question" + (qi+1)}
 						/>
 					))}
 					<div className="flex justify-center items-center mb-10">
 						<IconBtn
 							icon={<Minus size={20} />}
 							onClick={() => dispatch({ type: "REMOVE" })}
-							disabled={questions.length === 3}
+							disabled={questions.length === 1}
 						/>
-						<span>{questions.length - 1} / 4 </span>
+						<span>{questions.length} / 4 </span>
 						<IconBtn
 							icon={<Plus size={20} />}
 							onClick={() => dispatch({ type: "ADD" })}
-							disabled={questions.length === 5}
+							disabled={questions.length === 4}
 						/>
 					</div>
 				</div>
 				<div className="createLowerContent">
+					<Button className="w-full bg-green mb-8">SPARA</Button>
 					<Link to="/questionnaire/overview/*" className="no-underline">
-						<Button className="w-full bg-green mb-8">SPARA</Button>
-						<Button className="w-full bg-primary mb-8" disabled={true}>
+						<Button className="w-full bg-primary mb-8" type="button" disabled={true}>
 							TA BORT
 						</Button>
 					</Link>
 				</div>
-			</div>
+			</form>
 		</div>
 	);
 };
