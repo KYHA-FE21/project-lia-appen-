@@ -11,6 +11,11 @@ const applications = [
 			{ icon: <CheckCircle size="20" />, children: "Remote" },
 		],
 		badges: ["HTML", "CSS", "JS", "REACT"],
+		bio: (
+			<>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores delectus quaerat velit maiores perferendis blanditiis, voluptatem ducimus omnis ea natus totam libero consectetur repellat. Exercitationem a ea eum atque, minus accusantium, dignissimos iure amet vel ducimus maxime ipsum neque blanditiis eveniet debitis itaque magnam, dicta nisi aliquam officia sunt dolorem ut.</p>
+			</>
+		),
 	},
 	{
 		type: "Front-End Developer",
@@ -20,6 +25,12 @@ const applications = [
 			{ icon: <CheckCircle size="20" />, children: "Hybrid" },
 		],
 		badges: ["HTML", "CSS"],
+		bio: (
+			<>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores delectus quaerat velit maiores perferendis blanditiis, voluptatem ducimus omnis ea natus totam libero consectetur repellat. Exercitationem a ea eum atque, minus accusantium, dignissimos iure amet vel ducimus maxime ipsum neque blanditiis eveniet debitis itaque magnam, dicta nisi aliquam officia sunt dolorem ut.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi numquam iste nemo. Dignissimos, perferendis provident! Molestias numquam quae sint, impedit sunt aliquam esse ipsum odio iusto voluptates natus ab voluptatem.</p>
+			</>
+		),
 	},
 	{
 		type: "Front-End Developer",
@@ -29,6 +40,11 @@ const applications = [
 			{ icon: <CheckCircle size="20" />, children: "Hybrid" },
 		],
 		badges: ["HTML", "CSS", "JS", "NODE", "REACT"],
+		bio: (
+			<>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi numquam iste nemo. Dignissimos, perferendis provident! Molestias numquam quae sint, impedit sunt aliquam esse ipsum odio iusto voluptates natus ab voluptatem.</p>
+			</>
+		),
 	},
 	{
 		type: "Front-End Developer",
@@ -38,6 +54,11 @@ const applications = [
 			{ icon: <CheckCircle size="20" />, children: "In-Office" },
 		],
 		badges: ["JS", "NODE", "REACT"],
+		bio: (
+			<>
+				<p>Lorem ipsum dolor sit amet.</p>
+			</>
+		),
 	},
 ];
 
