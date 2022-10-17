@@ -1,11 +1,11 @@
-import ApplicationsContainer from '../components/applications-container';
+import ApplicationsContainer from "../components/applications-container";
 
 const Index = () => {
-  return (
-    <div>
-      <ApplicationsContainer />
-    </div>
-  );
+	return (
+		<main className="gradient-bg flex flex-col h-full p-3 gap-3 overflow-auto">
+			<ApplicationsContainer />
+		</main>
+	);
 };
 
 export default Index;
