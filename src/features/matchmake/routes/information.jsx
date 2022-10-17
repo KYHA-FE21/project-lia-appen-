@@ -47,11 +47,11 @@ function Information({ data, setData, setSearchParams }) {
 								]}
 							/>
 						</Container>
-						<HorizontalRow className="px-3" />
+						<HorizontalRow className="px-3 opacity-3" />
 						<CardBadges className="matchmake-badgesfix">{generateBadges(["JS", "TS", "HTML", "CSS", "REACT"], ["JS", "HTML", "CSS"])}</CardBadges>
-						<HorizontalRow className="px-3" />
+						<HorizontalRow className="px-3 opacity-3" />
 						<InfoStats className="text-white" />
-						<HorizontalRow className="px-3" />
+						<HorizontalRow className="px-3 opacity-3" />
 						<CardButtons className="px-3 mt-auto">
 							<SecondaryButton
 								icon={<X color="white" />}

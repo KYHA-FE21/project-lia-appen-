@@ -47,7 +47,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							),
 						}}
 					/>
-					<HorizontalRow className="px-3" />
+					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">
 						<Container display="flex" className="flex-col gap-3">
 							<h2 className="px-3 text-xl text-white">{data?.questions[question]?.title}</h2>
@@ -59,7 +59,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							))}
 						</Container>
 					</Container>
-					<HorizontalRow className="px-3" />
+					<HorizontalRow className="px-3 opacity-3" />
 					<CardButtons className="px-3 mt-auto">
 						<SecondaryButton
 							icon={<X color="white" />}
