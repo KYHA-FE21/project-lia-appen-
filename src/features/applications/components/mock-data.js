@@ -10,6 +10,10 @@ const applications = [
 			{ icon: <MapPin size="20" />, children: "Gävleborg" },
 			{ icon: <CheckCircle size="20" />, children: "Remote" },
 		],
+		links: [
+			{ title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, libero.", url: "https://www.google.se/" },
+			{ title: "Unnamed Projekt 34", url: "https://www.google.se/" },
+		],
 		badges: ["HTML", "CSS", "JS", "REACT"],
 		bio: (
 			<>
@@ -23,6 +27,11 @@ const applications = [
 			{ icon: <CalendarDays size="20" />, children: "2022-12 to 2023-06" },
 			{ icon: <MapPin size="20" />, children: "Stockholm" },
 			{ icon: <CheckCircle size="20" />, children: "Hybrid" },
+		],
+		links: [
+			{ title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, libero.", url: "https://www.google.se/" },
+			{ title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, libero.", url: "https://www.google.se/" },
+			{ title: "Unnamed Projekt 12", url: "https://www.google.se/" },
 		],
 		badges: ["HTML", "CSS"],
 		bio: (
@@ -39,6 +48,7 @@ const applications = [
 			{ icon: <MapPin size="20" />, children: "Göteborg" },
 			{ icon: <CheckCircle size="20" />, children: "Hybrid" },
 		],
+		links: [{ title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, libero.", url: "https://www.google.se/" }],
 		badges: ["HTML", "CSS", "JS", "NODE", "REACT"],
 		bio: (
 			<>
@@ -53,6 +63,7 @@ const applications = [
 			{ icon: <MapPin size="20" />, children: "Malmö" },
 			{ icon: <CheckCircle size="20" />, children: "In-Office" },
 		],
+		links: [{ title: "Unnamed Projekt 12", url: "https://www.google.se/" }],
 		badges: ["JS", "NODE", "REACT"],
 		bio: (
 			<>

@@ -4,6 +4,7 @@ import generateBadges from "../../../components/badge/generate-badges";
 import Heading from "../../matchmake/components/heading";
 import { CardBadges, CardButtons } from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
+import LinkGrid from "./link-grid"
 import "./modal.scss";
 
 const Modal = ({ applicantList, setApplicantList, companyBadges, currentIndex, setOpenModal }) => {
@@ -28,7 +29,8 @@ const Modal = ({ applicantList, setApplicantList, companyBadges, currentIndex, s
 					}}
 				/>
 				<CardBadges className="flex text-white justify-center">{generateBadges(companyBadges, applicantList[currentIndex].badges)}</CardBadges>
-				<InfoGrid color="black" fontSize={"0.75rem"} entries={applicantList[currentIndex].info} />
+				<InfoGrid fontSize={"0.75rem"} entries={applicantList[currentIndex].info} />
+				<LinkGrid fontSize={"0.75rem"} iconSize="20" entries={applicantList[currentIndex].links}/>
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{applicantList[currentIndex].bio}</div>
 				<CardButtons className="flex h-10 mt-auto">
 					<SecondaryButton icon={<X />} onClick={() => remove(currentIndex, "l")} color="white" bgColor="red" className="text-white w-full text-sm">
