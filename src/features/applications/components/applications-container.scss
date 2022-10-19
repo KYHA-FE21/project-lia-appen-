@@ -1,5 +1,3 @@
-@use "sass:math";
-
 .animate-left {
 	animation: translateLeft 0.5s ease-in-out forwards;
 	@keyframes translateLeft {
