@@ -1,5 +1,11 @@
-function index() {
-	return <div>splash</div>;
-};
+import Splash from "../index";
 
-export default index;
+function Route() {
+	return (
+		<main className="splash-hero-wrapper">
+			<Splash />
+		</main>
+	);
+}
+
+export default Route;

@@ -1,32 +1,50 @@
-header {
-  font-size: 1.8em;
-  height: 2em;
-  background-color: #4d243d;
-  color: black;
+.main-header {
+	font-size: 1.8em;
+	background-color: #4d243d;
+	color: black;
 
-  .header-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 1em;
-    gap:0.5em;
-    align-items: center;
+	.header-container {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding-inline: 1em;
+		gap: 0.5em;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-    }
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			cursor: pointer;
 
-    .logo {
-      width: 100%;
-      max-width: 3em;
-      max-height: 2em;
-      height: 100%;
-    }
+			&:hover {
+				background-color: rgba($color: #000000, $alpha: 0.25);
+			}
+		}
 
-  }
+		.logo {
+			width: 100%;
+			max-width: 3.5em;
+			max-height: 2.5em;
+			height: 100%;
+		}
+	}
+}
+
+/* Has a bug.
+#root:has(> .splash-hero-wrapper) > .main-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: rgba($color: #000000, $alpha: 0.25);
+	backdrop-filter: blur(10.5px);
+	-webkit-backdrop-filter: blur(10.5px);
+}
+*/
+
+.-ml-7 {
+	margin-left: -27px;
 }
