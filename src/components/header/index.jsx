@@ -4,13 +4,13 @@ import "./index.scss";
 
 const Header = () => {
 	return (
-		<header>
-			<div className="header-container">
-				<Link to="/">
-					<img className="logo" src="./logo.svg" alt="Shows the logotype" />
+		<header className="main-header h-max">
+			<div className="header-container max-w-screen-xl mx-auto">
+				<Link to="/" className="p-3 -ml-7">
+					<img className="logo" src="/logo.svg" alt="Shows the logotype" />
 				</Link>
 
-				<Link to="/login">
+				<Link to="/signin" title="Signin" className="px-4">
 					<LogIn size={24} color="white" />
 				</Link>
 			</div>
