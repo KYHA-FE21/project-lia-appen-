@@ -33,9 +33,14 @@ button {
 
 @import "./styles/utilities.scss";
 
-
 #root {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	flex: 1 1 0%;
+}
+
+body {
+	display: flex;
+	min-height: 100%;
+	padding-bottom: 56px;
 }
