@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/quest.scss";
 import { Edit } from "lucide-react";
@@ -14,15 +13,16 @@ const Overview = () => {
 	const questions = [{ id: "2", option: "3 svarsalternativ" }];
 
 	return (
-		<div className="flex justify-center">
-			<div className="questContent flex flex-col justify-between p-12">
+		<div className="flex justify-center min-h-full">
+			<div className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12">
 				<div className="overviewUpperContent">
 					<div className="mb-8 flex justify-center">
 						<div>
 							<h1 className="text-2xl mb-3 text-center">Annons formulär</h1>
 							<p className="text-center">
-								Med vårt verktyg för att skapa ansökningsformulär kan du enkelt skapa verifieringsfrågor för din annons.
-								Varje sökande tilldelas sedan detta formulär under sin ansökningsprocess.
+								Med vårt verktyg för att skapa ansökningsformulär kan du enkelt
+								skapa verifieringsfrågor för din annons. Varje sökande tilldelas
+								sedan detta formulär under sin ansökningsprocess.
 							</p>
 						</div>
 					</div>
@@ -32,7 +32,11 @@ const Overview = () => {
 					<div>
 						<h2 className="text-base mb-4">1/5 frågor</h2>
 						{questions.map((item, i) => (
-							<Link className="no-underline text-white" key={item.id + i} to={`/questionnaire/create/${item.id}`}>
+							<Link
+								className="no-underline text-white"
+								key={item.id + i}
+								to={`/questionnaire/create/${item.id}`}
+							>
 								<BtnSecondary
 									children={`Fråga ${i + 1} - ${item.option}`}
 									icon={<Edit />}
