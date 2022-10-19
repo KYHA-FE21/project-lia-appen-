@@ -1,33 +1,3 @@
-.card-container {
-	display: flex;
-	flex-direction: column;
-	backdrop-filter: blur(10.5px);
-	-webkit-backdrop-filter: blur(10.5px);
-	transition: all 1s ease-out;
-
-	.card-top {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		h2 {
-			color: black;
-			padding: 0;
-			margin: 0;
-		}
-	}
-
-	.card-badges {
-		color: white;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.card-buttons {
-		display: flex;
-	}
-}
-
 .card-bg {
 	background: rgba(#4d243d, 0.25);
 }
