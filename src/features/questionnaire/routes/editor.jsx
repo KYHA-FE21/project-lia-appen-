@@ -7,6 +7,8 @@ import TextArea from "../components/text-area";
 import Button from "../../../components/buttons";
 import AnswerEditTextArea from "../components/answer-edit";
 
+import { i18n } from "../i18n";
+
 const MAXQUESTIONS = 4;
 
 const Answer = ({
@@ -16,11 +18,12 @@ const Answer = ({
 	correct = false,
 	handleTextAreaChange,
 	handleRadioChange,
-	placeholder = "Mata in svarsalternativ",
+	placeholder = i18n.default["Answer.placeholder"],
 }) => {
 	const label = (
 		<span className="flex items-center text-sm">
-			Svarsalternativ #{index + 1} - {correct ? "Rätt" : "Fel"}{" "}
+			Svarsalternativ #{index + 1} -{" "}
+			{correct ? i18n.default.Right : i18n.default.Wrong}{" "}
 			<span className="ml-2" style={{ color: correct ? "#32BA78" : "#FD6D6D" }}>
 				{correct ? <Check /> : <X />}
 			</span>
@@ -42,7 +45,7 @@ const Answer = ({
 	);
 };
 
-const Create = () => {
+const Editor = () => {
 	const { id: advertisement_id } = useParams();
 
 	const [questionBody, setQuestionBody] = useState("");
@@ -62,11 +65,13 @@ const Create = () => {
 	function handleReduceAnswers() {
 		const newData = answers.slice(0, -1);
 		setAnswers(newData);
-		setCorrectAnswerIndex([0])
+		setCorrectAnswerIndex([0]);
 	}
 
 	function handleAnswerChange(ev) {
-		const { value } = ev.target;
+		const { name, value } = ev.target;
+		answers[Number(name)] = value
+		setAnswers([...answers])
 	}
 
 	function handleCorrectAnswerChange(ev) {
@@ -94,18 +99,18 @@ const Create = () => {
 	}
 
 	return (
-		<div className="flex justify-center min-h-full">
+		<div className="flex justify-center h-full">
 			<form
 				className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12"
 				onSubmit={handleQuestionnaireSubmit}
 			>
 				<div>
 					<h1 className="text-2xl mb-3 text-center">
-						Skapa/Redigera fråga
+						{i18n.default["Question Editor"]}
 					</h1>
 
 					<TextArea
-						label="Huvudtext för frågan:"
+						label={i18n.default["Question body"]}
 						rows="12"
 						id="questionBody"
 						value={questionBody}
@@ -115,7 +120,7 @@ const Create = () => {
 
 					{answers.map((value, index) => (
 						<Answer
-							key={value + index}
+							key={index}
 							id={advertisement_id}
 							index={index}
 							value={value}
@@ -142,15 +147,15 @@ const Create = () => {
 					</div>
 				</div>
 
-				<div className="createLowerContent">
-					<Button className="w-full bg-green mb-8">SPARA</Button>
+				<div>
+					<Button className="w-full bg-green mb-8">{i18n.default.Save}</Button>
 					<Link to="/questionnaire/overview/*" className="no-underline">
 						<Button
 							className="w-full bg-primary mb-8"
 							type="button"
 							disabled={true}
 						>
-							TA BORT
+							{i18n.default.Delete}
 						</Button>
 					</Link>
 				</div>
@@ -159,4 +164,4 @@ const Create = () => {
 	);
 };
 
-export default Create;
+export default Editor;

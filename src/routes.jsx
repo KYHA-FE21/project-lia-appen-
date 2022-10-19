@@ -9,8 +9,8 @@ import Splash from "./features/splash/routes";
 import Signin from "./features/auth/routes/signin";
 import Signup from "./features/auth/routes/signup";
 import Reset from "./features/auth/routes/reset";
-import CreateQuestionnaire from "./features/questionnaire/routes/create";
-import OverviewQuestionnaire from "./features/questionnaire/routes/overview";
+import QuestionnaireEditor from "./features/questionnaire/routes/editor";
+import QuestionnaireOverview from "./features/questionnaire/routes/overview";
 
 const routes = () => {
 	return (
@@ -26,11 +26,11 @@ const routes = () => {
 					<Route path="/applications" element={<Applications />}></Route>
 					<Route
 						path="/questionnaire/overview/:id"
-						element={<OverviewQuestionnaire />}
+						element={<QuestionnaireOverview />}
 					></Route>
 					<Route
-						path="/questionnaire/create/:id"
-						element={<CreateQuestionnaire />}
+						path="/questionnaire/editor/:id"
+						element={<QuestionnaireEditor />}
 					></Route>
 				</Route>
 			</Routes>

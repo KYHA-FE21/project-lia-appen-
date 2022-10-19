@@ -20,6 +20,7 @@ const AnswerEditTextArea = ({
 					<textarea
 						className="w-full"
 						id={labelID}
+						name={index}
 						value={value}
 						onChange={handleTextAreaChange}
 						{...restProps}
