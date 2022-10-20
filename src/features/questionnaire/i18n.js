@@ -1,4 +1,4 @@
-export const i18n = {
+export const dictionary = {
 	default: {
 		"Answer.placeholder": "Mata in svarsalternativ",
 		"Right": "Rätt",
@@ -8,4 +8,8 @@ export const i18n = {
 		"Delete": "Ta bort",
 		"Save": "Spara"
 	}
+}
+
+export default function i18n (lang = "default") {
+	return dictionary[lang]
 }

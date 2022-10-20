@@ -7,7 +7,7 @@ import TextArea from "../components/text-area";
 import Button from "../../../components/buttons";
 import AnswerEditTextArea from "../components/answer-edit";
 
-import { i18n } from "../i18n";
+import i18n from "../i18n";
 
 const MAXQUESTIONS = 4;
 
@@ -18,15 +18,12 @@ const Answer = ({
 	correct = false,
 	handleTextAreaChange,
 	handleRadioChange,
-	placeholder = i18n.default["Answer.placeholder"],
+	placeholder = i18n()["Answer.placeholder"],
 }) => {
 	const label = (
-		<span className="flex items-center text-sm">
-			Svarsalternativ #{index + 1} -{" "}
-			{correct ? i18n.default.Right : i18n.default.Wrong}{" "}
-			<span className="ml-2" style={{ color: correct ? "#32BA78" : "#FD6D6D" }}>
-				{correct ? <Check /> : <X />}
-			</span>
+		<span className="flex gap-2 items-center text-sm">
+			Svarsalternativ #{index + 1} - {correct ? i18n().Right : i18n().Wrong}{" "}
+			{correct ? <Check className="text-green" /> : <X className="text-red" />}
 		</span>
 	);
 
@@ -70,8 +67,9 @@ const Editor = () => {
 
 	function handleAnswerChange(ev) {
 		const { name, value } = ev.target;
-		answers[Number(name)] = value
-		setAnswers([...answers])
+		// TODO: I don't like this, can we improve this?
+		answers[Number(name)] = value;
+		setAnswers([...answers]);
 	}
 
 	function handleCorrectAnswerChange(ev) {
@@ -106,11 +104,11 @@ const Editor = () => {
 			>
 				<div>
 					<h1 className="text-2xl mb-3 text-center">
-						{i18n.default["Question Editor"]}
+						{i18n()["Question Editor"]}
 					</h1>
 
 					<TextArea
-						label={i18n.default["Question body"]}
+						label={i18n()["Question body"]}
 						rows="12"
 						id="questionBody"
 						value={questionBody}
@@ -137,7 +135,7 @@ const Editor = () => {
 							disabled={answers.length === 1}
 						/>
 						<span>
-							{answers.length} / {MAXQUESTIONS}{" "}
+							{answers.length} / {MAXQUESTIONS}
 						</span>
 						<IconBtn
 							icon={<Plus size={20} />}
@@ -148,14 +146,14 @@ const Editor = () => {
 				</div>
 
 				<div>
-					<Button className="w-full bg-green mb-8">{i18n.default.Save}</Button>
+					<Button className="w-full bg-green mb-8">{i18n().Save}</Button>
 					<Link to="/questionnaire/overview/*" className="no-underline">
 						<Button
 							className="w-full bg-primary mb-8"
 							type="button"
 							disabled={true}
 						>
-							{i18n.default.Delete}
+							{i18n().Delete}
 						</Button>
 					</Link>
 				</div>
