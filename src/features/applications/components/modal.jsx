@@ -33,10 +33,10 @@ const Modal = ({ applicantList, setApplicantList, companyBadges, currentIndex, s
 				<LinkGrid fontSize={"0.75rem"} iconSize="20" entries={applicantList[currentIndex].links}/>
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{applicantList[currentIndex].bio}</div>
 				<CardButtons className="flex h-10 mt-auto">
-					<SecondaryButton icon={<X />} onClick={() => remove(currentIndex, "l")} color="white" bgColor="red" className="text-white w-full text-sm">
+					<SecondaryButton icon={<X />} onClick={() => remove(currentIndex)} color="white" bgColor="red" className="text-white w-full text-sm">
 						Neka
 					</SecondaryButton>
-					<SecondaryButton icon={<Check />} onClick={() => remove(currentIndex, "r")} color="white" bgColor="green" className="text-white w-full text-sm">
+					<SecondaryButton icon={<Check />} onClick={() => remove(currentIndex,)} color="white" bgColor="green" className="text-white w-full text-sm">
 						Acceptera
 					</SecondaryButton>
 				</CardButtons>
