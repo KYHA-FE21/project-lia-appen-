@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
-const API_ENDPOINT = "questionnaires";
+const API_ENDPOINT = "questionnaire";
 
 export const MAX_QUESTIONNAIRES = 5
 
