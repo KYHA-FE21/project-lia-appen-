@@ -1,8 +1,20 @@
-import { Loader } from "lucide-react";
+import { Hourglass, Loader } from "lucide-react";
+import Heading from "./heading";
 import "./loading.scss";
 
-function Loading({ size, color, className }) {
-	return <Loader className={ `spinner aspect-squared m-auto ${className && className}`} color={color} size={size} />;
+function Loading() {
+	return (
+		<>
+			<Heading
+				className="text-2xl text-white px-3"
+				{...{
+					heading: "Laddar...",
+					icon: <Hourglass color="white" size="30" />,
+				}}
+			/>
+			<Loader className={`spinner m-auto`} color="white" size="25%" />;
+		</>
+	);
 }
 
 export default Loading;

@@ -4,8 +4,8 @@ import { Check, Rocket, X, XCircle } from "lucide-react";
 import Container from "../components/container";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import Card, { CardButtons } from "../../../components/card";
-import LoadingCard from "../components/loading-card";
+import { CardButtons } from "../../../components/card";
+import Loading from "../components/loading";
 
 function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
 	const [verified, setVerified] = useState(false);
@@ -22,7 +22,7 @@ function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
 
 	return (
 		<>
-			{loading && <LoadingCard />}
+			{loading && <Loading />}
 			{!loading && (
 				<>
 					{verified && (

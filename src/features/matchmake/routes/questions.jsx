@@ -6,7 +6,7 @@ import QuestionAlternative from "../components/question-alternative";
 import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import HorizontalRow from "../components/hr";
-import Card, { CardButtons } from "../../../components/card";
+import { CardButtons } from "../../../components/card";
 
 function Questions({ questionnaire, answers, setAnswers, setAction, getNew, question, setQuestion }) {
 	function handleChange(event) {

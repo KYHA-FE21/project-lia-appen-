@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../../../components/card";
 import Container from "../components/container";
 import GenerateAdvertisementData from "../components/generate-advertisment-data";
-import LoadingCard from "../components/loading-card";
+import Loading from "../components/loading";
 
 import "./index.scss";
 import Information from "./information";
@@ -31,15 +31,13 @@ const Index = () => {
 
 	return (
 		<Container type="main" display="flex" className="gradient-bg p-3 h-full items-center justify-center">
-			<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height w-full">
-				{!advertisementData && <LoadingCard />}
+			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
+				{!advertisementData && <Loading />}
 				{advertisementData && (
 					<>
-						<div className="w-full">
-							{action === "information" && <Information advertisementData={advertisementData} getNew={getNew} setAction={setAction} />}
-							{action === "questions" && <Questions questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} question={question} setQuestion={setQuestion} answers={answers} setAnswers={setAnswers} />}
-							{action === "verify" && <Verify questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} setQuestion={setQuestion} answers={answers} />}
-						</div>
+						{action === "information" && <Information advertisementData={advertisementData} getNew={getNew} setAction={setAction} />}
+						{action === "questions" && <Questions questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} question={question} setQuestion={setQuestion} answers={answers} setAnswers={setAnswers} />}
+						{action === "verify" && <Verify questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} setQuestion={setQuestion} answers={answers} />}
 					</>
 				)}
 			</Card>

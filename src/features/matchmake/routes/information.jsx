@@ -8,7 +8,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
 import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
-import Card, { CardBadges, CardButtons } from "../../../components/card";
+import { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ advertisementData, getNew, setAction }) {
 	const { attributes, statistics, openings } = advertisementData;
