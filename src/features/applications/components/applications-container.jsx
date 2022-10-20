@@ -8,8 +8,6 @@ import InfoGrid from "../../../components/info-grid";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import generateBadges from "../../../components/badge/generate-badges";
 
-import "./applications-container.scss";
-
 const ApplicationsContainer = () => {
 	const [applicantList, setApplicantList] = useState([...applications]);
 	const [openModal, setOpenModal] = useState(false);
