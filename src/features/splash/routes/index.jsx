@@ -1,4 +1,4 @@
-import Splash from "../index";
+import Splash from "../index.jsx";
 
 function Route() {
 	return (
