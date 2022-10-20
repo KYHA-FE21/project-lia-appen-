@@ -5,9 +5,8 @@
 			"name": "",
 			"email": "",
 			"password": "",
-			"type": "",
 			"bio": "",
-			"attibutes_id": "",
+			"attribute_id": "",
 			"links": [
 				{
 					"title": "",
@@ -21,17 +20,15 @@
 			"id": 1,
 			"advertisement_id": 1,
 			"body": "",
-			"alternatives": [
-				""
-			],
-			"correctAlternatives": [0]
+			"alternatives": [""],
+			"correct_alternatives": [0]
 		}
 	],
 	"advertisement": [
 		{
 			"id": 1,
 			"user_id": "",
-			"attibutes_id": "",
+			"attribute_id": "",
 			"openings": 2,
 			"is_active": true,
 			"statistics": {
@@ -46,14 +43,16 @@
 			]
 		}
 	],
-	"attibutes": [
+	"attribute": [
 		{
 			"id": "",
-			"period": "",
+			"period": ["", ""],
 			"profession": "",
 			"badges": [""],
 			"location": "",
-			"work_type": ""
+			"work_type": "",
+			"school": "",
+			"type": ""
 		}
 	]
 }
