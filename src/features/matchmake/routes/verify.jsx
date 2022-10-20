@@ -24,7 +24,7 @@ function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
 		<>
 			{loading && <LoadingCard />}
 			{!loading && (
-				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height">
+				<>
 					{verified && (
 						<>
 							<Heading
@@ -77,7 +77,7 @@ function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
 							</CardButtons>
 						</>
 					)}
-				</Card>
+				</>
 			)}
 		</>
 	);

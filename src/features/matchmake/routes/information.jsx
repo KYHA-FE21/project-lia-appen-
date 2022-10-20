@@ -15,7 +15,7 @@ function Information({ advertisementData, getNew, setAction }) {
 	const { badges, profession, period, location, work_type } = attributes;
 	const [fromDate, toDate] = period;
 	return (
-		<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height">
+		<>
 			<Heading
 				className="text-2xl text-white px-3"
 				{...{
@@ -61,7 +61,7 @@ function Information({ advertisementData, getNew, setAction }) {
 					Gör test
 				</SecondaryButton>
 			</CardButtons>
-		</Card>
+		</>
 	);
 }
 
