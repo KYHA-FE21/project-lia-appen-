@@ -7,7 +7,7 @@ import External from "../components/external";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
 import usePOST from "../hooks/usePost";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signin = () => {
 	const { data, loading, error, fetchPost } = usePOST;
@@ -28,7 +28,7 @@ const Signin = () => {
 		<div className="authContainer flex justify-center items-center">
 			<div className="authContent w-full p-12">
 				<Logo />
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
 					<InputField
 						icon={<Mail strokeWidth={1} />}
 						type="email"
@@ -45,7 +45,11 @@ const Signin = () => {
 						handleChange={(e) => setPassword(e.target.value)}
 						isError={error?.type === "password" && error.message}
 					/>
-					<Button children="LOGGA IN" loading={loading} className="w-full" />
+					<Link to="/profile" className="no-underline">
+						<Button loading={loading} className="w-full">
+							LOGGA IN
+						</Button>
+					</Link>
 				</form>
 				<Path
 					links={[

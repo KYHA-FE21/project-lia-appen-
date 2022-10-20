@@ -30,7 +30,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto max-w-screen-sm min-height">
+				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height h-max w-full">
 					<Heading
 						className="text-2xl text-white px-3"
 						{...{
@@ -47,7 +47,7 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							),
 						}}
 					/>
-					<HorizontalRow className="px-3" />
+					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">
 						<Container display="flex" className="flex-col gap-3">
 							<h2 className="px-3 text-xl text-white">{data?.questions[question]?.title}</h2>
@@ -59,13 +59,13 @@ function Questions({ data, setData, searchParams, setSearchParams }) {
 							))}
 						</Container>
 					</Container>
-					<HorizontalRow className="px-3" />
-					<CardButtons className="px-3 h-10 mt-auto">
+					<HorizontalRow className="px-3 opacity-3" />
+					<CardButtons className="px-3 mt-auto">
 						<SecondaryButton
 							icon={<X color="white" />}
 							bgColor="red"
 							className="text-white w-full text-sm"
-							style={question === 0 ? { color: "grey", backgroundColor: "rgba(0, 0, 0, 0.3)" } : { backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+							style={question === 0 ? { color: "darkgrey", backgroundColor: "rgba(0, 0, 0, 0.3)" } : { backgroundColor: "rgba(0, 0, 0, 0.3)" }}
 							onClick={() => {
 								setSearchParams((prev) => {
 									prev.set("question", question <= 0 ? 0 : question - 1);

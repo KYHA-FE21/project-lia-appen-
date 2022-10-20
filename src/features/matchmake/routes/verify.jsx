@@ -11,11 +11,20 @@ import Card, { CardButtons } from "../../../components/card";
 function Verify({ data, setData, setSearchParams }) {
 	const [verified, setVerified] = useState(false);
 	const [loading, setLoading] = useState(false);
+
+	function handleSubmit() {
+		setLoading(true);
+		setVerified(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 1_000);
+	}
+	
 	return (
 		<>
 			{!data && <Navigate to="/matchmake" />}
 			{data && (
-				<Card className="cardfix mx-auto max-w-screen-sm min-height">
+				<Card className="matchmake-cardfix mx-auto max-w-screen-sm matchmake-min-height h-max w-full">
 					{loading && (
 						<>
 							<Heading
@@ -25,7 +34,7 @@ function Verify({ data, setData, setSearchParams }) {
 									icon: <Hourglass color="white" size="30" />,
 								}}
 							/>
-							<Loading color="white" size="80%" />
+							<Loading color="white" className="h-15 w-15" />
 						</>
 					)}
 					{!loading && verified && (
@@ -47,9 +56,9 @@ function Verify({ data, setData, setSearchParams }) {
 								}}
 							></Heading>
 							<Container type="p" className="px-3 text-center text-white">
-								Tryck på tillbaks för att få ett se ett nytt kort.
+								Tryck på tillbaka för att få ett se ett nytt kort.
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
+							<CardButtons className="px-3 mt-auto">
 								<SecondaryButton
 									icon={<Check color="white" />}
 									bgColor="green"
@@ -58,7 +67,7 @@ function Verify({ data, setData, setSearchParams }) {
 										setData(false);
 									}}
 								>
-									Tillbaks
+									Tillbaka
 								</SecondaryButton>
 							</CardButtons>
 						</>
@@ -87,7 +96,7 @@ function Verify({ data, setData, setSearchParams }) {
 							<Container type="p" className="px-3 text-white">
 								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
+							<CardButtons className="px-3 mt-auto">
 								<SecondaryButton
 									icon={<X color="white" />}
 									bgColor="red"
@@ -101,20 +110,9 @@ function Verify({ data, setData, setSearchParams }) {
 										});
 									}}
 								>
-									Tillbaks
+									Tillbaka
 								</SecondaryButton>
-								<SecondaryButton
-									icon={<Check color="white" />}
-									bgColor="green"
-									className="text-white w-full text-sm"
-									onClick={() => {
-										setLoading(true);
-										setVerified(true);
-										setTimeout(() => {
-											setLoading(false);
-										}, 1_000);
-									}}
-								>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={handleSubmit}>
 									Skicka in
 								</SecondaryButton>
 							</CardButtons>
