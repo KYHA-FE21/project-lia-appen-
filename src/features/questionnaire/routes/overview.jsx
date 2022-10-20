@@ -22,7 +22,7 @@ const Overview = () => {
 	}
 
 	return (
-		<div className="flex justify-center min-h-full">
+		<div className="flex justify-center h-full">
 			<div className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12">
 				<div className="overviewUpperContent">
 					<div className="mb-8 flex justify-center">

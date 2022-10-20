@@ -10,7 +10,7 @@ import AnswerEditTextArea from "../components/answer-edit";
 import i18n from "../i18n";
 import { useQuestionnaire } from "../api/questionnaire";
 
-const MAXQUESTIONS = 4;
+const MAX_QUESTIONS = 4;
 
 const Answer = ({
 	index,
@@ -162,12 +162,12 @@ const Editor = () => {
 							disabled={alternatives.length === 1}
 						/>
 						<span>
-							{alternatives.length} / {MAXQUESTIONS}
+							{alternatives.length} / {MAX_QUESTIONS}
 						</span>
 						<IconBtn
 							icon={<Plus size={20} />}
 							onClick={handleAddNewAnswer}
-							disabled={alternatives.length === MAXQUESTIONS}
+							disabled={alternatives.length === MAX_QUESTIONS}
 						/>
 					</div>
 				</div>

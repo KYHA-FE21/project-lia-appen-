@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
 const API_ENDPOINT = "questionnaire";
 
-export const MAX_QUESTIONNAIRES = 5
+export const MAX_QUESTIONNAIRES = 5;
 
 /**
  * @param {string} advertisement_id
@@ -61,19 +61,19 @@ export const postQuestionnaire = (body) => {
 	});
 };
 
-export const deleteQuestionnaireByID = (id) => {
-	return fetch(`${API_URL}/${API_ENDPOINT}/${id}`, {
-		method: "DELETE",
-	});
-}
-
-export const patchQuestionnaire = (id, body) => {
+export const patchQuestionnaireByID = (id, body) => {
 	return fetch(`${API_URL}/${API_ENDPOINT}/${encodeURIComponent(id)}`, {
 		body: body,
 		method: "PATCH",
 		headers: {
 			"Content-Type": "application/json",
 		},
+	});
+};
+
+export const deleteQuestionnaireByID = (id) => {
+	return fetch(`${API_URL}/${API_ENDPOINT}/${id}`, {
+		method: "DELETE",
 	});
 };
 
@@ -98,7 +98,8 @@ export function useQuestionnaires({ advertisement_id }) {
 	}, [advertisement_id]);
 
 	async function createQuestionnaire({ advertisement_id }, body) {
-		if (questionnaires.length === MAX_QUESTIONNAIRES)	return { error: 'Reached max questionnaires.' }
+		if (questionnaires.length === MAX_QUESTIONNAIRES)
+			return { error: "Reached max questionnaires." };
 
 		const data = body || {
 			id: window.crypto.randomUUID(), // Does not work in SSR.
@@ -136,12 +137,12 @@ export function useQuestionnaire({ id }) {
 	}, [id, lastUpdate]);
 
 	async function update(data) {
-		const resp = await patchQuestionnaire(data.id, JSON.stringify(data));
+		const resp = await patchQuestionnaireByID(data.id, JSON.stringify(data));
 		setLastUpdate(Date.now());
 		return resp;
 	}
 
-	const remove = deleteQuestionnaireByID
+	const remove = deleteQuestionnaireByID;
 
 	return { questionnaire, update, remove };
 }

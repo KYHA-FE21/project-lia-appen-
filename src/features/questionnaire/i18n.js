@@ -1,3 +1,5 @@
+// Inspired by https://react.i18next.com/
+
 export const dictionary = {
 	default: {
 		"Answer.placeholder": "Mata in svarsalternativ",
