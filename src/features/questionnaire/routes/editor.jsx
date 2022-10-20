@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Plus, Minus, X, Check } from "lucide-react";
 
 import IconBtn from "../components/icon-btn";
@@ -8,6 +8,7 @@ import Button from "../../../components/buttons";
 import AnswerEditTextArea from "../components/answer-edit";
 
 import i18n from "../i18n";
+import { useQuestionnaire } from "../api/questionnaire";
 
 const MAXQUESTIONS = 4;
 
@@ -19,6 +20,7 @@ const Answer = ({
 	handleTextAreaChange,
 	handleRadioChange,
 	placeholder = i18n()["Answer.placeholder"],
+	...restProps
 }) => {
 	const label = (
 		<span className="flex gap-2 items-center text-sm">
@@ -29,6 +31,7 @@ const Answer = ({
 
 	return (
 		<AnswerEditTextArea
+			{...restProps}
 			rows="2"
 			placeholder={placeholder}
 			label={label}
@@ -43,11 +46,24 @@ const Answer = ({
 };
 
 const Editor = () => {
-	const { id: advertisement_id } = useParams();
+	const navigate = useNavigate();
+	const { id: questionnaire_id } = useParams();
+
+	const { questionnaire, update, remove } = useQuestionnaire({
+		id: questionnaire_id,
+	});
 
 	const [questionBody, setQuestionBody] = useState("");
-	const [answers, setAnswers] = useState([""]);
-	const [correctAnswerIndex, setCorrectAnswerIndex] = useState([0]);
+	const [alternatives, setAlternatives] = useState([""]);
+	const [correctAlternatives, setCorrectAlternatives] = useState([0]);
+
+	useEffect(() => {
+		if (questionnaire.id) {
+			setQuestionBody(questionnaire.body);
+			setAlternatives(questionnaire.alternatives);
+			setCorrectAlternatives(questionnaire.correctAlternatives);
+		}
+	}, [questionnaire]);
 
 	function handleQuestionBodyChange(ev) {
 		const { value } = ev.target;
@@ -55,45 +71,53 @@ const Editor = () => {
 	}
 
 	function handleAddNewAnswer() {
-		const newData = [...answers, ""];
-		setAnswers(newData);
+		const newData = [...alternatives, ""];
+		setAlternatives(newData);
 	}
 
 	function handleReduceAnswers() {
-		const newData = answers.slice(0, -1);
-		setAnswers(newData);
-		setCorrectAnswerIndex([0]);
+		const newData = alternatives.slice(0, -1);
+		setAlternatives(newData);
+		setCorrectAlternatives([0]);
 	}
 
 	function handleAnswerChange(ev) {
 		const { name, value } = ev.target;
 		// TODO: I don't like this, can we improve this?
-		answers[Number(name)] = value;
-		setAnswers([...answers]);
+		alternatives[Number(name)] = value;
+		setAlternatives([...alternatives]);
 	}
 
 	function handleCorrectAnswerChange(ev) {
 		const { value } = ev.target;
 		// Future-proofing for when multiple answers can be correct.
-		setCorrectAnswerIndex([Number(value)]);
+		setCorrectAlternatives([Number(value)]);
 	}
 
 	function handleQuestionnaireSubmit(ev) {
 		ev.preventDefault();
 
 		// Validate data.
+		// TODO: Create validation.
 
 		// Containerize data.
 		const data = {
-			id: window.crypto.randomUUID(), // Does not work in SSR.
-			advertisement_id,
+			...questionnaire,
 			body: questionBody,
-			answers,
+			alternatives,
+			correctAlternatives,
 		};
 
-		console.log("Data", data);
-
 		// Submit data.
+		update(data);
+	}
+
+	async function handleQuestionnaireDelete(ev) {
+		ev.preventDefault();
+
+		await remove(questionnaire.id);
+
+		navigate(`/questionnaire/overview/${questionnaire.advertisement_id}`);
 	}
 
 	return (
@@ -106,6 +130,7 @@ const Editor = () => {
 					<h1 className="text-2xl mb-3 text-center">
 						{i18n()["Question Editor"]}
 					</h1>
+					<span className="text-sm my-3 block">ID: {questionnaire.id}</span>
 
 					<TextArea
 						label={i18n()["Question body"]}
@@ -114,17 +139,19 @@ const Editor = () => {
 						value={questionBody}
 						handleChange={handleQuestionBodyChange}
 						name="questionBody"
+						disabled={!questionnaire.id}
 					/>
 
-					{answers.map((value, index) => (
+					{alternatives.map((value, index) => (
 						<Answer
 							key={index}
-							id={advertisement_id}
+							id={questionnaire.id}
 							index={index}
 							value={value}
-							correct={correctAnswerIndex.includes(index)}
+							correct={correctAlternatives.includes(index)}
 							handleTextAreaChange={handleAnswerChange}
 							handleRadioChange={handleCorrectAnswerChange}
+							disabled={!questionnaire.id}
 						/>
 					))}
 
@@ -132,26 +159,28 @@ const Editor = () => {
 						<IconBtn
 							icon={<Minus size={20} />}
 							onClick={handleReduceAnswers}
-							disabled={answers.length === 1}
+							disabled={alternatives.length === 1}
 						/>
 						<span>
-							{answers.length} / {MAXQUESTIONS}
+							{alternatives.length} / {MAXQUESTIONS}
 						</span>
 						<IconBtn
 							icon={<Plus size={20} />}
 							onClick={handleAddNewAnswer}
-							disabled={answers.length === MAXQUESTIONS}
+							disabled={alternatives.length === MAXQUESTIONS}
 						/>
 					</div>
 				</div>
 
 				<div>
-					<Button className="w-full bg-green mb-8">{i18n().Save}</Button>
+					<Button className="w-full bg-green mb-8" disabled={!questionnaire.id}>
+						{i18n().Save}
+					</Button>
 					<Link to="/questionnaire/overview/*" className="no-underline">
 						<Button
 							className="w-full bg-primary mb-8"
 							type="button"
-							disabled={true}
+							onClick={handleQuestionnaireDelete}
 						>
 							{i18n().Delete}
 						</Button>
