@@ -29,6 +29,7 @@ function GenerateAdvertisementData(searchParams) {
 				for (const attribute of attributes) {
 					searchParams.append("attibutes_id", attribute.id);
 				}
+				searchParams.set("is_active", true);
 				const data = await getAdvertisement(searchParams);
 				const json = await data.json();
 				json.sort((a, b) => {
@@ -78,16 +79,14 @@ function GenerateAdvertisementData(searchParams) {
 	}, [questionnaire]);
 
 	/**
-	 * Get attributes matching user preferences*
-	 * Filter attributes to get best match
+	 * Get attributes matching user preferences *
+	 * get the advertisements matching attribute IDs *
+	 * Sort for best match according to prefs
 	 * HANDLE ERROR IF NO ATTRIBUTES FOUND
-	 * get the advertisements matching attribute IDs*
-	 * get best match that is_active and not already linked to user
-	 * get the questionnaire matching advertisement ID
-	 * build object that can be used to render card
+	 * get the questionnaire matching advertisement ID *
+	 * build object that can be used to render card *
 	 * ???
 	 * profit!
-	 * (need to add error handling for when no suitable advertisement is found)
 	 */
 
 	return { advertisementData, setAdvertisementData, setGetNew };
