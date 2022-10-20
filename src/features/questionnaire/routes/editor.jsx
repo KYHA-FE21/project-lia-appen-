@@ -61,7 +61,7 @@ const Editor = () => {
 		if (questionnaire.id) {
 			setQuestionBody(questionnaire.body);
 			setAlternatives(questionnaire.alternatives);
-			setCorrectAlternatives(questionnaire.correctAlternatives);
+			setCorrectAlternatives(questionnaire.correct_alternatives);
 		}
 	}, [questionnaire]);
 
@@ -105,7 +105,7 @@ const Editor = () => {
 			...questionnaire,
 			body: questionBody,
 			alternatives,
-			correctAlternatives,
+			correct_alternatives: correctAlternatives,
 		};
 
 		// Submit data.

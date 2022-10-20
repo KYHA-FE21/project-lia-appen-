@@ -106,7 +106,7 @@ export function useQuestionnaires({ advertisement_id }) {
 			advertisement_id,
 			body: "",
 			alternatives: [""],
-			correctAlternatives: [0],
+			correct_alternatives: [0],
 		};
 
 		await postQuestionnaire(JSON.stringify(data));
