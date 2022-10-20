@@ -19,15 +19,12 @@
 	"questionnaire": [
 		{
 			"id": 1,
-			"advertisement_id": "",
+			"advertisement_id": 1,
 			"body": "",
-			"answers": [
-				{
-					"id": "",
-					"is_true": false,
-					"text": ""
-				}
-			]
+			"alternatives": [
+				""
+			],
+			"correctAlternatives": [0]
 		}
 	],
 	"advertisement": [
