@@ -30,6 +30,7 @@ function GenerateAdvertisementData(searchParams) {
 					searchParams.append("attibutes_id", attribute.id);
 				}
 				searchParams.set("is_active", true);
+				searchParams.set("type", "company");
 				const data = await getAdvertisement(searchParams);
 				const json = await data.json();
 				json.sort((a, b) => {
