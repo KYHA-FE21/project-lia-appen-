@@ -25,19 +25,18 @@ function Information({ advertisementData, getNew, setAction }) {
 			/>
 			<Container className="px-3" type="article">
 				<InfoGrid
-					fontSize={"0.75rem"}
 					color="white"
 					entries={[
 						{
 							icon: <CalendarDays size="20" />,
 							children: (
-								<span className="font-bold">
+								<span className="text-tiny">
 									{fromDate} till {toDate}
 								</span>
 							),
 						},
-						{ icon: <MapPin size="20" />, children: <span className="font-bold">{location}</span> },
-						{ icon: <CheckCircle size="20" />, children: <span className="font-bold">{work_type}</span> },
+						{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
+						{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
 					]}
 				/>
 			</Container>
