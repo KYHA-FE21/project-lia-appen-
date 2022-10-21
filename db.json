@@ -20,7 +20,7 @@
 	"questionnaire": [
 		{
 			"id": "",
-			"advertisement_id": 1,
+			"advertisement_id": "",
 			"body": "",
 			"alternatives": [""],
 			"correct_alternatives": [0]
