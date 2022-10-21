@@ -30,9 +30,7 @@
 		{
 			"id": "",
 			"user_id": "",
-			"attribute_id": "",
-			"openings": 2,
-			"is_active": true
+			"attribute_id": ""
 		}
 	],
 	"applicant": [
@@ -52,7 +50,9 @@
 			"school": "",
 			"type": "",
 			"decline_rate": "0.5",
-			"response_time": "0.1"
+			"response_time": "0.1",
+			"openings": 2,
+			"is_active": true
 		}
 	]
 }
