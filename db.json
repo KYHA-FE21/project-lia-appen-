@@ -5,9 +5,8 @@
 			"name": "",
 			"email": "",
 			"password": "",
-			"type": "",
 			"bio": "",
-			"attibutes_id": "",
+			"attribute_id": "",
 			"links": [
 				{
 					"title": "",
@@ -20,72 +19,21 @@
 		{
 			"id": 1,
 			"advertisement_id": 1,
-			"body": "Question 1",
-			"answers": [
-				{
-					"id": 1,
-					"is_true": false,
-					"text": "Banana"
-				},
-				{
-					"id": 2,
-					"is_true": false,
-					"text": "Apple"
-				}
-			]
-		},
-		{
-			"id": 2,
-			"advertisement_id": 1,
-			"body": "Question 2",
-			"answers": [
-				{
-					"id": 1,
-					"is_true": false,
-					"text": "Pear"
-				}
-			]
-		},
-		{
-			"id": 3,
-			"advertisement_id": 2,
-			"body": "Question 3",
-			"answers": [
-				{
-					"id": 1,
-					"is_true": false,
-					"text": "Orange"
-				}
-			]
+			"body": "",
+			"alternatives": [""],
+			"correct_alternatives": [0]
 		}
 	],
 	"advertisement": [
 		{
 			"id": 1,
-			"user_id": "1",
-			"attibutes_id": "1",
+			"user_id": "",
+			"attribute_id": "",
 			"openings": 2,
 			"is_active": true,
 			"statistics": {
 				"decline_rate": 0.5,
-				"response_time": 33
-			},
-			"applicants": [
-				{
-					"user_id": "",
-					"answers_id": ""
-				}
-			]
-		},
-		{
-			"id": 2,
-			"user_id": "2",
-			"attibutes_id": "2",
-			"openings": 2,
-			"is_active": true,
-			"statistics": {
-				"decline_rate": 0.5,
-				"response_time": 120
+				"response_time": 0.1
 			},
 			"applicants": [
 				{
@@ -95,38 +43,16 @@
 			]
 		}
 	],
-	"attibutes": [
+	"attribute": [
 		{
-			"id": "1",
-			"period": [
-				"2022-11",
-				"2023-05"
-			],
-			"profession": "Systemutvecklare",
-			"badges": [
-				"JS",
-				"TS",
-				"HTML",
-				"CSS",
-				"REACT"
-			],
-			"location": "Gävleborg",
-			"work_type": "Hybrid"
-		},
-		{
-			"id": "2",
-			"period": [
-				"2022-09",
-				"2023-03"
-			],
-			"profession": "Frontendutvecklare",
-			"badges": [
-				"JS",
-				"HTML",
-				"CSS"
-			],
-			"location": "Stockholm",
-			"work_type": "Remote"
+			"id": "",
+			"period": ["", ""],
+			"profession": "",
+			"badges": [""],
+			"location": "",
+			"work_type": "",
+			"school": "",
+			"type": ""
 		}
 	]
 }
