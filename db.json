@@ -1,23 +1,25 @@
 {
 	"user": [
 		{
-			"id": 1,
+			"id": "",
 			"name": "",
 			"email": "",
 			"password": "",
 			"bio": "",
-			"attribute_id": "",
-			"links": [
-				{
-					"title": "",
-					"url": ""
-				}
-			]
+			"attribute_id": ""
+		}
+	],
+	"link": [
+		{
+			"id": "",
+			"title": "",
+			"url": "",
+			"user_id": ""
 		}
 	],
 	"questionnaire": [
 		{
-			"id": 1,
+			"id": "",
 			"advertisement_id": 1,
 			"body": "",
 			"alternatives": [""],
@@ -26,21 +28,17 @@
 	],
 	"advertisement": [
 		{
-			"id": 1,
+			"id": "",
 			"user_id": "",
 			"attribute_id": "",
 			"openings": 2,
-			"is_active": true,
-			"statistics": {
-				"decline_rate": 0.5,
-				"response_time": 0.1
-			},
-			"applicants": [
-				{
-					"user_id": "",
-					"answers_id": ""
-				}
-			]
+			"is_active": true
+		}
+	],
+	"applicant": [
+		{
+			"advertisement_id": "",
+			"user_id": ""
 		}
 	],
 	"attribute": [
@@ -52,7 +50,9 @@
 			"location": "",
 			"work_type": "",
 			"school": "",
-			"type": ""
+			"type": "",
+			"decline_rate": "0.5",
+			"response_time": "0.1"
 		}
 	]
 }
