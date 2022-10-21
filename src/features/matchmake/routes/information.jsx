@@ -11,8 +11,8 @@ import HorizontalRow from "../components/hr";
 import { CardBadges, CardButtons } from "../../../components/card";
 
 function Information({ advertisementData, getNew, setAction }) {
-	const { attributes, statistics, openings } = advertisementData;
-	const { badges, profession, period, location, work_type } = attributes;
+	const { attribute } = advertisementData;
+	const { badges, profession, period, location, work_type, decline_rate, response_time, openings } = attribute;
 	const [fromDate, toDate] = period;
 	return (
 		<>
@@ -44,7 +44,7 @@ function Information({ advertisementData, getNew, setAction }) {
 			<HorizontalRow className="px-3" />
 			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, ["HTML", "CSS"])}</CardBadges>
 			<HorizontalRow className="px-3" />
-			<InfoStats className="text-white" statistics={{ ...statistics, openings }} />
+			<InfoStats className="text-white" statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3" />
 			<CardButtons className="px-3 h-10 mt-auto">
 				<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={getNew}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getAttributes from "../api/get-attributes";
+import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
 import getQuestionnaire from "../api/get-questionnaires";
 
@@ -7,56 +7,52 @@ function GenerateAdvertisementData(searchParams) {
 	const [advertisementData, setAdvertisementData] = useState(null);
 	const [getNew, setGetNew] = useState(false);
 
-	const [attributes, setAttributes] = useState(null);
+	const [attribute, setAttribute] = useState(null);
 	const [advertisement, setAdvertisement] = useState(null);
 	const [questionnaire, setQuestionnaire] = useState(null);
 
-	//Get all attributes matching user prefs
+	// Get attributes that matches prefs (searchParams)
 	useEffect(() => {
 		(async () => {
 			setGetNew(false);
-			const data = await getAttributes(searchParams);
+			searchParams.set("type", "advertisement");
+			searchParams.set("is_active", true);
+			const data = await getAttribute(searchParams);
 			const json = await data.json();
-			setAttributes(json);
+			// Sort attributes for best match
+			json.sort((a, b) => {
+				if (a.id > b.id) {
+					return -1;
+				}
+				if (a.id < b.id) {
+					return 1;
+				}
+				return 0;
+			});
+			// Filter out tests that are on "cooldown"
+			const [first] = json;
+			setAttribute(first);
 		})();
 	}, [getNew]);
 
-	//Get the advertisement that matches attribute
+	// Get advertisement
 	useEffect(() => {
-		if (attributes) {
+		if (attribute) {
 			(async () => {
-				const searchParams = new URLSearchParams();
-				for (const attribute of attributes) {
-					searchParams.append("attibutes_id", attribute.id);
-				}
-				searchParams.set("is_active", true);
-				searchParams.set("type", "company");
+				const searchParams = new URLSearchParams(`attribute_id=${attribute.id}`);
 				const data = await getAdvertisement(searchParams);
 				const json = await data.json();
-				json.sort((a, b) => {
-					if (a.id > b.id) {
-						return -1;
-					}
-					if (a.id < b.id) {
-						return 1;
-					}
-					return 0;
-				});
-				/**
-				 * Filter already linked ads and return first
-				 */
 				const [first] = json;
 				setAdvertisement(first);
 			})();
 		}
-	}, [attributes]);
+	}, [attribute]);
 
-	//Get the questionnaires that matches advertisement
+	// Get questions
 	useEffect(() => {
 		if (advertisement) {
 			(async () => {
-				const searchParams = new URLSearchParams();
-				searchParams.set("advertisement_id", advertisement.id);
+				const searchParams = new URLSearchParams(`advertisement_id=${advertisement.id}`);
 				const data = await getQuestionnaire(searchParams);
 				const json = await data.json();
 				setQuestionnaire(json);
@@ -64,14 +60,14 @@ function GenerateAdvertisementData(searchParams) {
 		}
 	}, [advertisement]);
 
+	// Build object to return
 	useEffect(() => {
 		if (questionnaire) {
 			setTimeout(() => {
 				setAdvertisementData(() => {
-					const found = attributes.find((item) => item.id === advertisement.attibutes_id);
 					return {
-						...advertisement,
-						attributes: found,
+						advertisement,
+						attribute,
 						questionnaire,
 					};
 				});
@@ -80,9 +76,9 @@ function GenerateAdvertisementData(searchParams) {
 	}, [questionnaire]);
 
 	/**
-	 * Get attributes matching user preferences *
-	 * get the advertisements matching attribute IDs *
+	 * Get attribute matching user preferences *
 	 * Sort for best match according to prefs
+	 * get the advertisements matching attribute IDs *
 	 * HANDLE ERROR IF NO ATTRIBUTES FOUND
 	 * get the questionnaire matching advertisement ID *
 	 * build object that can be used to render card *

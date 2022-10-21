@@ -38,8 +38,8 @@ function Questions({ questionnaire, answers, setAnswers, setAction, getNew, ques
 							<Container className="p-3 bg-black text-white text-base">{questionnaire[question].body}</Container>
 						</Container>
 						<Container type="form" display="flex" className="flex-col text-white p-3 gap-3">
-							{questionnaire[question].answers.map((answer) => (
-								<QuestionAlternative key={`${questionnaire.id}${answer.id}`} type="radio" text={answer.text} name={questionnaire[question].id} handleChange={handleChange} value={answer.id} checked={String(answers[questionnaire[question].id]) === String(answer.id)} />
+							{questionnaire[question].alternatives.map((alternative, index) => (
+								<QuestionAlternative key={`${questionnaire.id}${index}`} type="radio" text={alternative} name={questionnaire[question].id} handleChange={handleChange} value={index} checked={String(answers[questionnaire[question].id]) === String(index)} />
 							))}
 						</Container>
 					</Container>

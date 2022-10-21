@@ -3,9 +3,9 @@
  * @returns {Promise}
  */
 
-function getAdvertisement(searchParams) {
+function getAttribute(searchParams) {
 	const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
-	const API_ENDPOINT = "advertisement";
+	const API_ENDPOINT = "attribute";
 	const url = new URL(API_ENDPOINT, API_URL);
 	searchParams.forEach((value, key) => {
 		url.searchParams.append(key, value);
@@ -13,4 +13,4 @@ function getAdvertisement(searchParams) {
 	return fetch(url);
 }
 
-export default getAdvertisement;
+export default getAttribute;
