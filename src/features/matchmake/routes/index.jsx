@@ -11,6 +11,7 @@ import Verify from "./verify";
 
 const Index = () => {
 	const [action, setAction] = useState("information");
+	const [advertisement, setAdvertisement] = useState(null);
 	const [answers, setAnswers] = useState({});
 	const [question, setQuestion] = useState(0);
 
@@ -19,6 +20,7 @@ const Index = () => {
 	const { advertisementData, loading, error, getNewAdvertisement } = useGenerateAdvertisementData(params);
 
 	function getNew() {
+		setAdvertisement(null);
 		getNewAdvertisement();
 		setQuestion(0);
 		setAction("information");
@@ -26,6 +28,7 @@ const Index = () => {
 
 	useEffect(() => {
 		//console.log(advertisementData);
+		setAdvertisement(advertisementData);
 	}, [advertisementData]);
 
 	return (
@@ -33,7 +36,7 @@ const Index = () => {
 			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
 				{loading && <Loading />}
 				{error && <Container className="p-3">{error}</Container>}
-				{!loading && !error && advertisementData && (
+				{!loading && !error && advertisement && (
 					<>
 						{action === "information" && <Information advertisementData={advertisementData} setAction={setAction} getNew={getNew} />}
 						{action === "questions" && <Questions questionnaire={advertisementData.questionnaire} setAction={setAction} question={question} setQuestion={setQuestion} answers={answers} setAnswers={setAnswers} getNew={getNew} />}
