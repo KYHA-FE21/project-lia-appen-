@@ -40,11 +40,11 @@ function Information({ advertisementData, getNew, setAction }) {
 					]}
 				/>
 			</Container>
-			<HorizontalRow className="px-3" />
+			<HorizontalRow className="px-3 opacity-3" />
 			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, ["HTML", "CSS"])}</CardBadges>
-			<HorizontalRow className="px-3" />
+			<HorizontalRow className="px-3 opacity-3" />
 			<InfoStats className="text-white" statistics={{ decline_rate, response_time, openings }} />
-			<HorizontalRow className="px-3" />
+			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 h-10 mt-auto">
 				<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={getNew}>
 					Neka

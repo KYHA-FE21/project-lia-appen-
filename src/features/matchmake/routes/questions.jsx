@@ -31,7 +31,7 @@ function Questions({ questionnaire, answers, setAnswers, setAction, getNew, ques
 							icon: <XCircle className="cursor-pointer" color="white" size="30" onClick={getNew} />,
 						}}
 					/>
-					<HorizontalRow className="px-3" />
+					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">
 						<Container display="flex" className="flex-col gap-3">
 							<h2 className="px-3 text-xl text-white">{`${question + 1}/${questionnaire.length}`}</h2>
@@ -43,7 +43,7 @@ function Questions({ questionnaire, answers, setAnswers, setAction, getNew, ques
 							))}
 						</Container>
 					</Container>
-					<HorizontalRow className="px-3" />
+					<HorizontalRow className="px-3 opacity-3" />
 					<CardButtons className="px-3 h-10 mt-auto">
 						<SecondaryButton
 							icon={<X color="white" />}
