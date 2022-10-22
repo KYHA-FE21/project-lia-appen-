@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../../../components/card";
 import Container from "../components/container";
-import GenerateAdvertisementData from "../components/generate-advertisment-data";
+import useGenerateAdvertisementData from "../hooks/generate-advertisment-data";
 import Loading from "../components/loading";
 
 import "./index.scss";
@@ -16,11 +16,10 @@ const Index = () => {
 
 	const params = new URLSearchParams();
 	params.append("profession", "Systemutvecklare");
-	const { advertisementData, setAdvertisementData, setGetNew } = GenerateAdvertisementData(params);
+	const { advertisementData, loading, error, getNewAdvertisement } = useGenerateAdvertisementData(params);
 
 	function getNew() {
-		setAdvertisementData(null);
-		setGetNew(true);
+		getNewAdvertisement();
 		setQuestion(0);
 		setAction("information");
 	}
@@ -32,12 +31,13 @@ const Index = () => {
 	return (
 		<Container type="main" display="flex" className="gradient-bg p-3 h-full items-center justify-center">
 			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
-				{!advertisementData && <Loading />}
-				{advertisementData && (
+				{loading && <Loading />}
+				{error && <Container className="p-3">{error}</Container>}
+				{!loading && !error && advertisementData && (
 					<>
-						{action === "information" && <Information advertisementData={advertisementData} getNew={getNew} setAction={setAction} />}
-						{action === "questions" && <Questions questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} question={question} setQuestion={setQuestion} answers={answers} setAnswers={setAnswers} />}
-						{action === "verify" && <Verify questionnaire={advertisementData.questionnaire} setAction={setAction} getNew={getNew} setQuestion={setQuestion} answers={answers} />}
+						{action === "information" && <Information advertisementData={advertisementData} setAction={setAction} getNew={getNew} />}
+						{action === "questions" && <Questions questionnaire={advertisementData.questionnaire} setAction={setAction} question={question} setQuestion={setQuestion} answers={answers} setAnswers={setAnswers} getNew={getNew} />}
+						{action === "verify" && <Verify questionnaire={advertisementData.questionnaire} setAction={setAction} setQuestion={setQuestion} answers={answers} getNew={getNew} />}
 					</>
 				)}
 			</Card>
