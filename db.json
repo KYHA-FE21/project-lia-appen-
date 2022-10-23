@@ -1,58 +1,74 @@
 {
-	"user": [
-		{
-			"id": "",
-			"name": "",
-			"email": "",
-			"password": "",
-			"bio": "",
-			"attribute_id": ""
-		}
-	],
-	"link": [
-		{
-			"id": "",
-			"title": "",
-			"url": "",
-			"user_id": ""
-		}
-	],
-	"questionnaire": [
-		{
-			"id": "",
-			"advertisement_id": "",
-			"body": "",
-			"alternatives": [""],
-			"correct_alternatives": [0]
-		}
-	],
-	"advertisement": [
-		{
-			"id": "",
-			"user_id": "",
-			"attribute_id": ""
-		}
-	],
-	"applicant": [
-		{
-			"advertisement_id": "",
-			"user_id": ""
-		}
-	],
-	"attribute": [
-		{
-			"id": "",
-			"period": ["", ""],
-			"profession": "",
-			"badges": [""],
-			"location": "",
-			"work_type": "",
-			"school": "",
-			"type": "",
-			"decline_rate": "0.5",
-			"response_time": "0.1",
-			"openings": 2,
-			"is_active": true
-		}
-	]
+  "user": [
+    {
+      "id": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "bio": "",
+      "attribute_id": "",
+      "reset_key": ""
+    },
+    {
+      "reset_key": "b573f653-d228-4d69-a8f1-efaa50569651",
+      "email": "niklas@live.se",
+      "password": "AAbb11!!",
+      "id": "TLLy5TS"
+    }
+  ],
+  "link": [
+    {
+      "id": "",
+      "title": "",
+      "url": "",
+      "user_id": ""
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "body": "",
+      "alternatives": [
+        ""
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    }
+  ],
+  "advertisement": [
+    {
+      "id": "",
+      "user_id": "",
+      "attribute_id": ""
+    }
+  ],
+  "applicant": [
+    {
+      "advertisement_id": "",
+      "user_id": ""
+    }
+  ],
+  "attribute": [
+    {
+      "id": "",
+      "period": [
+        "",
+        ""
+      ],
+      "profession": "",
+      "badges": [
+        ""
+      ],
+      "location": "",
+      "work_type": "",
+      "school": "",
+      "type": "",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
+      "openings": 2,
+      "is_active": true
+    }
+  ]
 }

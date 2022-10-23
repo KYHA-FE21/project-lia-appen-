@@ -6,17 +6,19 @@ import Path from "../components/path";
 import External from "../components/external";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
-import usePOST from "../hooks/usePost";
-import { Link, useNavigate } from "react-router-dom";
+import InputError from "../components/inputError";
+import useFetch from "../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
-	const { data, loading, error, fetchPost } = usePOST;
+	const [localError, setLocalError] = React.useState(null);
+	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		fetchPost("/api/user/signin", { email, password });
+		execute("/user/signin", { email, password }, "GET", `?email=${email}`);
 	};
 
 	const navigate = useNavigate();
@@ -24,32 +26,42 @@ const Signin = () => {
 		if (data) navigate("/profile");
 	}, [data]);
 
+	React.useEffect(() => {
+		setLocalError(error);
+	}, [error]);
+
 	return (
 		<div className="authContainer flex justify-center items-center">
 			<div className="authContent w-full p-12">
 				<Logo />
 				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
 					<InputField
+						className={localError?.type === "email" && "globalInputFieldError"}
 						icon={<Mail strokeWidth={1} />}
 						type="email"
 						placeholder="E-post"
 						value={email}
-						handleChange={(e) => setEmail(e.target.value)}
-						isError={error?.type === "email" && error.message}
+						handleChange={(e) => {
+							if (localError?.type === "email") setLocalError(null);
+							setEmail(e.target.value);
+						}}
+						required
 					/>
+					<InputError error={localError} type="email" />
 					<InputField
+						className={localError?.type === "password" && "globalInputFieldError"}
 						icon={<Lock strokeWidth={1} />}
 						type="password"
 						placeholder="Lösenord"
 						value={password}
-						handleChange={(e) => setPassword(e.target.value)}
-						isError={error?.type === "password" && error.message}
+						handleChange={(e) => {
+							if (localError?.type === "password") setLocalError(null);
+							setPassword(e.target.value);
+						}}
+						required
 					/>
-					<Link to="/profile" className="no-underline">
-						<Button loading={loading} className="w-full">
-							LOGGA IN
-						</Button>
-					</Link>
+					<InputError error={localError} type="password" />
+					<Button children={loading ? "..." : "LOGGA IN"} disabled={loading} className="w-full" />
 				</form>
 				<Path
 					links={[
