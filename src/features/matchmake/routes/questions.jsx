@@ -8,10 +8,12 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import HorizontalRow from "../components/hr";
 import { CardButtons } from "../../../components/card";
 
-function Questions({ questionnaire, answers, setAnswers, setAction, getNew, question, setQuestion }) {
+function Questions({ advertisementData, answers, setAnswers, setAction, getNew, question, setQuestion }) {
+	const { questionnaire } = advertisementData;
+
 	function handleChange(event) {
 		const { name, value } = event.target;
-		setAnswers((prev) => ({ ...prev, [name]: value }));
+		setAnswers((prev) => ({ ...prev, [name]: parseInt(value) }));
 	}
 
 	useEffect(() => {

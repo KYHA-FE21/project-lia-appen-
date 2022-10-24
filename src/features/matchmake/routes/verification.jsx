@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Check, Rocket, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
@@ -6,24 +5,21 @@ import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import { CardButtons } from "../../../components/card";
 import Loading from "../components/loading";
+import useVerify from "../hooks/verify";
 
-function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
-	const [verified, setVerified] = useState(false);
-	const [loading, setLoading] = useState(false);
+function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion }) {
+	const { questionnaire } = advertisementData;
+	const { loading, error, verified, verify } = useVerify();
 
 	function handleSubmit() {
-		setLoading(true);
-		setVerified(true);
-		setQuestion(0);
-		setTimeout(() => {
-			setLoading(false);
-		}, 1_000);
+		verify(advertisementData, answers, user);
 	}
 
 	return (
 		<>
 			{loading && <Loading />}
-			{!loading && (
+			{!loading && error && <Container className="p-3">{error}</Container>}
+			{!loading && !error && (
 				<>
 					{verified && (
 						<>
@@ -83,4 +79,4 @@ function Verify({ questionnaire, answers, setAction, getNew, setQuestion }) {
 	);
 }
 
-export default Verify;
+export default Verification;
