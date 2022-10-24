@@ -1,123 +1,129 @@
 {
-	"user": [
-		{
-			"id": "",
-			"name": "",
-			"email": "",
-			"password": "",
-			"bio": "",
-			"attribute_id": ""
-		}
-	],
-	"link": [
-		{
-			"id": "",
-			"title": "",
-			"url": "",
-			"user_id": ""
-		}
-	],
-	"questionnaire": [
-		{
-			"id": "1",
-			"advertisement_id": "1",
-			"body": "Question 1",
-			"alternatives": [
-				"Alt 1",
-				"Alt 2",
-				"Alt 3"
-			],
-			"correct_alternatives": [
-				0
-			]
-		},
-		{
-			"id": "2",
-			"advertisement_id": "1",
-			"body": "Question 2",
-			"alternatives": [
-				"Alt 1",
-				"Alt 2",
-				"Alt 3"
-			],
-			"correct_alternatives": [
-				0
-			]
-		},
-		{
-			"id": "3",
-			"advertisement_id": "2",
-			"body": "Question 1",
-			"alternatives": [
-				"Alt 1",
-				"Alt 2",
-				"Alt 3"
-			],
-			"correct_alternatives": [
-				0
-			]
-		}
-	],
-	"advertisement": [
-		{
-			"id": "1",
-			"user_id": "1",
-			"attribute_id": "1"
-		},
-		{
-			"id": "2",
-			"user_id": "2",
-			"attribute_id": "2"
-		}
-	],
-	"applicant": [
-		{
-			"advertisement_id": "",
-			"user_id": ""
-		}
-	],
-	"attribute": [
-		{
-			"id": "1",
-			"period": [
-				"123",
-				"456"
-			],
-			"profession": "Systemutvecklare",
-			"badges": [
-				"JS",
-				"HTML",
-				"CSS"
-			],
-			"location": "Göteborg",
-			"work_type": "Remote",
-			"school": "",
-			"type": "advertisement",
-			"decline_rate": "0.5",
-			"response_time": "61",
-			"openings": 2,
-			"is_active": true
-		},
-		{
-			"id": "2",
-			"period": [
-				"123",
-				"456"
-			],
-			"profession": "Frontendutvecklare",
-			"badges": [
-				"JS",
-				"HTML",
-				"CSS"
-			],
-			"location": "Göteborg",
-			"work_type": "Remote",
-			"school": "",
-			"type": "advertisement",
-			"decline_rate": "0.5",
-			"response_time": "0.1",
-			"openings": 2,
-			"is_active": true
-		}
-	]
+  "user": [
+    {
+      "id": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "bio": "",
+      "attribute_id": ""
+    }
+  ],
+  "link": [
+    {
+      "id": "",
+      "title": "",
+      "url": "",
+      "user_id": ""
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": "1",
+      "advertisement_id": "1",
+      "body": "Question 1",
+      "alternatives": [
+        "Alt 1",
+        "Alt 2",
+        "Alt 3"
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    },
+    {
+      "id": "2",
+      "advertisement_id": "1",
+      "body": "Question 2",
+      "alternatives": [
+        "Alt 1",
+        "Alt 2",
+        "Alt 3"
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    },
+    {
+      "id": "3",
+      "advertisement_id": "2",
+      "body": "Question 1",
+      "alternatives": [
+        "Alt 1",
+        "Alt 2",
+        "Alt 3"
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    }
+  ],
+  "advertisement": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "attribute_id": "1"
+    },
+    {
+      "id": "2",
+      "user_id": "2",
+      "attribute_id": "2"
+    }
+  ],
+  "applicant": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "user_id": ""
+    },
+    {
+      "advertisement_id": "1",
+      "user_id": "1",
+      "id": "gyqssAo"
+    }
+  ],
+  "attribute": [
+    {
+      "id": "1",
+      "period": [
+        "123",
+        "456"
+      ],
+      "profession": "Systemutvecklare",
+      "badges": [
+        "JS",
+        "HTML",
+        "CSS"
+      ],
+      "location": "Göteborg",
+      "work_type": "Remote",
+      "school": "",
+      "type": "advertisement",
+      "decline_rate": "0.5",
+      "response_time": "61",
+      "openings": 2,
+      "is_active": true
+    },
+    {
+      "id": "2",
+      "period": [
+        "123",
+        "456"
+      ],
+      "profession": "Frontendutvecklare",
+      "badges": [
+        "JS",
+        "HTML",
+        "CSS"
+      ],
+      "location": "Göteborg",
+      "work_type": "Remote",
+      "school": "",
+      "type": "advertisement",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
+      "openings": 2,
+      "is_active": true
+    }
+  ]
 }
