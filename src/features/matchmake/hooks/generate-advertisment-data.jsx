@@ -16,7 +16,11 @@ async function getQuestionnaireByAdvertisementID(id) {
 	return json;
 }
 
-function useGenerateAdvertisementData(searchParams) {
+/**
+ * @param {{id:string, attribute:{profession:string}}} user
+ * @returns {{}}
+ */
+function useGenerateAdvertisementData(user) {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [advertisementData, setAdvertisementData] = useState(null);
@@ -37,6 +41,8 @@ function useGenerateAdvertisementData(searchParams) {
 		setError(null);
 		setTimeout(async () => {
 			try {
+				const searchParams = new URLSearchParams();
+				searchParams.set("profession", user.attribute.profession);
 				searchParams.set("type", "advertisement");
 				searchParams.set("is_active", true);
 				const attributes = await (await getAttribute(searchParams)).json();
