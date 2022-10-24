@@ -16,13 +16,29 @@
 	&::before {
 		content: "";
 		top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
 		background-size: cover;
-		filter: brightness(0.5);
-		-webkit-filter: brightness(0.5);
-		background-image: url('../../../public/background.jpg');
+		background-image: url('./assets/background.png');
+		background-blend-mode: hard-light, normal;
+		background-repeat: no-repeat;
+		position: absolute;
+	}
+}
+
+.splash-background-2 {
+		position: relative;
+
+	&::before {
+		content: "";
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		background-size: cover;
+		opacity: 75%;
+		background-image: url('./assets/background_2.png');
 		background-repeat: no-repeat;
 		position: absolute;
 	}
@@ -89,6 +105,11 @@ $sizes: (
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+	.md\:px-16 {
+		padding-left: 64px;
+		padding-right: 64px;
+	}
 }
 
 .-m-3 {
@@ -110,4 +131,17 @@ pre {
 	overflow-x: auto;
 	white-space: pre;
 	word-wrap: normal;
+}
+
+.splash-card {
+	background: rgba(255, 255, 255, 0.5);
+	/* Card Shadow */
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px #000000;
+	backdrop-filter: blur(40px);
+	/* Note: backdrop-filter has minimal browser support */
+}
+
+.splash-card-bg-white {
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12.5px);
 }

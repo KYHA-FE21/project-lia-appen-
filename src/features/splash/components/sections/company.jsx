@@ -15,6 +15,7 @@ import Card, {
 } from "../../../../components/card";
 import InfoGrid from "../../../../components/info-grid";
 import InputField from "../../../../components/input-field";
+import SplashCard from "../card";
 import FlexContainer from "../flex-container";
 import ProseParagraph from "../prose-paragraph";
 
@@ -50,16 +51,14 @@ function CompanySection() {
 				style={{ scrollMargin: "20px" }}
 			>
 				<div className="splash-cards-max-width-xl">
-					<Card>
-						<CardHeader>
-							<strong>Företag</strong>
-						</CardHeader>
-						<ProseParagraph>
-							Efter att man har skapat sin gratis företagsprofil, öppnas
+					<div className="flex flex-col gap-3 text-center">
+						<strong className="text-xl">Företag</strong>
+						<ProseParagraph textAlign="center">
+							Efter att man har skapat en gratis företagsprofil, öppnas
 							möjligheten att lägga upp en annons och hitta intresserade
 							sökande.
 						</ProseParagraph>
-					</Card>
+					</div>
 				</div>
 			</FlexContainer>
 
@@ -71,10 +70,8 @@ function CompanySection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<Card className="flex-1">
-							<CardHeader>
-								<strong>Hur hittar man intressanta studenter?</strong>
-							</CardHeader>
+						<div className="flex flex-col gap-3 flex-1 text-center p-3">
+							<strong>Hur hittar man intressanta studenter?</strong>
 							<ProseParagraph>
 								<span>
 									För att du som företag ska få bra med sökande behöver du
@@ -90,11 +87,13 @@ function CompanySection() {
 									Sedan är det bara att vänta på att du får sökande. 🤞
 								</span>
 							</ProseParagraph>
-						</Card>
+						</div>
 
-						<Card className="flex-1">
+						<SplashCard className="gap-5">
 							<CardHeader>
-								<label htmlFor="sampleQuestion" className="font-bold">Skriv din första fråga</label>
+								<label htmlFor="sampleQuestion" className="font-bold">
+									Skriv din första fråga
+								</label>
 							</CardHeader>
 							<div className="-m-3">
 								<textarea
@@ -134,17 +133,17 @@ function CompanySection() {
 									defaultValue="Svar 4"
 								/>
 							</FlexContainer>
-							<CardButtons className="text-white">
+							<CardButtons className="text-black">
 								<SecondaryButton
 									className="flex-1"
 									bgColor=""
-									color="white"
+									color="black"
 									icon={<CheckCircle />}
 								>
 									Spara
 								</SecondaryButton>
 							</CardButtons>
-						</Card>
+						</SplashCard>
 					</FlexContainer>
 				</div>
 			</FlexContainer>
@@ -157,7 +156,7 @@ function CompanySection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<Card className="flex-1">
+						<SplashCard className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Söker yrkesrollen frontend-utvecklare!</strong>
 							</CardHeader>
@@ -170,7 +169,7 @@ function CompanySection() {
 								entries={studentCard.infoGridEntries}
 								className="text-sm"
 							/>
-							<CardButtons className="text-white">
+							<CardButtons className="text-black">
 								<SecondaryButton
 									className="flex-1"
 									bgColor="red"
@@ -188,18 +187,16 @@ function CompanySection() {
 									Acceptera
 								</SecondaryButton>
 							</CardButtons>
-						</Card>
+						</SplashCard>
 
-						<Card className="flex-1">
-							<CardHeader>
-								<strong>Matchar sökande uppdraget?</strong>
-							</CardHeader>
+						<div className="flex flex-col gap-3 flex-1 text-center p-3">
+							<strong>Matchar sökande uppdraget?</strong>
 							<ProseParagraph>
 								Det är nu det gäller, har får du möjligheten att läsa om
 								studenten innan du får kontakt detaljerna: Och för att få dem,
 								behöver du acceptera studentens ansökning.
 							</ProseParagraph>
-						</Card>
+						</div>
 					</FlexContainer>
 				</div>
 			</FlexContainer>
