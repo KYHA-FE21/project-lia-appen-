@@ -125,7 +125,7 @@ function StudentSection() {
 							<CardHeader>
 								<strong>Fråga #1</strong>
 							</CardHeader>
-							<div className="bg-black -m-3 text-white">
+							<div className="flex bg-black -m-3 text-white" style={{ overflowX: 'auto' }}>
 								<pre className="p-3 py-6">
 									let i;
 									{"\r\n"}for (i=1; i &lt;= 100; i++) {"{"}

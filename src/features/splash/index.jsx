@@ -29,13 +29,13 @@ function Splash() {
 							<AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
 						</h1>
 
-						<ProseParagraph className="my-6 tracking text-xl">
+						<ProseParagraph textAlign="left" className="my-6 tracking text-xl">
 							Här kan du som student hitta en LIA-plats, och som företag hitta
 							dina framtida 🌟 <i>superstars</i>.<strong> Helt gratis!</strong>
 						</ProseParagraph>
 
 						<FlexContainer direction="col" className="w-full md:px-16" gap="4">
-							<CardHeader className="text-2xl place-self-center font-display">
+							<CardHeader className="text-2xl text-center place-self-center font-display">
 								Jag letar efter
 							</CardHeader>
 							<FlexContainer gap="4" className="items-stretch">
