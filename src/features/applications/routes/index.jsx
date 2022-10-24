@@ -1,7 +1,11 @@
-import React from 'react';
+import ApplicationsContainer from "../components/applications-container";
 
-const index = () => {
-  return <div>index</div>;
+const Index = () => {
+	return (
+		<main className="gradient-bg flex flex-col h-full p-3 gap-3 overflow-auto">
+			<ApplicationsContainer />
+		</main>
+	);
 };
 
-export default index;
+export default Index;
