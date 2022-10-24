@@ -13,7 +13,7 @@ const Index = () => {
 	const [action, setAction] = useState("information");
 	const [answers, setAnswers] = useState({});
 	const [question, setQuestion] = useState(0);
-	const [user, setUser] = useState({
+	const [user] = useState({
 		id: "1",
 		name: "",
 		email: "",
@@ -24,7 +24,7 @@ const Index = () => {
 			id: "3",
 			period: ["123", "456"],
 			profession: "Systemutvecklare",
-			badges: ["JS", "HTML", "CSS"],
+			badges: ["JS", "HTML", "React"],
 			location: "Göteborg",
 			work_type: "Remote",
 			school: "KYH",
@@ -51,7 +51,7 @@ const Index = () => {
 				{!loading && error && <Container className="p-3">{error}</Container>}
 				{!loading && !error && advertisementData && (
 					<>
-						{action === "information" && <Information {...{ advertisementData, setAction, getNew }} />}
+						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user }} />}
 						{action === "questions" && <Questions {...{ advertisementData, setAction, getNew, question, setQuestion, answers, setAnswers }} />}
 						{action === "verify" && <Verification {...{ advertisementData, setAction, getNew, setQuestion, answers, user }} />}
 					</>

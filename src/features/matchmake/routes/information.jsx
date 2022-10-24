@@ -10,7 +10,7 @@ import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
 import { CardBadges, CardButtons } from "../../../components/card";
 
-function Information({ advertisementData, getNew, setAction }) {
+function Information({ advertisementData, getNew, setAction, user }) {
 	const { attribute } = advertisementData;
 	const { badges, profession, period, location, work_type, decline_rate, response_time, openings } = attribute;
 	const [fromDate, toDate] = period;
@@ -41,13 +41,13 @@ function Information({ advertisementData, getNew, setAction }) {
 				/>
 			</Container>
 			<HorizontalRow className="px-3 opacity-3" />
-			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, ["HTML", "CSS"])}</CardBadges>
+			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, user.attribute.badges)}</CardBadges>
 			<HorizontalRow className="px-3 opacity-3" />
 			<InfoStats className="text-white" statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 h-10 mt-auto">
 				<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={getNew}>
-					Neka
+					Nästa
 				</SecondaryButton>
 				<SecondaryButton
 					icon={<Check color="white" />}
