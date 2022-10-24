@@ -1,22 +1,25 @@
-footer {
-  background-color: #4d243d;
-  margin-top: auto;
-  padding: 1em;
+.main-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #4d243d;
+	margin-top: auto;
 
-  .footer-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+	.footer-container {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20%;
-      height: 100%;
-      color: white;
-      cursor: pointer;
-    }
-  }
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 20%;
+			height: 100%;
+			color: white;
+			cursor: pointer;
+		}
+	}
 }

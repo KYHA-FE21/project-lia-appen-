@@ -35,7 +35,7 @@ const Signup = () => {
 		<div className="authContainer flex justify-center items-center">
 			<div className="authContent w-full p-12">
 				<Logo />
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
 					<InputField
 						icon={<Mail strokeWidth={1} />}
 						type="email"
