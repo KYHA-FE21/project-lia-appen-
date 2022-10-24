@@ -17,11 +17,11 @@ const InputField = ({ icon = null, isError = false, value, handleChange, classNa
 	if (error) classes.push("globalInputFieldError");
 
 	return (
-		<div className={`globalInputContainer ${classes}`} onClick={handleClick} ref={ref}>
+		<div className="globalInputContainer" onClick={handleClick} ref={ref}>
 			<div className="globalInputContent">
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input
-					className={`globalInputContent globalInputField ${className}`}
+					className={`globalInputContent globalInputField ${classes} ${className}`}
 					value={value}
 					onChange={handleChange}
 					{...restProps}
