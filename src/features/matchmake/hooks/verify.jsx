@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-function postUserToApplicant(user_id, advertisement_id) {
+function postUserToApplicant(user_id, advertisement_id, accepted, date) {
 	const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
 	const API_ENDPOINT = "applicant";
 	const url = new URL(API_ENDPOINT, API_URL);
 	const body = JSON.stringify({
 		advertisement_id,
 		user_id,
+		accepted,
+		date,
 	});
 	return fetch(url, {
 		method: "POST",
@@ -36,9 +38,9 @@ function useVerify() {
 				const { advertisement, questionnaire } = advertisementData;
 				const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
 				setVerified(succeded);
-				if (succeded) {
-					await postUserToApplicant(user.id, advertisement.id);
-				}
+				const accepted = succeded ? !succeded : null;
+				const date = Intl.DateTimeFormat("sv-SE").format(new Date());
+				await postUserToApplicant(user.id, advertisement.id, accepted, date);
 			} catch (error) {
 				setError(error.toString());
 			} finally {
