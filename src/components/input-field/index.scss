@@ -13,6 +13,7 @@ $font-size: 0.9rem;
 	.globalInputContent {
 		display: flex;
 		align-items: center;
+		border-radius: $border-radius;
 
 		.globalInputIcon {
 			margin-left: 0.5rem;
@@ -34,14 +35,11 @@ $font-size: 0.9rem;
 			width: 100%;
 			font-size: $font-size;
 		}
+	}
 
-		.globalInputContainer:focus {
-			box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.35);
-		}
-
-		.globalInputContainer:hover {
-			box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.7);
-		}
+	:focus,
+	:hover {
+		box-shadow: 0px 0px 0px 1px hsla(0, 0%, 0%, 0.25), 1px 1px 2px 1px hsla(0, 0%, 0%, 0.35);
 	}
 
 	.globalInputError {
@@ -54,5 +52,5 @@ $font-size: 0.9rem;
 }
 
 .globalInputFieldError {
-	border: 1px solid #fd6d6d !important;
+	box-shadow: inset 0px 0px 0px 1px #fd6d6d !important;
 }

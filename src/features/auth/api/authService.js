@@ -32,12 +32,11 @@ export default class AuthService {
 	async controller(url, { email, password, id }) {
 		const user = await this._fetch(`?email=${email}`);
 		const noneEmail = { error: { type: "email", message: "Email not registered" } };
+		const invalidPassword = { error: { type: "password", message: "Password not strong enough" } };
 
 		if (url === "/user/signup") {
 			if (user.length) return { error: { type: "email", message: "Email already registered" } };
-			return this.passwordIsValid(password)
-				? true
-				: { error: { type: "password", message: "Password not strong enough" } };
+			return this.passwordIsValid(password) ? true : invalidPassword;
 		}
 
 		if (url === "/user/signin") {
@@ -48,17 +47,15 @@ export default class AuthService {
 
 		if (url === "/user/reset/getCredentials") {
 			if (!user.length) return noneEmail;
-			const uuid = window.crypto.randomUUID();
-			return await this._fetch(`/${user[0].id}`, "PUT", {
-				reset_key: uuid,
-				email: user[0].email,
-				password: user[0].password,
-			});
+			// Should create uuid in "reset table" with TTL 30min and send the reset link to user email
+			return true;
 		}
 
 		if (url === "/user/reset/confirmCredentials") {
-			// Validate reset_key and show error if invalid
-			await this._fetch(`?id=${id}`);
+			// Validate reset link before patch user password
+			const user = await this._fetch(`?id=${id}`);
+			if (!user) return { error: { type: "other", message: "Invalid reset key" } };
+			return this.passwordIsValid(password) ? true : invalidPassword;
 		}
 	}
 }

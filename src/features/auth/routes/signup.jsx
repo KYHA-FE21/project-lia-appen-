@@ -9,6 +9,8 @@ import External from "../components/external";
 import InputError from "../components/inputError";
 import useFetch from "../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import PasswordInfo from "../components/passwordInfo";
+import useFocus from "../hooks/useFocus";
 
 const Signup = () => {
 	const [localError, setLocalError] = React.useState(null);
@@ -36,6 +38,8 @@ const Signup = () => {
 	React.useEffect(() => {
 		setLocalError(error);
 	}, [error]);
+
+	const { infoRef, handlePasswordFocus, handlePasswordBlure } = useFocus();
 
 	return (
 		<div className="authContainer flex justify-center items-center">
@@ -67,6 +71,8 @@ const Signup = () => {
 								setPassword(e.target.value);
 							}}
 							required
+							onFocus={handlePasswordFocus}
+							onBlur={handlePasswordBlure}
 						/>
 						<InputField
 							className={notSame && "globalInputFieldError"}
@@ -76,6 +82,7 @@ const Signup = () => {
 							handleChange={(e) => setPassword2(e.target.value)}
 							required
 						/>
+						<PasswordInfo password={password} ref={infoRef} />
 					</div>
 					<InputError error={localError} type="password" />
 					<Button children={loading ? "..." : "BLI MEDLEM"} disabled={notSame | loading} className="w-full" />

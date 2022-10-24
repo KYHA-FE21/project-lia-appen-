@@ -2,7 +2,6 @@ import React from "react";
 import AuthService from "../api/authService";
 
 const useFetch = () => {
-	// Data, loading and error states
 	const [data, setData] = React.useState(null);
 	const [loading, setLoading] = React.useState(false);
 	const [error, setError] = React.useState({ type: "", message: "" });
