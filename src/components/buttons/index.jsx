@@ -1,4 +1,12 @@
-function Button({ width, fontSize, icon, color, className = "", children, ...restProps }) {
+function Button({
+	width,
+	fontSize,
+	icon,
+	color,
+	className = "",
+	children,
+	...restProps
+}) {
 	let colors = "";
 	if (color === "primary" || !color) colors = "text-white bg-primary";
 	else if (color === "white") colors = "text-black bg-white";
