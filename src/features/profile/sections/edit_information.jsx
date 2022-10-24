@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import Title from '../components/title';
 import Wrapper from '../components/wrapper';
 import InputField from '../../../components/input-field';
@@ -6,8 +6,33 @@ import PrimaryButton from '../../../components/buttons/index';
 import TextArea from '../components/textArea';
 import { Phone, GraduationCap, Star, Puzzle } from 'lucide-react';
 import InputButton from '../components/input-button';
+import { putUser } from '../api/putUser';
 
 const EditInformation = ({ userData }) => {
+
+    const [phone, setPhone] = useState();
+    const [school, setSchool] = useState();
+    const [badge, setBadge] = useState();
+    const [bio, setBio] = useState();
+
+    const handleSave = (e) => {
+        console.log(bio)
+        const data = {
+            id: 1,
+            email: '',
+            phone: phone.target.value,
+            shool: school.target.value,
+            bio: bio,
+            links: {
+                title: '',
+                url: ''
+            }
+        }
+
+        
+        putUser(data)
+    }
+
     return (
         <>
             <Wrapper 
@@ -18,21 +43,24 @@ const EditInformation = ({ userData }) => {
                 <Title size={[1.5]} >{`${userData.data.type === 'student' ? 'Om dig' : 'Om företaget'}`}</Title>
 
                 <InputField 
+                    onChange={setPhone}
                     icon={<Phone strokeWidth={1} />}
                     type="tel"
                     placeholder='Telefonnummer'/>
     
                 <InputField 
+                    onChange={setSchool}
                     icon={<GraduationCap strokeWidth={1} />}
                     type="text"
                     placeholder='Skola / Utbildning'/>
 
                 <InputField 
+                    onChange={setBadge}
                     icon={<Star strokeWidth={1} />}
                     type='text'
                     placeholder='Kompentenser'/>
 
-                <TextArea>{`Kort beskrivning om ${userData.data.type === 'student' ? 'dig själv' : 'företaget'}`}</TextArea>
+                <TextArea onChange={setBio}>{`Kort beskrivning om ${userData.data.type === 'student' ? 'dig själv' : 'företaget'}`}</TextArea>
 
             </Wrapper>
 
@@ -47,9 +75,8 @@ const EditInformation = ({ userData }) => {
 
                     <InputField
                         icon={<Puzzle strokeWidth={1} />}
-                        type="tel"
-                        placeholder='Telefonnummer' />
-
+                        type="text"
+                        placeholder='badge' />
 
                     <Wrapper
                         direction='column'
@@ -92,7 +119,7 @@ const EditInformation = ({ userData }) => {
                 padding={[0, 0, 5, 0]}
                 gap={[1]}>
 
-                <PrimaryButton>Spara</PrimaryButton>
+                <PrimaryButton onClick={handleSave}>Spara</PrimaryButton>
 
             </Wrapper>
         </>

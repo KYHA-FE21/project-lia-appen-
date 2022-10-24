@@ -21,9 +21,13 @@ const Index = () => {
 	});
 
 	useEffect(() => {
-		getUser('id').then(response => {
-			setUserData(response)
-		})
+
+		if(userData.data.length === 0) {
+			getUser('id').then(response => {
+				setUserData(response);
+			})
+		}
+		
 	}, [])
 
 	return (
