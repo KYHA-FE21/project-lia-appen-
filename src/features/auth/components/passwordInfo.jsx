@@ -9,7 +9,7 @@ const PasswordInfo = React.forwardRef((props, ref) => {
 	const color = (a) => (a ? "text-green" : "text-white");
 
 	return (
-		<div ref={ref} className="passwordInfo-container shadow p-4 bg-primary rounded-md text-white text-tiny d-none">
+		<div ref={ref} className="passwordInfo-container shadow p-4 bg-primary rounded-md text-white text-tiny hidden">
 			<h1 className="pb-2">Password must contain:</h1>
 			<ul className="pl-4">
 				<li className={color(upper())}>Uppercase</li>

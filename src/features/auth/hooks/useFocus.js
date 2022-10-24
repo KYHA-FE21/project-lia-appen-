@@ -4,10 +4,10 @@ const useFocus = () => {
 	const infoRef = React.useRef();
 
 	const handlePasswordFocus = () => {
-		infoRef.current.classList.remove("d-none");
+		infoRef.current.classList.remove("hidden");
 	};
 	const handlePasswordBlure = () => {
-		infoRef.current.classList.add("d-none");
+		infoRef.current.classList.add("hidden");
 	};
 
 	return { infoRef, handlePasswordFocus, handlePasswordBlure };
