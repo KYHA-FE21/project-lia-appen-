@@ -8,7 +8,7 @@ import Button from "../../../components/buttons";
 import AnswerEditTextArea from "../components/answer-edit";
 
 import i18n from "../i18n";
-import { useQuestionnaire } from "../api/questionnaire";
+import useQuestionnaire from "../hooks/use-questionnaire";
 
 const MAX_QUESTIONS = 4;
 

@@ -3,8 +3,9 @@ import "../styles/quest.scss";
 import { Edit } from "lucide-react";
 import Button from "../../../components/buttons";
 import BtnSecondary from "../../../components/buttons/secondary-button";
-import { MAX_QUESTIONNAIRES, useQuestionnaires } from "../api/questionnaire";
+import useQuestionnaires from "../hooks/use-questionnaire";
 import i18n from "../i18n";
+import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
 
 const Overview = () => {
 	const { id } = useParams();
