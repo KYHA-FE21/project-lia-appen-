@@ -12,7 +12,7 @@ function Loading() {
 					icon: <Hourglass color="white" size="30" />,
 				}}
 			/>
-			<Loader className={`spinner m-auto`} color="white" size="25%" />;
+			<Loader className={`spinner m-auto`} color="white" size="25%" />
 		</>
 	);
 }
