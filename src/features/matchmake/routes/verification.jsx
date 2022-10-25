@@ -1,4 +1,4 @@
-import { Check, Rocket, X, XCircle } from "lucide-react";
+import { Check, Frown, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
 import Heading from "../components/heading";
@@ -6,6 +6,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import { CardButtons } from "../../../components/card";
 import Loading from "../components/loading";
 import useVerify from "../hooks/verify";
+import Verified from "./verified";
 
 function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion }) {
 	const { questionnaire } = advertisementData;
@@ -21,26 +22,28 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 			{!loading && error && <Container className="p-3">{error}</Container>}
 			{!loading && !error && (
 				<>
-					{verified && (
+					{verified === true && <Verified getNew={getNew} />}
+					{verified === false && (
 						<>
 							<Heading
 								className="text-2xl text-white px-3"
 								{...{
-									heading: "Skickat",
-									icon: <Rocket color="white" size="30" className="cursor-pointer" onClick={getNew} />,
+									heading: "Tyvärr...",
+									icon: <Frown color="white" size="30" className="cursor-pointer" onClick={getNew} />,
 								}}
 							></Heading>
-							<Container type="p" className="px-3 text-center text-white">
-								Tryck på tillbaks för att få ett se ett nytt kort.
+							<Container className="flex flex-col gap-3 px-3 text-center text-white">
+								<p>Du klarade tyvärr inte provet denna gång.</p>
+								<p>Men det kommer fler chanser!</p>
 							</Container>
 							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={getNew}>
-									Tillbaks
+									Nytt test
 								</SecondaryButton>
 							</CardButtons>
 						</>
 					)}
-					{!verified && (
+					{verified === null && (
 						<>
 							<Heading
 								className="text-2xl text-white px-3"
