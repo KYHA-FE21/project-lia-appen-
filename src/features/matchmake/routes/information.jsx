@@ -47,7 +47,7 @@ function Information({ advertisementData, getNew, setAction, user }) {
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 h-10 mt-auto">
 				<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={getNew}>
-					Nästa
+					Nytt test
 				</SecondaryButton>
 				<SecondaryButton
 					icon={<Check color="white" />}
