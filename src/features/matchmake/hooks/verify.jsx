@@ -1,23 +1,5 @@
 import { useState } from "react";
-
-function postUserToApplicant(user_id, advertisement_id, accepted, date) {
-	const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
-	const API_ENDPOINT = "applicant";
-	const url = new URL(API_ENDPOINT, API_URL);
-	const body = JSON.stringify({
-		advertisement_id,
-		user_id,
-		accepted,
-		date,
-	});
-	return fetch(url, {
-		method: "POST",
-		body: body,
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-}
+import postApplicant from "../api/post-applicant";
 
 function useVerify() {
 	const [loading, setLoading] = useState(false);
@@ -38,9 +20,16 @@ function useVerify() {
 				const { advertisement, questionnaire } = advertisementData;
 				const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
 				setVerified(succeded);
-				const accepted = succeded ? !succeded : null;
-				const date = Intl.DateTimeFormat("sv-SE").format(new Date());
-				await postUserToApplicant(user.id, advertisement.id, accepted, date);
+				if (!succeded) {
+					const date = Intl.DateTimeFormat("sv-SE").format(new Date());
+					const body = JSON.stringify({
+						advertisement_id: advertisement.id,
+						user_id: user.id,
+						accepted: null,
+						date,
+					});
+					await postApplicant(body);
+				}
 			} catch (error) {
 				setError(error.toString());
 			} finally {
