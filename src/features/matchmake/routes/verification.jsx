@@ -22,7 +22,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 			{!loading && error && <Container className="p-3">{error}</Container>}
 			{!loading && !error && (
 				<>
-					{verified === true && <Verified getNew={getNew} />}
+					{verified === true && <Verified advertisementData={advertisementData} user={user} getNew={getNew} />}
 					{verified === false && (
 						<>
 							<Heading
@@ -56,7 +56,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}
 							</Container>
 							<Container type="p" className="px-3 text-white">
-								Är du säker på att du vill skicka dina svar och få en chans att ansöka?
+								Är du säker på att du vill skicka dina svar?
 							</Container>
 							<CardButtons className="px-3 h-10 mt-auto">
 								<SecondaryButton
