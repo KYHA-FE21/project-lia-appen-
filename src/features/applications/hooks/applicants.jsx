@@ -1,63 +1,22 @@
 import { useEffect, useState } from "react";
-import getApplicant from "../api/get-applicant";
-import getAttribute from "../api/get-attribute";
-import getUser from "../api/get-user";
-
-async function getApplicantByAdvertisementID(id = "") {
-	const searchParams = new URLSearchParams();
-	searchParams.set("advertisement_id", id);
-	searchParams.append("accepted", true);
-	searchParams.append("accepted", false);
-	const json = await (await getApplicant(searchParams)).json();
-	return json;
-}
-
-/**
- * @param {String | Array} id
- */
-async function getUsersByID(id = "") {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		for (const item of id) {
-			searchParams.append("id", item);
-		}
-	} else {
-		searchParams.set("id", id);
-	}
-	const json = await (await getUser(searchParams)).json();
-	return json;
-}
-
-/**
- * @param {String | Array} id
- */
-async function getAttributeByID(id = "") {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		for (const item of id) {
-			searchParams.append("id", item);
-		}
-	} else {
-		searchParams.set("id", id);
-	}
-	const json = await (await getAttribute(searchParams)).json();
-	return json;
-}
+import getApplicantByAdvertisementID from "../helpers/get-applicant-by-advertisement-id";
+import getAttributeByID from "../helpers/get-attribute-by-id";
+import getUserByID from "../helpers/get-user-by-id";
 
 function useApplicants(id) {
 	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
-	const [applicants, setApplicants] = useState(null);
+	const [error, setError] = useState(false);
+	const [applicants, setApplicants] = useState([]);
 
 	useEffect(() => {
 		const controller = new AbortController();
 		(async () => {
 			setLoading(true);
-			setError(null);
+			setError(false);
 			setTimeout(async () => {
 				try {
 					const applicant = await getApplicantByAdvertisementID(id);
-					const user = await getUsersByID(Array.from(applicant).map((item) => item.user_id));
+					const user = await getUserByID(Array.from(applicant).map((item) => item.user_id));
 					const attribute = await getAttributeByID(Array.from(user).map((item) => item.attribute_id));
 					if (controller.signal.aborted) return;
 					setApplicants(() => {
