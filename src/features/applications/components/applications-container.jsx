@@ -76,124 +76,129 @@ const ApplicationsContainer = () => {
 					{(applicantsError || advertisementError) && (applicantsError || advertisementError)}
 					{!applicantsError && !advertisementError && (
 						<>
-							<h1>Att kontakta - {toContact.length}</h1>
-							<div className="flex flex-wrap gap-3 justify-center">
-								{toContact.map((item, i, array) => {
-									const { id, attribute } = item;
-									const { badges, profession, period, location, work_type } = attribute;
-									const [fromDate, toDate] = period;
-									return (
-										<Card key={`contact-${id}`} className="applicants-max-width">
-											<CardHeader>
-												<h1 className="text-base text-white">{profession}</h1>
-												<PrimaryButton
-													className="gap-1 text-sm"
-													onClick={() => {
-														readMoreButtonOnClick(i, array);
-													}}
-													icon={<Info size={20} />}
-												>
-													Läs Mer
-												</PrimaryButton>
-											</CardHeader>
-											<InfoGrid
-												color="white"
-												entries={[
-													{
-														icon: <CalendarDays size="20" />,
-														children: (
-															<span className="text-tiny">
-																{fromDate} till {toDate}
-															</span>
-														),
-													},
-													{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
-													{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
-												]}
-											/>
-											<CardBadges>{generateBadges(advertisement.attribute.badges, badges)}</CardBadges>
-											<CardButtons className="h-10">
-												<SecondaryButton
-													icon={<X />}
-													onClick={() => {
-														denyButtonOnClick(i, array);
-													}}
-													color="white"
-													bgColor="red"
-													className="text-white w-full text-sm"
-												>
-													Ta bort
-												</SecondaryButton>
-											</CardButtons>
-										</Card>
-									);
-								})}
-							</div>
-							<h1>Att granska - {toReview.length}/10</h1>
-							<div className="flex flex-wrap gap-3 justify-center">
-								{toReview.map((item, i, array) => {
-									const { id, attribute } = item;
-									const { badges, profession, period, location, work_type } = attribute;
-									const [fromDate, toDate] = period;
-									return (
-										<Card key={`review-${id}`} className="applicants-max-width">
-											<CardHeader>
-												<h1 className="text-base text-white">{profession}</h1>
-												<PrimaryButton
-													className="gap-1 text-sm"
-													onClick={() => {
-														readMoreButtonOnClick(i, array);
-													}}
-													icon={<Info size={20} />}
-												>
-													Läs Mer
-												</PrimaryButton>
-											</CardHeader>
-											<InfoGrid
-												color="white"
-												entries={[
-													{
-														icon: <CalendarDays size="20" />,
-														children: (
-															<span className="text-tiny">
-																{fromDate} till {toDate}
-															</span>
-														),
-													},
-													{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
-													{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
-												]}
-											/>
-											<CardBadges>{generateBadges(advertisement.attribute.badges, badges)}</CardBadges>
-											<CardButtons className="h-10">
-												<SecondaryButton
-													icon={<X />}
-													onClick={() => {
-														denyButtonOnClick(i, array);
-													}}
-													color="white"
-													bgColor="red"
-													className="text-white w-full text-sm"
-												>
-													Ta bort
-												</SecondaryButton>
-												<SecondaryButton
-													icon={<Check />}
-													onClick={() => {
-														acceptButtonOnClick(i, array);
-													}}
-													color="white"
-													bgColor="green"
-													className="text-white w-full text-sm"
-												>
-													Godkänn
-												</SecondaryButton>
-											</CardButtons>
-										</Card>
-									);
-								})}
-							</div>
-							{openModal && <Modal applicantList={applicantList} setApplicantList={setApplicantList} companyBadges={companyBadges} currentIndex={currentIndex} setOpenModal={setOpenModal} />}
+							{!advertisement && <>Sidan kunde ej hittas</>}
+							{advertisement && (
+								<>
+									<h1>Att kontakta - {toContact.length}</h1>
+									<div className="flex flex-wrap gap-3 justify-center">
+										{toContact.map((item, i, array) => {
+											const { id, attribute } = item;
+											const { badges, profession, period, location, work_type } = attribute;
+											const [fromDate, toDate] = period;
+											return (
+												<Card key={`contact-${id}`} className="applicants-max-width">
+													<CardHeader>
+														<h1 className="text-base text-white">{profession}</h1>
+														<PrimaryButton
+															className="gap-1 text-sm"
+															onClick={() => {
+																readMoreButtonOnClick(i, array);
+															}}
+															icon={<Info size={20} />}
+														>
+															Läs Mer
+														</PrimaryButton>
+													</CardHeader>
+													<InfoGrid
+														color="white"
+														entries={[
+															{
+																icon: <CalendarDays size="20" />,
+																children: (
+																	<span className="text-tiny">
+																		{fromDate} till {toDate}
+																	</span>
+																),
+															},
+															{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
+															{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
+														]}
+													/>
+													<CardBadges>{generateBadges(advertisement.attribute.badges, badges)}</CardBadges>
+													<CardButtons className="h-10">
+														<SecondaryButton
+															icon={<X />}
+															onClick={() => {
+																denyButtonOnClick(i, array);
+															}}
+															color="white"
+															bgColor="red"
+															className="text-white w-full text-sm"
+														>
+															Ta bort
+														</SecondaryButton>
+													</CardButtons>
+												</Card>
+											);
+										})}
+									</div>
+									<h1>Att granska - {toReview.length}/10</h1>
+									<div className="flex flex-wrap gap-3 justify-center">
+										{toReview.map((item, i, array) => {
+											const { id, attribute } = item;
+											const { badges, profession, period, location, work_type } = attribute;
+											const [fromDate, toDate] = period;
+											return (
+												<Card key={`review-${id}`} className="applicants-max-width">
+													<CardHeader>
+														<h1 className="text-base text-white">{profession}</h1>
+														<PrimaryButton
+															className="gap-1 text-sm"
+															onClick={() => {
+																readMoreButtonOnClick(i, array);
+															}}
+															icon={<Info size={20} />}
+														>
+															Läs Mer
+														</PrimaryButton>
+													</CardHeader>
+													<InfoGrid
+														color="white"
+														entries={[
+															{
+																icon: <CalendarDays size="20" />,
+																children: (
+																	<span className="text-tiny">
+																		{fromDate} till {toDate}
+																	</span>
+																),
+															},
+															{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
+															{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
+														]}
+													/>
+													<CardBadges>{generateBadges(advertisement.attribute.badges, badges)}</CardBadges>
+													<CardButtons className="h-10">
+														<SecondaryButton
+															icon={<X />}
+															onClick={() => {
+																denyButtonOnClick(i, array);
+															}}
+															color="white"
+															bgColor="red"
+															className="text-white w-full text-sm"
+														>
+															Ta bort
+														</SecondaryButton>
+														<SecondaryButton
+															icon={<Check />}
+															onClick={() => {
+																acceptButtonOnClick(i, array);
+															}}
+															color="white"
+															bgColor="green"
+															className="text-white w-full text-sm"
+														>
+															Godkänn
+														</SecondaryButton>
+													</CardButtons>
+												</Card>
+											);
+										})}
+									</div>
+									{openModal && <Modal applicantList={applicantList} setApplicantList={setApplicantList} companyBadges={companyBadges} currentIndex={currentIndex} setOpenModal={setOpenModal} />}
+								</>
+							)}
 						</>
 					)}
 				</>
