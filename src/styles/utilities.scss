@@ -298,8 +298,15 @@ $fractions: (
 	border-radius: 100vw;
 }
 
-.font-bold {
-	font-weight: 700;
+$weights: (
+	"normal": 400,
+	"bold": 700,
+);
+
+@each $weight, $val in $weights {
+	.font-#{$weight} {
+		font-weight: $val;
+	}
 }
 
 .w-max {
