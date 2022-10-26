@@ -35,8 +35,11 @@
 	],
 	"applicant": [
 		{
+      "id":"",
 			"advertisement_id": "",
-			"user_id": ""
+			"user_id": "",
+			"accepted":"", 
+      "date":""
 		}
 	],
 	"attribute": [
