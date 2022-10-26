@@ -16,3 +16,13 @@
 	width: 100%;
 	max-width: 340px;
 }
+
+.applications-modal {
+	max-height: min(100%, 500px);
+	max-width: min(calc(100% - 24px), 640px);
+}
+
+.applications-bio {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
