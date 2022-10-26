@@ -16,6 +16,7 @@ function useApplicants(id) {
 			setTimeout(async () => {
 				try {
 					const applicant = await getApplicantByAdvertisementID(id);
+					if (!applicant.length) return;
 					const user = await getUserByID(Array.from(applicant).map((item) => item.user_id));
 					const attribute = await getAttributeByID(Array.from(user).map((item) => item.attribute_id));
 					if (controller.signal.aborted) return;
