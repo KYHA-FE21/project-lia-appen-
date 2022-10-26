@@ -5,11 +5,11 @@ import Logo from "../components/logo";
 import Path from "../components/path";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
-import useFetch from "../hooks/useFetch";
-import InputError from "../components/inputError";
+import useFetch from "../hooks/use-fetch";
+import InputError from "../components/input-error";
 import { useParams } from "react-router-dom";
-import PasswordInfo from "../components/passwordInfo";
-import useFocus from "../hooks/useFocus";
+import PasswordInfo from "../components/password-info";
+import useFocus from "../hooks/use-focus";
 
 const Reset = () => {
 	const [localError, setLocalError] = React.useState(null);

@@ -1,5 +1,5 @@
 import React from "react";
-import AuthService from "../api/authService";
+import AuthService from "../api/auth-service";
 
 const useFetch = () => {
 	const [data, setData] = React.useState(null);

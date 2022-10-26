@@ -6,8 +6,8 @@ import Path from "../components/path";
 import External from "../components/external";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
-import InputError from "../components/inputError";
-import useFetch from "../hooks/useFetch";
+import InputError from "../components/input-error";
+import useFetch from "../hooks/use-fetch";
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
