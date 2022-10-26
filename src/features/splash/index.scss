@@ -44,6 +44,14 @@
 	}
 }
 
+.min-h-screen {
+	min-height: 100vh;
+}
+
+.text-left {
+	text-align: left;
+}
+
 $sizes: (
 	"sm": 0.875rem,
 	"base": 1rem,
@@ -53,14 +61,6 @@ $sizes: (
 	"3xl": 1.875rem,
 	"6xl": 3.75rem
 );
-
-.min-h-screen {
-	min-height: 100vh;
-}
-
-.text-left {
-	text-align: left;
-}
 
 @media (min-width: 768px) {
 
@@ -110,6 +110,10 @@ $sizes: (
 		padding-left: 64px;
 		padding-right: 64px;
 	}
+
+	.md\:place-self-center {
+		place-self: center;
+	}
 }
 
 .-m-3 {
@@ -124,13 +128,11 @@ $sizes: (
 	height: 184px;
 }
 
-pre {
+.splash-pre {
 	-moz-osx-font-smoothing: auto;
 	-webkit-font-smoothing: auto;
 	font-family: monospace;
-	overflow-x: auto;
-	white-space: pre;
-	word-wrap: normal;
+	overflow: auto;
 }
 
 .splash-card {

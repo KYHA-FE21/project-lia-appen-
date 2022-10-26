@@ -24,7 +24,7 @@ function Splash() {
 						direction="col"
 						className="flex-1 splash-card-bg-white p-16 flex items-center justify-center gap-6 rounded-md p-3 md:p-16"
 					>
-						<h1 className="splash-mb-2 h-16 text-3xl md:text-6xl tracking-tighter">
+						<h1 className="place-self-stretch md:place-self-center splash-mb-2 h-16 text-3xl md:text-6xl tracking-tighter">
 							<span>Hitta din </span>
 							<AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
 						</h1>
