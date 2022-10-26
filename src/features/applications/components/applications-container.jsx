@@ -26,7 +26,7 @@ const ApplicationsContainer = () => {
 
 	useEffect(() => {
 		const controller = new AbortController();
-		if (applicants && !controller.signal.aborted) {
+		if (applicants.length && !controller.signal.aborted) {
 			setToContact(() => {
 				return applicants.filter((applicant) => applicant.applicant.accepted);
 			});
