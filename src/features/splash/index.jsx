@@ -9,8 +9,11 @@ import SalesPitchSection from "./components/sections/sales-pitch";
 import { CardHeader } from "../../components/card";
 import SplashCard from "./components/card";
 import { ArrowDownCircle } from "lucide-react";
+import { useRef } from "react";
 
 function Splash() {
+	const infoElementRef = useRef();
+
 	return (
 		<FlexContainer direction="col" gap="0" className="items-stretch">
 			<div className="splash-hero min-h-screen items-center flex">
@@ -50,9 +53,7 @@ function Splash() {
 					</FlexContainer>
 					<FlexContainer
 						onClick={() =>
-							document
-								.getElementById("info")
-								.scrollIntoView({ behavior: "smooth" })
+							infoElementRef.scrollIntoView({ behavior: "smooth" })
 						}
 						direction="col"
 						className="place-self-stretch items-center cursor-pointer"
@@ -67,6 +68,7 @@ function Splash() {
 				gap="16"
 				className="pt-16 splash-background-2"
 				id="info"
+				ref={infoElementRef}
 			>
 				<SalesPitchSection />
 
