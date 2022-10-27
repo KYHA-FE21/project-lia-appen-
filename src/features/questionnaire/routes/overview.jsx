@@ -3,7 +3,7 @@ import "../styles/quest.scss";
 import { Edit } from "lucide-react";
 import Button from "../../../components/buttons";
 import BtnSecondary from "../../../components/buttons/secondary-button";
-import useQuestionnaires from "../hooks/use-questionnaire";
+import useQuestionnaires from "../hooks/use-questionnaires";
 import i18n from "../i18n";
 import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
 
