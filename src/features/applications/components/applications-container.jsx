@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import useApplicants from "../hooks/applicants";
 import useAdvertisement from "../hooks/advertisement";
 
-import { applications, companyBadges } from "./mock-data";
 import { Check, Loader, X } from "lucide-react";
 
 import ApplicationCard from "./application-card";
@@ -13,11 +12,11 @@ import Modal from "./modal";
 import "./applications-container.scss";
 
 const ApplicationsContainer = () => {
-	const [applicantList, setApplicantList] = useState([...applications]);
 	const [openModal, setOpenModal] = useState(false);
-	const [currentIndex, setCurrentIndex] = useState(null);
+	const [current, setCurrent] = useState(null);
 
 	const { id } = useParams();
+
 	const { loading: applicantsLoading, error: applicantsError, applicants } = useApplicants(id);
 	const { loading: advertisementLoading, advertisementError, advertisement } = useAdvertisement(id);
 
@@ -39,29 +38,33 @@ const ApplicationsContainer = () => {
 		};
 	}, [applicants]);
 
-	function removeApplication(i, array) {
+	function removeApplication(index, array) {
+		function filterArray(prev) {
+			return prev.filter((_, i) => i !== index);
+		}
 		switch (array) {
 			case toContact:
-				setToContact(array.filter((re, r) => r !== i));
+				setToContact(filterArray);
 				break;
 			case toReview:
-				setToReview(array.filter((re, r) => r !== i));
+				setToReview(filterArray);
 				break;
 			default:
 				break;
 		}
+		setOpenModal(false);
 	}
 
-	function denyButtonOnClick(i, array) {
-		removeApplication(i, array);
+	function denyButtonOnClick(index, array) {
+		removeApplication(index, array);
 	}
 
-	function acceptButtonOnClick(i, array) {
-		removeApplication(i, array);
+	function acceptButtonOnClick(index, array) {
+		removeApplication(index, array);
 	}
 
-	function readMoreButtonOnClick(i, array) {
-		setCurrentIndex(i);
+	function readMoreButtonOnClick(index, array) {
+		setCurrent({ index, array });
 		setOpenModal(true);
 	}
 
@@ -110,6 +113,7 @@ const ApplicationsContainer = () => {
 												index={index}
 												array={array}
 												advertisement={advertisement}
+												readMoreButtonOnClick={readMoreButtonOnClick}
 												buttons={[
 													{
 														icon: <X />,
@@ -135,7 +139,7 @@ const ApplicationsContainer = () => {
 											/>
 										))}
 									</div>
-									{openModal && <Modal applicantList={applicantList} setApplicantList={setApplicantList} companyBadges={companyBadges} currentIndex={currentIndex} setOpenModal={setOpenModal} />}
+									{openModal && <Modal setOpenModal={setOpenModal} current={current} removeApplication={removeApplication} />}
 								</>
 							)}
 						</>

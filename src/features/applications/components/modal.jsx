@@ -1,17 +1,17 @@
-import { X, Check } from "lucide-react";
+import { X, Check, CalendarDays, MapPin, CheckCircle } from "lucide-react";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import generateBadges from "../../../components/badge/generate-badges";
 import Heading from "../../matchmake/components/heading";
 import { CardBadges, CardButtons } from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
-import LinkGrid from "./link-grid"
-import "./modal.scss";
+import LinkGrid from "./link-grid";
 
-const Modal = ({ applicantList, setApplicantList, companyBadges, currentIndex, setOpenModal }) => {
-	function remove(i) {
-		setOpenModal(false);
-		setApplicantList(applicantList.filter((re, r) => r !== i));
-	}
+const Modal = ({ setOpenModal, current, removeApplication }) => {
+	const { array, index } = current;
+	const applicant = array[index];
+	const { attribute, link, bio } = applicant;
+	const { profession, badges, period, location, work_type } = attribute;
+	const [fromDate, toDate] = period;
 	return (
 		<>
 			<div
@@ -24,19 +24,30 @@ const Modal = ({ applicantList, setApplicantList, companyBadges, currentIndex, s
 				<Heading
 					className="text-lg"
 					{...{
-						heading: applicantList[currentIndex].type,
+						heading: profession,
 						icon: <X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />,
 					}}
 				/>
-				<CardBadges className="flex text-white justify-center">{generateBadges(companyBadges, applicantList[currentIndex].badges)}</CardBadges>
-				<InfoGrid fontSize={"0.75rem"} entries={applicantList[currentIndex].info} />
-				<LinkGrid fontSize={"0.75rem"} iconSize="20" entries={applicantList[currentIndex].links}/>
-				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{applicantList[currentIndex].bio}</div>
+				<CardBadges className="flex text-white justify-center">{generateBadges(badges, badges)}</CardBadges>
+				<InfoGrid
+					color="black"
+					className="text-tiny"
+					entries={[
+						{
+							icon: <CalendarDays size="20" />,
+							children: `${fromDate} till ${toDate}`,
+						},
+						{ icon: <MapPin size="20" />, children: location },
+						{ icon: <CheckCircle size="20" />, children: work_type },
+					]}
+				/>
+				<LinkGrid className="text-tiny" iconSize="20" entries={link} />
+				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
 				<CardButtons className="flex h-10 mt-auto">
-					<SecondaryButton icon={<X />} onClick={() => remove(currentIndex)} color="white" bgColor="red" className="text-white w-full text-sm">
+					<SecondaryButton icon={<X />} onClick={() => removeApplication(current.index, current.array)} color="white" bgColor="red" className="text-white w-full text-sm">
 						Neka
 					</SecondaryButton>
-					<SecondaryButton icon={<Check />} onClick={() => remove(currentIndex,)} color="white" bgColor="green" className="text-white w-full text-sm">
+					<SecondaryButton icon={<Check />} onClick={() => removeApplication(current.index, current.array)} color="white" bgColor="green" className="text-white w-full text-sm">
 						Acceptera
 					</SecondaryButton>
 				</CardButtons>
