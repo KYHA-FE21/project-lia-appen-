@@ -25,20 +25,17 @@ function ApplicationCard({ item, index, array, advertisement, buttons, readMoreB
 			</CardHeader>
 			<InfoGrid
 				color="white"
+				className="text-tiny"
 				entries={[
 					{
 						icon: <CalendarDays size="20" />,
-						children: (
-							<span className="text-tiny">
-								{fromDate} till {toDate}
-							</span>
-						),
+						children: `${fromDate} till ${toDate}`,
 					},
-					{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
-					{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
+					{ icon: <MapPin size="20" />, children: location },
+					{ icon: <CheckCircle size="20" />, children: work_type },
 				]}
 			/>
-			<CardBadges>{generateBadges(advertisement.attribute.badges, badges)}</CardBadges>
+			<CardBadges>{generateBadges(advertisement.attribute.badges, badges, { className: "flex-1" })}</CardBadges>
 			<CardButtons className="h-10">
 				{buttons.map((button, index) => (
 					<SecondaryButton key={button + index} {...{ ...button }} />
