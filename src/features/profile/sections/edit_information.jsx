@@ -21,7 +21,7 @@ const EditInformation = ({ userData }) => {
         periodEnd: '',
         profession: '',
         location: '',
-        work_type: ''
+        work_type: []
     });
 
     const handleSave = (e) => {
@@ -31,11 +31,11 @@ const EditInformation = ({ userData }) => {
             phone: (sendData.phone !== '') ? sendData.phone : userData.data.phone,
             school: (sendData.school !== '') ? sendData.school : userData.attributes.school,
             email: (sendData.email !== '') ? sendData.email : userData.data.email,
-            work_type: (sendData.work_type !== '') ? sendData.work_type : userData.attribute.work_type,
+            work_type: (sendData.work_type.length > 0) ? sendData.work_type : userData.attributes.work_type,
             bio: (sendData.bio !== '') ? sendData.bio : userData.data.bio,
             location: (sendData.location !== '') ? sendData.location : userData.attributes.location,
             profession: (sendData.profession !== '') ? sendData.profession : userData.attributes.profession,
-            badges: (sendData.badges.length > 0) ? [sendData.badges] : userData.attributes.badges,
+            badges: (sendData.badges.length > 0) ? sendData.badges.split(',') : userData.attributes.badges,
             period: (sendData.periodStart !== '' && sendData.periodEnd !== '') ? [sendData.periodStart, sendData.periodEnd] : userData.attributes.period
         }
 
@@ -55,9 +55,6 @@ const EditInformation = ({ userData }) => {
         }else{
             setSendData(state => ({...state, work_type: state.work_type.filter(item => e.target.value !== item)}))
         }
-
-        console.log(sendData.work_type)
-        
     }
 
     return (
@@ -99,11 +96,20 @@ const EditInformation = ({ userData }) => {
                     type="text"
                     placeholder='Din yrkesinriktning?' />
 
-                <InputField 
-                    onChange={(e) => setSendData(state => ({ ...state, badges: [...state.badges, e.target.value]}))}
+                <InputField
+                    list='badges-list'
+                    onChange={(e) => setSendData(state => ({ ...state, badges: e.target.value }))}
                     icon={<Star strokeWidth={1} />}
                     type='text'
                     placeholder='Kompentenser'/>
+
+                <datalist id="badges-list">
+                    <option value="HTML" />
+                    <option value="JavaScript" />
+                    <option value="ReactJs" />
+                    <option value="CSS" />
+                    <option value="PHP" />
+                </datalist>
 
                 <TextArea onChange={(e) => setSendData(state => ({ ...state, bio: e.target.value }))}>{`Kort beskrivning om ${userData.attributes.type === 'student' ? 'dig själv' : 'företaget'}`}</TextArea>
 
