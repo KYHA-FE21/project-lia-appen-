@@ -6,11 +6,11 @@ const useFocus = () => {
 	const handlePasswordFocus = () => {
 		infoRef.current.classList.remove("hidden");
 	};
-	const handlePasswordBlure = () => {
+	const handlePasswordBlur = () => {
 		infoRef.current.classList.add("hidden");
 	};
 
-	return { infoRef, handlePasswordFocus, handlePasswordBlure };
+	return { infoRef, handlePasswordFocus, handlePasswordBlur };
 };
 
 export default useFocus;
