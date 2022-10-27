@@ -1,12 +1,13 @@
 {
 	"user": [
 		{
-			"id": "",
-			"name": "",
-			"email": "",
-			"password": "",
-			"bio": "",
-			"attribute_id": ""
+			"id": "1",
+			"name": "Sofie Larsson",
+			"email": "sofie.l@gmail.com",
+			"phone": "+4670 - 16 71 245",
+			"password": "123456",
+			"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
+			"attribute_id": "2"
 		}
 	],
 	"link": [
@@ -44,14 +45,14 @@
 	],
 	"attribute": [
 		{
-			"id": "",
-			"period": ["", ""],
-			"profession": "",
-			"badges": [""],
-			"location": "",
+			"id": "2",
+			"period": ["28 nov 2022", "4 apr 2023"],
+			"profession": "Front end utvecklare",
+			"badges": ["Node","JS","HTML","CSS","React"],
+			"location": "Gävle",
 			"work_type": "",
-			"school": "",
-			"type": "",
+			"school": "HiG",
+			"type": "student",
 			"decline_rate": "0.5",
 			"response_time": "0.1",
 			"openings": 2,

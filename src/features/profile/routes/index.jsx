@@ -23,9 +23,10 @@ const Index = () => {
 	useEffect(() => {
 
 		if(userData.data.length === 0) {
-			getUser('id').then(response => {
-				setUserData(response);
-			})
+			getUser(1).then(res => setUserData({
+				data: res.userData,
+				attributes: res.userAttribute
+			}))
 		}
 		
 	}, [])
@@ -43,7 +44,7 @@ const Index = () => {
 						styleDirection="center"
 						name={userData.data.name}
 						profession={userData.attributes.profession}
-						school={userData.attributes.work_type}
+						school={userData.attributes.school}
 						date={userData.attributes.period}
 						phone={userData.data.phone}
 						bio={userData.data.bio}
