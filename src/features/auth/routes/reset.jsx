@@ -89,7 +89,7 @@ const Reset = () => {
 										}}
 										required
 										onFocus={handlePasswordFocus}
-										onBlur={handlePasswordBlure}
+										onBlur={handlePasswordBlur}
 									/>
 									<InputField
 										className={notSame && "globalInputFieldError"}
