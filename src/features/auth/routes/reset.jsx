@@ -49,7 +49,7 @@ const Reset = () => {
 		setLocalError(error);
 	}, [error]);
 
-	const { infoRef, handlePasswordFocus, handlePasswordBlure } = useFocus();
+	const { infoRef, handlePasswordFocus, handlePasswordBlur } = useFocus();
 
 	return (
 		<div className="authContainer flex justify-center items-center">
