@@ -6,12 +6,11 @@ import PrimaryButton from '../../../components/buttons/index';
 import TextArea from '../components/textArea';
 import { Mail, Phone, GraduationCap, Star, Puzzle, Calendar } from 'lucide-react';
 import InputButton from '../components/input-button';
-import { putUser } from '../api/putUser';
+import { putAttributes, putUser } from '../api/putUser';
 
 const EditInformation = ({ userData }) => {
-
+    
     const [sendData, setSendData] = useState({
-        id: 1,
         phone: '',
         school: '',
         email: '',
@@ -27,20 +26,34 @@ const EditInformation = ({ userData }) => {
     const handleSave = (e) => {
 
         const data = {
-            id: 1,
-            phone: (sendData.phone !== '') ? sendData.phone : userData.data.phone,
-            school: (sendData.school !== '') ? sendData.school : userData.attributes.school,
-            email: (sendData.email !== '') ? sendData.email : userData.data.email,
-            work_type: (sendData.work_type.length > 0) ? sendData.work_type : userData.attributes.work_type,
-            bio: (sendData.bio !== '') ? sendData.bio : userData.data.bio,
-            location: (sendData.location !== '') ? sendData.location : userData.attributes.location,
-            profession: (sendData.profession !== '') ? sendData.profession : userData.attributes.profession,
-            badges: (sendData.badges.length > 0) ? sendData.badges.split(',') : userData.attributes.badges,
-            period: (sendData.periodStart !== '' && sendData.periodEnd !== '') ? [sendData.periodStart, sendData.periodEnd] : userData.attributes.period
+            user: {
+                id: userData.data.id,
+                name: userData.data.name,
+                email: (sendData.email !== '') ? sendData.email : userData.data.email,
+                phone: (sendData.phone !== '') ? sendData.phone : userData.data.phone,
+                password: userData.data.password,
+                bio: (sendData.bio !== '') ? sendData.bio : userData.data.bio,
+                attribute_id: userData.attributes.id,
+            },
+            attribute: {
+                id: userData.attributes.id,
+                period: (sendData.periodStart !== '' && sendData.periodEnd !== '') ? [sendData.periodStart, sendData.periodEnd] : userData.attributes.period,
+                profession: (sendData.profession !== '') ? sendData.profession : userData.attributes.profession,
+                badges: (sendData.badges.length > 0) ? sendData.badges.split(',') : userData.attributes.badges,
+                location: (sendData.location !== '') ? sendData.location : userData.attributes.location,
+                work_type: (sendData.work_type.length > 0) ? sendData.work_type : userData.attributes.work_type,
+                school: (sendData.school !== '') ? sendData.school : userData.attributes.school,
+                type: userData.attributes.type,
+                decline_rate: userData.attributes.decline_rate,
+                response_time: userData.attributes.response_time,
+                openings: userData.attributes.openings,
+                is_active: userData.attributes.is_active, 
+            } 
         }
 
         console.log(data)
-        //putUser(data)
+        putUser(data.user)
+        putAttributes(data.attribute)
     }
 
     const handleCheckbox = (e) => {

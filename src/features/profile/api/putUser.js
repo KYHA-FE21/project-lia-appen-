@@ -1,6 +1,6 @@
 export const putUser = (data) => {
 
-    fetch(`/user/${data.id}`, {
+    fetch(`http://localhost:3004/user/${data.id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
@@ -11,7 +11,7 @@ export const putUser = (data) => {
 }
 
 export const putAttributes = (data) => {
-    fetch(`/attributes/${data.id}`, {
+    fetch(`http://localhost:3004/attribute/${data.id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
