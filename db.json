@@ -46,7 +46,7 @@
 	"attribute": [
 		{
 			"id": "2",
-			"period": ["28 nov 2022", "4 apr 2023"],
+			"period": ["2022-01-01", "2022-02-01"],
 			"profession": "Front end utvecklare",
 			"badges": ["Node","JS","HTML","CSS","React"],
 			"location": "Gävle",
