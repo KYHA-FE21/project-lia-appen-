@@ -15,7 +15,7 @@ const Signin = () => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 
-	const [store, setStore] = useLocalStorage('', '');
+	const [store, setStore] = useLocalStorage('user', '');
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -25,7 +25,7 @@ const Signin = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			setStore(data)
+			setStore('user', data)
 			navigate("/profile");
 		}
 	}, [data]);
