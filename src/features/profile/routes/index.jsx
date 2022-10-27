@@ -23,7 +23,7 @@ const Index = () => {
 	useEffect(() => {
 
 		if(userData.data.length === 0) {
-			getUser(1).then(res => setUserData({
+			getUser(2).then(res => setUserData({
 				data: res.userData,
 				attributes: res.userAttribute
 			}))

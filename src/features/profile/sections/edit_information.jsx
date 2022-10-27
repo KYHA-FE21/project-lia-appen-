@@ -91,30 +91,39 @@ const EditInformation = ({ userData }) => {
                     type="email"
                     placeholder='E-post' />
 
-                <InputField 
-                    onChange={(e) => setSendData(state => ({ ...state, school: e.target.value }))}
-                    icon={<GraduationCap strokeWidth={1} />}
-                    type="text"
-                    placeholder='Skola / Utbildning'/>
+                {userData.attributes.type === 'company' || 
+                    <InputField
+                        onChange={(e) => setSendData(state => ({ ...state, school: e.target.value }))}
+                        icon={<GraduationCap strokeWidth={1} />}
+                        type="text"
+                        placeholder='Skola / Utbildning' />
+                }
+                
 
                 <InputField
                     onChange={(e) => setSendData(state => ({ ...state, location: e.target.value }))}
                     icon={<GraduationCap strokeWidth={1} />}
                     type="text"
-                    placeholder='Vilken stad befinner du dig inom?' />
+                    placeholder={`${userData.attributes.type === 'company' ? 'Vilken stad befinner företaget sig inom?' : 'Vilken stad befinner du dig inom?'}`} />
 
-                <InputField
-                    onChange={(e) => setSendData(state => ({ ...state, profession: e.target.value }))}
-                    icon={<GraduationCap strokeWidth={1} />}
-                    type="text"
-                    placeholder='Din yrkesinriktning?' />
+                {userData.attributes.type === 'company' || 
+                    <>
+                    <InputField
+                        onChange={(e) => setSendData(state => ({ ...state, profession: e.target.value }))}
+                        icon={<GraduationCap strokeWidth={1} />}
+                        type="text"
+                        placeholder='Din yrkesinriktning?' />
 
-                <InputField
-                    list='badges-list'
-                    onChange={(e) => setSendData(state => ({ ...state, badges: e.target.value }))}
-                    icon={<Star strokeWidth={1} />}
-                    type='text'
-                    placeholder='Kompentenser'/>
+                    <InputField
+                        list='badges-list'
+                        onChange={(e) => setSendData(state => ({ ...state, badges: e.target.value }))}
+                        icon={<Star strokeWidth={1} />}
+                        type='text'
+                        placeholder='Kompentenser' />
+                    </>
+                }
+                
+                
 
                 <datalist id="badges-list">
                     <option value="HTML" />
