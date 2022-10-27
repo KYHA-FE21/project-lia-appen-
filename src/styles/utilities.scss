@@ -169,6 +169,7 @@ $colors: (
 	"primary": #4d243d,
 	"green": #32ba78,
 	"red": #fd6d6d,
+	"grey": grey,
 );
 
 @each $color, $value in $colors {
@@ -392,4 +393,8 @@ $weights: (
 
 .absolute {
 	position: absolute;
+}
+
+.hidden {
+	display: none;
 }
