@@ -8,11 +8,14 @@ import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
 import usePOST from "../hooks/usePost";
 import { Link, useNavigate } from "react-router-dom";
+import useLocalStorage from "../../../hooks/use-local-storage";
 
 const Signin = () => {
 	const { data, loading, error, fetchPost } = usePOST;
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
+
+	const [store, setStore] = useLocalStorage('', '');
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -21,7 +24,10 @@ const Signin = () => {
 
 	const navigate = useNavigate();
 	React.useEffect(() => {
-		if (data) navigate("/profile");
+		if (data) {
+			setStore(data)
+			navigate("/profile");
+		}
 	}, [data]);
 
 	return (

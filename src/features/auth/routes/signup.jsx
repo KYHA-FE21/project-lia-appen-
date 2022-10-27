@@ -8,6 +8,7 @@ import InputField from "../../../components/input-field";
 import External from "../components/external";
 import usePOST from "../hooks/usePost";
 import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../../hooks/use-local-storage";
 
 const Signup = () => {
 	const { data, loading, error, fetchPost } = usePOST;
@@ -16,6 +17,8 @@ const Signup = () => {
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
 
+	const [store, setStore] = useLocalStorage('', '');
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		fetchPost("/api/user/signup", { email, password });
@@ -23,7 +26,10 @@ const Signup = () => {
 
 	const navigate = useNavigate();
 	React.useEffect(() => {
-		if (data) navigate("/profile");
+		if (data) {
+			setStore(data)
+			navigate("/profile");
+		}
 	}, [data]);
 
 	React.useEffect(() => {
