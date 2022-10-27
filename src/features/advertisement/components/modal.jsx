@@ -2,6 +2,7 @@ import React from "react";
 import InputField, { InputLabel } from "../../../components/input-field";
 import Button from "../../../components/buttons";
 import Select from "./option";
+import Badges from "../../../components/badge";
 import { User, MapPin, CalendarDays, Wrench, Globe2, Users, Plus } from "lucide-react";
 
 const Modal = ({ display, data = null, method = "POST" }) => {
@@ -9,7 +10,8 @@ const Modal = ({ display, data = null, method = "POST" }) => {
 	const [profession, setProfession] = React.useState("");
 	const [location, setLocation] = React.useState("");
 	const [period, setPeriod] = React.useState(["", ""]);
-	const [badges, setBadges] = React.useState("");
+	const [badge, setBadge] = React.useState("");
+	const [badges, setBadges] = React.useState([]);
 	const [workType, setWorkType] = React.useState("");
 	const [openings, setOpenings] = React.useState();
 
@@ -89,13 +91,27 @@ const Modal = ({ display, data = null, method = "POST" }) => {
 									placeholder="Typescript"
 									icon={<Wrench size={30} className="text-grey pt-2" />}
 									className="mt-2"
-									value={badges}
-									handleChange={(e) => setBadges(e.target.value)}
+									value={badge}
+									handleChange={(e) => setBadge(e.target.value)}
 								/>
-								<Button children={<Plus size={20} className="text-white" />} className=" mt-2 bg-green ml-2" />
+								<Button
+									onClick={() => {
+										if (badges.length === 5) return;
+										setBadges([...badges, badge]);
+										setBadge("");
+									}}
+									type="button"
+									children={<Plus size={20} className="text-white" />}
+									className="mt-2 ml-2"
+								/>
+							</div>
+							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
+								{badges.map((item, i) => (
+									<Badges key={item + i} children={item} className="text-white m-2" />
+								))}
 							</div>
 						</div>
-						<div className="mt-8">
+						<div className={`${badges.length ? "mt-4" : "mt-8"} `}>
 							<InputLabel children="Arbetsform" />
 							<Select
 								required
@@ -118,7 +134,7 @@ const Modal = ({ display, data = null, method = "POST" }) => {
 							/>
 						</div>
 					</div>
-					<Button className="w-full" children={id ? "Updatera" : "Skapa annons"} />
+					<Button className="w-full mt-8" children={id ? "Updatera" : "Skapa annons"} />
 				</form>
 			</div>
 		</div>
