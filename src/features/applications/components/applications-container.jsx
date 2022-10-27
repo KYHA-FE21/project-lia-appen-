@@ -98,7 +98,7 @@ const ApplicationsContainer = () => {
 														color: "white",
 														bgColor: "red",
 														className: "text-white w-full text-sm",
-														children: "Ta bort",
+														children: "Tacka nej",
 													},
 												]}
 											/>
@@ -123,7 +123,7 @@ const ApplicationsContainer = () => {
 														color: "white",
 														bgColor: "red",
 														className: "text-white w-full text-sm",
-														children: "Ta bort",
+														children: "Tacka nej",
 													},
 													{
 														icon: <Check />,
