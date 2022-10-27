@@ -72,7 +72,7 @@ const Signup = () => {
 							}}
 							required
 							onFocus={handlePasswordFocus}
-							onBlur={handlePasswordBlure}
+							onBlur={handlePasswordBlur}
 						/>
 						<InputField
 							className={notSame && "globalInputFieldError"}
