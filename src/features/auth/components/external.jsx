@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Linkedin, Twitter } from "lucide-react";
 
-const externalAuth = () => {
+const ExternalAuth = () => {
 	return (
 		<div className="authExternalContainer w-full text-white text-center">
 			<p className="flex flex-row mb-4 text-sm">eller</p>
@@ -27,4 +27,4 @@ const externalAuth = () => {
 	);
 };
 
-export default externalAuth;
+export default ExternalAuth;
