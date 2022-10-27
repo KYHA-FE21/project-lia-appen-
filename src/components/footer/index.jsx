@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-import { Contact, Cog, HeartHandshake } from "lucide-react";
+import { Contact, HeartHandshake, Settings } from "lucide-react";
 
 const Footer = () => {
 	return (
@@ -24,7 +24,7 @@ const Footer = () => {
 					<Contact />
 				</Link>
 				<Link to="/profile" className="p-4 flex-1">
-					<Cog />
+					<Settings />
 				</Link>
 			</div>
 		</footer>
