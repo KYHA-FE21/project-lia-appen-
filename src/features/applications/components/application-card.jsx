@@ -38,7 +38,7 @@ function ApplicationCard({ item, index, array, advertisement, buttons, readMoreB
 			<CardBadges>{generateBadges(advertisement.attribute.badges, badges, { className: "flex-1" })}</CardBadges>
 			<CardButtons className="h-10">
 				{buttons.map((button, index) => (
-					<SecondaryButton key={button + index} {...{ ...button }} />
+					<SecondaryButton key={button + index} {...button} />
 				))}
 			</CardButtons>
 		</Card>
