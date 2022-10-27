@@ -53,7 +53,7 @@ function Splash() {
 					</FlexContainer>
 					<FlexContainer
 						onClick={() =>
-							infoElementRef.scrollIntoView({ behavior: "smooth" })
+							infoElementRef.current.scrollIntoView({ behavior: "smooth" })
 						}
 						direction="col"
 						className="place-self-stretch items-center cursor-pointer"
@@ -68,7 +68,7 @@ function Splash() {
 				gap="16"
 				className="pt-16 splash-background-2"
 				id="info"
-				ref={infoElementRef}
+				innerRef={infoElementRef}
 			>
 				<SalesPitchSection />
 
