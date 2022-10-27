@@ -28,17 +28,23 @@ const Index = () => {
 				attributes: res.userAttribute
 			}))
 		}
-		
+
 	}, [])
+
+	useEffect(() => {
+
+		console.log(userData)
+		
+	}, [userData])
 
 	return (
 		<main>
 			
-			{userData.data.type === 'student' || <Avatar />}
+			{userData.attributes.type === 'student' || <Avatar />}
 
 				<Wrapper width="unset" direction="column" gap={[1]}>
 					
-				{userData.data.type === 'company' || <SelectorHeader>Profil</SelectorHeader>}			
+				{userData.attributes.type === 'company' || <SelectorHeader>Profil</SelectorHeader>}			
 
 					<Information
 						styleDirection="center"
@@ -50,7 +56,7 @@ const Index = () => {
 						bio={userData.data.bio}
 						location={userData.attributes.location} />
 						
-				{userData.data.type === 'company' ? 
+				{userData.attributes.type === 'company' ? 
 
 					<Link
 						to="/questionnaire/overview/*"

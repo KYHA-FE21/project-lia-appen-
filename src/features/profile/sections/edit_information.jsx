@@ -40,7 +40,7 @@ const EditInformation = ({ userData }) => {
                 gap={[3]}
                 padding={[5, 1, 0, 1]}>
 
-                <Title size={[1.5]} >{`${userData.data.type === 'student' ? 'Om dig' : 'Om företaget'}`}</Title>
+                <Title size={[1.5]} >{`${userData.attributes.type === 'student' ? 'Om dig' : 'Om företaget'}`}</Title>
 
                 <InputField 
                     onChange={setPhone}
@@ -60,11 +60,11 @@ const EditInformation = ({ userData }) => {
                     type='text'
                     placeholder='Kompentenser'/>
 
-                <TextArea onChange={setBio}>{`Kort beskrivning om ${userData.data.type === 'student' ? 'dig själv' : 'företaget'}`}</TextArea>
+                <TextArea onChange={setBio}>{`Kort beskrivning om ${userData.attributes.type === 'student' ? 'dig själv' : 'företaget'}`}</TextArea>
 
             </Wrapper>
 
-            {userData.data.type === 'company' ||
+            {userData.attributes.type === 'company' ||
             
                 <Wrapper
                     direction='column'
