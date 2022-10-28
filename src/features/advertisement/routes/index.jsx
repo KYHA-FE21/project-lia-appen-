@@ -8,7 +8,6 @@ import useAdvertisementController from "../api/adv-controller";
 const Advertisement = () => {
 	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes } = useAdvertisementController();
 	const { id } = useParams();
-	const [advertisements, setAdvertisements] = React.useState();
 	const [modalDisplay, setModalDisplay] = React.useState(true);
 	const [patchData, setPatchData] = React.useState(null);
 
@@ -17,7 +16,6 @@ const Advertisement = () => {
 	}, []);
 
 	// On patch, setPatchData(data)
-	// On post sePatchData(null)
 
 	React.useEffect(() => {
 		if (loading) return;
@@ -44,8 +42,23 @@ const Advertisement = () => {
 					</div>
 					<div className="content">
 						<h2 className="text-xl text-center mb-4">Mina annonser</h2>
-						{/* Rendera ut advertisement annons cards som finns för företag för respektive annons med map */}
-						{/* Fundera ut hur edit funktion skulle kunna se ut */}
+						{!error && (
+							<div className="flex flex-wrap justify-center">
+								{data.map((add) => (
+									<div
+										className="mr-4"
+										key={add.id}
+										onClick={() => {
+											setPatchData(add);
+											setModalDisplay(true);
+										}}
+									>
+										{add.attribute.profession}
+									</div>
+								))}
+							</div>
+						)}
+						{error && <p>{error.message}</p>}
 					</div>
 				</div>
 			</div>

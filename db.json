@@ -98,7 +98,7 @@
         "TS",
         "SQL"
       ],
-      "location": "Stockholm",
+      "location": "Malmö",
       "work_type": "Hybrid",
       "school": "",
       "type": "advertisement",
@@ -141,7 +141,7 @@
         "SQL",
         "Angular"
       ],
-      "workType": "location",
+      "work_type": "location",
       "openings": "2",
       "type": "advertisement",
       "is_active": true,
@@ -159,9 +159,10 @@
       "badges": [
         "JS",
         "React",
-        "Vue"
+        "Vue",
+        "TS"
       ],
-      "workType": "remote",
+      "work_type": "remote",
       "openings": "1",
       "type": "advertisement",
       "is_active": true,

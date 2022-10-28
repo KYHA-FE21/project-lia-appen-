@@ -24,15 +24,15 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 	};
 
 	React.useEffect(() => {
-		if (!patchData) return;
-		const { attibute } = patchData;
+		if (!patchData) return setStates();
+		const { attribute } = patchData;
 		setStates(
-			attibute.profession,
-			attibute.location,
-			attibute.period,
-			attibute.badges,
-			attibute.work_type,
-			attibute.openings
+			attribute.profession,
+			attribute.location,
+			attribute.period,
+			attribute.badges,
+			attribute.work_type,
+			attribute.openings
 		);
 	}, [patchData]);
 
@@ -43,12 +43,12 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 			location,
 			period,
 			badges,
-			workType,
+			work_type: workType,
 			openings,
 			type: "advertisement",
 		};
 		if (patchData) {
-			patchAttributes(patchData.id, userId, data);
+			patchAttributes(patchData.attribute.id, userId, data);
 		} else {
 			data.is_active = true;
 			data.decline_rate = "0.0";
