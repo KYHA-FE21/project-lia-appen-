@@ -12,7 +12,7 @@ export async function handleResponse (resp) {
 		data: null,
 	}
 
-	if (resp.status !== 200) {
+	if (resp.status < 200 || resp.status >= 300) {
 		res.data.error = new Error(resp.statusText)
 		res.data.error.name = resp.status
 		return res
@@ -44,21 +44,23 @@ export const getQuestionnairesByAdvertisementID = async (advertisement_id) => {
  * @param {string} id
  */
 export const getQuestionnaireByID = async (id) => {
-	let resp = await fetch(
+	const resp = await fetch(
 		`${API_URL}/${API_ENDPOINT}/${encodeURIComponent(id)}`
 	);
 
 	return await handleResponse(resp);
 };
 
-export const postQuestionnaire = (body) => {
-	return fetch(`${API_URL}/${API_ENDPOINT}`, {
+export const postQuestionnaire = async (body) => {
+	const resp = await fetch(`${API_URL}/${API_ENDPOINT}`, {
 		body: body,
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 	});
+
+	return await handleResponse(resp);
 };
 
 export const patchQuestionnaireByID = (id, body) => {
