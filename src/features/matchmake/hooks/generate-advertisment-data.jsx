@@ -3,11 +3,15 @@ import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
 import getQuestionnaire from "../api/get-questionnaires";
 
-async function getAdvertisementByAttributeID(id) {
-	const searchParams = new URLSearchParams(`attribute_id=${id}`);
+async function getAdvertisementByAttributeID(id = []) {
+	const searchParams = new URLSearchParams();
+	if (Array.isArray(id)) {
+		id.forEach((item) => searchParams.append("attribute_id", item));
+	} else {
+		searchParams.set("attribute_id", id);
+	}
 	const json = await (await getAdvertisement(searchParams)).json();
-	const [first] = json;
-	return first;
+	return json;
 }
 
 async function getQuestionnaireByAdvertisementID(id) {
@@ -56,7 +60,9 @@ function useGenerateAdvertisementData(user) {
 					return 0;
 				});
 				const [attribute] = attributes;
-				const advertisement = await getAdvertisementByAttributeID(attribute.id);
+				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
+				const [advertisement] = advertisements;
+				console.log(advertisements);
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					advertisement,
