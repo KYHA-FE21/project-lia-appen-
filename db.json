@@ -68,6 +68,11 @@
       "id": "2",
       "user_id": "2",
       "attribute_id": "2"
+    },
+    {
+      "id": "3",
+      "user_id": "3",
+      "attribute_id": "3"
     }
   ],
   "applicant": [
@@ -123,6 +128,28 @@
       "decline_rate": "0.5",
       "response_time": "0.1",
       "openings": 2,
+      "is_active": true
+    },
+    {
+      "id": "3",
+      "period": [
+        "456",
+        "123"
+      ],
+      "profession": "Systemutvecklare",
+      "badges": [
+        "JS",
+        "HTML",
+        "CSS",
+        "REACT"
+      ],
+      "location": "Stockholm",
+      "work_type": "Hybird",
+      "school": "",
+      "type": "advertisement",
+      "decline_rate": "0.2",
+      "response_time": "1",
+      "openings": 5,
       "is_active": true
     }
   ]
