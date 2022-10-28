@@ -22,7 +22,7 @@ const Advertisement = () => {
 						<p className="text-center mb-6">
 							Här kan du som företagsanvändare se dina befintliga rekryteringar, redigera dessa samt skapa nya.
 						</p>
-						<Button children="NY REKRYTERING" className="w-full" />
+						<Button children="NY REKRYTERING" className="w-full" onClick={() => setModalDisplay(true)} />
 					</div>
 					<div className="content">
 						<h2 className="text-xl text-center mb-4">Mina annonser</h2>
@@ -31,7 +31,7 @@ const Advertisement = () => {
 					</div>
 				</div>
 			</div>
-			<Modal display={modalDisplay} />
+			<Modal display={modalDisplay} setDisplay={setModalDisplay} />
 		</>
 	);
 };

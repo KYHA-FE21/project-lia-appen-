@@ -3,9 +3,9 @@ import InputField, { InputLabel } from "../../../components/input-field";
 import Button from "../../../components/buttons";
 import Select from "./option";
 import Badges from "../../../components/badge";
-import { User, MapPin, CalendarDays, Wrench, Globe2, Users, Plus } from "lucide-react";
+import { User, MapPin, CalendarDays, Wrench, Globe2, Users, Plus, X } from "lucide-react";
 
-const Modal = ({ display, data = null, method = "POST" }) => {
+const Modal = ({ display, setDisplay, data = null, method = "POST" }) => {
 	const [id, setId] = React.useState(""); // on existing for PATCH
 	const [profession, setProfession] = React.useState("");
 	const [location, setLocation] = React.useState("");
@@ -39,6 +39,9 @@ const Modal = ({ display, data = null, method = "POST" }) => {
 	return (
 		<div className={`advertisement-modal-container ${display ? "flex" : "hidden"}`}>
 			<div className="content bg-white my-6 rounded-md p-8">
+				<div className="exitIcon" onClick={() => setDisplay(false)}>
+					<X />
+				</div>
 				<h1 className="text-xl text-center">Skapa/Redigera Annons</h1>
 				<form className="flex flex-col justify-between h-full" onSubmit={handleSubmit}>
 					<div>
@@ -107,7 +110,12 @@ const Modal = ({ display, data = null, method = "POST" }) => {
 							</div>
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
 								{badges.map((item, i) => (
-									<Badges key={item + i} children={item} className="text-white m-2" />
+									<Badges
+										key={item + i}
+										children={item}
+										className="text-white m-2"
+										onClick={() => setBadges(badges.filter((badge) => badge !== item))}
+									/>
 								))}
 							</div>
 						</div>

@@ -17,9 +17,20 @@
 	padding: 1rem;
 
 	.content {
+		position: relative;
 		max-width: 35rem;
 		width: 100%;
 		height: fit-content;
+
+		.exitIcon {
+			position: absolute;
+			top: 1%;
+			right: 1%;
+		}
+
+		.exitIcon:hover {
+			cursor: pointer;
+		}
 
 		.location-contaier {
 			display: block;
