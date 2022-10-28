@@ -135,7 +135,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 									<Badges
 										key={item + i}
 										children={item}
-										className="text-white m-2"
+										className="text-white m-2 adv-badges"
 										onClick={() => setBadges(badges.filter((badge) => badge !== item))}
 									/>
 								))}

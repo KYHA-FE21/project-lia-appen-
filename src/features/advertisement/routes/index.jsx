@@ -15,8 +15,6 @@ const Advertisement = () => {
 		getAdvertisements(id);
 	}, []);
 
-	// On patch, setPatchData(data)
-
 	React.useEffect(() => {
 		if (loading) return;
 		setModalDisplay(false);
