@@ -17,9 +17,9 @@ const Overview = () => {
 	});
 
 	async function handleCreateQuestionnaire() {
-		const generatedID = await createQuestionnaire({ advertisement_id: id });
+		const response = await createQuestionnaire({ advertisement_id: id });
 
-		if (generatedID) navigate(`/questionnaire/editor/${generatedID}`);
+		if (response.data) navigate(`/questionnaire/editor/${response.data.id}`);
 	}
 
 	return (

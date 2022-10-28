@@ -30,16 +30,13 @@ export default function useQuestionnaires({ advertisement_id }) {
 			return { error: "Reached max questionnaires." };
 
 		const data = body || {
-			id: window.crypto.randomUUID(), // Does not work in SSR.
 			advertisement_id,
 			body: "",
 			alternatives: [""],
 			correct_alternatives: [0],
 		};
 
-		await postQuestionnaire(JSON.stringify(data));
-
-		return data.id;
+		return await postQuestionnaire(JSON.stringify(data));
 	}
 
 	return { questionnaires, createQuestionnaire };
