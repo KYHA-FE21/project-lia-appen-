@@ -22,7 +22,7 @@ const useLocalStorage = (key, value) => {
 
 	})
 
-	const setValue = (value) => {
+	const setValue = (key, value) => {
 
 		try {
 			const giveStore = value instanceof Function ? value(store) : value;
@@ -40,7 +40,33 @@ const useLocalStorage = (key, value) => {
 	 	
 	}
 
-	return [store, setValue] 
+	const emptyAll = () => {
+
+		try {
+			if(typeof window !== 'undefined') {
+				window.localStorage.clear();
+			}
+		} catch (error) {
+			console.log(error)
+		}
+		
+	}
+
+	const empty = (value) => {
+
+		try {
+
+			if(typeof window !== 'undefined') {
+				window.localStorage.removeItem(value);
+			}
+			
+		} catch (error) {
+			console.log(error)
+		}
+		
+	}
+
+	return [store, setValue, {emptyAll, empty}] 
 	
 }
 
