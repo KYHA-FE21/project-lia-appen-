@@ -5,19 +5,39 @@ import Select from "./option";
 import Badges from "../../../components/badge";
 import { User, MapPin, CalendarDays, Wrench, Globe2, Users, Plus, X } from "lucide-react";
 
-const Modal = ({ display, setDisplay, data = null, method = "POST" }) => {
-	const [id, setId] = React.useState(""); // on existing for PATCH
+const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patchAttributes, loading }) => {
 	const [profession, setProfession] = React.useState("");
 	const [location, setLocation] = React.useState("");
 	const [period, setPeriod] = React.useState(["", ""]);
 	const [badge, setBadge] = React.useState("");
 	const [badges, setBadges] = React.useState([]);
 	const [workType, setWorkType] = React.useState("");
-	const [openings, setOpenings] = React.useState();
+	const [openings, setOpenings] = React.useState(0);
+
+	const setStates = (profession = "", location = "", period = ["", ""], badges = [], workType = "", openings = 0) => {
+		setProfession(profession);
+		setLocation(location);
+		setPeriod(period);
+		setBadges(badges);
+		setWorkType(workType);
+		setOpenings(openings);
+	};
+
+	React.useEffect(() => {
+		if (!patchData) return;
+		const { attibute } = patchData;
+		setStates(
+			attibute.profession,
+			attibute.location,
+			attibute.period,
+			attibute.badges,
+			attibute.work_type,
+			attibute.openings
+		);
+	}, [patchData]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		let data = {
 			profession,
 			location,
@@ -27,14 +47,16 @@ const Modal = ({ display, setDisplay, data = null, method = "POST" }) => {
 			openings,
 			type: "advertisement",
 		};
-		if (id) data.id = id;
-
-		// FETCH
+		if (patchData) {
+			patchAttributes(patchData.id, userId, data);
+		} else {
+			data.is_active = true;
+			data.decline_rate = "0.0";
+			data.response_time = "0.0";
+			postAdvertisement(userId, data);
+		}
+		setStates();
 	};
-
-	React.useEffect(() => {
-		if (data) console.log(data); // Lägg till data i state fält
-	}, [data]);
 
 	return (
 		<div className={`advertisement-modal-container ${display ? "flex" : "hidden"}`}>
@@ -142,7 +164,7 @@ const Modal = ({ display, setDisplay, data = null, method = "POST" }) => {
 							/>
 						</div>
 					</div>
-					<Button className="w-full mt-8" children={id ? "Updatera" : "Skapa annons"} />
+					<Button className="w-full mt-8" children={loading ? "Loading..." : patchData ? "Updatera" : "Skapa annons"} />
 				</form>
 			</div>
 		</div>

@@ -1,61 +1,173 @@
 {
-	"user": [
-		{
-			"id": "",
-			"name": "",
-			"email": "",
-			"password": "",
-			"bio": "",
-			"attribute_id": ""
-		}
-	],
-	"link": [
-		{
-			"id": "",
-			"title": "",
-			"url": "",
-			"user_id": ""
-		}
-	],
-	"questionnaire": [
-		{
-			"id": "",
-			"advertisement_id": "",
-			"body": "",
-			"alternatives": [""],
-			"correct_alternatives": [0]
-		}
-	],
-	"advertisement": [
-		{
-			"id": "",
-			"user_id": "",
-			"attribute_id": ""
-		}
-	],
-	"applicant": [
-		{
-      "id":"",
-			"advertisement_id": "",
-			"user_id": "",
-			"accepted":"", 
-      "date":""
-		}
-	],
-	"attribute": [
-		{
-			"id": "",
-			"period": ["", ""],
-			"profession": "",
-			"badges": [""],
-			"location": "",
-			"work_type": "",
-			"school": "",
-			"type": "",
-			"decline_rate": "0.5",
-			"response_time": "0.1",
-			"openings": 2,
-			"is_active": true
-		}
-	]
+  "user": [
+    {
+      "id": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "bio": "",
+      "attribute_id": ""
+    }
+  ],
+  "link": [
+    {
+      "id": "",
+      "title": "",
+      "url": "",
+      "user_id": ""
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "body": "",
+      "alternatives": [
+        ""
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    }
+  ],
+  "advertisement": [
+    {
+      "id": "",
+      "user_id": "",
+      "attribute_id": ""
+    },
+    {
+      "id": "1",
+      "user_id": "123",
+      "attribute_id": "1"
+    },
+    {
+      "id": "2",
+      "user_id": "123",
+      "attribute_id": "2"
+    },
+    {
+      "user_id": "123",
+      "attribute_id": "6EGGr5I",
+      "id": "LhFVy5H"
+    },
+    {
+      "user_id": "123",
+      "attribute_id": "C6zVN0C",
+      "id": "6DqBo1e"
+    }
+  ],
+  "applicant": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "user_id": "",
+      "accepted": "",
+      "date": ""
+    }
+  ],
+  "attribute": [
+    {
+      "id": "",
+      "period": [
+        "",
+        ""
+      ],
+      "profession": "",
+      "badges": [
+        ""
+      ],
+      "location": "",
+      "work_type": "",
+      "school": "",
+      "type": "",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
+      "openings": 2,
+      "is_active": true
+    },
+    {
+      "id": "1",
+      "period": [
+        "2022-10-15",
+        "2022-11-15"
+      ],
+      "profession": "Frontend",
+      "badges": [
+        "JS",
+        "TS",
+        "SQL"
+      ],
+      "location": "Stockholm",
+      "work_type": "Hybrid",
+      "school": "",
+      "type": "advertisement",
+      "decline_rate": "0",
+      "response_time": "0",
+      "openings": 1,
+      "is_active": true
+    },
+    {
+      "id": "2",
+      "period": [
+        "2022-05-23",
+        "2022-06-23"
+      ],
+      "profession": "Systemutvecklare",
+      "badges": [
+        "GraphQL",
+        "React",
+        "C#"
+      ],
+      "location": "Örebro",
+      "work_type": "Remote",
+      "school": "",
+      "type": "advertisement",
+      "decline_rate": "0",
+      "response_time": "0",
+      "openings": 2,
+      "is_active": true
+    },
+    {
+      "profession": "Backend",
+      "location": "Västerås",
+      "period": [
+        "2022-08-14",
+        "2022-09-10"
+      ],
+      "badges": [
+        "TS",
+        "JS",
+        "SQL",
+        "Angular"
+      ],
+      "workType": "location",
+      "openings": "2",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "6EGGr5I"
+    },
+    {
+      "profession": "Fullstack",
+      "location": "Östersund",
+      "period": [
+        "2022-09-10",
+        "2022-10-11"
+      ],
+      "badges": [
+        "JS",
+        "React",
+        "Vue"
+      ],
+      "workType": "remote",
+      "openings": "1",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "C6zVN0C"
+    }
+  ]
 }

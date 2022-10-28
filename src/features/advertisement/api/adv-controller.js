@@ -4,7 +4,7 @@ const useAdvertisementController = () => {
 	const advertisementUrl = process.env.REACT_APP_BACKEND_ENDPOINT + "/advertisement";
 	const attributeUrl = process.env.REACT_APP_BACKEND_ENDPOINT + "/attribute";
 
-	const [data, setData] = React.useState(null);
+	const [data, setData] = React.useState([]);
 	const [loading, setLoading] = React.useState(false);
 	const [error, setError] = React.useState({ type: "", message: "" });
 
@@ -30,6 +30,7 @@ const useAdvertisementController = () => {
 			setLoading(true);
 			const data = await process();
 			setData(data);
+			console.log(data);
 		} catch (err) {
 			setError({ type: "unknown", message: err.message });
 		} finally {
@@ -41,24 +42,25 @@ const useAdvertisementController = () => {
 		const url = advertisementUrl + `?user_id=${user_id}`;
 		const advertisements = await _fetch(url);
 
+		if (!advertisements.length) return [];
+
 		const promises = advertisements.map(
 			({ attribute_id }) =>
 				new Promise(async (resolve) => {
-					const url = attributeUrl + `?attribute_id=${attribute_id}&type=advertisement`;
+					const url = attributeUrl + `?id=${attribute_id}&type=advertisement`;
 					const data = await _fetch(url);
-					resolve(data);
+					resolve(data[0]);
 				})
 		);
 
 		const attributes = await Promise.all(promises);
-
 		return advertisements.map((item) => {
 			return { ...item, attribute: attributes.filter((attribute) => attribute.id === item.attribute_id)[0] };
 		});
 	};
 
 	const getAdvertisements = async (user_id) => {
-		return await processHandler(initAdvertisements(user_id));
+		return await processHandler(async () => initAdvertisements(user_id));
 	};
 
 	const postAdvertisement = async (user_id, body) => {
