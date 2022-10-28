@@ -15,19 +15,19 @@ function Information({ advertisementData, getNew, setAction, user }) {
 	return (
 		<>
 			<CardHeader className="text-2xl text-white px-3">
-				<h2>{profession}</h2>
-				<Info color="white" size="30" />
+				<h2 className="overflow-hidden white-space-nowrap text-overflow-ellipsis">{profession}</h2>
+				<Info size="30" style={{ minWidth: "max-content" }} />
 			</CardHeader>
 			<InfoGrid
 				className="px-3 text-tiny"
 				color="white"
 				entries={[
 					{
-						icon: <CalendarDays size="20" />,
+						icon: <CalendarDays size="20" style={{ minWidth: "max-content" }} />,
 						children: `${fromDate} till ${toDate}`,
 					},
-					{ icon: <MapPin size="20" />, children: location },
-					{ icon: <CheckCircle size="20" />, children: work_type },
+					{ icon: <MapPin size="20" style={{ minWidth: "max-content" }} />, children: location },
+					{ icon: <CheckCircle size="20" style={{ minWidth: "max-content" }} />, children: work_type },
 				]}
 			/>
 			<HorizontalRow className="px-3 opacity-3" />
