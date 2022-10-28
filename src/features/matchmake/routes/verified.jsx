@@ -3,7 +3,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import { CardButtons, CardHeader } from "../../../components/card";
 import Container from "../components/container";
 import Loading from "../components/loading";
-import useApply from "../hooks/use-apply";
+import useApply from "../hooks/apply";
 
 function Verified({ advertisementData, user, getNew }) {
 	const { loading, error, applied, apply } = useApply();
