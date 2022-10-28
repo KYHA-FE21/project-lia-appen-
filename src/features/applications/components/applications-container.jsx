@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import useApplicants from "../hooks/applicants";
 import useAdvertisement from "../hooks/advertisement";
 
 import { Check, Loader, X } from "lucide-react";
@@ -18,15 +17,15 @@ const ApplicationsContainer = () => {
 
 	const { id } = useParams();
 
-	const { loading: applicantsLoading, error: applicantsError, applicants } = useApplicants(id);
-	const { loading: advertisementLoading, advertisementError, advertisement } = useAdvertisement(id);
+	const { loading, error, advertisement } = useAdvertisement(id);
 
 	const [toContact, setToContact] = useState([]);
 	const [toReview, setToReview] = useState([]);
 
 	useEffect(() => {
 		const controller = new AbortController();
-		if (applicants.length && !controller.signal.aborted) {
+		if (advertisement && !controller.signal.aborted) {
+			const { applicants } = advertisement;
 			setToContact(() => {
 				return applicants.filter((applicant) => applicant.applicant.accepted);
 			});
@@ -37,7 +36,7 @@ const ApplicationsContainer = () => {
 		return () => {
 			controller.abort();
 		};
-	}, [applicants]);
+	}, [advertisement]);
 
 	function removeApplication(index, array) {
 		function filterArray(prev) {
@@ -128,55 +127,47 @@ const ApplicationsContainer = () => {
 
 	return (
 		<>
-			{(applicantsLoading || advertisementLoading) && <Loader className="spin" />}
-			{!applicantsLoading && !advertisementLoading && (
+			{loading && <Loader className="spin" />}
+			{!loading && error && error}
+			{!loading && !error && !advertisement && <>Sidan kunde ej hittas</>}
+			{!loading && !error && advertisement && (
 				<>
-					{(applicantsError || advertisementError) && (applicantsError || advertisementError)}
-					{!applicantsError && !advertisementError && (
-						<>
-							{!advertisement && <>Sidan kunde ej hittas</>}
-							{advertisement && (
-								<>
-									<h1>Att kontakta - {toContact.length}</h1>
-									<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
-									<h1>Att granska - {toReview.length}/10</h1>
-									<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
-									{openModal && (
-										<Modal
-											setOpenModal={setOpenModal}
-											current={current}
-											buttons={[
-												{
-													icon: <X />,
-													onClick: () => {
-														denyButtonOnClick(current.index, current.array);
-													},
-													color: "white",
-													bgColor: "red",
-													className: "text-white w-full text-sm",
-													children: current.array === toReview ? "Tacka nej" : "Ta bort",
-												},
+					<h1>Att kontakta - {toContact.length}</h1>
+					<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
+					<h1>Att granska - {toReview.length}/10</h1>
+					<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
+					{openModal && (
+						<Modal
+							setOpenModal={setOpenModal}
+							current={current}
+							buttons={[
+								{
+									icon: <X />,
+									onClick: () => {
+										denyButtonOnClick(current.index, current.array);
+									},
+									color: "white",
+									bgColor: "red",
+									className: "text-white w-full text-sm",
+									children: current.array === toReview ? "Tacka nej" : "Ta bort",
+								},
 
-												...(current.array === toReview
-													? [
-															{
-																icon: <Check />,
-																onClick: () => {
-																	acceptButtonOnClick(current.index, current.array);
-																},
-																color: "white",
-																bgColor: "green",
-																className: "text-white w-full text-sm",
-																children: "Kontakta",
-															},
-													  ]
-													: []),
-											]}
-										/>
-									)}
-								</>
-							)}
-						</>
+								...(current.array === toReview
+									? [
+											{
+												icon: <Check />,
+												onClick: () => {
+													acceptButtonOnClick(current.index, current.array);
+												},
+												color: "white",
+												bgColor: "green",
+												className: "text-white w-full text-sm",
+												children: "Kontakta",
+											},
+									  ]
+									: []),
+							]}
+						/>
 					)}
 				</>
 			)}
