@@ -132,12 +132,9 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							</div>
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
 								{badges.map((item, i) => (
-									<Badges
-										key={item + i}
-										children={item}
-										className="text-white m-2 adv-badges"
-										onClick={() => setBadges(badges.filter((badge) => badge !== item))}
-									/>
+									<div key={item + i} onClick={() => setBadges(badges.filter((badge) => badge !== item))}>
+										<Badges children={item} className="text-white m-2 adv-badges" />
+									</div>
 								))}
 							</div>
 						</div>
