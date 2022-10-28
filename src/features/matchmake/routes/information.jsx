@@ -19,19 +19,15 @@ function Information({ advertisementData, getNew, setAction, user }) {
 				<Info color="white" size="30" />
 			</CardHeader>
 			<InfoGrid
-				className="px-3"
+				className="px-3 text-tiny"
 				color="white"
 				entries={[
 					{
 						icon: <CalendarDays size="20" />,
-						children: (
-							<span className="text-tiny">
-								{fromDate} till {toDate}
-							</span>
-						),
+						children: `${fromDate} till ${toDate}`,
 					},
-					{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
-					{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
+					{ icon: <MapPin size="20" />, children: location },
+					{ icon: <CheckCircle size="20" />, children: work_type },
 				]}
 			/>
 			<HorizontalRow className="px-3 opacity-3" />
