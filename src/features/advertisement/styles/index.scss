@@ -34,15 +34,18 @@
 
 		.location-contaier {
 			display: block;
+			.globalInputContainer {
+				margin-bottom: 0.8rem;
+			}
+		}
+
+		.globalInputContainer {
+			margin-top: 0.8rem;
 		}
 
 		@media only screen and (min-width: 640px) {
 			.location-contaier {
 				display: flex;
-
-				:nth-child(1) {
-					padding-right: 0.3rem;
-				}
 			}
 		}
 
@@ -65,7 +68,6 @@
 		}
 	}
 }
-
 .divider {
 	border-top: 1px solid rgba(128, 128, 128, 0.5);
 }

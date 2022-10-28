@@ -55,6 +55,11 @@
       "user_id": "123",
       "attribute_id": "C6zVN0C",
       "id": "6DqBo1e"
+    },
+    {
+      "user_id": "123",
+      "attribute_id": "gOw5a1z",
+      "id": "aMNRoSt"
     }
   ],
   "applicant": [
@@ -96,9 +101,10 @@
       "badges": [
         "JS",
         "TS",
-        "SQL"
+        "SQL",
+        "React"
       ],
-      "location": "Malmö",
+      "location": "Stockholm",
       "work_type": "Hybrid",
       "school": "",
       "type": "advertisement",
@@ -169,6 +175,26 @@
       "decline_rate": "0.0",
       "response_time": "0.0",
       "id": "C6zVN0C"
+    },
+    {
+      "profession": "SQL-Designer",
+      "location": "Jönköping",
+      "period": [
+        "2022-04-12",
+        "2022-06-12"
+      ],
+      "badges": [
+        "SQL",
+        "GraphQL",
+        "MongoDB"
+      ],
+      "work_type": "hybrid",
+      "openings": "1",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "gOw5a1z"
     }
   ]
 }

@@ -71,9 +71,8 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							<InputLabel children="Yrke" />
 							<InputField
 								required
-								icon={<User size={30} className="text-grey pt-2" />}
+								icon={<User size={22} className="text-grey" />}
 								placeholder="Systemutvecklare"
-								className="mt-2"
 								value={profession}
 								handleChange={(e) => setProfession(e.target.value)}
 							/>
@@ -83,27 +82,26 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							<InputField
 								required
 								placeholder="Örebro"
-								icon={<MapPin size={30} className="text-grey pt-2" />}
-								className="mt-2"
+								icon={<MapPin size={22} className="text-grey" />}
 								value={location}
 								handleChange={(e) => setLocation(e.target.value)}
 							/>
 						</div>
 						<div className="mt-8">
 							<InputLabel children="Period" />
-							<div className="location-contaier">
+							<div className="location-contaier gap-3">
 								<InputField
 									required
 									type="date"
-									icon={<CalendarDays size={30} className="text-grey pt-2" />}
-									className={`mt-2 ${!period[0] ? "text-grey" : "text-black"}`}
+									icon={<CalendarDays size={22} className="text-grey" />}
+									className={`${!period[0] ? "text-grey" : "text-black"}`}
 									value={period[0]}
 									handleChange={(e) => setPeriod([e.target.value, period[1]])}
 								/>
 								<InputField
 									required
 									type="date"
-									className={`mt-2 ${!period[1] ? "text-grey" : "text-black"}`}
+									className={`${!period[1] ? "text-grey" : "text-black"}`}
 									value={period[1]}
 									handleChange={(e) => setPeriod([period[0], e.target.value])}
 								/>
@@ -114,8 +112,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							<div className="flex">
 								<InputField
 									placeholder="Typescript"
-									icon={<Wrench size={30} className="text-grey pt-2" />}
-									className="mt-2"
+									icon={<Wrench size={22} className="text-grey" />}
 									value={badge}
 									handleChange={(e) => setBadge(e.target.value)}
 								/>
@@ -127,7 +124,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 									}}
 									type="button"
 									children={<Plus size={20} className="text-white" />}
-									className="mt-2 ml-2"
+									className="ml-2 mt-3"
 								/>
 							</div>
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
@@ -142,8 +139,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							<InputLabel children="Arbetsform" />
 							<Select
 								required
-								icon={<Globe2 size={30} className="text-grey pt-2" />}
-								className="mt-2"
+								icon={<Globe2 size={22} className="text-grey" />}
 								value={workType}
 								handleChange={(e) => setWorkType(e.target.value)}
 							/>
@@ -154,8 +150,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 								required
 								placeholder="0"
 								type="number"
-								icon={<Users size={30} className="text-grey pt-2" />}
-								className="mt-2"
+								icon={<Users size={22} className="text-grey" />}
 								value={openings}
 								handleChange={(e) => setOpenings(e.target.value)}
 							/>
