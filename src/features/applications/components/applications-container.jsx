@@ -87,6 +87,45 @@ const ApplicationsContainer = () => {
 		setOpenModal(true);
 	}
 
+	function renderApplicationCard(item, index, array) {
+		return (
+			<ApplicationCard
+				key={item.applicant.id}
+				index={index}
+				array={array}
+				advertisement={advertisement}
+				readMoreButtonOnClick={readMoreButtonOnClick}
+				buttons={[
+					{
+						icon: <X />,
+						onClick: () => {
+							denyButtonOnClick(index, array);
+						},
+						color: "white",
+						bgColor: "red",
+						className: "text-white w-full text-sm",
+						children: array === toReview ? "Tacka nej" : "Ta bort",
+					},
+
+					...(array === toReview
+						? [
+								{
+									icon: <Check />,
+									onClick: () => {
+										acceptButtonOnClick(index, array);
+									},
+									color: "white",
+									bgColor: "green",
+									className: "text-white w-full text-sm",
+									children: "Kontakta",
+								},
+						  ]
+						: []),
+				]}
+			/>
+		);
+	}
+
 	return (
 		<>
 			{(applicantsLoading || advertisementLoading) && <Loader className="spin" />}
@@ -99,66 +138,42 @@ const ApplicationsContainer = () => {
 							{advertisement && (
 								<>
 									<h1>Att kontakta - {toContact.length}</h1>
-									<div className="flex flex-wrap gap-3 justify-center">
-										{toContact.map((item, index, array) => (
-											<ApplicationCard
-												key={`contact-${item.id}`}
-												item={item}
-												index={index}
-												array={array}
-												advertisement={advertisement}
-												readMoreButtonOnClick={readMoreButtonOnClick}
-												buttons={[
-													{
-														icon: <X />,
-														onClick: () => {
-															denyButtonOnClick(index, array);
-														},
-														color: "white",
-														bgColor: "red",
-														className: "text-white w-full text-sm",
-														children: "Tacka nej",
-													},
-												]}
-											/>
-										))}
-									</div>
+									<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
 									<h1>Att granska - {toReview.length}/10</h1>
-									<div className="flex flex-wrap gap-3 justify-center">
-										{toReview.map((item, index, array) => (
-											<ApplicationCard
-												key={`review-${item.id}`}
-												item={item}
-												index={index}
-												array={array}
-												advertisement={advertisement}
-												readMoreButtonOnClick={readMoreButtonOnClick}
-												buttons={[
-													{
-														icon: <X />,
-														onClick: () => {
-															denyButtonOnClick(index, array);
-														},
-														color: "white",
-														bgColor: "red",
-														className: "text-white w-full text-sm",
-														children: "Tacka nej",
+									<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
+									{openModal && (
+										<Modal
+											setOpenModal={setOpenModal}
+											current={current}
+											buttons={[
+												{
+													icon: <X />,
+													onClick: () => {
+														denyButtonOnClick(current.index, current.array);
 													},
-													{
-														icon: <Check />,
-														onClick: () => {
-															acceptButtonOnClick(index, array);
-														},
-														color: "white",
-														bgColor: "green",
-														className: "text-white w-full text-sm",
-														children: "Kontakta",
-													},
-												]}
-											/>
-										))}
-									</div>
-									{openModal && <Modal setOpenModal={setOpenModal} current={current} removeApplication={removeApplication} />}
+													color: "white",
+													bgColor: "red",
+													className: "text-white w-full text-sm",
+													children: current.array === toReview ? "Tacka nej" : "Ta bort",
+												},
+
+												...(current.array === toReview
+													? [
+															{
+																icon: <Check />,
+																onClick: () => {
+																	acceptButtonOnClick(current.index, current.array);
+																},
+																color: "white",
+																bgColor: "green",
+																className: "text-white w-full text-sm",
+																children: "Kontakta",
+															},
+													  ]
+													: []),
+											]}
+										/>
+									)}
 								</>
 							)}
 						</>
