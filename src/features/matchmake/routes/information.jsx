@@ -35,7 +35,7 @@ function Information({ advertisementData, getNew, setAction, user }) {
 				]}
 			/>
 			<HorizontalRow className="px-3 opacity-3" />
-			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, user.attribute.badges)}</CardBadges>
+			<CardBadges className="px-3">{generateBadges(badges, user.attribute.badges, { className: "flex-1" })}</CardBadges>
 			<HorizontalRow className="px-3 opacity-3" />
 			<InfoStats className="text-white" statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
