@@ -1,0 +1,14 @@
+.info-stats {
+	$gap: 12px;
+	gap: $gap;
+	.info-stat {
+		max-width: calc((1 / 3 * 100%) - $gap);
+		min-width: calc((1 / 3 * 100%) - $gap);
+		h2 {
+			height: 32px;
+		}
+		article {
+			aspect-ratio: 1;
+		}
+	}
+}
