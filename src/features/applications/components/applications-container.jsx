@@ -10,6 +10,7 @@ import ApplicationCard from "./application-card";
 import Modal from "./modal";
 
 import "./applications-container.scss";
+import patchApplicant from "../api/patch-applicant";
 
 const ApplicationsContainer = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -56,11 +57,29 @@ const ApplicationsContainer = () => {
 	}
 
 	function denyButtonOnClick(index, array) {
-		removeApplication(index, array);
+		const uri = array[index].applicant.id;
+		const date = Intl.DateTimeFormat("sv-SE").format(new Date());
+		const body = { accepted: null, date };
+		patchApplicant(uri, body)
+			.then((res) => {
+				if (res.status === 200) {
+					removeApplication(index, array);
+				}
+			})
+			.catch((err) => alert("Something went wrong..."));
 	}
 
 	function acceptButtonOnClick(index, array) {
-		removeApplication(index, array);
+		const uri = array[index].applicant.id;
+		const body = { accepted: true };
+		patchApplicant(uri, body)
+			.then((res) => {
+				if (res.status === 200) {
+					setToContact((prev) => [...prev, array[index]]);
+					removeApplication(index, array);
+				}
+			})
+			.catch((err) => alert("Something went wrong..."));
 	}
 
 	function readMoreButtonOnClick(index, array) {
