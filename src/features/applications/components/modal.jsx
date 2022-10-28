@@ -1,4 +1,4 @@
-import { X, Check, CalendarDays, MapPin, CheckCircle } from "lucide-react";
+import { X, CalendarDays, MapPin, CheckCircle } from "lucide-react";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import generateBadges from "../../../components/badge/generate-badges";
 import Heading from "../../matchmake/components/heading";
@@ -6,7 +6,7 @@ import { CardBadges, CardButtons } from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
 import LinkGrid from "./link-grid";
 
-const Modal = ({ setOpenModal, current, removeApplication }) => {
+const Modal = ({ setOpenModal, current, buttons }) => {
 	const { array, index } = current;
 	const applicant = array[index];
 	const { attribute, link, bio } = applicant;
@@ -44,12 +44,9 @@ const Modal = ({ setOpenModal, current, removeApplication }) => {
 				<LinkGrid className="text-tiny" iconSize="20" entries={link} />
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
 				<CardButtons className="flex h-10 mt-auto">
-					<SecondaryButton icon={<X />} onClick={() => removeApplication(current.index, current.array)} color="white" bgColor="red" className="text-white w-full text-sm">
-						Neka
-					</SecondaryButton>
-					<SecondaryButton icon={<Check />} onClick={() => removeApplication(current.index, current.array)} color="white" bgColor="green" className="text-white w-full text-sm">
-						Acceptera
-					</SecondaryButton>
+					{buttons.map((button, index) => (
+						<SecondaryButton key={button + index} {...button} />
+					))}
 				</CardButtons>
 			</div>
 		</>
