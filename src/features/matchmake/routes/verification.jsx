@@ -1,9 +1,8 @@
 import { Check, Frown, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
-import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import { CardButtons } from "../../../components/card";
+import { CardButtons, CardHeader } from "../../../components/card";
 import Loading from "../components/loading";
 import useVerify from "../hooks/verify";
 import Verified from "./verified";
@@ -25,13 +24,10 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 					{verified === true && <Verified advertisementData={advertisementData} user={user} getNew={getNew} />}
 					{verified === false && (
 						<>
-							<Heading
-								className="text-2xl text-white px-3"
-								{...{
-									heading: "Tyvärr...",
-									icon: <Frown color="white" size="30" className="cursor-pointer" onClick={getNew} />,
-								}}
-							></Heading>
+							<CardHeader className="text-2xl text-white px-3">
+								<h2>Tyvärr...</h2>
+								<Frown color="white" size="30" className="cursor-pointer" onClick={getNew} />
+							</CardHeader>
 							<Container className="flex flex-col gap-3 px-3 text-center text-white">
 								<p>Du klarade tyvärr inte provet denna gång.</p>
 								<p>Men det kommer fler chanser!</p>
@@ -45,13 +41,10 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 					)}
 					{verified === null && (
 						<>
-							<Heading
-								className="text-2xl text-white px-3"
-								{...{
-									heading: "Bekräfta",
-									icon: <XCircle color="white" size="30" style={{ cursor: "pointer" }} onClick={getNew} />,
-								}}
-							/>
+							<CardHeader className="text-2xl text-white px-3">
+								<h2>Bekräfta</h2>
+								<XCircle color="white" size="30" style={{ cursor: "pointer" }} onClick={getNew} />
+							</CardHeader>
 							<Container type="p" className="px-3 text-center text-white">
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}
 							</Container>

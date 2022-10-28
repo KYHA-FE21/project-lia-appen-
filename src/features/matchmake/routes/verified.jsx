@@ -1,8 +1,7 @@
 import { Check, Rocket, Smile, X } from "lucide-react";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import { CardButtons } from "../../../components/card";
+import { CardButtons, CardHeader } from "../../../components/card";
 import Container from "../components/container";
-import Heading from "../components/heading";
 import Loading from "../components/loading";
 import useApply from "../hooks/use-apply";
 
@@ -24,13 +23,10 @@ function Verified({ advertisementData, user, getNew }) {
 				<>
 					{!applied && (
 						<>
-							<Heading
-								className="text-2xl text-white px-3"
-								{...{
-									heading: "Grattis!",
-									icon: <Smile color="white" size="30" className="cursor-pointer" />,
-								}}
-							></Heading>
+							<CardHeader className="text-2xl text-white px-3">
+								<h2>Grattis!</h2>
+								<Smile color="white" size="30" className="cursor-pointer" />
+							</CardHeader>
 							<Container className="flex flex-col gap-3 px-3 text-center text-white">
 								<p>Du klarade provet, och har nu möjligheten att söka.</p>
 								<p>
@@ -49,13 +45,10 @@ function Verified({ advertisementData, user, getNew }) {
 					)}
 					{applied && (
 						<>
-							<Heading
-								className="text-2xl text-white px-3"
-								{...{
-									heading: "Grattis!",
-									icon: <Rocket color="white" size="30" className="cursor-pointer" />,
-								}}
-							></Heading>
+							<CardHeader className="text-2xl text-white px-3">
+								<h2>Grattis!</h2>
+								<Rocket color="white" size="30" className="cursor-pointer" />
+							</CardHeader>
 							<Container className="flex flex-col gap-3 px-3 text-center text-white">
 								<p>Ansökan är skickad!</p>
 								<p>Passa gärna på att göra fler tester medan du väntar på svar.</p>

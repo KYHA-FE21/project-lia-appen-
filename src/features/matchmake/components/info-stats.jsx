@@ -1,9 +1,8 @@
 import "./info-stats.scss";
 
-import Container from "./container";
 import InfoStat from "./info-stat";
 
-function InfoStats({ statistics, className }) {
+function InfoStats({ statistics, className = "" }) {
 	const { openings, decline_rate, response_time } = statistics;
 
 	const declineRate = decline_rate * 100;
@@ -31,11 +30,11 @@ function InfoStats({ statistics, className }) {
 	}
 
 	return (
-		<Container type="ul" display="flex" className={`info-stats justify-center ${className}`}>
+		<ul className={`flex info-stats justify-center ${className}`}>
 			<InfoStat title="LIA-platser" value={openings} unit="st" />
 			<InfoStat title="Antagningsgrad" value={declineRate} unit="%" className="w-full" />
 			<InfoStat title="Responstid" value={time} unit={unit} />
-		</Container>
+		</ul>
 	);
 }
 

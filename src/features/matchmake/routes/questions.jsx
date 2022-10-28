@@ -3,10 +3,9 @@ import { Check, X, XCircle } from "lucide-react";
 
 import Container from "../components/container";
 import QuestionAlternative from "../components/question-alternative";
-import Heading from "../components/heading";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import HorizontalRow from "../components/hr";
-import { CardButtons } from "../../../components/card";
+import { CardButtons, CardHeader } from "../../../components/card";
 
 function Questions({ advertisementData, answers, setAnswers, setAction, getNew, question, setQuestion }) {
 	const { questionnaire } = advertisementData;
@@ -26,13 +25,10 @@ function Questions({ advertisementData, answers, setAnswers, setAction, getNew, 
 		<>
 			{questionnaire[question] && (
 				<>
-					<Heading
-						className="text-2xl text-white px-3"
-						{...{
-							heading: "Frågor",
-							icon: <XCircle className="cursor-pointer" color="white" size="30" onClick={getNew} />,
-						}}
-					/>
+					<CardHeader className="text-2xl text-white px-3">
+						<h2>Frågor</h2>
+						<XCircle className="cursor-pointer" color="white" size="30" onClick={getNew} />
+					</CardHeader>
 					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">
 						<Container display="flex" className="flex-col gap-3">

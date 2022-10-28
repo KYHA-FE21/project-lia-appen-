@@ -2,13 +2,12 @@ import React from "react";
 import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react";
 
 import Container from "../components/container";
-import Heading from "../components/heading";
 import InfoGrid from "../../../components/info-grid/";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
 import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
-import { CardBadges, CardButtons } from "../../../components/card";
+import { CardBadges, CardButtons, CardHeader } from "../../../components/card";
 
 function Information({ advertisementData, getNew, setAction, user }) {
 	const { attribute } = advertisementData;
@@ -16,30 +15,26 @@ function Information({ advertisementData, getNew, setAction, user }) {
 	const [fromDate, toDate] = period;
 	return (
 		<>
-			<Heading
-				className="text-2xl text-white px-3"
-				{...{
-					heading: profession,
-					icon: <Info color="white" size="30" />,
-				}}
+			<CardHeader className="text-2xl text-white px-3">
+				<h2>{profession}</h2>
+				<Info color="white" size="30" />
+			</CardHeader>
+			<InfoGrid
+				className="px-3"
+				color="white"
+				entries={[
+					{
+						icon: <CalendarDays size="20" />,
+						children: (
+							<span className="text-tiny">
+								{fromDate} till {toDate}
+							</span>
+						),
+					},
+					{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
+					{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
+				]}
 			/>
-			<Container className="px-3" type="article">
-				<InfoGrid
-					color="white"
-					entries={[
-						{
-							icon: <CalendarDays size="20" />,
-							children: (
-								<span className="text-tiny">
-									{fromDate} till {toDate}
-								</span>
-							),
-						},
-						{ icon: <MapPin size="20" />, children: <span className="text-tiny">{location}</span> },
-						{ icon: <CheckCircle size="20" />, children: <span className="text-tiny">{work_type}</span> },
-					]}
-				/>
-			</Container>
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardBadges className="matchmake-badgesfix">{generateBadges(badges, user.attribute.badges)}</CardBadges>
 			<HorizontalRow className="px-3 opacity-3" />

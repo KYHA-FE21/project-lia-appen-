@@ -1,17 +1,14 @@
 import { Hourglass, Loader } from "lucide-react";
-import Heading from "./heading";
+import { CardHeader } from "../../../components/card";
 import "./loading.scss";
 
 function Loading() {
 	return (
 		<>
-			<Heading
-				className="text-2xl text-white px-3"
-				{...{
-					heading: "Laddar...",
-					icon: <Hourglass color="white" size="30" />,
-				}}
-			/>
+			<CardHeader className="text-2xl text-white px-3">
+				<h2>Laddar...</h2>
+				<Hourglass color="white" size="30" />
+			</CardHeader>
 			<Loader className={`spinner m-auto`} color="white" size="25%" />
 		</>
 	);
