@@ -123,7 +123,7 @@ const Editor = () => {
 	return (
 		<div className="flex justify-center h-full">
 			<form
-				className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12"
+				className="questionnaireContent questionnaire-cards-max-width-md flex flex-col gap-3 justify-between p-12"
 				onSubmit={handleQuestionnaireSubmit}
 			>
 				<div>
