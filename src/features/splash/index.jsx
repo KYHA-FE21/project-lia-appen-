@@ -6,8 +6,7 @@ import LinkButton from "./components/link-button";
 import ProseParagraph from "./components/prose-paragraph";
 
 import SalesPitchSection from "./components/sections/sales-pitch";
-import { CardHeader } from "../../components/card";
-import SplashCard from "./components/card";
+import Card, { CardHeader } from "../../components/card";
 import { ArrowDownCircle } from "lucide-react";
 import { useRef } from "react";
 
@@ -73,12 +72,12 @@ function Splash() {
 				<SalesPitchSection />
 
 				<FlexContainer direction="col" className="mx-4 items-center mb-16">
-					<SplashCard className="splash-cards-max-width-xl text-center gap-5 p-4">
+					<Card className="splash-cards-max-width-xl text-center gap-5 p-4">
 						<strong>Vad väntar du på?</strong>
 						<LinkButton href="/signup" className="p-4 text-lg">
 							Registrera dig!
 						</LinkButton>
-					</SplashCard>
+					</Card>
 				</FlexContainer>
 			</FlexContainer>
 		</FlexContainer>

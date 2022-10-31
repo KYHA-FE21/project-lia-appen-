@@ -14,7 +14,6 @@ import Card, {
 	CardHeader,
 } from "../../../../components/card";
 import InfoGrid from "../../../../components/info-grid";
-import SplashCard from "../card";
 import FlexContainer from "../flex-container";
 import ProseParagraph from "../prose-paragraph";
 
@@ -54,7 +53,7 @@ function StudentSection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<SplashCard>
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Söker frontend studenter!</strong>
 							</CardHeader>
@@ -85,7 +84,7 @@ function StudentSection() {
 									Ansök
 								</SecondaryButton>
 							</CardButtons>
-						</SplashCard>
+						</Card>
 
 						<div className="flex flex-col gap-3 flex-1 text-center p-3">
 							<strong>Matchar företaget dig?</strong>
@@ -121,7 +120,7 @@ function StudentSection() {
 								<span> Sedan är det bara att vänta på svar. 🤞</span>
 							</ProseParagraph>
 						</div>
-						<SplashCard>
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Fråga #1</strong>
 							</CardHeader>
@@ -198,7 +197,7 @@ function StudentSection() {
 									Nästa fråga
 								</SecondaryButton>
 							</CardButtons>
-						</SplashCard>
+						</Card>
 					</FlexContainer>
 				</div>
 			</FlexContainer>

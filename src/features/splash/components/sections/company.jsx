@@ -15,7 +15,6 @@ import Card, {
 } from "../../../../components/card";
 import InfoGrid from "../../../../components/info-grid";
 import InputField from "../../../../components/input-field";
-import SplashCard from "../card";
 import FlexContainer from "../flex-container";
 import ProseParagraph from "../prose-paragraph";
 
@@ -89,7 +88,7 @@ function CompanySection() {
 							</ProseParagraph>
 						</div>
 
-						<SplashCard className="gap-5">
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<label htmlFor="sampleQuestion" className="font-bold">
 									Skriv din första fråga
@@ -143,7 +142,7 @@ function CompanySection() {
 									Spara
 								</SecondaryButton>
 							</CardButtons>
-						</SplashCard>
+						</Card>
 					</FlexContainer>
 				</div>
 			</FlexContainer>
@@ -156,7 +155,7 @@ function CompanySection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<SplashCard className="flex-1 gap-5">
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Söker yrkesrollen frontend-utvecklare!</strong>
 							</CardHeader>
@@ -187,12 +186,12 @@ function CompanySection() {
 									Acceptera
 								</SecondaryButton>
 							</CardButtons>
-						</SplashCard>
+						</Card>
 
 						<div className="flex flex-col gap-3 flex-1 text-center p-3">
 							<strong>Matchar sökande uppdraget?</strong>
 							<ProseParagraph>
-								Det är nu det gäller, har får du möjligheten att läsa om
+								Det är nu det gäller, här får du möjligheten att läsa om
 								studenten innan du får kontakt detaljerna: Och för att få dem,
 								behöver du acceptera studentens ansökning.
 							</ProseParagraph>
