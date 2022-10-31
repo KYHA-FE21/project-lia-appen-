@@ -39,7 +39,7 @@
 			"advertisement_id": "",
 			"user_id": "",
 			"accepted":"", 
-      "date":""
+      "cooldown":""
 		}
 	],
 	"attribute": [
