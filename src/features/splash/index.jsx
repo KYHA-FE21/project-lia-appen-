@@ -19,8 +19,7 @@ function Splash() {
 				<FlexContainer
 					gap="16"
 					direction="col"
-					className="p-3 md:p-16 splash-cards-max-width-xl md:mx-auto text-white items-center"
-					style={{ position: "relative" }}
+					className="p-3 md:p-16 splash-cards-max-width-xl md:mx-auto text-white items-center relative"
 				>
 					<FlexContainer
 						direction="col"

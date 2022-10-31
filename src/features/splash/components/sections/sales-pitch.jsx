@@ -29,8 +29,7 @@ function SalesPitchSection() {
 		<FlexContainer
 			direction="col"
 			gap="16"
-			className="items-stretch mx-4"
-			style={{ position: "relative" }}
+			className="items-stretch mx-4 relative"
 		>
 			<FlexContainer direction="col" className="text-2xl items-center">
 				<span className="font-display">Hur funkar det</span>
