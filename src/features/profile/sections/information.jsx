@@ -24,29 +24,21 @@ const Information = ({
 			</Title>
 
 			<Wrapper wrap="wrap" gap={[1]} styleDirection="center">
-				{location === undefined && (
-					<Title size={[1]} img={<MapPin color="black" size={18} />}>
-						{location}
-					</Title>
-				)}
+				<Title size={[1]} img={<MapPin color="black" size={18} />}>
+					{location}
+				</Title>
 
-				{phone === undefined && (
-					<Title size={[1]} img={<Phone color="black" size={18} />}>
-						{phone}
-					</Title>
-				)}
+				<Title size={[1]} img={<Phone color="black" size={18} />}>
+					{phone}
+				</Title>
 
-				{school === undefined && (
-					<Title size={[1]} img={<MapPin color="black" size={18} />}>
-						{school}
-					</Title>
-				)}
+				<Title size={[1]} img={<MapPin color="black" size={18} />}>
+					{school}
+				</Title>
 
-				{date === undefined && (
-					<Title size={[1]} img={<CalendarDays color="black" size={18} />}>
-						{date}
-					</Title>
-				)}
+				<Title size={[1]} img={<CalendarDays color="black" size={18} />}>
+					{date}
+				</Title>
 			</Wrapper>
 
 			<Wrapper maxWidth="800px" lineHeight={[1.5]} padding={[0, 1]}>
