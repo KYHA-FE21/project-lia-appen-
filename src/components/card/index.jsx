@@ -3,7 +3,7 @@ import "./index.scss";
 function Card({ id, className = "", children }) {
 	return (
 		<article
-			className={`flex flex-col shadow blur card-bg rounded-lg overflow-hidden gap-5 p-3 ${className}`}
+			className={`flex flex-col shadow blur card-bg rounded-lg overflow-hidden p-3 ${className}`}
 			id={id}
 		>
 			{children}
