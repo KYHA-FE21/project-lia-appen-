@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
 import getQuestionnaire from "../api/get-questionnaires";
+import getApplicant from "../api/get-applicant";
 
 async function getAdvertisementByAttributeID(id = []) {
 	const searchParams = new URLSearchParams();
@@ -11,6 +12,17 @@ async function getAdvertisementByAttributeID(id = []) {
 		searchParams.set("attribute_id", id);
 	}
 	const json = await (await getAdvertisement(searchParams)).json();
+	return json;
+}
+
+async function getApplicantByAdvertisementID(id = []) {
+	const searchParams = new URLSearchParams();
+	if (Array.isArray(id)) {
+		id.forEach((item) => searchParams.append("advertisement_id", item));
+	} else {
+		searchParams.set("advertisement_id", id);
+	}
+	const json = await (await getApplicant(searchParams)).json();
 	return json;
 }
 
@@ -50,7 +62,15 @@ function useGenerateAdvertisementData(user) {
 				searchParams.set("type", "advertisement");
 				searchParams.set("is_active", true);
 				const attributes = await (await getAttribute(searchParams)).json();
-				attributes.sort((a, b) => {
+
+				const [attribute] = attributes;
+				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
+				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
+				/* applicants.forEach(applicant => {
+					
+				}) */
+				//const filteredAdvertisements = advertisements.filter(advertisement => )
+				advertisements.sort((a, b) => {
 					if (a.id > b.id) {
 						return -1;
 					}
@@ -59,10 +79,8 @@ function useGenerateAdvertisementData(user) {
 					}
 					return 0;
 				});
-				const [attribute] = attributes;
-				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
-				const [advertisement] = advertisements;
 				console.log(advertisements);
+				const [advertisement] = advertisements;
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					advertisement,
