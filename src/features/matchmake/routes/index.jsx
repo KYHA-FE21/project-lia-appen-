@@ -35,8 +35,8 @@ const Index = () => {
 			is_active: true,
 		},
 	});
-	
-	const { advertisementData, loading, error, getNewAdvertisement } = useGenerateAdvertisementData(user);
+
+	const { loading, error, advertisementData, getNewAdvertisement } = useGenerateAdvertisementData(user);
 
 	function getNew() {
 		getNewAdvertisement();
