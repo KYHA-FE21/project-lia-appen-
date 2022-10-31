@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const path = ({ links }) => {
+const Path = ({ links }) => {
 	return (
 		<div className="flex justify-between text-sm">
 			{links.map((link, i) => (
@@ -15,4 +15,4 @@ const path = ({ links }) => {
 	);
 };
 
-export default path;
+export default Path;
