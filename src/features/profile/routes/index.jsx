@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Badge from "../../../components/badge";
 import Wrapper from "../components/wrapper";
 import Avatar from "../sections/avatar";
@@ -9,95 +8,67 @@ import Title from "../components/title";
 import "./index.scss";
 import Button from "../../../components/buttons";
 import { Edit2 } from "lucide-react";
-import getUser from '../api/getUser';
 import { Link } from "react-router-dom";
+import useUser from "../hooks/use-user";
 
 const Index = () => {
-	const [userData, setUserData] = useState({
-		data: [],
-		attributes: {
-			badges: []
-		}
-	});
+	const user = useUser({ id: 1 });
 
-	useEffect(() => {
-
-		if(userData.data.length === 0) {
-			getUser(2).then(res => setUserData({
-				data: res.userData,
-				attributes: res.userAttribute
-			}))
-		}
-
-	}, [])
-
-	useEffect(() => {
-
-		console.log(userData)
-		
-	}, [userData])
 
 	return (
 		<main>
-			
-			{userData.attributes.type === 'student' || <Avatar />}
+			{user.data.attribute.type === "company" && <Avatar />}
 
-				<Wrapper width="unset" direction="column" gap={[1]}>
-					
-				{userData.attributes.type === 'company' || <SelectorHeader>Profil</SelectorHeader>}			
+			<Wrapper width="unset" direction="column" gap={[1]}>
+				{user.data.attribute.type === "student" && (
+					<SelectorHeader>Profil</SelectorHeader>
+				)}
 
-					<Information
-						styleDirection="center"
-						name={userData.data.name}
-						profession={userData.attributes.profession}
-						school={userData.attributes.school}
-						date={userData.attributes.period}
-						phone={userData.data.phone}
-						bio={userData.data.bio}
-						location={userData.attributes.location} />
-						
-				{userData.attributes.type === 'company' ? 
+				<Information
+					styleDirection="center"
+					name={user.data.name}
+					profession={user.data.attribute.profession}
+					school={user.data.attribute.school}
+					date={user.data.attribute.period}
+					phone={user.data.phone}
+					bio={user.data.bio}
+					location={user.data.attribute.location}
+				/>
 
-					<Link
-						to="/questionnaire/overview/*"
-						className="place-self-center">
-						<Button
-							icon={<Edit2 />}
-							className="gap-4">Redigera frågor</Button>
+				{user.data.attribute.type === "company" ? (
+					<Link to="/questionnaire/overview/*" className="place-self-center">
+						<Button icon={<Edit2 />} className="gap-4">
+							Redigera frågor
+						</Button>
 					</Link>
-			
-				:
+				) : (
 					<>
 						<Wrapper
 							padding={[2, 0, 0, 0]}
-							direction='column'
+							direction="column"
 							gap={[3]}
-							styleDirection='center'>
+							styleDirection="center"
+						>
 							<Title size={[1.5]}>Kompetenser</Title>
-
 						</Wrapper>
 
 						<Wrapper gap={[1]} styleDirection="center" padding={[0, 1, 2, 1]}>
-							{userData.attributes.badges.map((item, index) => {
+							{user.data.attribute.badges.map((item, index) => {
 								return (
 									<Badge
 										key={item + index}
 										width="fit-content"
-										className="text-white">
+										className="text-white"
+									>
 										{item}
 									</Badge>
-								)
+								);
 							})}
-
 						</Wrapper>
-	
 					</>
-				
-				} 
-					<EditInformation userData={userData} />
-
-				</Wrapper>
-		
+				)}
+				<EditInformation user={user} />
+			</Wrapper>
 		</main>
 	);
 };

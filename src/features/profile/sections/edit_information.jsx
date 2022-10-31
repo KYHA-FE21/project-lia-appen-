@@ -3,111 +3,95 @@ import Title from "../components/title";
 import Wrapper from "../components/wrapper";
 import InputField, { InputLabel } from "../../../components/input-field";
 import PrimaryButton from "../../../components/buttons/index";
-import TextArea from "../components/textArea";
-import {
-	Mail,
-	Phone,
-	GraduationCap,
-	Star,
-	Puzzle,
-	Calendar,
-} from "lucide-react";
+import TextArea from "../components/text-area";
+import { Mail, GraduationCap, Star, Calendar } from "lucide-react";
 import InputButton from "../components/input-button";
-import { putAttributes, putUser } from "../api/putUser";
+import { useEffect } from "react";
 
-const EditInformation = ({ userData }) => {
+const EditInformation = ({ user }) => {
+	const { data, update } = user;
+
 	const [sendData, setSendData] = useState({
-		phone: "",
 		school: "",
 		email: "",
 		bio: "",
 		badges: [],
-		periodStart: "",
-		periodEnd: "",
+		badgesRaw: "",
+		period: ["", ""],
 		profession: "",
 		location: "",
-		work_type: [],
+		work_type: "",
 	});
 
+	useEffect(() => {
+		setSendData((state) => {
+			return {
+				...state,
+				...user.data.attribute,
+				badgesRaw: user.data.attribute.badges.join(", "),
+			};
+		});
+	}, [user]);
+
 	const handleSave = (e) => {
-		const data = {
-			user: {
-				id: userData.data.id,
-				name: userData.data.name,
-				email: sendData.email !== "" ? sendData.email : userData.data.email,
-				phone: sendData.phone !== "" ? sendData.phone : userData.data.phone,
-				password: userData.data.password,
-				bio: sendData.bio !== "" ? sendData.bio : userData.data.bio,
-				attribute_id: userData.attributes.id,
-			},
+		const reqData = {
+			id: data.id,
+			name: data.name,
+			email: sendData.email.length > 0 ? sendData.email : data.email,
+			password: data.password,
+			bio: sendData.bio.length > 0 ? sendData.bio : data.bio,
+			attribute_id: data.attribute.id,
 			attribute: {
-				id: userData.attributes.id,
+				id: data.attribute.id,
 				period:
-					sendData.periodStart !== "" && sendData.periodEnd !== ""
-						? [sendData.periodStart, sendData.periodEnd]
-						: userData.attributes.period,
+					sendData.period[0].length > 0 && sendData.period[1].length > 0
+						? sendData.period
+						: data.attribute.period,
 				profession:
-					sendData.profession !== ""
+					sendData.profession.length > 0
 						? sendData.profession
-						: userData.attributes.profession,
+						: data.attribute.profession,
 				badges:
-					sendData.badges.length > 0
-						? sendData.badges.split(",")
-						: userData.attributes.badges,
+					sendData.badgesRaw.length > 0
+						? [...new Set(sendData.badgesRaw.split(",").map((badge) => badge.trim()))].filter(Boolean)
+						: data.attribute.badges,
 				location:
-					sendData.location !== ""
+					sendData.location.length > 0
 						? sendData.location
-						: userData.attributes.location,
+						: data.attribute.location,
 				work_type:
 					sendData.work_type.length > 0
 						? sendData.work_type
-						: userData.attributes.work_type,
+						: data.attribute.work_type,
 				school:
-					sendData.school !== "" ? sendData.school : userData.attributes.school,
-				type: userData.attributes.type,
-				decline_rate: userData.attributes.decline_rate,
-				response_time: userData.attributes.response_time,
-				openings: userData.attributes.openings,
-				is_active: userData.attributes.is_active,
+					sendData.school.length > 0 ? sendData.school : data.attribute.school,
+				type: data.attribute.type,
+				decline_rate: data.attribute.decline_rate,
+				response_time: data.attribute.response_time,
+				openings: data.attribute.openings,
+				is_active: data.attribute.is_active,
 			},
 		};
 
-		console.log(data);
-		putUser(data.user);
-		putAttributes(data.attribute);
+		update(reqData);
 	};
 
-	const handleCheckbox = (e) => {
-		if (e.target.checked) {
-			setSendData((state) => ({
-				...state,
-				work_type: [...state.work_type, e.target.value],
-			}));
-		} else {
-			setSendData((state) => ({
-				...state,
-				work_type: state.work_type.filter((item) => e.target.value !== item),
-			}));
-		}
+	const handleRadio = (e) => {
+		setSendData((state) => ({
+			...state,
+			work_type: e.target.value,
+		}));
 	};
 
 	return (
 		<>
 			<Wrapper direction="column" gap={[3]} padding={[5, 1, 0, 1]}>
 				<Title size={[1.5]}>{`${
-					userData.attributes.type === "student" ? "Om dig" : "Om företaget"
+					data.attribute.type === "student" ? "Om dig" : "Om företaget"
 				}`}</Title>
 
 				<InputField
-					onChange={(e) =>
-						setSendData((state) => ({ ...state, phone: e.target.value }))
-					}
-					icon={<Phone strokeWidth={1} />}
-					type="tel"
-					placeholder="Telefonnummer"
-				/>
-
-				<InputField
+					value={sendData.email || data.email}
 					onChange={(e) =>
 						setSendData((state) => ({ ...state, email: e.target.value }))
 					}
@@ -116,8 +100,9 @@ const EditInformation = ({ userData }) => {
 					placeholder="E-post"
 				/>
 
-				{userData.attributes.type === "company" || (
+				{data.attribute.type === "student" && (
 					<InputField
+						value={sendData.school}
 						onChange={(e) =>
 							setSendData((state) => ({ ...state, school: e.target.value }))
 						}
@@ -128,21 +113,23 @@ const EditInformation = ({ userData }) => {
 				)}
 
 				<InputField
+					value={sendData.location}
 					onChange={(e) =>
 						setSendData((state) => ({ ...state, location: e.target.value }))
 					}
 					icon={<GraduationCap strokeWidth={1} />}
 					type="text"
 					placeholder={`${
-						userData.attributes.type === "company"
+						data.attribute.type === "company"
 							? "Vilken stad befinner företaget sig inom?"
 							: "Vilken stad befinner du dig inom?"
 					}`}
 				/>
 
-				{userData.attributes.type === "company" || (
+				{data.attribute.type === "student" && (
 					<>
 						<InputField
+							value={sendData.profession}
 							onChange={(e) =>
 								setSendData((state) => ({
 									...state,
@@ -155,9 +142,13 @@ const EditInformation = ({ userData }) => {
 						/>
 
 						<InputField
+							value={sendData.badgesRaw}
 							list="badges-list"
 							onChange={(e) =>
-								setSendData((state) => ({ ...state, badges: e.target.value }))
+								setSendData((state) => ({
+									...state,
+									badgesRaw: e.target.value,
+								}))
 							}
 							icon={<Star strokeWidth={1} />}
 							type="text"
@@ -175,24 +166,29 @@ const EditInformation = ({ userData }) => {
 				</datalist>
 
 				<TextArea
+					value={sendData.bio || data.bio}
 					onChange={(e) =>
-						setSendData((state) => ({ ...state, bio: e.target.value }))
+						{
+							setSendData((state) => ({ ...state, bio: e.target.value }))
+						}
 					}
-				>{`Kort beskrivning om ${
-					userData.attributes.type === "student" ? "dig själv" : "företaget"
-				}`}</TextArea>
+					placeholder={`Kort beskrivning om ${
+						data.attribute.type === "student" ? "dig själv" : "företaget"
+					}`}
+				/>
 			</Wrapper>
 
-			{userData.attributes.type === "company" || (
+			{data.attribute.type === "student" && (
 				<Wrapper direction="column" gap={[3]} padding={[7, 1, 7, 1]}>
 					<Title size={[1.5]}>Önskemål LIA</Title>
 
 					<InputLabel>Datum period från</InputLabel>
 					<InputField
+						value={sendData.period[0]}
 						onChange={(e) =>
 							setSendData((state) => ({
 								...state,
-								periodStart: e.target.value,
+								period: [e.target.value, state.period[1]],
 							}))
 						}
 						icon={<Calendar strokeWidth={1} />}
@@ -201,8 +197,12 @@ const EditInformation = ({ userData }) => {
 
 					<InputLabel>Datum period till</InputLabel>
 					<InputField
+						value={sendData.period[1]}
 						onChange={(e) =>
-							setSendData((state) => ({ ...state, periodEnd: e.target.value }))
+							setSendData((state) => ({
+								...state,
+								period: [state.period[0], e.target.value],
+							}))
 						}
 						icon={<Calendar strokeWidth={1} />}
 						type="date"
@@ -213,28 +213,31 @@ const EditInformation = ({ userData }) => {
 							<InputButton
 								id={1}
 								name="work_type"
-								type="checkbox"
+								checked={sendData.work_type === 'Remote'}
+								type="radio"
 								value="Remote"
 								label="Remote"
-								onClick={handleCheckbox}
+								onChange={handleRadio}
 							/>
 
 							<InputButton
 								id={2}
 								name="work_type"
-								type="checkbox"
+								checked={sendData.work_type === 'På plats'}
+								type="radio"
 								value="På plats"
 								label="På plats"
-								onClick={handleCheckbox}
+								onChange={handleRadio}
 							/>
 
 							<InputButton
 								id={3}
 								name="work_type"
-								type="checkbox"
+								checked={sendData.work_type === 'Hybrid'}
+								type="radio"
 								value="Hybrid"
-								label="Hyrbrid"
-								onClick={handleCheckbox}
+								label="Hybrid"
+								onChange={handleRadio}
 							/>
 						</Wrapper>
 					</Wrapper>
