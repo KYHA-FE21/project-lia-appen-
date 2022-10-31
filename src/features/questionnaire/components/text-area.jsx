@@ -11,7 +11,7 @@ const TextArea = ({
 	return (
 		<div className={`my-6 ${className}`}>
 			<label htmlFor={id}>{label}</label>
-			<div className="textareaContainer quest-rounded-md shadow p-2 mt-2">
+			<div className="textareaContainer rounded-md shadow p-2 mt-2">
 				<textarea
 					className="w-full"
 					id={id}

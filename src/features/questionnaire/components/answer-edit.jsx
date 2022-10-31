@@ -18,8 +18,8 @@ const AnswerEditTextArea = ({
 			<label htmlFor={labelID} className="block mb-2">
 				{label}
 			</label>
-			<div className="flex items-stretch shadow blur overflow-hidden quest-rounded-md">
-				<div className="blur textareaContainer p-2 flex-1">
+			<div className="flex items-stretch shadow blur overflow-hidden rounded-md">
+				<div className="blur shadow textareaContainer p-2 flex-1">
 					<textarea
 						className="w-full"
 						id={labelID}
@@ -29,7 +29,7 @@ const AnswerEditTextArea = ({
 						{...restProps}
 					></textarea>
 				</div>
-				<label className="bg-white p-4 flex shadow" title={i18n().InputCorrect}>
+				<label className="bg-white p-4 flex" title={i18n().InputCorrect}>
 					<input
 						type="radio"
 						id={id + "-answer-radio"}
