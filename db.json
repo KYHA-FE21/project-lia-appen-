@@ -85,6 +85,31 @@
       "advertisement_id": "1",
       "user_id": "1",
       "id": "gyqssAo"
+    },
+    {
+      "advertisement_id": "1",
+      "user_id": "2",
+      "id": "gyqssBo"
+    },
+    {
+      "advertisement_id": "1",
+      "user_id": "3",
+      "id": "gyqssCo"
+    },
+    {
+      "advertisement_id": "1",
+      "user_id": "4",
+      "id": "gyqssDo"
+    },
+    {
+      "advertisement_id": "3",
+      "user_id": "5",
+      "id": "gyqssEo"
+    },
+    {
+      "advertisement_id": "3",
+      "user_id": "6",
+      "id": "gyqssFo"
     }
   ],
   "attribute": [
