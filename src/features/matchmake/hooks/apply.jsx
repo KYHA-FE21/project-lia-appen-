@@ -12,12 +12,12 @@ function useApply() {
 		setTimeout(async () => {
 			try {
 				const { advertisement } = advertisementData;
-				const date = Intl.DateTimeFormat("sv-SE").format(new Date());
+				const cooldown = Intl.DateTimeFormat("sv-SE").format(new Date());
 				const body = JSON.stringify({
 					advertisement_id: advertisement.id,
 					user_id: user.id,
 					accepted: bool === true ? !bool : null,
-					date,
+					cooldown,
 				});
 				await postApplicant(body);
 				setApplied(bool);

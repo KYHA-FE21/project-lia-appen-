@@ -21,12 +21,12 @@ function useVerify() {
 				const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
 				setVerified(succeded);
 				if (!succeded) {
-					const date = Intl.DateTimeFormat("sv-SE").format(new Date());
+					const cooldown = Intl.DateTimeFormat("sv-SE").format(new Date());
 					const body = JSON.stringify({
 						advertisement_id: advertisement.id,
 						user_id: user.id,
 						accepted: null,
-						date,
+						cooldown,
 					});
 					await postApplicant(body);
 				}
