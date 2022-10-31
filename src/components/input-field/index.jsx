@@ -22,7 +22,7 @@ const InputField = ({ icon = null, isError = false, value, handleChange, list, c
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input
 					className={`globalInputContent globalInputField ${classes} ${className}`}
-					value={value}
+					value={value || ""}
 					onChange={handleChange}
 					{...restProps}
 				/>
