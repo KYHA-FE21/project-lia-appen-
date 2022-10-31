@@ -17,19 +17,16 @@ const InputField = ({ icon = null, isError = false, value, handleChange, list, c
 	if (error) classes.push("globalInputFieldError");
 
 	return (
-		<div className="globalInputContainer" onClick={handleClick}>
+		<div className="globalInputContainer" onClick={handleClick} ref={ref}>
 			<div className="globalInputContent">
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<input
-					list={list}
-					ref={ref}
 					className={`globalInputContent globalInputField ${classes} ${className}`}
 					value={value}
 					onChange={handleChange}
 					{...restProps}
 				/>
 			</div>
-			{error && <p className="globalInputError">{error}</p>}
 		</div>
 	);
 };
