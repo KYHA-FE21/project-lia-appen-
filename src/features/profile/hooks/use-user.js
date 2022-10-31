@@ -4,7 +4,14 @@ import { getUserByID, putUserByID } from "../api/user";
 
 const defaultUser = {
 	attribute: {
+		school: "",
+		email: "",
+		bio: "",
 		badges: [],
+		period: ["", ""],
+		profession: "",
+		location: "",
+		work_type: "",
 	},
 };
 
