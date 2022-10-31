@@ -8,6 +8,7 @@ import "./index.scss";
 import Information from "./information";
 import Questions from "./questions";
 import Verification from "./verification";
+import NoAdvertisement from "./no-advertisement";
 
 const Index = () => {
 	const [action, setAction] = useState("information");
@@ -50,6 +51,7 @@ const Index = () => {
 			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
 				{loading && <Loading />}
 				{!loading && error && <Container className="p-3">{error}</Container>}
+				{!loading && !error && !advertisementData && <NoAdvertisement getNew={getNew} />}
 				{!loading && !error && advertisementData && (
 					<>
 						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user }} />}

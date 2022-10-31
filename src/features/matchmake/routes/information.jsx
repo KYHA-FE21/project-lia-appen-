@@ -1,7 +1,7 @@
 import React from "react";
 import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react";
 
-import InfoGrid from "../../../components/info-grid/";
+import InfoGrid from "../../../components/info-grid";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import InfoStats from "../components/info-stats";
 import generateBadges from "../../../components/badge/generate-badges";

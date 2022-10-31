@@ -66,11 +66,15 @@ function useGenerateAdvertisementData(user) {
 				const [attribute] = attributes;
 				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
 				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
-				/* applicants.forEach(applicant => {
-					
-				}) */
-				//const filteredAdvertisements = advertisements.filter(advertisement => )
-				advertisements.sort((a, b) => {
+				const toFilter = [];
+				applicants.forEach((applicant) => {
+					if (applicant.user_id === user.id) {
+						toFilter.push(applicant.advertisement_id);
+					}
+				});
+				const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
+				if (!filteredAdvertisements.length) return setAdvertisementData(false);
+				filteredAdvertisements.sort((a, b) => {
 					if (a.id > b.id) {
 						return -1;
 					}
@@ -79,8 +83,7 @@ function useGenerateAdvertisementData(user) {
 					}
 					return 0;
 				});
-				console.log(advertisements);
-				const [advertisement] = advertisements;
+				const [advertisement] = filteredAdvertisements;
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					advertisement,
