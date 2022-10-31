@@ -9,6 +9,7 @@ import Information from "./information";
 import Questions from "./questions";
 import Verification from "./verification";
 import NoAdvertisement from "./no-advertisement";
+import useApply from "../hooks/apply";
 
 const Index = () => {
 	const [action, setAction] = useState("information");
@@ -46,6 +47,13 @@ const Index = () => {
 		setAction("information");
 	}
 
+	const { apply } = useApply();
+
+	async function denyButton() {
+		await apply(advertisementData, user, false);
+		getNew();
+	}
+
 	return (
 		<Container type="main" display="flex" className="p-3 h-full items-center justify-center">
 			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
@@ -54,9 +62,9 @@ const Index = () => {
 				{!loading && !error && !advertisementData && <NoAdvertisement getNew={getNew} />}
 				{!loading && !error && advertisementData && (
 					<>
-						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user }} />}
-						{action === "questions" && <Questions {...{ advertisementData, setAction, getNew, question, setQuestion, answers, setAnswers }} />}
-						{action === "verify" && <Verification {...{ advertisementData, setAction, getNew, setQuestion, answers, user }} />}
+						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user, denyButton }} />}
+						{action === "questions" && <Questions {...{ advertisementData, setAction, question, setQuestion, answers, setAnswers, user, denyButton }} />}
+						{action === "verify" && <Verification {...{ advertisementData, setAction, getNew, setQuestion, answers, user, denyButton }} />}
 					</>
 				)}
 			</Card>

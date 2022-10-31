@@ -8,10 +8,11 @@ import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
 import { CardBadges, CardButtons, CardHeader } from "../../../components/card";
 
-function Information({ advertisementData, getNew, setAction, user }) {
+function Information({ advertisementData, setAction, user, denyButton }) {
 	const { attribute } = advertisementData;
 	const { badges, profession, period, location, work_type, decline_rate, response_time, openings } = attribute;
 	const [fromDate, toDate] = period;
+
 	return (
 		<>
 			<CardHeader className="text-2xl px-3">
@@ -35,7 +36,7 @@ function Information({ advertisementData, getNew, setAction, user }) {
 			<InfoStats statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 text-white mt-auto">
-				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={getNew}>
+				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={denyButton}>
 					Nytt test
 				</SecondaryButton>
 				<SecondaryButton

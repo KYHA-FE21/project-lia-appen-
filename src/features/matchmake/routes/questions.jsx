@@ -7,7 +7,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import HorizontalRow from "../components/hr";
 import { CardButtons, CardHeader } from "../../../components/card";
 
-function Questions({ advertisementData, answers, setAnswers, setAction, getNew, question, setQuestion }) {
+function Questions({ advertisementData, answers, setAnswers, setAction, denyButton, question, setQuestion }) {
 	const { questionnaire } = advertisementData;
 
 	function handleChange(event) {
@@ -27,7 +27,7 @@ function Questions({ advertisementData, answers, setAnswers, setAction, getNew, 
 				<>
 					<CardHeader className="text-2xl px-3">
 						<h2>Frågor</h2>
-						<XCircle className="cursor-pointer" color="black" size="30" onClick={getNew} />
+						<XCircle className="cursor-pointer" color="black" size="30" onClick={denyButton} />
 					</CardHeader>
 					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">

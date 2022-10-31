@@ -7,7 +7,7 @@ import Loading from "../components/loading";
 import useVerify from "../hooks/verify";
 import Verified from "./verified";
 
-function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion }) {
+function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion, denyButton }) {
 	const { questionnaire } = advertisementData;
 	const { loading, error, verified, verify } = useVerify();
 
@@ -43,7 +43,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 						<>
 							<CardHeader className="text-2xl px-3">
 								<h2>Bekräfta</h2>
-								<XCircle className="cursor-pointer" color="black" size="30" onClick={getNew} />
+								<XCircle className="cursor-pointer" color="black" size="30" onClick={denyButton} />
 							</CardHeader>
 							<Container type="p" className="px-3 text-center ">
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}
