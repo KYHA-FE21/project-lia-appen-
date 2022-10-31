@@ -2,7 +2,7 @@
  * @param {Response} resp
  * @returns {Promise<{ data: any | null, error?: Error }>}
  */
-export async function handleResponse (resp) {
+export default async function handleResponse (resp) {
 	const res = {
 		data: null,
 	}
