@@ -23,21 +23,21 @@ function Verified({ advertisementData, user, getNew }) {
 				<>
 					{!applied && (
 						<>
-							<CardHeader className="text-2xl text-white px-3">
+							<CardHeader className="text-2xl px-3">
 								<h2>Grattis!</h2>
-								<Smile color="white" size="30" className="cursor-pointer" />
+								<Smile className="cursor-pointer" color="black" size="30" />
 							</CardHeader>
-							<Container className="flex flex-col gap-3 px-3 text-center text-white">
+							<Container className="flex flex-col gap-3 px-3 text-center">
 								<p>Du klarade provet, och har nu möjligheten att söka.</p>
 								<p>
 									Klicka på <em>Ansök</em> för att ansöka, och ha en chans att få en LIA-plats, eller klicka på <em>Nytt test</em> för att hoppa över ansökan.
 								</p>
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
-								<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={denyButton}>
+							<CardButtons className="px-3 text-white mt-auto">
+								<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={denyButton}>
 									Nytt test
 								</SecondaryButton>
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={acceptButton}>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={acceptButton}>
 									Ansök
 								</SecondaryButton>
 							</CardButtons>
@@ -45,16 +45,16 @@ function Verified({ advertisementData, user, getNew }) {
 					)}
 					{applied && (
 						<>
-							<CardHeader className="text-2xl text-white px-3">
+							<CardHeader className="text-2xl px-3">
 								<h2>Grattis!</h2>
-								<Rocket color="white" size="30" className="cursor-pointer" />
+								<Rocket className="cursor-pointer" color="black" size="30" />
 							</CardHeader>
-							<Container className="flex flex-col gap-3 px-3 text-center text-white">
+							<Container className="flex flex-col gap-3 px-3 text-center">
 								<p>Ansökan är skickad!</p>
 								<p>Passa gärna på att göra fler tester medan du väntar på svar.</p>
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={getNew}>
+							<CardButtons className="px-3 text-white mt-auto">
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={getNew}>
 									Nytt test
 								</SecondaryButton>
 							</CardButtons>

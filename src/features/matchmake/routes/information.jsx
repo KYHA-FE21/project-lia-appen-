@@ -14,13 +14,12 @@ function Information({ advertisementData, getNew, setAction, user }) {
 	const [fromDate, toDate] = period;
 	return (
 		<>
-			<CardHeader className="text-2xl text-white px-3">
+			<CardHeader className="text-2xl px-3">
 				<h2 className="overflow-hidden white-space-nowrap text-overflow-ellipsis">{profession}</h2>
 				<Info size="30" style={{ minWidth: "max-content" }} />
 			</CardHeader>
 			<InfoGrid
 				className="px-3 text-tiny"
-				color="white"
 				entries={[
 					{
 						icon: <CalendarDays size="20" style={{ minWidth: "max-content" }} />,
@@ -33,16 +32,16 @@ function Information({ advertisementData, getNew, setAction, user }) {
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardBadges className="px-3">{generateBadges(badges, user.attribute.badges, { className: "flex-1" })}</CardBadges>
 			<HorizontalRow className="px-3 opacity-3" />
-			<InfoStats className="text-white" statistics={{ decline_rate, response_time, openings }} />
+			<InfoStats statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
-			<CardButtons className="px-3 h-10 mt-auto">
-				<SecondaryButton icon={<X color="white" />} bgColor="red" className="text-white w-full text-sm" onClick={getNew}>
+			<CardButtons className="px-3 text-white mt-auto">
+				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={getNew}>
 					Nytt test
 				</SecondaryButton>
 				<SecondaryButton
 					icon={<Check color="white" />}
 					bgColor="green"
-					className="text-white w-full text-sm"
+					className="w-full text-sm"
 					onClick={() => {
 						setAction("questions");
 					}}

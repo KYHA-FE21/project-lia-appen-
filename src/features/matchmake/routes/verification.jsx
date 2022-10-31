@@ -24,16 +24,16 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 					{verified === true && <Verified advertisementData={advertisementData} user={user} getNew={getNew} />}
 					{verified === false && (
 						<>
-							<CardHeader className="text-2xl text-white px-3">
+							<CardHeader className="text-2xl px-3">
 								<h2>Tyvärr...</h2>
-								<Frown color="white" size="30" className="cursor-pointer" onClick={getNew} />
+								<Frown className="cursor-pointer" color="black" size="30" onClick={getNew} />
 							</CardHeader>
-							<Container className="flex flex-col gap-3 px-3 text-center text-white">
+							<Container className="flex flex-col gap-3 px-3 text-center ">
 								<p>Du klarade tyvärr inte provet denna gång.</p>
 								<p>Men det kommer fler chanser!</p>
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={getNew}>
+							<CardButtons className="px-3 text-white mt-auto">
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={getNew}>
 									Nytt test
 								</SecondaryButton>
 							</CardButtons>
@@ -41,21 +41,21 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 					)}
 					{verified === null && (
 						<>
-							<CardHeader className="text-2xl text-white px-3">
+							<CardHeader className="text-2xl px-3">
 								<h2>Bekräfta</h2>
-								<XCircle color="white" size="30" style={{ cursor: "pointer" }} onClick={getNew} />
+								<XCircle className="cursor-pointer" color="black" size="30" onClick={getNew} />
 							</CardHeader>
-							<Container type="p" className="px-3 text-center text-white">
+							<Container type="p" className="px-3 text-center ">
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}
 							</Container>
-							<Container type="p" className="px-3 text-white">
+							<Container type="p" className="px-3 ">
 								Är du säker på att du vill skicka dina svar?
 							</Container>
-							<CardButtons className="px-3 h-10 mt-auto">
+							<CardButtons className="px-3 text-white mt-auto">
 								<SecondaryButton
 									icon={<X color="white" />}
 									bgColor="red"
-									className="text-white w-full text-sm"
+									className="w-full text-sm"
 									onClick={() => {
 										setQuestion((prev) => prev - 1);
 										setAction("questions");
@@ -63,7 +63,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 								>
 									Tillbaks
 								</SecondaryButton>
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="text-white w-full text-sm" onClick={handleSubmit}>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={handleSubmit}>
 									Skicka in
 								</SecondaryButton>
 							</CardButtons>
