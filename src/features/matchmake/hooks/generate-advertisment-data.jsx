@@ -42,7 +42,7 @@ function useGenerateAdvertisementData(user) {
 	const [error, setError] = useState(null);
 	const [advertisementData, setAdvertisementData] = useState(null);
 
-	async function getNewAdvertisement() {
+	async function getNewAdvertisement(user) {
 		setLoading(true);
 		setError(null);
 		return setTimeout(async () => {
@@ -63,7 +63,6 @@ function useGenerateAdvertisementData(user) {
 				searchParams.set("type", "advertisement");
 				searchParams.set("is_active", true);
 				const attributes = await (await getAttribute(searchParams)).json();
-
 				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
 				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
 				const toFilter = [];
@@ -109,11 +108,11 @@ function useGenerateAdvertisementData(user) {
 	}
 
 	useEffect(() => {
-		const timer = getNewAdvertisement();
+		const timer = getNewAdvertisement(user);
 		return () => {
 			clearTimeout(timer);
 		};
-	}, []);
+	}, [user]);
 
 	return { advertisementData, loading, error, getNewAdvertisement };
 }

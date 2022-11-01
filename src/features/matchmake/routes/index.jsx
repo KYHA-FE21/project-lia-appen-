@@ -10,38 +10,19 @@ import Questions from "./questions";
 import Verification from "./verification";
 import NoAdvertisement from "./no-advertisement";
 import useApply from "../hooks/apply";
+import useUser from "../../profile/hooks/use-user";
 
 const Index = () => {
 	const [action, setAction] = useState("information");
 	const [answers, setAnswers] = useState({});
 	const [question, setQuestion] = useState(0);
-	const [user] = useState({
-		id: "1",
-		name: "",
-		email: "",
-		password: "",
-		bio: "",
-		attribute_id: "",
-		attribute: {
-			id: "3",
-			period: ["123", "456"],
-			profession: "Systemutvecklare",
-			badges: ["JS", "HTML", "React"],
-			location: "Göteborg",
-			work_type: "Remote",
-			school: "KYH",
-			type: "student",
-			decline_rate: "",
-			response_time: "1",
-			openings: "",
-			is_active: true,
-		},
-	});
+
+	const user = useUser({ id: 1 }).data;
 
 	const { loading, error, advertisementData, getNewAdvertisement } = useGenerateAdvertisementData(user);
 
 	function getNew() {
-		getNewAdvertisement();
+		getNewAdvertisement(user);
 		setAnswers({});
 		setQuestion(0);
 		setAction("information");
@@ -64,7 +45,7 @@ const Index = () => {
 				{loading && <Loading />}
 				{!loading && error && <Container className="p-3">{error}</Container>}
 				{!loading && !error && !advertisementData && <NoAdvertisement getNew={getNew} />}
-				{!loading && !error && advertisementData && (
+				{!loading && !error && advertisementData && advertisementData.attribute && (
 					<>
 						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user, apply }} />}
 						{action === "questions" && <Questions {...{ advertisementData, setAction, question, setQuestion, answers, setAnswers, user, apply }} />}

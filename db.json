@@ -1,12 +1,12 @@
 {
   "user": [
     {
-      "id": "",
+      "id": "1",
       "name": "",
       "email": "",
       "password": "",
       "bio": "",
-      "attribute_id": ""
+      "attribute_id": "4"
     }
   ],
   "link": [
@@ -84,11 +84,18 @@
       "cooldown": ""
     },
     {
-      "advertisement_id": "3",
+      "advertisement_id": "1",
       "user_id": "1",
       "accepted": false,
-      "cooldown": 1067296515540,
-      "id": "Zfm2NH4"
+      "cooldown": 1367307531176,
+      "id": "0qVg1dv"
+    },
+    {
+      "advertisement_id": "3",
+      "user_id": "1",
+      "accepted": null,
+      "cooldown": 1667307660405,
+      "id": "Mt4KQst"
     }
   ],
   "attribute": [
@@ -154,6 +161,27 @@
       "decline_rate": "0.2",
       "response_time": "1",
       "openings": 5,
+      "is_active": true
+    },
+    {
+      "id": "4",
+      "period": [
+        "123",
+        "456"
+      ],
+      "profession": "Systemutvecklare",
+      "badges": [
+        "JS",
+        "HTML",
+        "React"
+      ],
+      "location": "Göteborg",
+      "work_type": "Remote",
+      "school": "KYH",
+      "type": "student",
+      "decline_rate": "",
+      "response_time": "1",
+      "openings": "",
       "is_active": true
     }
   ]
