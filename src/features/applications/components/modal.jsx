@@ -43,7 +43,7 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 				/>
 				<LinkGrid className="text-tiny" iconSize="20" entries={link} />
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
-				<CardButtons className="flex h-10 mt-auto">
+				<CardButtons className="flex mt-auto">
 					{buttons.map((button, index) => (
 						<SecondaryButton key={button + index} {...button} />
 					))}

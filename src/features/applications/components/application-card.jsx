@@ -10,9 +10,9 @@ function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonO
 	const { badges, profession, period, location, work_type } = attribute;
 	const [fromDate, toDate] = period;
 	return (
-		<Card className="applicants-max-width">
+		<Card className="applicants-max-width gap-2">
 			<CardHeader>
-				<h1 className="text-base text-white">{profession}</h1>
+				<h1 className="text-base">{profession}</h1>
 				<PrimaryButton
 					className="gap-1 text-sm"
 					onClick={() => {
@@ -24,7 +24,6 @@ function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonO
 				</PrimaryButton>
 			</CardHeader>
 			<InfoGrid
-				color="white"
 				className="text-tiny"
 				entries={[
 					{
@@ -36,7 +35,7 @@ function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonO
 				]}
 			/>
 			<CardBadges>{generateBadges(advertisement.attribute.badges, badges, { className: "flex-1" })}</CardBadges>
-			<CardButtons className="h-10">
+			<CardButtons>
 				{buttons.map((button, index) => (
 					<SecondaryButton key={button + index} {...button} />
 				))}
