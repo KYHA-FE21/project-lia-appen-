@@ -28,7 +28,7 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 						icon: <X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />,
 					}}
 				/>
-				<CardBadges className="flex text-white justify-center">{generateBadges(badges, badges)}</CardBadges>
+				<CardBadges className="flex text-white justify-center">{generateBadges(badges, badges, { className: "flex-1" })}</CardBadges>
 				<InfoGrid
 					color="black"
 					className="text-tiny"
