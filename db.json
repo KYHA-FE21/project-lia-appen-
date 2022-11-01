@@ -106,28 +106,28 @@
       "id": "",
       "advertisement_id": "",
       "user_id": "",
-      "date": "",
+      "cooldown": "",
       "accepted": true
     },
     {
       "advertisement_id": "1",
       "user_id": "2",
       "id": "gyqssAo",
-      "date": "",
+      "cooldown": "",
       "accepted": true
     },
     {
       "advertisement_id": "1",
       "user_id": "3",
       "id": "gyqssBo",
-      "date": "",
+      "cooldown": "",
       "accepted": false
     },
     {
       "advertisement_id": "1",
       "user_id": "4",
       "id": "gyqssCo",
-      "date": "",
+      "cooldown": "",
       "accepted": false
     }
   ],

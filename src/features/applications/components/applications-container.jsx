@@ -57,8 +57,8 @@ const ApplicationsContainer = () => {
 
 	function denyButtonOnClick(index, array) {
 		const uri = array[index].applicant.id;
-		const date = Intl.DateTimeFormat("sv-SE").format(new Date());
-		const body = { accepted: null, date };
+		const cooldown = Date.now();
+		const body = { accepted: null, cooldown };
 		patchApplicant(uri, body)
 			.then((res) => {
 				if (res.status === 200) {
