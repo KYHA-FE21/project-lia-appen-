@@ -3,6 +3,7 @@ import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
 import getQuestionnaire from "../api/get-questionnaires";
 import getApplicant from "../api/get-applicant";
+import deleteApplicant from "../api/delete-applicant";
 
 async function getAdvertisementByAttributeID(id = []) {
 	const searchParams = new URLSearchParams();
@@ -66,11 +67,20 @@ function useGenerateAdvertisementData(user) {
 				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
 				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
 				const toFilter = [];
-				applicants.forEach((applicant) => {
+				for (const applicant of applicants) {
+					const date = new Date();
+					date.setDate(date.getDate() - 30);
 					if (applicant.user_id === user.id) {
-						toFilter.push(applicant.advertisement_id);
+						if (applicant.accepted === null && applicant.cooldown < date.getTime()) {
+							const res = await deleteApplicant(applicant.id);
+							if (res.status !== 200) {
+								throw new Error(`${res.status} (${res.statusText})`);
+							}
+						} else {
+							toFilter.push(applicant.advertisement_id);
+						}
 					}
-				});
+				}
 				const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
 				if (!filteredAdvertisements.length) return setAdvertisementData(false);
 				filteredAdvertisements.sort((a, b) => {
@@ -83,7 +93,7 @@ function useGenerateAdvertisementData(user) {
 					return 0;
 				});
 				const [advertisement] = filteredAdvertisements;
-				const attribute = attributes.find(attribute => attribute.id === advertisement.attribute_id);
+				const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					advertisement,
