@@ -126,7 +126,6 @@ const ApplicationsContainer = ({ id }) => {
 		<>
 			{loading && <Loader className="spin" />}
 			{!loading && error && error}
-			{!loading && !error && !advertisement && <>Sidan kunde ej hittas</>}
 			{!loading && !error && advertisement && (
 				<>
 					<h1>Att kontakta - {toContact.length}</h1>
