@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 import useAdvertisement from "../hooks/advertisement";
 
@@ -11,11 +10,9 @@ import Modal from "./modal";
 import "./applications-container.scss";
 import patchApplicant from "../api/patch-applicant";
 
-const ApplicationsContainer = () => {
+const ApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [current, setCurrent] = useState(null);
-
-	const { id } = useParams();
 
 	const { loading, error, advertisement } = useAdvertisement(id);
 
