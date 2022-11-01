@@ -7,10 +7,9 @@ import { Check, Loader, X } from "lucide-react";
 import ApplicationCard from "./application-card";
 import Modal from "./modal";
 
-import "./applications-container.scss";
 import patchApplicant from "../api/patch-applicant";
 
-const ApplicationsContainer = ({ id }) => {
+const CompanyApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [current, setCurrent] = useState(null);
 
@@ -171,4 +170,4 @@ const ApplicationsContainer = ({ id }) => {
 	);
 };
 
-export default ApplicationsContainer;
+export default CompanyApplicationsContainer;
