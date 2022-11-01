@@ -47,12 +47,16 @@ const Index = () => {
 		setAction("information");
 	}
 
-	const { apply } = useApply();
-
-	async function denyButton() {
-		await apply(advertisementData, user, false);
-		getNew();
-	}
+	const apply = {
+		...useApply(),
+		async accept() {
+			await apply.apply(advertisementData, user, true);
+		},
+		async deny() {
+			await apply.apply(advertisementData, user, false);
+			getNew();
+		},
+	};
 
 	return (
 		<Container type="main" display="flex" className="p-3 h-full items-center justify-center">
@@ -62,9 +66,9 @@ const Index = () => {
 				{!loading && !error && !advertisementData && <NoAdvertisement getNew={getNew} />}
 				{!loading && !error && advertisementData && (
 					<>
-						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user, denyButton }} />}
-						{action === "questions" && <Questions {...{ advertisementData, setAction, question, setQuestion, answers, setAnswers, user, denyButton }} />}
-						{action === "verify" && <Verification {...{ advertisementData, setAction, getNew, setQuestion, answers, user, denyButton }} />}
+						{action === "information" && <Information {...{ advertisementData, setAction, getNew, user, apply }} />}
+						{action === "questions" && <Questions {...{ advertisementData, setAction, question, setQuestion, answers, setAnswers, user, apply }} />}
+						{action === "verify" && <Verification {...{ advertisementData, setAction, getNew, setQuestion, answers, user, apply }} />}
 					</>
 				)}
 			</Card>

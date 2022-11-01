@@ -3,18 +3,10 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import { CardButtons, CardHeader } from "../../../components/card";
 import Container from "../components/container";
 import Loading from "../components/loading";
-import useApply from "../hooks/apply";
 
-function Verified({ advertisementData, user, getNew }) {
-	const { loading, error, applied, apply } = useApply();
+function Verified({ getNew, apply }) {
+	const { loading, error, applied } = apply;
 
-	async function acceptButton() {
-		await apply(advertisementData, user, true);
-	}
-	async function denyButton() {
-		await apply(advertisementData, user, false);
-		getNew();
-	}
 	return (
 		<>
 			{loading && <Loading />}
@@ -34,10 +26,10 @@ function Verified({ advertisementData, user, getNew }) {
 								</p>
 							</Container>
 							<CardButtons className="px-3 text-white mt-auto">
-								<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={denyButton}>
+								<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={apply.deny}>
 									Nytt test
 								</SecondaryButton>
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={acceptButton}>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={apply.accept}>
 									Ansök
 								</SecondaryButton>
 							</CardButtons>

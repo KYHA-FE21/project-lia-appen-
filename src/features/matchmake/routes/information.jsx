@@ -8,7 +8,7 @@ import generateBadges from "../../../components/badge/generate-badges";
 import HorizontalRow from "../components/hr";
 import { CardBadges, CardButtons, CardHeader } from "../../../components/card";
 
-function Information({ advertisementData, setAction, user, denyButton }) {
+function Information({ advertisementData, setAction, user, apply }) {
 	const { attribute } = advertisementData;
 	const { badges, profession, period, location, work_type, decline_rate, response_time, openings } = attribute;
 	const [fromDate, toDate] = period;
@@ -36,7 +36,7 @@ function Information({ advertisementData, setAction, user, denyButton }) {
 			<InfoStats statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 text-white mt-auto">
-				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={denyButton}>
+				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={apply.deny}>
 					Nytt test
 				</SecondaryButton>
 				<SecondaryButton

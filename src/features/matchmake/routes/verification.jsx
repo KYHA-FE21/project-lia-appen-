@@ -7,7 +7,7 @@ import Loading from "../components/loading";
 import useVerify from "../hooks/verify";
 import Verified from "./verified";
 
-function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion, denyButton }) {
+function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion, apply }) {
 	const { questionnaire } = advertisementData;
 	const { loading, error, verified, verify } = useVerify();
 
@@ -21,7 +21,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 			{!loading && error && <Container className="p-3">{error}</Container>}
 			{!loading && !error && (
 				<>
-					{verified === true && <Verified advertisementData={advertisementData} user={user} getNew={getNew} />}
+					{verified === true && <Verified getNew={getNew} apply={apply} />}
 					{verified === false && (
 						<>
 							<CardHeader className="text-2xl px-3">
@@ -43,7 +43,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 						<>
 							<CardHeader className="text-2xl px-3">
 								<h2>Bekräfta</h2>
-								<XCircle className="cursor-pointer" color="black" size="30" onClick={denyButton} />
+								<XCircle className="cursor-pointer" color="black" size="30" onClick={apply.deny} />
 							</CardHeader>
 							<Container type="p" className="px-3 text-center ">
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}
