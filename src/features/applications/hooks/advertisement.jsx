@@ -16,6 +16,7 @@ function useAdvertisement(id) {
 			setTimeout(async () => {
 				try {
 					const [ad] = await getAdvertisementByID(id);
+					if (!ad) return setAdvertisement(false);
 					const [attribute] = await getAttributeByID(ad.attribute_id);
 					const applicants = await getApplicantByAdvertisementID(id);
 					if (controller.signal.aborted) return;
