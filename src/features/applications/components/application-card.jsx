@@ -34,7 +34,7 @@ function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonO
 					{ icon: <CheckCircle size="20" />, children: work_type },
 				]}
 			/>
-			<CardBadges>{generateBadges(advertisement.attribute.badges, badges, { className: "flex-1" })}</CardBadges>
+			<CardBadges>{generateBadges(badges, badges, { className: "flex-1" })}</CardBadges>
 			<CardButtons>
 				{buttons.map((button, index) => (
 					<SecondaryButton key={button + index} {...button} />
