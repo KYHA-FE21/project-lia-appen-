@@ -34,7 +34,10 @@ export default function useUser({ id }) {
 		async function getUserAndAttributes() {
 			const user = await getUserByID(id);
 
-			if (!user.data) return;
+			if (!user.data) {
+				setLoading(false);
+				return;
+			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
