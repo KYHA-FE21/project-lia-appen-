@@ -8,7 +8,7 @@ function postApplicant(body) {
 	const url = new URL(API_ENDPOINT, API_URL);
 	return fetch(url, {
 		method: "POST",
-		body: body,
+		body,
 		headers: {
 			"Content-Type": "application/json",
 		},
