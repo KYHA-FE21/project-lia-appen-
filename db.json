@@ -82,6 +82,13 @@
       "user_id": "",
       "accepted": false,
       "cooldown": ""
+    },
+    {
+      "advertisement_id": "3",
+      "user_id": "1",
+      "accepted": false,
+      "cooldown": 1067296515540,
+      "id": "Zfm2NH4"
     }
   ],
   "attribute": [
@@ -97,7 +104,7 @@
         "HTML",
         "CSS"
       ],
-      "location": "Göteborg",
+      "location": "Göteborg 1",
       "work_type": "Remote",
       "school": "",
       "type": "advertisement",
@@ -118,12 +125,12 @@
         "HTML",
         "CSS"
       ],
-      "location": "Göteborg",
+      "location": "Gävleborg",
       "work_type": "Remote",
       "school": "",
       "type": "advertisement",
       "decline_rate": "0.5",
-      "response_time": "0.1",
+      "response_time": "1",
       "openings": 2,
       "is_active": true
     },
@@ -140,7 +147,7 @@
         "CSS",
         "REACT"
       ],
-      "location": "Stockholm",
+      "location": "Stockholm 3",
       "work_type": "Hybird",
       "school": "",
       "type": "advertisement",
