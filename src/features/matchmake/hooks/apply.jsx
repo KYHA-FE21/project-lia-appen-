@@ -12,7 +12,7 @@ function useApply() {
 		setTimeout(async () => {
 			try {
 				const { advertisement } = advertisementData;
-				const cooldown = Intl.DateTimeFormat("sv-SE").format(new Date());
+				const cooldown = Date.now();
 				const body = JSON.stringify({
 					advertisement_id: advertisement.id,
 					user_id: user.id,
