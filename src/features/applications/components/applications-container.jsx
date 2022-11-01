@@ -56,10 +56,10 @@ const ApplicationsContainer = () => {
 	}
 
 	function denyButtonOnClick(index, array) {
-		const uri = array[index].applicant.id;
+		const id = array[index].applicant.id;
 		const cooldown = Date.now();
-		const body = { accepted: null, cooldown };
-		patchApplicant(uri, body)
+		const body = JSON.stringify({ accepted: null, cooldown });
+		patchApplicant(id, body)
 			.then((res) => {
 				if (res.status === 200) {
 					removeApplication(index, array);
@@ -69,9 +69,9 @@ const ApplicationsContainer = () => {
 	}
 
 	function acceptButtonOnClick(index, array) {
-		const uri = array[index].applicant.id;
-		const body = { accepted: true };
-		patchApplicant(uri, body)
+		const id = array[index].applicant.id;
+		const body = JSON.stringify({ accepted: true });
+		patchApplicant(id, body)
 			.then((res) => {
 				if (res.status === 200) {
 					setToContact((prev) => [...prev, array[index]]);
