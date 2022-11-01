@@ -63,7 +63,6 @@ function useGenerateAdvertisementData(user) {
 				searchParams.set("is_active", true);
 				const attributes = await (await getAttribute(searchParams)).json();
 
-				const [attribute] = attributes;
 				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
 				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
 				const toFilter = [];
@@ -84,6 +83,7 @@ function useGenerateAdvertisementData(user) {
 					return 0;
 				});
 				const [advertisement] = filteredAdvertisements;
+				const attribute = attributes.find(attribute => attribute.id === advertisement.attribute_id);
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					advertisement,
