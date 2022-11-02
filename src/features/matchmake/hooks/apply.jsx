@@ -11,10 +11,9 @@ function useApply() {
 		setError(null);
 		setTimeout(async () => {
 			try {
-				const { advertisement } = advertisementData;
 				const cooldown = Date.now();
 				const body = JSON.stringify({
-					advertisement_id: advertisement.id,
+					advertisement_id: advertisementData.id,
 					user_id: user.id,
 					accepted: bool === true ? !bool : null,
 					cooldown,

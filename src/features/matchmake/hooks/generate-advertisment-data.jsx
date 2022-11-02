@@ -88,7 +88,7 @@ function useGenerateAdvertisementData(user) {
 				const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
 				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
-					advertisement,
+					...advertisement,
 					attribute,
 					questionnaire,
 				}));

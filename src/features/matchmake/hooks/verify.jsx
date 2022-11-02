@@ -7,7 +7,7 @@ function useVerify() {
 	const [verified, setVerified] = useState(null);
 
 	/**
-	 * @param {{advertisement:{id:string}, questionnaire:[{correct_alternatives:[]]}} advertisementData
+	 * @param {{id:string, questionnaire:[{correct_alternatives:[]]}} advertisementData
 	 * @param {{}} answers
 	 * @param {{id:string}} user
 	 * @returns {undefined}
@@ -17,13 +17,13 @@ function useVerify() {
 		setError(null);
 		setTimeout(async () => {
 			try {
-				const { advertisement, questionnaire } = advertisementData;
+				const { questionnaire } = advertisementData;
 				const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
 				setVerified(succeded);
 				if (!succeded) {
 					const cooldown = Date.now();
 					const body = JSON.stringify({
-						advertisement_id: advertisement.id,
+						advertisement_id: advertisementData.id,
 						user_id: user.id,
 						accepted: null,
 						cooldown,
