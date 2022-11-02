@@ -47,17 +47,6 @@ function useGenerateAdvertisementData(user) {
 		setError(null);
 		if (!user.id) return;
 		return setTimeout(async () => {
-			/**
-			 * Get attribute matching user preferences *
-			 * filter out test that are on cooldown
-			 * HANDLE ERROR IF NO ATTRIBUTES FOUND
-			 * Sort for best match according to prefs
-			 * get the advertisements matching attribute IDs *
-			 * get the questionnaire matching advertisement ID *
-			 * build object that can be used to render card *
-			 * ???
-			 * profit!
-			 */
 			try {
 				const searchParams = new URLSearchParams();
 				searchParams.set("profession", user.attribute.profession);
