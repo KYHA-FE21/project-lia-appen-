@@ -1,16 +1,19 @@
 import { useState } from "react";
+
 import Card from "../../../components/card";
 import Container from "../components/container";
-import useGenerateAdvertisementData from "../hooks/generate-advertisment-data";
 import Loading from "../components/loading";
 
-import "./index.scss";
-import Information from "./information";
-import Questions from "./questions";
-import Verification from "./verification";
-import NoAdvertisement from "./no-advertisement";
+import useGenerateAdvertisementData from "../hooks/generate-advertisment-data";
 import useApply from "../hooks/apply";
 import useUser from "../../profile/hooks/use-user";
+
+
+import "../style/index.scss";
+import Information from "../components/sections/information";
+import NoAdvertisement from "../components/sections/no-advertisement";
+import Questions from "../components/sections/questions";
+import Verification from "../components/sections/verification";
 
 const Index = () => {
 	const [action, setAction] = useState("information");

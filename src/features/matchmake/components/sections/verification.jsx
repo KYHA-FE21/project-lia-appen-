@@ -1,10 +1,9 @@
 import { Check, Frown, X, XCircle } from "lucide-react";
-
-import Container from "../components/container";
-import SecondaryButton from "../../../components/buttons/secondary-button";
-import { CardButtons, CardHeader } from "../../../components/card";
-import Loading from "../components/loading";
-import useVerify from "../hooks/verify";
+import SecondaryButton from "../../../../components/buttons/secondary-button";
+import { CardButtons, CardHeader } from "../../../../components/card";
+import useVerify from "../../hooks/verify";
+import Container from "../container";
+import Loading from "../loading";
 import Verified from "./verified";
 
 function Verification({ user, advertisementData, answers, setAction, getNew, setQuestion, apply }) {

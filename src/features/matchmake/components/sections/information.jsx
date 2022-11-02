@@ -1,12 +1,12 @@
 import React from "react";
 import { CalendarDays, Check, CheckCircle, Info, MapPin, X } from "lucide-react";
+import { CardBadges, CardButtons, CardHeader } from "../../../../components/card";
+import InfoGrid from "../../../../components/info-grid";
+import HorizontalRow from "../hr";
+import generateBadges from "../../../../components/badge/generate-badges";
+import InfoStats from "../info-stats";
+import SecondaryButton from "../../../../components/buttons/secondary-button";
 
-import InfoGrid from "../../../components/info-grid";
-import SecondaryButton from "../../../components/buttons/secondary-button";
-import InfoStats from "../components/info-stats";
-import generateBadges from "../../../components/badge/generate-badges";
-import HorizontalRow from "../components/hr";
-import { CardBadges, CardButtons, CardHeader } from "../../../components/card";
 
 function Information({ advertisementData, setAction, user, apply }) {
 	const { attribute } = advertisementData;

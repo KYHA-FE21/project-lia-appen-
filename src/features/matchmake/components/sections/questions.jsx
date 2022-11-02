@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { Check, X, XCircle } from "lucide-react";
-
-import Container from "../components/container";
-import QuestionAlternative from "../components/question-alternative";
-import SecondaryButton from "../../../components/buttons/secondary-button";
-import HorizontalRow from "../components/hr";
-import { CardButtons, CardHeader } from "../../../components/card";
+import { CardButtons, CardHeader } from "../../../../components/card";
+import HorizontalRow from "../hr";
+import Container from "../container";
+import QuestionAlternative from "../question-alternative";
+import SecondaryButton from "../../../../components/buttons/secondary-button";
 
 function Questions({ advertisementData, answers, setAnswers, setAction, apply, question, setQuestion }) {
 	const { questionnaire } = advertisementData;

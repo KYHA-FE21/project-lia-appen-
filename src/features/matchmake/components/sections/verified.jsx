@@ -1,8 +1,8 @@
 import { Check, Rocket, Smile, X } from "lucide-react";
-import SecondaryButton from "../../../components/buttons/secondary-button";
-import { CardButtons, CardHeader } from "../../../components/card";
-import Container from "../components/container";
-import Loading from "../components/loading";
+import SecondaryButton from "../../../../components/buttons/secondary-button";
+import { CardButtons, CardHeader } from "../../../../components/card";
+import Container from "../container";
+import Loading from "../loading";
 
 function Verified({ getNew, apply }) {
 	const { loading, error, applied } = apply;

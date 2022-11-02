@@ -1,7 +1,7 @@
 import { Check, Slash } from "lucide-react";
-import SecondaryButton from "../../../components/buttons/secondary-button";
-import { CardButtons, CardHeader } from "../../../components/card";
-import Container from "../components/container";
+import SecondaryButton from "../../../../components/buttons/secondary-button";
+import { CardButtons, CardHeader } from "../../../../components/card";
+import Container from "../container";
 
 function NoAdvertisement({ getNew }) {
 	return (
