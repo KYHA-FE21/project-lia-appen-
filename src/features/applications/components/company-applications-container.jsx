@@ -18,15 +18,28 @@ const CompanyApplicationsContainer = ({ id }) => {
 	const [toContact, setToContact] = useState([]);
 	const [toReview, setToReview] = useState([]);
 
+	function sortByBadges(a, b) {
+		const badges = [...advertisement.attribute.badges].map((item) => item.toUpperCase());
+		const aBadges = [...a.attribute.badges].map((item) => item.toUpperCase()).filter((item) => badges.includes(item));
+		const bBadges = [...b.attribute.badges].map((item) => item.toUpperCase()).filter((item) => badges.includes(item));
+		if (aBadges.length < bBadges.length) {
+			return 1;
+		}
+		if (aBadges.length > bBadges.length) {
+			return -1;
+		}
+		return 0;
+	}
+
 	useEffect(() => {
 		const controller = new AbortController();
 		if (advertisement && !controller.signal.aborted) {
 			const { applicants } = advertisement;
 			setToContact(() => {
-				return applicants.filter((applicant) => applicant.applicant.accepted);
+				return applicants.filter((applicant) => applicant.applicant.accepted).sort(sortByBadges);
 			});
 			setToReview(() => {
-				return applicants.filter((applicant) => !applicant.applicant.accepted);
+				return applicants.filter((applicant) => !applicant.applicant.accepted).sort(sortByBadges);
 			});
 		}
 		return () => {
