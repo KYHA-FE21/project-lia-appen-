@@ -1,14 +1,13 @@
 import { useContext } from 'react'
 import { Navigate, Outlet, useLocation} from "react-router-dom";
-import { UserContext } from './context';
+import { AuthContext } from './context';
 
 const ProtectedRoutes = ({allowedRole}) => {
 
-	const auth = useContext(UserContext);
+	const auth = useContext(AuthContext);
 	const location = useLocation();
 
-	console.log("userContext", auth, allowedRole);
-
+	console.log('context', auth)
 	return (
 		allowedRole.includes(auth.role) ?
 		<Outlet /> :
