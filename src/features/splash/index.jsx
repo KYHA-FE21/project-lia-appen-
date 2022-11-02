@@ -7,39 +7,38 @@ import ProseParagraph from "./components/prose-paragraph";
 
 import SalesPitchSection from "./components/sections/sales-pitch";
 import Card, { CardHeader } from "../../components/card";
-import { Rocket } from "lucide-react";
+import { ArrowDownCircle } from "lucide-react";
+import { useRef } from "react";
 
 function Splash() {
+	const infoElementRef = useRef();
+
 	return (
-		<FlexContainer
-			direction="col"
-			gap="16"
-			className="items-stretch splash-mb-2"
-		>
-			<div className="splash-hero">
+		<FlexContainer direction="col" gap="0" className="items-stretch">
+			<div className="splash-hero min-h-screen items-center flex">
 				<FlexContainer
-					gap="4"
+					gap="16"
 					direction="col"
-					desktopDirection="row"
-					className="p-3 splash-cards-max-width-xl min-h-screen md:mx-auto text-white"
-					style={{ position: 'relative' }}
+					className="p-3 md:p-16 splash-cards-max-width-xl md:mx-auto text-white items-center relative"
 				>
 					<FlexContainer
 						direction="col"
-						className="flex-1 flex items-center justify-center gap-6"
+						className="flex-1 blur splash-card-bg-white p-16 flex items-center justify-center gap-6 rounded-md p-3 md:p-16"
 					>
-						<h1 className="splash-mb-2 h-16 md:h-32 text-3xl md:text-6xl tracking-tighter place-self-stretch">
+						<h1 className="place-self-stretch md:place-self-center splash-mb-2 h-16 text-3xl md:text-6xl tracking-tighter">
 							<span>Hitta din </span>
 							<AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
 						</h1>
 
-						<ProseParagraph className="my-6 tracking text-xl">
+						<ProseParagraph textAlign="left" className="my-6 tracking text-xl">
 							Här kan du som student hitta en LIA-plats, och som företag hitta
 							dina framtida 🌟 <i>superstars</i>.<strong> Helt gratis!</strong>
 						</ProseParagraph>
 
-						<FlexContainer direction="col" className="w-full" gap="4">
-							<CardHeader className="text-2xl place-self-center">Jag letar efter</CardHeader>
+						<FlexContainer direction="col" className="w-full md:px-16" gap="4">
+							<CardHeader className="text-2xl text-center place-self-center font-display">
+								Jag letar efter
+							</CardHeader>
 							<FlexContainer gap="4" className="items-stretch">
 								<LinkButton className="text-base p-4" href="/signup">
 									Student
@@ -50,23 +49,35 @@ function Splash() {
 							</FlexContainer>
 						</FlexContainer>
 					</FlexContainer>
-					<FlexContainer className="flex-1 justify-center items-center">
-						<Rocket size={128} />
+					<FlexContainer
+						onClick={() =>
+							infoElementRef.current.scrollIntoView({ behavior: "smooth" })
+						}
+						direction="col"
+						className="place-self-stretch items-center cursor-pointer"
+					>
+						<ArrowDownCircle size={32} />
 					</FlexContainer>
 				</FlexContainer>
 			</div>
 
-			<SalesPitchSection />
+			<FlexContainer
+				direction="col"
+				gap="16"
+				className="pt-16 splash-background-2"
+				id="info"
+				innerRef={infoElementRef}
+			>
+				<SalesPitchSection />
 
-			<FlexContainer direction="col" className="mx-4 items-center mb-16">
-				<Card className="splash-cards-max-width-xl">
-					<CardHeader className="place-self-center">
+				<FlexContainer direction="col" className="mx-4 items-center mb-16">
+					<Card className="splash-cards-max-width-xl text-center gap-5 p-4">
 						<strong>Vad väntar du på?</strong>
-					</CardHeader>
-					<LinkButton href="/signup" className="p-4 text-lg">
-						Registrera dig!
-					</LinkButton>
-				</Card>
+						<LinkButton href="/signup" className="p-4 text-lg">
+							Registrera dig!
+						</LinkButton>
+					</Card>
+				</FlexContainer>
 			</FlexContainer>
 		</FlexContainer>
 	);
