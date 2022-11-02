@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/auth.scss";
 import { Mail, Lock } from "lucide-react";
 import Logo from "../components/logo";
@@ -9,12 +9,15 @@ import InputField from "../../../components/input-field";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../../context';
 
 const Signin = () => {
 	const [localError, setLocalError] = React.useState(null);
 	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
+
+	const authContext = useContext(AuthContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -23,7 +26,11 @@ const Signin = () => {
 
 	const navigate = useNavigate();
 	React.useEffect(() => {
-		if (data) navigate("/profile");
+		if (data) {
+			authContext.role = 'student'
+			authContext.token = data
+			navigate("/profile");
+		}
 	}, [data]);
 
 	React.useEffect(() => {

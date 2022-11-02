@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/auth.scss";
 import { Mail, Lock } from "lucide-react";
 import Logo from "../components/logo";
@@ -11,6 +11,7 @@ import useFetch from "../hooks/use-fetch";
 import { useNavigate } from "react-router-dom";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
+import { AuthContext } from '../../../context';
 
 const Signup = () => {
 	const [localError, setLocalError] = React.useState(null);
@@ -20,6 +21,8 @@ const Signup = () => {
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
 
+	const authContext = useContext(AuthContext);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		execute("/user/signup", { email, password });
@@ -27,7 +30,11 @@ const Signup = () => {
 
 	const navigate = useNavigate();
 	React.useEffect(() => {
-		if (data) navigate("/profile");
+		if (data) {
+			authContext.role = 'student';
+			authContext.token = data
+			navigate("/profile");
+		}
 	}, [data]);
 
 	React.useEffect(() => {
