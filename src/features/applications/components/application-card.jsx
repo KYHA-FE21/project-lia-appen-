@@ -34,7 +34,13 @@ function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonO
 					{ icon: <CheckCircle size="20" />, children: work_type },
 				]}
 			/>
-			<CardBadges>{generateBadges(badges, badges, { className: "flex-1" })}</CardBadges>
+			<CardBadges>
+				{generateBadges(
+					[...badges].map((item) => item.toUpperCase()),
+					[...badges].map((item) => item.toUpperCase()),
+					{ className: "flex-1" }
+				)}
+			</CardBadges>
 			<CardButtons>
 				{buttons.map((button, index) => (
 					<SecondaryButton key={button + index} {...button} />
