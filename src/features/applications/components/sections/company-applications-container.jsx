@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-import useAdvertisement from "../hooks/advertisement";
+import useAdvertisement from "../../hooks/advertisement";
 
 import { Check, Loader, X } from "lucide-react";
 
-import ApplicationCard from "./application-card";
-import Modal from "./modal";
+import ApplicationCard from "../application-card";
+import Modal from "../modal";
 
-import patchApplicant from "../api/patch-applicant";
+import patchApplicant from "../../api/patch-applicant";
 
 const CompanyApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
@@ -101,7 +101,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 				key={item.applicant.id}
 				index={index}
 				array={array}
-				advertisement={advertisement}
+				attribute={item.attribute}
 				readMoreButtonOnClick={readMoreButtonOnClick}
 				buttons={[
 					{

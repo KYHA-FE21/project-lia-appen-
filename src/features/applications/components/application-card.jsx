@@ -5,8 +5,7 @@ import SecondaryButton from "../../../components/buttons/secondary-button";
 import Card, { CardBadges, CardButtons, CardHeader } from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
 
-function ApplicationCard({ index, array, advertisement, buttons, readMoreButtonOnClick }) {
-	const { attribute } = array[index];
+function ApplicationCard({ index, array, attribute, buttons, readMoreButtonOnClick }) {
 	const { badges, profession, period, location, work_type } = attribute;
 	const [fromDate, toDate] = period;
 	return (
