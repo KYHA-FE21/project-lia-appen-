@@ -31,7 +31,13 @@ function Information({ advertisementData, setAction, user, apply }) {
 				]}
 			/>
 			<HorizontalRow className="px-3 opacity-3" />
-			<CardBadges className="px-3">{generateBadges(badges, user.attribute.badges, { className: "flex-1" })}</CardBadges>
+			<CardBadges className="px-3">
+				{generateBadges(
+					[...badges].map((item) => item.toUpperCase()),
+					[...user.attribute.badges].map((item) => item.toUpperCase()),
+					{ className: "flex-1" }
+				)}
+			</CardBadges>
 			<HorizontalRow className="px-3 opacity-3" />
 			<InfoStats statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />

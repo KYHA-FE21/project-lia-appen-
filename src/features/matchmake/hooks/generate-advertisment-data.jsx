@@ -45,6 +45,7 @@ function useGenerateAdvertisementData(user) {
 	async function getNewAdvertisement(user) {
 		setLoading(true);
 		setError(null);
+		if (!user.id) return;
 		return setTimeout(async () => {
 			/**
 			 * Get attribute matching user preferences *
@@ -82,11 +83,14 @@ function useGenerateAdvertisementData(user) {
 				}
 				const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
 				if (!filteredAdvertisements.length) return setAdvertisementData(false);
+				const badges = [...user.attribute.badges].map((item) => item.toUpperCase());
 				filteredAdvertisements.sort((a, b) => {
-					if (a.id > b.id) {
+					const aBadges = [...attributes.find((attribute) => attribute.id === a.attribute_id).badges].filter((item) => badges.includes(item));
+					const bBadges = [...attributes.find((attribute) => attribute.id === b.attribute_id).badges].filter((item) => badges.includes(item));
+					if (aBadges.length > bBadges.length) {
 						return -1;
 					}
-					if (a.id < b.id) {
+					if (aBadges.length < bBadges.length) {
 						return 1;
 					}
 					return 0;
