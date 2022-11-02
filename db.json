@@ -82,20 +82,6 @@
       "user_id": "",
       "accepted": false,
       "cooldown": ""
-    },
-    {
-      "advertisement_id": "1",
-      "user_id": "1",
-      "accepted": false,
-      "cooldown": 1367307531176,
-      "id": "0qVg1dv"
-    },
-    {
-      "advertisement_id": "3",
-      "user_id": "1",
-      "accepted": null,
-      "cooldown": 1667307660405,
-      "id": "Mt4KQst"
     }
   ],
   "attribute": [
@@ -108,8 +94,7 @@
       "profession": "Systemutvecklare",
       "badges": [
         "JS",
-        "HTML",
-        "CSS"
+        "REACT"
       ],
       "location": "Göteborg 1",
       "work_type": "Remote",
@@ -117,27 +102,6 @@
       "type": "advertisement",
       "decline_rate": "0.5",
       "response_time": "61",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "2",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Frontendutvecklare",
-      "badges": [
-        "JS",
-        "HTML",
-        "CSS"
-      ],
-      "location": "Gävleborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.5",
-      "response_time": "1",
       "openings": 2,
       "is_active": true
     },
@@ -151,8 +115,7 @@
       "badges": [
         "JS",
         "HTML",
-        "CSS",
-        "REACT"
+        "CSS"
       ],
       "location": "Stockholm 3",
       "work_type": "Hybird",
@@ -173,6 +136,7 @@
       "badges": [
         "JS",
         "HTML",
+        "CSS",
         "React"
       ],
       "location": "Göteborg",
