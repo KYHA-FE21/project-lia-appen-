@@ -148,10 +148,10 @@
       ],
       "profession": "Systemutvecklare",
       "badges": [
-        "HTML",
-        "CSS",
-        "JS",
-        "REACT"
+        "html",
+        "css",
+        "js",
+        "react"
       ],
       "location": "Göteborg",
       "work_type": "Remote",
@@ -211,7 +211,7 @@
       ],
       "profession": "Systemutvecklare",
       "badges": [
-        "JS",
+        "js",
         "HTML",
         "REACT",
         "CSS"
