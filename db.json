@@ -1,61 +1,75 @@
 {
-	"user": [
-		{
-			"id": "",
-			"name": "",
-			"email": "",
-			"password": "",
-			"bio": "",
-			"attribute_id": ""
-		}
-	],
-	"link": [
-		{
-			"id": "",
-			"title": "",
-			"url": "",
-			"user_id": ""
-		}
-	],
-	"questionnaire": [
-		{
-			"id": "",
-			"advertisement_id": "",
-			"body": "",
-			"alternatives": [""],
-			"correct_alternatives": [0]
-		}
-	],
-	"advertisement": [
-		{
-			"id": "",
-			"user_id": "",
-			"attribute_id": ""
-		}
-	],
-	"applicant": [
-		{
-      "id":"",
-			"advertisement_id": "",
-			"user_id": "",
-			"accepted":"", 
-      "date":""
-		}
-	],
-	"attribute": [
-		{
-			"id": "",
-			"period": ["", ""],
-			"profession": "",
-			"badges": [""],
-			"location": "",
-			"work_type": "",
-			"school": "",
-			"type": "",
-			"decline_rate": "0.5",
-			"response_time": "0.1",
-			"openings": 2,
-			"is_active": true
-		}
-	]
+  "user": [
+    {
+      "id": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "bio": "",
+      "attribute_id": ""
+    },
+    {
+      "email": "test@test.test",
+      "password": "uJH2nviv!",
+      "id": "Z9fmQP2"
+    }
+  ],
+  "link": [
+    {
+      "id": "",
+      "title": "",
+      "url": "",
+      "user_id": ""
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "body": "",
+      "alternatives": [
+        ""
+      ],
+      "correct_alternatives": [
+        0
+      ]
+    }
+  ],
+  "advertisement": [
+    {
+      "id": "",
+      "user_id": "",
+      "attribute_id": ""
+    }
+  ],
+  "applicant": [
+    {
+      "id": "",
+      "advertisement_id": "",
+      "user_id": "",
+      "accepted": "",
+      "date": ""
+    }
+  ],
+  "attribute": [
+    {
+      "id": "",
+      "period": [
+        "",
+        ""
+      ],
+      "profession": "",
+      "badges": [
+        ""
+      ],
+      "location": "",
+      "work_type": "",
+      "school": "",
+      "type": "",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
+      "openings": 2,
+      "is_active": true
+    }
+  ]
 }
