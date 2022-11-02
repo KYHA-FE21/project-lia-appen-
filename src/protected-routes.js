@@ -7,7 +7,6 @@ const ProtectedRoutes = ({allowedRole}) => {
 	const auth = useContext(AuthContext);
 	const location = useLocation();
 
-	console.log('context', auth)
 	return (
 		allowedRole.includes(auth.role) ?
 		<Outlet /> :

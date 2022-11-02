@@ -1,8 +1,5 @@
 import { createContext } from 'react';
 
-export const AuthContext = createContext([
-	'company',
-	'token',
-]);
+export const AuthContext = createContext([]);
 
 
