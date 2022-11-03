@@ -72,6 +72,7 @@ export default function useUser(id) {
 
 		delete user.attribute;
 
+		// TODO: Handle errors from these two requests.
 		const [userResp, attributeResp] = await Promise.all([
 			putUserByID(user.id, JSON.stringify(user)),
 			putAttributesByID(attribute.id, JSON.stringify(attribute)),
