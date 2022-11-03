@@ -2,15 +2,15 @@
  * @param {Response} resp
  * @returns {Promise<{ data: any | null, error?: Error }>}
  */
-export default async function handleResponse (resp) {
+export default async function handleResponse(resp) {
 	const res = {
 		data: null,
-	}
+	};
 
 	if (resp.status < 200 || resp.status >= 300) {
-		res.data.error = new Error(resp.statusText)
-		res.data.error.name = resp.status
-		return res
+		res.error = new Error(resp.statusText);
+		res.error.name = resp.status;
+		return res;
 	}
 
 	try {
@@ -19,5 +19,5 @@ export default async function handleResponse (resp) {
 		res.error = error;
 	}
 
-	return res
+	return res;
 }
