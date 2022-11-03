@@ -4,18 +4,21 @@ import { Navigate, useLocation } from "react-router-dom";
 import AuthContext from "./context";
 
 const ProtectedRoutes = ({ allowedTypes, children }) => {
-	const { user, loading } = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 	const location = useLocation();
 
 	return (
 		<>
-			{loading && <Loader className="spin" />}
-			{!loading &&
-				(allowedTypes.includes(user?.attribute?.type) ? (
+			{user?.loading && <Loader className="spin" />}
+
+			{user?.data && !user.loading &&
+				(allowedTypes.includes(user.data?.attribute?.type) ? (
 					children
 				) : (
-					<Navigate to="/signin" state={{ from: location }} replace />
+					<Navigate to="/" state={{ from: location }} replace />
 				))}
+
+			{user?.unauthenticated && <Navigate to="/signin" state={{ from: location }} replace />}
 		</>
 	);
 };
