@@ -42,11 +42,16 @@ export default function useUser(id) {
 			const user = await getUserByID(userID);
 
 			if (!user.data) {
-				setState((state) => ({ ...state, loading: false }));
+				setState((state) => ({ ...state, error: user.error, loading: false }));
 				return;
 			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
+
+			if (!attribute.data) {
+				setState((state) => ({ ...state, error: attribute.error, loading: false }));
+				return;
+			}
 
 			if (!cancelled) {
 				const data = { ...user.data, attribute: attribute.data };
