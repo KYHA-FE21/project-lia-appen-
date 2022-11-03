@@ -9,7 +9,9 @@ $color-secondary: rgba(250, 250, 250, 0.5);
 
 //-------------------------------Password container
 .authSignupPasswordContainer {
-	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
 }
 //-------------------------------Password info
 .passwordInfo-container {
@@ -24,14 +26,10 @@ $color-secondary: rgba(250, 250, 250, 0.5);
 
 @media only screen and (min-width: 400px) {
 	.authSignupPasswordContainer {
-		display: flex;
+		flex-direction: row;
 
 		.globalInputContainer {
 			width: 50%;
-		}
-
-		.globalInputContainer:first-child {
-			margin-right: 0.5rem;
 		}
 	}
 }
