@@ -58,7 +58,7 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 						{ icon: <CheckCircle size="20" />, children: work_type },
 					]}
 				/>
-				{link.length && <LinkGrid className="text-tiny" iconSize="20" entries={link} />}
+				{link.length > 0 && <LinkGrid className="text-tiny" iconSize="20" entries={link} />}
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
 				<CardButtons className="flex mt-auto">
 					{buttons.map((button, index) => (

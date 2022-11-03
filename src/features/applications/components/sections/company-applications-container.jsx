@@ -137,45 +137,50 @@ const CompanyApplicationsContainer = ({ id }) => {
 	return (
 		<>
 			{loading && <Loader className="spin" />}
-			{!loading && error && error}
-			{!loading && !error && advertisement && (
+			{!loading && (
 				<>
-					<h1>Att kontakta - {toContact.length}</h1>
-					<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
-					<h1>Att granska - {toReview.length}/10</h1>
-					<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
-					{openModal && (
-						<Modal
-							setOpenModal={setOpenModal}
-							current={current}
-							buttons={[
-								{
-									icon: <X />,
-									onClick: () => {
-										denyButtonOnClick(current.index, current.array);
-									},
-									color: "white",
-									bgColor: "red",
-									className: "text-white w-full text-sm",
-									children: current.array === toReview ? "Tacka nej" : "Ta bort",
-								},
+					{error && error}
 
-								...(current.array === toReview
-									? [
-											{
-												icon: <Check />,
-												onClick: () => {
-													acceptButtonOnClick(current.index, current.array);
-												},
-												color: "white",
-												bgColor: "green",
-												className: "text-white w-full text-sm",
-												children: "Kontakta",
+					{!error && (
+						<>
+							<h1>Att kontakta - {toContact.length}</h1>
+							<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
+							<h1>Att granska - {toReview.length}/10</h1>
+							<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
+							{openModal && (
+								<Modal
+									setOpenModal={setOpenModal}
+									current={current}
+									buttons={[
+										{
+											icon: <X />,
+											onClick: () => {
+												denyButtonOnClick(current.index, current.array);
 											},
-									  ]
-									: []),
-							]}
-						/>
+											color: "white",
+											bgColor: "red",
+											className: "text-white w-full text-sm",
+											children: current.array === toReview ? "Tacka nej" : "Ta bort",
+										},
+
+										...(current.array === toReview
+											? [
+													{
+														icon: <Check />,
+														onClick: () => {
+															acceptButtonOnClick(current.index, current.array);
+														},
+														color: "white",
+														bgColor: "green",
+														className: "text-white w-full text-sm",
+														children: "Kontakta",
+													},
+											  ]
+											: []),
+									]}
+								/>
+							)}
+						</>
 					)}
 				</>
 			)}
