@@ -28,7 +28,6 @@ const useLocalStorage = (key) => {
 			console.error(error);
 		}
 	};
-
 	return { store, update, empty };
 };
 
