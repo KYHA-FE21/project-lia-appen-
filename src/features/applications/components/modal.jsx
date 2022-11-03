@@ -8,10 +8,21 @@ import LinkGrid from "./link-grid";
 
 const Modal = ({ setOpenModal, current, buttons }) => {
 	const { array, index } = current;
-	const applicant = array[index];
-	const { attribute, link, bio } = applicant;
+	const item = array[index];
+	const { attribute, link, bio } = getProps(item);
 	const { profession, badges, period, location, work_type } = attribute;
 	const [fromDate, toDate] = period;
+
+	function getProps(item) {
+		if (item.advertisement) {
+			const { attribute, user } = item.advertisement;
+			const { bio } = user;
+			const link = [];
+			return { attribute, bio, link };
+		}
+		return item;
+	}
+
 	return (
 		<>
 			<div
@@ -47,7 +58,7 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 						{ icon: <CheckCircle size="20" />, children: work_type },
 					]}
 				/>
-				<LinkGrid className="text-tiny" iconSize="20" entries={link} />
+				{link.length && <LinkGrid className="text-tiny" iconSize="20" entries={link} />}
 				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
 				<CardButtons className="flex mt-auto">
 					{buttons.map((button, index) => (
