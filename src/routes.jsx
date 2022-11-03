@@ -36,7 +36,6 @@ const AppRoutes = () => {
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Splash />}></Route>
-
 						<Route
 							path="/applications"
 							element={
@@ -85,7 +84,6 @@ const AppRoutes = () => {
 								</ProtectedRoutes>
 							}
 						/>
-
 						<Route path="/signin" element={<Signin />} />
 						<Route path="/signup" element={<Signup />} />
 					</Route>

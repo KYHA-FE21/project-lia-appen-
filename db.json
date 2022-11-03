@@ -35,11 +35,11 @@
 	],
 	"applicant": [
 		{
-			"id": "",
+      "id":"",
 			"advertisement_id": "",
 			"user_id": "",
-			"accepted": "",
-			"cooldown": ""
+			"accepted":"", 
+      "cooldown":""
 		}
 	],
 	"attribute": [

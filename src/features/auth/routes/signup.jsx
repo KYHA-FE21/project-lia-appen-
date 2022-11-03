@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/auth.scss";
 import { Mail, Lock } from "lucide-react";
 import Logo from "../components/logo";
