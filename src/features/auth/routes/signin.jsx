@@ -6,8 +6,7 @@ import Path from "../components/path";
 import External from "../components/external";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
-import usePOST from "../hooks/usePost";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
@@ -17,8 +16,7 @@ const Signin = () => {
 	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
-
-	const [store, setStore] = useLocalStorage("user", "");
+	const userStorage = useLocalStorage("user");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -28,7 +26,7 @@ const Signin = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			setStore("user", data);
+			userStorage.update({ id: data.id });
 			navigate("/profile");
 		}
 	}, [data]);

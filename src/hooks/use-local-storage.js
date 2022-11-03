@@ -1,73 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from "react";
 
-const useLocalStorage = (key, value) => {
+const useLocalStorage = (key) => {
+	const [store, setStore] = useState({});
 
-	const [store, setStore] = useState(() => {
-		if (typeof window === 'undefined') {
-			console.log(value)
-			return value
-		}
-
+	useEffect(() => {
 		try {
 			const item = window.localStorage.getItem(key);
-
-			return item ? JSON.parse(item) : value
-
-		} catch (error) {
-
-			console.log(error)
-
-			return value
+			setStore(item ? JSON.parse(item) : {});
+		} catch (err) {
+			console.error(err);
 		}
+	}, [key]);
 
-	})
-
-	const setValue = (key, value) => {
-
+	const update = (value) => {
 		try {
-			const giveStore = value instanceof Function ? value(store) : value;
-
-			//save
-			setStore(giveStore)
-
-			if (typeof window !== 'undefined') {
-				window.localStorage.setItem(key, JSON.stringify(giveStore))
-			}
-			
+			setStore(value);
+			window.localStorage.setItem(key, JSON.stringify(value));
 		} catch (error) {
-			console.log(error)
+			console.error(error);
 		}
-	 	
-	}
+	};
 
-	const emptyAll = () => {
-
+	const empty = (key) => {
 		try {
-			if(typeof window !== 'undefined') {
-				window.localStorage.clear();
-			}
+			window.localStorage.removeItem(key);
 		} catch (error) {
-			console.log(error)
+			console.error(error);
 		}
-		
-	}
+	};
+	return { store, update, empty };
+};
 
-	const empty = (value) => {
-
-		try {
-
-			if(typeof window !== 'undefined') {
-				window.localStorage.removeItem(value);
-			}
-			
-		} catch (error) {
-			console.log(error)
-		}
-		
-	}
-
-	return [store, setValue, {emptyAll, empty}] 
-	
-}
-
-export default useLocalStorage
+export default useLocalStorage;

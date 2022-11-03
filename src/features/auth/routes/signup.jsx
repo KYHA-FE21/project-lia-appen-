@@ -21,7 +21,9 @@ const Signup = () => {
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
 
-	const handleSubmit = (e) => {
+	const userStorage = useLocalStorage("user");
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		execute("/user/signup", { email, password });
 	};
@@ -29,7 +31,7 @@ const Signup = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			setStore("user", data);
+			userStorage.update({ id: data.id });
 			navigate("/profile");
 		}
 	}, [data]);
