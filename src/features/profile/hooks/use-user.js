@@ -23,33 +23,39 @@ const defaultUser = {
 };
 
 export default function useUser(id) {
-	const [loading, setLoading] = useState(true);
-	const [data, setData] = useState(null);
+	const [state, setState] = useState({
+		loading: true,
+	});
+
 	const [lastUpdate, setLastUpdate] = useState(Date.now());
 	const [userID, setUserID] = useState(id);
 
 	useEffect(() => {
-		setLoading(true);
-		if (!userID) {
-			setLoading(false);
-			return;
-		}
+		setState((state) => ({ ...state, loading: true }));
+
+		if (!userID) return;
+
 		let cancelled = false;
 
 		async function getUserAndAttributes() {
 			const user = await getUserByID(userID);
 
 			if (!user.data) {
-				setLoading(false);
+				setState({ error: user.error, data: null, loading: false });
 				return;
 			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
-			if (!cancelled) {
-				setData({ ...user.data, attribute: attribute.data });
+			if (!attribute.data) {
+				setState({ error: attribute.error, data: null, loading: false });
+				return;
 			}
-			setLoading(false);
+
+			if (!cancelled) {
+				const data = { ...user.data, attribute: attribute.data };
+				setState({ data, loading: false });
+			}
 		}
 
 		getUserAndAttributes();
@@ -65,6 +71,7 @@ export default function useUser(id) {
 
 		delete user.attribute;
 
+		// TODO: Handle errors from these two requests.
 		const [userResp, attributeResp] = await Promise.all([
 			putUserByID(user.id, JSON.stringify(user)),
 			putAttributesByID(attribute.id, JSON.stringify(attribute)),
@@ -76,9 +83,8 @@ export default function useUser(id) {
 	}
 
 	return {
-		data,
+		state,
 		update,
-		loading,
 		loadByID: setUserID,
 	};
 }
