@@ -24,13 +24,16 @@ const defaultUser = {
 
 export default function useUser(id) {
 	const [loading, setLoading] = useState(true);
-	const [data, setData] = useState(defaultUser);
+	const [data, setData] = useState(null);
 	const [lastUpdate, setLastUpdate] = useState(Date.now());
 	const [userID, setUserID] = useState(id);
 
 	useEffect(() => {
 		setLoading(true);
-		if (!userID) return;
+		if (!userID) {
+			setLoading(false);
+			return;
+		}
 		let cancelled = false;
 
 		async function getUserAndAttributes() {

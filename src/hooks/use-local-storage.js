@@ -21,7 +21,7 @@ const useLocalStorage = (key) => {
 		}
 	};
 
-	const empty = (key) => {
+	const empty = () => {
 		try {
 			window.localStorage.removeItem(key);
 		} catch (error) {

@@ -19,7 +19,7 @@ import AuthContext from "./context";
 const AppRoutes = () => {
 	const [user, setUser] = useState({});
 	const userStorage = useLocalStorage("user");
-	const { data, loadByID } = useUser();
+	const { data, loadByID, loading } = useUser();
 
 	useEffect(() => {
 		const id = userStorage.store.id;
@@ -27,11 +27,12 @@ const AppRoutes = () => {
 	}, [userStorage.store]);
 
 	useEffect(() => {
-		if (data) setUser(data);
-	}, [data]);
+		if (data?.id) setUser(data);
+		else userStorage.empty();
+	}, [data, loading]);
 
 	return (
-		<AuthContext.Provider value={user}>
+		<AuthContext.Provider value={{ user, loading }}>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Layout />}>
