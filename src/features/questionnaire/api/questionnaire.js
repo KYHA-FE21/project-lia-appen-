@@ -1,31 +1,9 @@
+import handleResponse from "../../../utils/handle-response";
+
 const API_URL = process.env.REACT_APP_BACKEND_ENDPOINT;
 const API_ENDPOINT = "questionnaire";
 
 export const MAX_QUESTIONNAIRES = 5;
-
-/**
- * @param {Response} resp
- * @returns {Promise<{ data: any | null, error?: Error }>}
- */
-export async function handleResponse (resp) {
-	let res = {
-		data: null,
-	}
-
-	if (resp.status < 200 || resp.status >= 300) {
-		res.data.error = new Error(resp.statusText)
-		res.data.error.name = resp.status
-		return res
-	}
-
-	try {
-		res.data = await resp.json();
-	} catch (error) {
-		res.error = error;
-	}
-
-	return res
-}
 
 /**
  * @param {string} advertisement_id
