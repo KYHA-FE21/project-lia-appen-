@@ -9,6 +9,7 @@ import External from "../components/external";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
 import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
 
@@ -20,6 +21,8 @@ const Signup = () => {
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
 
+	const userStorage = useLocalStorage("user");
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		execute("/user/signup", { email, password });
@@ -27,7 +30,10 @@ const Signup = () => {
 
 	const navigate = useNavigate();
 	React.useEffect(() => {
-		if (data) navigate("/profile");
+		if (data) {
+			userStorage.update({ id: data.id });
+			navigate("/profile");
+		}
 	}, [data]);
 
 	React.useEffect(() => {
