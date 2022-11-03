@@ -1,18 +1,23 @@
-import React from "react";
 import "../styles/components.scss";
 
-const TextArea = ({ label, placeholder, rows, id, value, setValue }) => {
+const TextArea = ({
+	label,
+	id,
+	value,
+	handleChange,
+	className = "",
+	...restProps
+}) => {
 	return (
-		<div className="my-6">
+		<div className={`my-6 ${className}`}>
 			<label htmlFor={id}>{label}</label>
 			<div className="textareaContainer shadow p-2 mt-2">
 				<textarea
 					className="w-full"
 					id={id}
-					rows={rows}
-					placeholder={placeholder}
 					value={value}
-					onChange={(e) => setValue(e.target.value)}
+					onChange={handleChange}
+					{...restProps}
 				></textarea>
 			</div>
 		</div>
