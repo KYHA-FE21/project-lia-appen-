@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
-import { AuthContext } from "../../../context";
 
 const Signup = () => {
 	const [localError, setLocalError] = React.useState(null);
@@ -22,7 +21,6 @@ const Signup = () => {
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
 
-	const authContext = useContext(AuthContext);
 	const userStorage = useLocalStorage("user");
 
 	const handleSubmit = (e) => {
@@ -33,8 +31,6 @@ const Signup = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			authContext.role = "student";
-			authContext.token = data;
 			userStorage.update({ id: data.id });
 			navigate("/profile");
 		}

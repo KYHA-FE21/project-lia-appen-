@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/auth.scss";
 import { Mail, Lock } from "lucide-react";
 import Logo from "../components/logo";
@@ -10,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../context";
 
 const Signin = () => {
 	const [localError, setLocalError] = React.useState(null);
@@ -19,8 +17,6 @@ const Signin = () => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const userStorage = useLocalStorage("user");
-
-	const authContext = useContext(AuthContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,8 +26,6 @@ const Signin = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			authContext.role = "student";
-			authContext.token = data;
 			userStorage.update({ id: data.id });
 			navigate("/profile");
 		}
