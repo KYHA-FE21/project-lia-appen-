@@ -9,9 +9,10 @@ import External from "../components/external";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
 import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
-import { AuthContext } from '../../../context';
+import { AuthContext } from "../../../context";
 
 const Signup = () => {
 	const [localError, setLocalError] = React.useState(null);
@@ -22,6 +23,7 @@ const Signup = () => {
 	const [notSame, setNotSame] = React.useState(false);
 
 	const authContext = useContext(AuthContext);
+	const userStorage = useLocalStorage("user");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -31,8 +33,9 @@ const Signup = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			authContext.role = 'student';
-			authContext.token = data
+			authContext.role = "student";
+			authContext.token = data;
+			userStorage.update({ id: data.id });
 			navigate("/profile");
 		}
 	}, [data]);
