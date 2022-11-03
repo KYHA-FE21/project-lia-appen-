@@ -39,6 +39,14 @@
       "password": "",
       "bio": "I'm a buss",
       "attribute_id": "5"
+    },
+    {
+      "id": "1",
+      "name": "Company 1",
+      "email": "",
+      "password": "",
+      "bio": "I'm a buss",
+      "attribute_id": "9"
     }
   ],
   "link": [
@@ -342,6 +350,27 @@
       "type": "advertisement",
       "decline_rate": "0.5",
       "response_time": "61",
+      "openings": 2,
+      "is_active": true
+    },
+    {
+      "id": "9",
+      "period": [
+        "123",
+        "456"
+      ],
+      "profession": "Frontendutvecklare",
+      "badges": [
+        "JS",
+        "HTML",
+        "CSS"
+      ],
+      "location": "Göteborg",
+      "work_type": "Remote",
+      "school": "",
+      "type": "company",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
       "openings": 2,
       "is_active": true
     }
