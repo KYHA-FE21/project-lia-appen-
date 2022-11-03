@@ -23,33 +23,35 @@ const defaultUser = {
 };
 
 export default function useUser(id) {
-	const [loading, setLoading] = useState(true);
-	const [data, setData] = useState(null);
+	const [state, setState] = useState({
+		loading: true,
+		error: null,
+		data: defaultUser,
+	});
+
 	const [lastUpdate, setLastUpdate] = useState(Date.now());
 	const [userID, setUserID] = useState(id);
 
 	useEffect(() => {
-		setLoading(true);
-		if (!userID) {
-			setLoading(false);
-			return;
-		}
+		setState((state) => ({ ...state, loading: true }));
+		if (!userID) return;
+
 		let cancelled = false;
 
 		async function getUserAndAttributes() {
 			const user = await getUserByID(userID);
 
 			if (!user.data) {
-				setLoading(false);
+				setState((state) => ({ ...state, loading: false }));
 				return;
 			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
 			if (!cancelled) {
-				setData({ ...user.data, attribute: attribute.data });
+				const data = { ...user.data, attribute: attribute.data };
+				setState((state) => ({ ...state, data, loading: false }));
 			}
-			setLoading(false);
 		}
 
 		getUserAndAttributes();
@@ -76,9 +78,8 @@ export default function useUser(id) {
 	}
 
 	return {
-		data,
+		state,
 		update,
-		loading,
 		loadByID: setUserID,
 	};
 }
