@@ -1,85 +1,55 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 import "../styles/quest.scss";
 import { Edit } from "lucide-react";
 import Button from "../../../components/buttons";
 import BtnSecondary from "../../../components/buttons/secondary-button";
-import useQuestionnaires from "../hooks/use-questionnaires";
-import i18n from "../i18n";
-import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
 
 const Overview = () => {
 	const { id } = useParams();
-	const navigate = useNavigate();
-
 	// API call to get any pre questions based on this application id
-	const { questionnaires, createQuestionnaire } = useQuestionnaires({
-		advertisement_id: id,
-	});
+	// If existing questions, render these below
 
-	async function handleCreateQuestionnaire() {
-		const response = await createQuestionnaire({ advertisement_id: id });
-
-		if (response.data) navigate(`/questionnaire/editor/${response.data.id}`);
-	}
+	// Mock
+	const questions = [{ id: "2", option: "3 svarsalternativ" }];
 
 	return (
-		<div className="flex justify-center h-full">
-			<div className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12">
+		<div className="flex justify-center">
+			<div className="questContent flex flex-col justify-between p-12">
 				<div className="overviewUpperContent">
 					<div className="mb-8 flex justify-center">
 						<div>
-							<h1 className="text-2xl mb-3 text-center">
-								{i18n()["Advertisement questions"]}
-							</h1>
-							<span className="text-sm my-3 block">ID: {id}</span>
-							<p className="text-justify leading-normal">
-								{i18n()["Overview.pitch"]}
+							<h1 className="text-2xl mb-3 text-center">Annons formulär</h1>
+							<p className="text-center">
+								Med vårt verktyg för att skapa ansökningsformulär kan du enkelt skapa verifieringsfrågor för din annons.
+								Varje sökande tilldelas sedan detta formulär under sin ansökningsprocess.
 							</p>
 						</div>
 					</div>
-
-					<Button
-						className="w-full mb-6"
-						onClick={handleCreateQuestionnaire}
-						disabled={questionnaires.length === MAX_QUESTIONNAIRES}
-					>
-						{i18n().Add}
-					</Button>
-
-					<div className="flex flex-col gap-4">
-						<h2 className="text-base">
-							{i18n()
-								["%1/%2 questions"].replace("%1", questionnaires.length)
-								.replace("%2", MAX_QUESTIONNAIRES)}
-						</h2>
-						{questionnaires.map((item, i) => (
-							<Link
-								className="no-underline text-white"
-								key={item.id}
-								to={`/questionnaire/editor/${item.id}`}
-							>
+					<Link className="no-underline" to={`/questionnaire/create/${id}`}>
+						<Button children="LÄGG TILL" className="w-full mb-6" />
+					</Link>
+					<div>
+						<h2 className="text-base mb-4">1/5 frågor</h2>
+						{questions.map((item, i) => (
+							<Link className="no-underline text-white" key={item.id + i} to={`/questionnaire/create/${item.id}`}>
 								<BtnSecondary
+									children={`Fråga ${i + 1} - ${item.option}`}
 									icon={<Edit />}
 									className="w-full bg-primary"
 									color="white"
 									bgColor="primary"
-								>
-									{i18n()
-										["Question %1 - %2 alternatives"].replace("%1", i + 1)
-										.replace("%2", item.alternatives.length)}
-								</BtnSecondary>
+								/>
 							</Link>
 						))}
 					</div>
 				</div>
 				<div className="overviewLowerContent flex mb-4">
 					<Link className="no-underline mr-1" to="/profile">
-						<Button className="w-full">{i18n()["Go back"]}</Button>
+						<Button children="TILLBAKA" className="w-full" />
 					</Link>
 					<Link className="no-underline ml-1" to="/profile">
-						<Button disabled={true} className="w-full">
-							{i18n().Continue}
-						</Button>
+						<Button children="FORTSÄTT" disabled={true} className="w-full" />
 					</Link>
 				</div>
 			</div>
