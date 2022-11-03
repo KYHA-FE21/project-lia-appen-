@@ -6,7 +6,7 @@ const useLocalStorage = (key) => {
 	useEffect(() => {
 		try {
 			const item = window.localStorage.getItem(key);
-			setData(item ? JSON.parse(item) : {});
+			setData(item ? JSON.parse(item) : null);
 		} catch (err) {
 			console.error(err);
 		}
