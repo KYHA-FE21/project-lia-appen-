@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/components.scss";
 
-const logo = () => {
+const Logo = () => {
 	return (
 		<div className="mb-16 flex justify-center w-full">
 			<img src="/logo.svg" alt="Logo" className="authLogo" />
@@ -9,4 +9,4 @@ const logo = () => {
 	);
 };
 
-export default logo;
+export default Logo;
