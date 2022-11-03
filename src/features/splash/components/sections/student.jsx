@@ -34,16 +34,14 @@ function StudentSection() {
 				id="student"
 				style={{ scrollMargin: "20px" }}
 			>
-				<div className="splash-cards-max-width-xl">
-					<Card>
-						<CardHeader>
-							<strong>Student</strong>
-						</CardHeader>
-						<ProseParagraph>
+				<div className="splash-cards-max-width-xl text-center">
+					<div className="flex flex-col gap-3">
+						<strong className="text-xl">Student</strong>
+						<ProseParagraph textAlign="center">
 							Efter att du har skapat din gratis profil, får du möjligheten att
 							ansöka till företag som matchar dina preferenser.
 						</ProseParagraph>
-					</Card>
+					</div>
 				</div>
 			</FlexContainer>
 
@@ -55,7 +53,7 @@ function StudentSection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<Card className="flex-1">
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Söker frontend studenter!</strong>
 							</CardHeader>
@@ -68,11 +66,11 @@ function StudentSection() {
 								entries={companyCard.infoGridEntries}
 								className="text-sm"
 							/>
-							<CardButtons className="text-white">
+							<CardButtons className="text-black">
 								<SecondaryButton
 									className="flex-1"
 									bgColor=""
-									color="white"
+									color="black"
 									icon={<ArrowRight />}
 								>
 									Nästa
@@ -88,16 +86,14 @@ function StudentSection() {
 							</CardButtons>
 						</Card>
 
-						<Card className="flex-1">
-							<CardHeader>
-								<strong>Matchar företaget dig?</strong>
-							</CardHeader>
-							<ProseParagraph>
+						<div className="flex flex-col gap-3 flex-1 text-center p-3">
+							<strong>Matchar företaget dig?</strong>
+							<ProseParagraph className="center">
 								När du har läst igenom företagets preferenser och tycker att det
 								passar dig, får du chansen att besvara frågor som är skrivna av
 								företaget.
 							</ProseParagraph>
-						</Card>
+						</div>
 					</FlexContainer>
 				</div>
 			</FlexContainer>
@@ -110,19 +106,38 @@ function StudentSection() {
 						desktopDirection="row"
 						gap="4"
 					>
-						<Card className="flex-1 overflow-hidden">
+						<div className="flex flex-col gap-3 flex-1 text-center p-3">
+							<strong>Lyckas du med frågorna?</strong>
+							<ProseParagraph>
+								<span>
+									Om dina svar stämmer överrens med vad företaget frågar, får du
+									tillgång att skicka din profil till företaget.{" "}
+								</span>
+								<strong>
+									Vi skickar bara dina preferenser, din profiltext och länkar du
+									vill skicka med som företaget ska ta ställning till.
+								</strong>
+								<span> Sedan är det bara att vänta på svar. 🤞</span>
+							</ProseParagraph>
+						</div>
+						<Card className="flex-1 gap-5">
 							<CardHeader>
 								<strong>Fråga #1</strong>
 							</CardHeader>
-							<div className="bg-black -m-3 text-white">
-								<pre className="p-3 py-6">
+							<div className="flex bg-black -m-3 text-white">
+								<pre className="splash-pre p-3 py-6 w-full">
 									let i;
 									{"\r\n"}for (i=1; i &lt;= 100; i++) {"{"}
-									{"\r\n"} if (i%15 == 0) document.write("FizzBuzz" + " ");
-									{"\r\n"} else if ((i%3) == 0) document.write("Fizz" + " ");
-									{"\r\n"} else if ((i%5) == 0)
-									{"\r\n"} document.write("Buzz" + " ");
-									{"\r\n"} else document.write(i + " ");
+									{"\r\n"}
+									{"  "}if (i%15 == 0) document.write("FizzBuzz" + " ");
+									{"\r\n"}
+									{"  "}else if ((i%3) == 0) document.write("Fizz" + " ");
+									{"\r\n"}
+									{"  "}else if ((i%5) == 0)
+									{"\r\n"}
+									{"  "}document.write("Buzz" + " ");
+									{"\r\n"}
+									{"  "}else document.write(i + " ");
 									{"\r\n"}
 									{"}"}
 								</pre>
@@ -169,40 +184,19 @@ function StudentSection() {
 									</label>
 								</div>
 							</FlexContainer>
-							<CardButtons className="text-white">
+							<CardButtons className="text-black">
 								<SecondaryButton
 									className="flex-1"
 									bgColor=""
-									color="white"
+									color="black"
 									icon={<ArrowRight />}
 								>
 									Tillbaka
 								</SecondaryButton>
-								<SecondaryButton
-									className="flex-1"
-									bgColor="primary"
-									color="white"
-								>
+								<SecondaryButton className="flex-1">
 									Nästa fråga
 								</SecondaryButton>
 							</CardButtons>
-						</Card>
-
-						<Card className="flex-1">
-							<CardHeader>
-								<strong>Lyckas du med frågorna?</strong>
-							</CardHeader>
-							<ProseParagraph>
-								<span>
-									Om dina svar stämmer överrens med vad företaget frågar, får du
-									tillgång att skicka din profil till företaget.{" "}
-								</span>
-								<strong>
-									Vi skickar bara dina preferenser, din profiltext och länkar du
-									vill skicka med som företaget ska ta ställning till.
-								</strong>
-								<span> Sedan är det bara att vänta på svar. 🤞</span>
-							</ProseParagraph>
 						</Card>
 					</FlexContainer>
 				</div>
