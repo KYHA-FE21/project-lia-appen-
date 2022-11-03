@@ -23,7 +23,7 @@ const Signup = () => {
 
 	const userStorage = useLocalStorage("user");
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		execute("/user/signup", { email, password });
 	};
