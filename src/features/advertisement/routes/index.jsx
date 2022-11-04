@@ -48,7 +48,7 @@ const Advertisement = () => {
 						{!error && (
 							<div className="flex flex-wrap justify-center gap-6">
 								{data.map((add) => (
-									<AdvCard key={add.id}>
+									<AdvCard key={add.id} add={add}>
 										<Button
 											className="w-full"
 											onClick={() => {
