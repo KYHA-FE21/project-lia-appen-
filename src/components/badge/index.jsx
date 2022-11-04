@@ -1,4 +1,4 @@
-const Badge = ({ children, disabled = false, className = "", ...restProps }) => {
+const Badge = ({ children, disabled = false, className = "", icon, ...restProps }) => {
 	const opacity = disabled ? "opacity-5" : "opacity-10";
 	return (
 		<div
@@ -6,6 +6,7 @@ const Badge = ({ children, disabled = false, className = "", ...restProps }) => 
 			{...restProps}
 		>
 			<span className="mx-1">{children}</span>
+			{icon}
 		</div>
 	);
 };
