@@ -79,7 +79,7 @@ const Modal = ({
 				<form className="flex flex-col justify-between h-full" onSubmit={handleSubmit}>
 					<div>
 						<div className="mt-8">
-							<InputLabel children="Yrke" />
+							<InputLabel>Yrke</InputLabel>
 							<InputField
 								required
 								icon={<User size={22} className="text-grey" />}
@@ -89,7 +89,7 @@ const Modal = ({
 							/>
 						</div>
 						<div className="mt-8">
-							<InputLabel children="Plats" />
+							<InputLabel>Plats</InputLabel>
 							<InputField
 								required
 								placeholder="Örebro"
@@ -99,7 +99,7 @@ const Modal = ({
 							/>
 						</div>
 						<div className="mt-8">
-							<InputLabel children="Period" />
+							<InputLabel>Period</InputLabel>
 							<div className="location-contaier gap-3">
 								<InputField
 									required
@@ -120,7 +120,7 @@ const Modal = ({
 							</div>
 						</div>
 						<div className="mt-8">
-							<InputLabel children="Kunskaper" />
+							<InputLabel>Kunskaper</InputLabel>
 							<div className="flex">
 								<InputField
 									placeholder="Typescript"
@@ -135,20 +135,21 @@ const Modal = ({
 										setBadge("");
 									}}
 									type="button"
-									children={<Plus size={20} className="text-white" />}
 									className="ml-2 mt-3"
-								/>
+								>
+									<Plus size={20} className="text-white" />
+								</Button>
 							</div>
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
 								{badges.map((item, i) => (
 									<div key={item + i} onClick={() => setBadges(badges.filter((badge) => badge !== item))}>
-										<Badges children={item} className="text-white m-2 adv-badges" />
+										<Badges className="text-white m-2 adv-badges">{item}</Badges>
 									</div>
 								))}
 							</div>
 						</div>
 						<div className={`${badges.length ? "mt-4" : "mt-8"} `}>
-							<InputLabel children="Arbetsform" />
+							<InputLabel>Arbetsform</InputLabel>
 							<Select
 								required
 								icon={<Globe2 size={22} className="text-grey" />}
@@ -157,7 +158,7 @@ const Modal = ({
 							/>
 						</div>
 						<div className="mt-8">
-							<InputLabel children="Antal" />
+							<InputLabel>Antal</InputLabel>
 							<InputField
 								required
 								placeholder="0"
@@ -172,13 +173,11 @@ const Modal = ({
 						<div className="text-center mt-8">Loading...</div>
 					) : (
 						<>
-							<Button className="w-full mt-8" children={patchData ? "Updatera" : "Skapa annons"} />
+							<Button className="w-full mt-8">{patchData ? "Updatera" : "Skapa annons"}</Button>
 							{patchData && (
-								<Button
-									onClick={handleRemove}
-									className="w-full mt-4 bg-red"
-									children={loading ? "Loading..." : "Ta bort"}
-								/>
+								<Button onClick={handleRemove} className="w-full mt-4 bg-red">
+									{loading ? "Loading..." : "Ta bort"}
+								</Button>
 							)}
 						</>
 					)}

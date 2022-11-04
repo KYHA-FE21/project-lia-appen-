@@ -37,13 +37,14 @@ const Advertisement = () => {
 								Här kan du som företagsanvändare se dina befintliga rekryteringar, redigera dessa samt skapa nya.
 							</p>
 							<Button
-								children="NY REKRYTERING"
 								className="w-full"
 								onClick={() => {
 									setPatchData(null);
 									setModalDisplay(true);
 								}}
-							/>
+							>
+								NY REKRYTERING
+							</Button>
 						</div>
 					</div>
 					<div className="content">
@@ -80,7 +81,9 @@ const Advertisement = () => {
 										<div className="divider" />
 										<CardBadges>
 											{add.attribute.badges.map((badge, i) => (
-												<Badges key={badge + i} children={badge} className="text-white" />
+												<Badges key={badge + i} className="text-white">
+													{badge}
+												</Badges>
 											))}
 										</CardBadges>
 										<div className="divider" />
@@ -95,12 +98,13 @@ const Advertisement = () => {
 										<CardButtons>
 											<Button
 												className="w-full"
-												children="Editera"
 												onClick={() => {
 													setPatchData(add);
 													setModalDisplay(true);
 												}}
-											/>
+											>
+												Editera
+											</Button>
 										</CardButtons>
 									</Card>
 								))}
