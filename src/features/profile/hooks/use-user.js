@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getAttributeByID, putAttributesByID } from "../api/attribute";
 import { getUserByID, putUserByID } from "../api/user";
 
-const defaultUser = {
+export const defaultUser = {
 	id: "",
 	name: "",
 	email: "",
@@ -33,21 +33,21 @@ export default function useUser(id) {
 	useEffect(() => {
 		setState((state) => ({ ...state, loading: true }));
 
-		if (!userID) return;
-
 		let cancelled = false;
+
+		if (!userID) return;
 
 		async function getUserAndAttributes() {
 			const user = await getUserByID(userID);
 
-			if (!user.data) {
+			if (user.error) {
 				setState({ error: user.error, data: null, loading: false });
 				return;
 			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
-			if (!attribute.data) {
+			if (attribute.error) {
 				setState({ error: attribute.error, data: null, loading: false });
 				return;
 			}
