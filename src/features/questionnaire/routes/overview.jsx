@@ -11,7 +11,6 @@ const QuestionnaireRedirectButton = ({ entry, index }) => {
 	return (
 		<Link
 			className="no-underline text-white"
-			key={entry.id}
 			to={`/questionnaire/editor/${entry.id}`}
 		>
 			<BtnSecondary
@@ -74,7 +73,11 @@ const Overview = () => {
 								.replace("%2", MAX_QUESTIONNAIRES)}
 						</h2>
 						{questionnaires.map((entry, i) => (
-							<QuestionnaireRedirectButton entry={entry} index={i} />
+							<QuestionnaireRedirectButton
+								key={entry.id}
+								entry={entry}
+								index={i}
+							/>
 						))}
 					</div>
 				</div>
