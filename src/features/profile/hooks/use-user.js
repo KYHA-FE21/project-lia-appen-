@@ -33,9 +33,9 @@ export default function useUser(id) {
 	useEffect(() => {
 		setState((state) => ({ ...state, loading: true }));
 
-		if (!userID) return;
-
 		let cancelled = false;
+
+		if (!userID) return;
 
 		async function getUserAndAttributes() {
 			const user = await getUserByID(userID);
