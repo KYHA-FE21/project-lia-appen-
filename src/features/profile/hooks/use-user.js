@@ -28,6 +28,7 @@ export default function useUser(id) {
 	});
 
 	const [lastUpdate, setLastUpdate] = useState(Date.now());
+	const [userID, setUserID] = useState(id);
 
 	useEffect(() => {
 		setState((state) => ({ ...state, loading: true }));
@@ -37,7 +38,7 @@ export default function useUser(id) {
 		if (!userID) return;
 
 		async function getUserAndAttributes() {
-			const user = await getUserByID(id);
+			const user = await getUserByID(userID);
 
 			if (user.error) {
 				setState({ error: user.error, data: null, loading: false });
@@ -62,7 +63,7 @@ export default function useUser(id) {
 		return () => {
 			cancelled = true;
 		};
-	}, [id, lastUpdate]);
+	}, [userID, lastUpdate]);
 
 	async function update(data) {
 		const user = { ...data };
