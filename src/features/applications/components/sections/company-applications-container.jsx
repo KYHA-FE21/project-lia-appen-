@@ -8,7 +8,7 @@ import ApplicationCard from "../application-card";
 import Modal from "../modal";
 
 import patchApplicant from "../../api/patch-applicant";
-import renderSection from "../../helpers/render-section";
+import ApplicationSection from "../application-section";
 
 const CompanyApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
@@ -143,8 +143,8 @@ const CompanyApplicationsContainer = ({ id }) => {
 					{error && error}
 					{!error && (
 						<>
-							{renderSection("Att kontakta", toContact, renderApplicationCard)}
-							{renderSection("Att granska", toReview, renderApplicationCard)}
+							<ApplicationSection title={`Att kontakta - ${toContact.length}`}>{toContact.map(renderApplicationCard)}</ApplicationSection>
+							<ApplicationSection title={`Att granska - ${toReview.length}/10`}>{toReview.map(renderApplicationCard)}</ApplicationSection>
 							{openModal && (
 								<Modal
 									setOpenModal={setOpenModal}

@@ -1,9 +1,9 @@
 import { Loader, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import patchApplicant from "../../api/patch-applicant";
-import renderSection from "../../helpers/render-section";
 import useApplications from "../../hooks/applications";
 import ApplicationCard from "../application-card";
+import ApplicationSection from "../application-section";
 import Modal from "../modal";
 
 function StudentApplicationContainer({ user }) {
@@ -110,8 +110,8 @@ function StudentApplicationContainer({ user }) {
 					{error && error}
 					{!error && (
 						<>
-							{renderSection("Att kontakta", toContact, renderApplicationCard)}
-							{renderSection("Väntar på svar", toReview, renderApplicationCard)}
+							<ApplicationSection title={`Att kontakta - ${toContact.length}`}>{toContact.map(renderApplicationCard)}</ApplicationSection>
+							<ApplicationSection title={`Väntar på svar - ${toReview.length}`}>{toReview.map(renderApplicationCard)}</ApplicationSection>
 						</>
 					)}
 					{openModal && (
