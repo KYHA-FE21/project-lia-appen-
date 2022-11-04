@@ -15,24 +15,35 @@ import QuestionnaireOverview from "./features/questionnaire/routes/overview";
 import useLocalStorage from "./hooks/use-local-storage";
 import useUser from "./features/profile/hooks/use-user";
 import AuthContext from "./context";
+import { useMemo } from "react";
 
 const AppRoutes = () => {
-	const [user, setUser] = useState({});
 	const userStorage = useLocalStorage("user");
-	const { data, loadByID, loading } = useUser();
+	const user = useUser();
 
 	useEffect(() => {
-		const id = userStorage.store.id;
-		if (id) loadByID(id);
-	}, [userStorage.store]);
+		const store = userStorage.data;
 
-	useEffect(() => {
-		if (data?.id) setUser(data);
-		else userStorage.empty();
-	}, [data, loading]);
+		if (!store) return;
+
+		if (store.id) {
+			user.loadByID(store.id);
+		}
+	}, [userStorage.data]);
+
+	const userContext = useMemo(() => {
+		if (userStorage.data === null) return null;
+
+		if (userStorage.data?.id) {
+			if (user.state?.error) userStorage.empty();
+			return user.state;
+		}
+
+		if (userStorage.data.id === undefined) return { unauthenticated: true };
+	}, [user.state, userStorage]);
 
 	return (
-		<AuthContext.Provider value={{ user, loading }}>
+		<AuthContext.Provider value={{ user: userContext }}>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Layout />}>
