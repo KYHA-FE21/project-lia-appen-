@@ -53,13 +53,8 @@
     },
     {
       "user_id": "123",
-      "attribute_id": "C6zVN0C",
-      "id": "6DqBo1e"
-    },
-    {
-      "user_id": "123",
-      "attribute_id": "gOw5a1z",
-      "id": "aMNRoSt"
+      "attribute_id": "UcX6Wwk",
+      "id": "drlHm4z"
     }
   ],
   "applicant": [
@@ -123,7 +118,8 @@
       "badges": [
         "GraphQL",
         "React",
-        "C#"
+        "C#",
+        "Angular"
       ],
       "location": "Örebro",
       "work_type": "Remote",
@@ -156,45 +152,25 @@
       "id": "6EGGr5I"
     },
     {
-      "profession": "Fullstack",
-      "location": "Östersund",
+      "profession": "Backend",
+      "location": "Stockholm",
       "period": [
-        "2022-09-10",
-        "2022-10-11"
+        "2022-10-23",
+        "2023-11-23"
       ],
       "badges": [
+        "TS",
         "JS",
-        "React",
-        "Vue",
-        "TS"
+        "NODE",
+        "Angular"
       ],
-      "work_type": "remote",
-      "openings": "1",
+      "work_type": "location",
+      "openings": "3",
       "type": "advertisement",
       "is_active": true,
       "decline_rate": "0.0",
       "response_time": "0.0",
-      "id": "C6zVN0C"
-    },
-    {
-      "profession": "SQL-Designer",
-      "location": "Jönköping",
-      "period": [
-        "2022-04-12",
-        "2022-06-12"
-      ],
-      "badges": [
-        "SQL",
-        "GraphQL",
-        "MongoDB"
-      ],
-      "work_type": "hybrid",
-      "openings": "1",
-      "type": "advertisement",
-      "is_active": true,
-      "decline_rate": "0.0",
-      "response_time": "0.0",
-      "id": "gOw5a1z"
+      "id": "UcX6Wwk"
     }
   ]
 }

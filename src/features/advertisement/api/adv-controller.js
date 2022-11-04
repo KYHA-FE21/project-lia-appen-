@@ -30,7 +30,6 @@ const useAdvertisementController = () => {
 			setLoading(true);
 			const data = await process();
 			setData(data);
-			console.log(data);
 		} catch (err) {
 			setError({ type: "unknown", message: err.message });
 		} finally {
@@ -60,7 +59,7 @@ const useAdvertisementController = () => {
 	};
 
 	const getAdvertisements = async (user_id) => {
-		return await processHandler(async () => initAdvertisements(user_id));
+		return await processHandler(async () => await initAdvertisements(user_id));
 	};
 
 	const postAdvertisement = async (user_id, body) => {
