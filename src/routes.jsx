@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import ProtectedRoutes from "./protected-routes";
+
 // Routes
 import Profile from "./features/profile/routes";
 import Matchmake from "./features/matchmake/routes";
@@ -35,7 +36,11 @@ const AppRoutes = () => {
 		if (userStorage.data === null) return null;
 
 		if (userStorage.data?.id) {
-			if (user.state?.error) userStorage.empty();
+			if (user.state?.error) {
+				userStorage.empty();
+				window.location.pathname = '/signin'
+			}
+
 			return user.state;
 		}
 
