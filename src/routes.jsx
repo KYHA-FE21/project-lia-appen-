@@ -81,7 +81,7 @@ const AppRoutes = () => {
 							}
 						/>
 						<Route
-							path="/questionnaire/create/:id"
+							path="/questionnaire/editor/:id"
 							element={
 								<ProtectedRoutes allowedTypes={["company"]}>
 									<QuestionnaireEditor />
