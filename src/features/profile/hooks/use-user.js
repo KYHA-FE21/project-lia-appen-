@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getAttributeByID, putAttributesByID } from "../api/attribute";
 import { getUserByID, putUserByID } from "../api/user";
 
-const defaultUser = {
+export const defaultUser = {
 	id: "",
 	name: "",
 	email: "",
