@@ -1,11 +1,12 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/quest.scss";
-import { Edit } from "lucide-react";
+import { ArrowLeftCircle, Edit } from "lucide-react";
 import Button from "../../../components/buttons";
 import BtnSecondary from "../../../components/buttons/secondary-button";
 import useQuestionnaires from "../hooks/use-questionnaires";
 import i18n from "../i18n";
 import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
+import IconLink from "../components/icon-link";
 
 const QuestionnaireRedirectButton = ({ entry, index }) => {
 	return (
@@ -48,6 +49,9 @@ const Overview = () => {
 				<div className="overviewUpperContent">
 					<div className="mb-8 flex justify-center">
 						<div>
+							<IconLink to="/advertisement" icon={<ArrowLeftCircle />}>
+								{i18n()["Go back"]}
+							</IconLink>
 							<h1 className="text-2xl mb-3 text-center">
 								{i18n()["Advertisement questions"]}
 							</h1>
@@ -80,16 +84,6 @@ const Overview = () => {
 							/>
 						))}
 					</div>
-				</div>
-				<div className="overviewLowerContent flex mb-4">
-					<Link className="no-underline mr-1" to="/profile">
-						<Button className="w-full">{i18n()["Go back"]}</Button>
-					</Link>
-					<Link className="no-underline ml-1" to="/profile">
-						<Button disabled={true} className="w-full">
-							{i18n().Continue}
-						</Button>
-					</Link>
 				</div>
 			</div>
 		</div>

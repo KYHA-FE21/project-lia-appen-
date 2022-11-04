@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Plus, Minus, X, Check } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+	Plus,
+	Minus,
+	X,
+	Check,
+	Trash2,
+	Save,
+	ArrowLeftCircle,
+} from "lucide-react";
 
 import IconBtn from "../components/icon-btn";
 import TextArea from "../components/text-area";
@@ -9,6 +17,7 @@ import AnswerEditTextArea from "../components/answer-edit";
 
 import i18n from "../i18n";
 import useQuestionnaire from "../hooks/use-questionnaire";
+import IconLink from "../components/icon-link";
 
 const MAX_QUESTIONS = 4;
 
@@ -57,7 +66,7 @@ const Editor = () => {
 	const [alternatives, setAlternatives] = useState([""]);
 	const [correctAlternatives, setCorrectAlternatives] = useState([0]);
 
-	const linkToQuestionnaireOverview = `/questionnaire/overview/${questionnaire.advertisement_id}`
+	const linkToQuestionnaireOverview = `/questionnaire/overview/${questionnaire.advertisement_id}`;
 
 	useEffect(() => {
 		if (questionnaire.id) {
@@ -131,6 +140,9 @@ const Editor = () => {
 				onSubmit={handleQuestionnaireSubmit}
 			>
 				<div>
+					<IconLink to={linkToQuestionnaireOverview} icon={<ArrowLeftCircle />}>
+						{i18n()["Go back"]}
+					</IconLink>
 					<h1 className="text-2xl mb-3 text-center">
 						{i18n()["Question Editor"]}
 					</h1>
@@ -177,18 +189,23 @@ const Editor = () => {
 				</div>
 
 				<div>
-					<Button className="w-full bg-green mb-8" disabled={!questionnaire.id}>
+					<Button
+						className="w-full bg-primary mb-8 quest-flex-row-reverse"
+						disabled={!questionnaire.id}
+						icon={<Save />}
+					>
 						{i18n().Save}
 					</Button>
-					<Link to="/questionnaire/overview/*" className="no-underline">
-						<Button
-							className="w-full bg-primary mb-8"
-							type="button"
-							onClick={handleQuestionnaireDelete}
-						>
-							{i18n().Delete}
-						</Button>
-					</Link>
+
+					<Button
+						className="w-full bg-red mb-8 quest-flex-row-reverse"
+						type="button"
+						onClick={handleQuestionnaireDelete}
+						disabled={!questionnaire.id}
+						icon={<Trash2 />}
+					>
+						{i18n().Delete}
+					</Button>
 				</div>
 			</form>
 		</div>
