@@ -36,7 +36,11 @@ const AppRoutes = () => {
 		if (userStorage.data === null) return null;
 
 		if (userStorage.data?.id) {
-			if (user.state?.error) userStorage.empty();
+			if (user.state?.error) {
+				userStorage.empty();
+				window.location.pathname = '/signin'
+			}
+
 			return user.state;
 		}
 
