@@ -58,14 +58,17 @@ const EditInformation = ({ user }) => {
 						: data.attribute.profession,
 				badges:
 					sendData.badgesRaw.length > 0
-						? [...new Set(sendData.badgesRaw.split(",").map((badge) => badge.trim()))].filter(Boolean)
+						? [
+								...new Set(
+									sendData.badgesRaw.split(",").map((badge) => badge.trim())
+								),
+						  ].filter(Boolean)
 						: data.attribute.badges,
 				location:
 					sendData.location.length > 0
 						? sendData.location
 						: data.attribute.location,
-				work_type:
-					sendData.work_type,
+				work_type: sendData.work_type,
 				school:
 					sendData.school.length > 0 ? sendData.school : data.attribute.school,
 				type: data.attribute.type,
@@ -171,11 +174,9 @@ const EditInformation = ({ user }) => {
 
 				<TextArea
 					value={sendData.bio}
-					onChange={(e) =>
-						{
-							setSendData((state) => ({ ...state, bio: e.target.value }))
-						}
-					}
+					onChange={(e) => {
+						setSendData((state) => ({ ...state, bio: e.target.value }));
+					}}
 					placeholder={`Kort beskrivning om ${
 						data.attribute.type === "student" ? "dig själv" : "företaget"
 					}`}
@@ -217,9 +218,9 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={1}
 								name="work_type"
-								checked={radioCheck === 'Remote'}
+								checked={radioCheck === "remote"}
 								type="radio"
-								value="Remote"
+								value="remote"
 								label="Remote"
 								onChange={handleRadio}
 							/>
@@ -227,9 +228,9 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={2}
 								name="work_type"
-								checked={radioCheck === 'På plats'}
+								checked={radioCheck === "location"}
 								type="radio"
-								value="På plats"
+								value="location"
 								label="På plats"
 								onChange={handleRadio}
 							/>
@@ -237,9 +238,9 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={3}
 								name="work_type"
-								checked={radioCheck === 'Hybrid'}
+								checked={radioCheck === "hybrid"}
 								type="radio"
-								value="Hybrid"
+								value="hybrid"
 								label="Hybrid"
 								onChange={handleRadio}
 							/>
