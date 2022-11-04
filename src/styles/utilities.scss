@@ -169,6 +169,7 @@ $colors: (
 	"primary": #4d243d,
 	"green": #32ba78,
 	"red": #fd6d6d,
+	"grey": grey,
 );
 
 @each $color, $value in $colors {
@@ -396,4 +397,18 @@ $weights: (
 
 .hidden {
 	display: none;
+}
+
+.spin {
+	$spin: 2s;
+	-webkit-animation: spin $spin infinite linear;
+	animation: spin $spin infinite linear;
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
 }

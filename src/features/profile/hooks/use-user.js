@@ -2,8 +2,15 @@ import { useState, useEffect } from "react";
 import { getAttributeByID, putAttributesByID } from "../api/attribute";
 import { getUserByID, putUserByID } from "../api/user";
 
-const defaultUser = {
+export const defaultUser = {
+	id: "",
+	name: "",
+	email: "",
+	password: "",
+	bio: "",
+	attribute_id: "",
 	attribute: {
+		id: "",
 		school: "",
 		email: "",
 		bio: "",
@@ -15,22 +22,39 @@ const defaultUser = {
 	},
 };
 
-export default function useUser({ id }) {
-	const [data, setData] = useState(defaultUser);
+export default function useUser(id) {
+	const [state, setState] = useState({
+		loading: true,
+	});
+
 	const [lastUpdate, setLastUpdate] = useState(Date.now());
+	const [userID, setUserID] = useState(id);
 
 	useEffect(() => {
+		setState((state) => ({ ...state, loading: true }));
+
 		let cancelled = false;
 
-		async function getUserAndAttributes() {
-			const user = await getUserByID(id);
+		if (!userID) return;
 
-			if (!user.data) return;
+		async function getUserAndAttributes() {
+			const user = await getUserByID(userID);
+
+			if (user.error) {
+				setState({ error: user.error, data: null, loading: false });
+				return;
+			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
+			if (attribute.error) {
+				setState({ error: attribute.error, data: null, loading: false });
+				return;
+			}
+
 			if (!cancelled) {
-				setData({ ...user.data, attribute: attribute.data });
+				const data = { ...user.data, attribute: attribute.data };
+				setState({ data, loading: false });
 			}
 		}
 
@@ -39,7 +63,7 @@ export default function useUser({ id }) {
 		return () => {
 			cancelled = true;
 		};
-	}, [id, lastUpdate]);
+	}, [userID, lastUpdate]);
 
 	async function update(data) {
 		const user = { ...data };
@@ -47,6 +71,7 @@ export default function useUser({ id }) {
 
 		delete user.attribute;
 
+		// TODO: Handle errors from these two requests.
 		const [userResp, attributeResp] = await Promise.all([
 			putUserByID(user.id, JSON.stringify(user)),
 			putAttributesByID(attribute.id, JSON.stringify(attribute)),
@@ -58,7 +83,8 @@ export default function useUser({ id }) {
 	}
 
 	return {
-		data,
+		state,
 		update,
+		loadByID: setUserID,
 	};
 }
