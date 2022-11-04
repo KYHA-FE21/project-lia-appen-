@@ -47,6 +47,13 @@
       "password": "",
       "bio": "I'm a buss",
       "attribute_id": "9"
+    },
+    {
+      "email": "a@b.c",
+      "password": "Abcdef-1",
+      "id": "VnTrlBE",
+      "bio": "I'm a buss",
+      "attribute_id": "5"
     }
   ],
   "link": [
@@ -163,21 +170,21 @@
     },
     {
       "advertisement_id": "2",
-      "user_id": "2",
+      "user_id": "VnTrlBE",
       "id": "gyqssDo",
       "cooldown": "",
-      "accepted": false
+      "accepted": true
     },
     {
       "advertisement_id": "3",
-      "user_id": "2",
+      "user_id": "VnTrlBE",
       "id": "gyqssEo",
       "cooldown": "",
       "accepted": false
     },
     {
       "advertisement_id": "4",
-      "user_id": "2",
+      "user_id": "VnTrlBE",
       "id": "gyqssFo",
       "cooldown": "",
       "accepted": false
