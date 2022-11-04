@@ -1,5 +1,5 @@
 import { CalendarDays, CheckCircle, Info, MapPin } from "lucide-react";
-import generateBadges from "../../../components/badge/generate-badges";
+import Badge from "../../../components/badge";
 import PrimaryButton from "../../../components/buttons";
 import SecondaryButton from "../../../components/buttons/secondary-button";
 import Card, { CardBadges, CardButtons, CardHeader } from "../../../components/card";
@@ -34,11 +34,11 @@ function ApplicationCard({ index, array, attribute, buttons, readMoreButtonOnCli
 				]}
 			/>
 			<CardBadges>
-				{generateBadges(
-					[...badges].map((item) => item.toUpperCase()),
-					[...badges].map((item) => item.toUpperCase()),
-					{ className: "flex-1" }
-				)}
+				{badges.map((badge) => (
+					<Badge key={badge} className="flex-1">
+						{badge.toUpperCase()}
+					</Badge>
+				))}
 			</CardBadges>
 			<CardButtons>
 				{buttons.map((button, index) => (

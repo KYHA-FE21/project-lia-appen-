@@ -1,10 +1,10 @@
 import { X, CalendarDays, MapPin, CheckCircle } from "lucide-react";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import generateBadges from "../../../components/badge/generate-badges";
 import Heading from "../../matchmake/components/heading";
 import { CardBadges, CardButtons } from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
 import LinkGrid from "./link-grid";
+import Badge from "../../../components/badge";
 
 const Modal = ({ setOpenModal, current, buttons }) => {
 	const { array, index } = current;
@@ -34,11 +34,11 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 			<div className="applications-modal flex flex-col gap-3 rounded-md bg-white p-3 m-auto fixed inset-0 z-1">
 				<Heading className="text-lg" heading={profession} icon={<X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />} />
 				<CardBadges className="flex text-white justify-center">
-					{generateBadges(
-						[...badges].map((item) => item.toUpperCase()),
-						[...badges].map((item) => item.toUpperCase()),
-						{ className: "flex-1" }
-					)}
+					{badges.map((badge) => (
+						<Badge key={badge} className="flex-1">
+							{badge.toUpperCase()}
+						</Badge>
+					))}
 				</CardBadges>
 				<InfoGrid
 					color="black"
