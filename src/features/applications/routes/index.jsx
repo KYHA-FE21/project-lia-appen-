@@ -13,7 +13,6 @@ const Index = () => {
 
 	return (
 		<main className="flex flex-col h-full p-3 gap-3 overflow-auto">
-			{user.attribute.type === "company" && !id && <Navigate to="/advertisement" replace={true} />}
 			{user.attribute.type === "company" && id && <CompanyApplicationsContainer id={id} />}
 			{user.attribute.type === "student" && <StudentApplicationContainer user={user} />}
 		</main>
