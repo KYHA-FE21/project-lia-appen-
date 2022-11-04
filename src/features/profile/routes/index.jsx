@@ -1,3 +1,9 @@
+import { useContext } from "react";
+import { Edit2 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import "./index.scss";
+
 import Badge from "../../../components/badge";
 import Wrapper from "../components/wrapper";
 import Avatar from "../sections/avatar";
@@ -5,15 +11,11 @@ import EditInformation from "../sections/edit_information";
 import Information from "../sections/information";
 import SelectorHeader from "../sections/selector_header";
 import Title from "../components/title";
-import "./index.scss";
 import Button from "../../../components/buttons";
-import { Edit2 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
 import AuthContext from "../../../context";
 
 const Index = () => {
-	const { user } = useContext(AuthContext);
+	const { user, update } = useContext(AuthContext);
 
 	return (
 		<main>
@@ -67,7 +69,7 @@ const Index = () => {
 						</Wrapper>
 					</>
 				)}
-				<EditInformation user={user} />
+				<EditInformation user={{ data: user.data, update }} />
 			</Wrapper>
 		</main>
 	);
