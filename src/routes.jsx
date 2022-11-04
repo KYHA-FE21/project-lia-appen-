@@ -62,6 +62,14 @@ const AppRoutes = () => {
 							}
 						/>
 						<Route
+							path="/applications/:id"
+							element={
+								<ProtectedRoutes allowedTypes={["company"]}>
+									<Applications />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
 							path="/profile"
 							element={
 								<ProtectedRoutes allowedTypes={["student", "company"]}>
