@@ -25,7 +25,7 @@ const Advertisement = () => {
 
 	return (
 		<>
-			<div className="flex justify-center py-8 px-4 advertisement-container">
+			<div className="flex justify-center py-8 px-4 adver-container">
 				<div>
 					<div className="flex justify-center">
 						<div className="header mb-14">
