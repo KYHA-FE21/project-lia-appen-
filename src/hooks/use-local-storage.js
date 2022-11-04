@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const useLocalStorage = (key) => {
-	const [store, setStore] = useState({});
+	const [data, setData] = useState(null);
 
 	useEffect(() => {
 		try {
 			const item = window.localStorage.getItem(key);
-			setStore(item ? JSON.parse(item) : {});
+			setData(item ? JSON.parse(item) : {});
 		} catch (err) {
 			console.error(err);
 		}
@@ -14,7 +14,7 @@ const useLocalStorage = (key) => {
 
 	const update = (value) => {
 		try {
-			setStore(value);
+			setData(value);
 			window.localStorage.setItem(key, JSON.stringify(value));
 		} catch (error) {
 			console.error(error);
@@ -28,7 +28,8 @@ const useLocalStorage = (key) => {
 			console.error(error);
 		}
 	};
-	return { store, update, empty };
+
+	return { data, update, empty };
 };
 
 export default useLocalStorage;
