@@ -85,6 +85,10 @@ const EditInformation = ({ user }) => {
 		}));
 	};
 
+	useEffect(() => {
+		console.log(sendData.work_type)
+	}, [sendData.work_type])
+
 	return (
 		<>
 			<Wrapper direction="column" gap={[3]} padding={[5, 1, 0, 1]}>
