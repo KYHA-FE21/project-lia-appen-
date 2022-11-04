@@ -35,6 +35,7 @@ const EditInformation = ({ user }) => {
 				badgesRaw: user.data.attribute.badges.join(", "),
 			};
 		});
+		setRadioCheck(user.data.attribute.work_type);
 	}, [user]);
 
 	const handleSave = (e) => {
@@ -80,14 +81,11 @@ const EditInformation = ({ user }) => {
 
 	const handleRadio = (e) => {
 		setRadioCheck(e.target.value);
-	};
-
-	useEffect(() => {
 		setSendData((state) => ({
 			...state,
-			work_type: radioCheck,
+			work_type: e.target.value,
 		}));
-	}, [radioCheck])
+	};
 
 	return (
 		<>
