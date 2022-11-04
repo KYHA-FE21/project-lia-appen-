@@ -32,13 +32,7 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 				}}
 			></div>
 			<div className="applications-modal flex flex-col gap-3 rounded-md bg-white p-3 m-auto fixed inset-0 z-1">
-				<Heading
-					className="text-lg"
-					{...{
-						heading: profession,
-						icon: <X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />,
-					}}
-				/>
+				<Heading className="text-lg" heading={profession} icon={<X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />} />
 				<CardBadges className="flex text-white justify-center">
 					{generateBadges(
 						[...badges].map((item) => item.toUpperCase()),
