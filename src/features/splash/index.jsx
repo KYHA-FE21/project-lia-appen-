@@ -15,7 +15,7 @@ function Splash() {
 
 	return (
 		<FlexContainer direction="col" gap="0" className="items-stretch">
-			<div className="splash-hero min-h-screen items-center flex">
+			<div className="splash-hero shadow min-h-screen items-center flex">
 				<FlexContainer
 					gap="16"
 					direction="col"
@@ -30,7 +30,7 @@ function Splash() {
 							<AnimatedText texts={["LIA plats...", "nästa kollega..."]} />
 						</h1>
 
-						<ProseParagraph textAlign="left" className="my-6 tracking text-xl">
+						<ProseParagraph className="my-6 tracking text-xl">
 							Här kan du som student hitta en LIA-plats, och som företag hitta
 							dina framtida 🌟 <i>superstars</i>.<strong> Helt gratis!</strong>
 						</ProseParagraph>
