@@ -27,6 +27,8 @@ const EditInformation = ({ user }) => {
 		setSendData((state) => {
 			return {
 				...state,
+				email: data.email,
+				bio: data.bio,
 				...user.data.attribute,
 				badgesRaw: user.data.attribute.badges.join(", "),
 			};
@@ -91,7 +93,7 @@ const EditInformation = ({ user }) => {
 				}`}</Title>
 
 				<InputField
-					value={sendData.email || data.email}
+					value={sendData.email}
 					onChange={(e) =>
 						setSendData((state) => ({ ...state, email: e.target.value }))
 					}
@@ -166,7 +168,7 @@ const EditInformation = ({ user }) => {
 				</datalist>
 
 				<TextArea
-					value={sendData.bio || data.bio}
+					value={sendData.bio}
 					onChange={(e) =>
 						{
 							setSendData((state) => ({ ...state, bio: e.target.value }))

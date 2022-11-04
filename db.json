@@ -4,20 +4,19 @@
       "id": "1",
       "name": "Sofie Larsson",
       "email": "test@test.com",
-      "phone": "+4670 - 16 71 245",
       "password": "123456",
       "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
       "attribute_id": "2"
     },
-		{
-			"id": "2",
-			"name": "Albert",
-			"email": "test@test.com",
-			"phone": "+4670 - 16 71 245",
-			"password": "123456",
-			"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
-			"attribute_id": "3"
-		}
+    {
+      "id": "2",
+      "name": "Albert",
+      "email": "test@test.com",
+      "phone": "+4670 - 16 71 245",
+      "password": "123456",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
+      "attribute_id": "3"
+    }
   ],
   "link": [
     {
@@ -72,7 +71,7 @@
         "React"
       ],
       "location": "Gävle",
-      "work_type": "",
+      "work_type": "På plats",
       "school": "HiG",
       "type": "student",
       "decline_rate": "0.5",
@@ -80,22 +79,22 @@
       "openings": 2,
       "is_active": true
     },
-		{
-			"id": "3",
-			"period": [
-				"2022-01-01",
-				"2022-02-01"
-			],
-			"profession": "HR chef",
-			"badges": [],
-			"location": "Gävle",
-			"work_type": "",
-			"school": "",
-			"type": "company",
-			"decline_rate": "0.5",
-			"response_time": "0.1",
-			"openings": 2,
-			"is_active": true
-		}
+    {
+      "id": "3",
+      "period": [
+        "2022-01-01",
+        "2022-02-01"
+      ],
+      "profession": "HR chef",
+      "badges": [],
+      "location": "Gävle",
+      "work_type": "",
+      "school": "",
+      "type": "company",
+      "decline_rate": "0.5",
+      "response_time": "0.1",
+      "openings": 2,
+      "is_active": true
+    }
   ]
 }
