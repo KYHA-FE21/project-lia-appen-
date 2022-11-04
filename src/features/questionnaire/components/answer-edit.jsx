@@ -29,7 +29,7 @@ const AnswerEditTextArea = ({
 						{...restProps}
 					></textarea>
 				</div>
-				<label className="bg-white p-4 flex" title={i18n().InputCorrect}>
+				<label className={`${correct ? 'bg-green' : 'bg-red'} opacity-7 p-4 flex`} title={i18n().InputCorrect}>
 					<input
 						type="radio"
 						id={id + "-answer-radio"}
