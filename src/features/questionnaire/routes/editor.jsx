@@ -57,6 +57,8 @@ const Editor = () => {
 	const [alternatives, setAlternatives] = useState([""]);
 	const [correctAlternatives, setCorrectAlternatives] = useState([0]);
 
+	const linkToQuestionnaireOverview = `/questionnaire/overview/${questionnaire.advertisement_id}`
+
 	useEffect(() => {
 		if (questionnaire.id) {
 			setQuestionBody(questionnaire.body);
@@ -94,7 +96,7 @@ const Editor = () => {
 		setCorrectAlternatives([Number(value)]);
 	}
 
-	function handleQuestionnaireSubmit(ev) {
+	async function handleQuestionnaireSubmit(ev) {
 		ev.preventDefault();
 
 		// Validate data.
@@ -109,7 +111,9 @@ const Editor = () => {
 		};
 
 		// Submit data.
-		update(data);
+		await update(data);
+
+		navigate(linkToQuestionnaireOverview);
 	}
 
 	async function handleQuestionnaireDelete(ev) {
@@ -117,7 +121,7 @@ const Editor = () => {
 
 		await remove(questionnaire.id);
 
-		navigate(`/questionnaire/overview/${questionnaire.advertisement_id}`);
+		navigate(linkToQuestionnaireOverview);
 	}
 
 	return (
