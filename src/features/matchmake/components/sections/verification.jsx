@@ -28,12 +28,12 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 								<Frown className="cursor-pointer" color="black" size="30" onClick={getNew} />
 							</CardHeader>
 							<Container className="flex flex-col gap-3 px-3 text-center ">
-								<p>Du klarade tyvärr inte provet denna gång.</p>
+								<p>Du klarade tyvärr inte testet denna gång.</p>
 								<p>Men det kommer fler chanser!</p>
 							</Container>
 							<CardButtons className="px-3 text-white mt-auto">
 								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={getNew}>
-									Nytt test
+									Ny annons
 								</SecondaryButton>
 							</CardButtons>
 						</>
