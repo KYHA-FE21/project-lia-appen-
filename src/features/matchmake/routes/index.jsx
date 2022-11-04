@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import "../style/index.scss";
 
 import Card from "../../../components/card";
 import Container from "../components/container";
@@ -6,21 +8,19 @@ import Loading from "../components/loading";
 
 import useGenerateAdvertisementData from "../hooks/generate-advertisment-data";
 import useApply from "../hooks/apply";
-import useUser from "../../profile/hooks/use-user";
 
-
-import "../style/index.scss";
 import Information from "../components/sections/information";
 import NoAdvertisement from "../components/sections/no-advertisement";
 import Questions from "../components/sections/questions";
 import Verification from "../components/sections/verification";
+import AuthContext from "../../../context";
 
 const Index = () => {
 	const [action, setAction] = useState("information");
 	const [answers, setAnswers] = useState({});
 	const [question, setQuestion] = useState(0);
 
-	const user = useUser({ id: 1 }).data;
+	const user = useContext(AuthContext).user.data;
 
 	const { loading, error, advertisementData, getNewAdvertisement } = useGenerateAdvertisementData(user);
 
