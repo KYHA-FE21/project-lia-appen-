@@ -7,13 +7,13 @@ import { CalendarDays, MapPin, CheckCircle } from "lucide-react";
 
 const AdvCard = ({ add, children }) => {
 	return (
-		<Card>
-			<CardHeader className="text-2xl text-white px-3">
-				<h2 className="">{add.attribute.profession}</h2>
+		<Card className="gap-4">
+			<CardHeader className="text-2xl px-3">
+				<h2>{add.attribute.profession}</h2>
 			</CardHeader>
 			<InfoGrid
 				className="px-3"
-				color="white"
+				color="black"
 				entries={[
 					{
 						icon: <CalendarDays size="20" />,

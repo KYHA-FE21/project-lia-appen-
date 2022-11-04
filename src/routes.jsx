@@ -13,6 +13,7 @@ import Signup from "./features/auth/routes/signup";
 import Reset from "./features/auth/routes/reset";
 import QuestionnaireEditor from "./features/questionnaire/routes/editor";
 import QuestionnaireOverview from "./features/questionnaire/routes/overview";
+import Advertisement from "./features/advertisement/routes";
 import useLocalStorage from "./hooks/use-local-storage";
 import useUser from "./features/profile/hooks/use-user";
 import AuthContext from "./context";
@@ -38,7 +39,7 @@ const AppRoutes = () => {
 		if (userStorage.data?.id) {
 			if (user.state?.error) {
 				userStorage.empty();
-				window.location.pathname = '/signin'
+				window.location.pathname = "/signin";
 			}
 
 			return user.state;
@@ -98,6 +99,14 @@ const AppRoutes = () => {
 							element={
 								<ProtectedRoutes allowedTypes={["company"]}>
 									<Reset />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path="/advertisement"
+							element={
+								<ProtectedRoutes allowedTypes={["company"]}>
+									<Advertisement />
 								</ProtectedRoutes>
 							}
 						/>

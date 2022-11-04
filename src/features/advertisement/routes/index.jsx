@@ -14,7 +14,8 @@ const Advertisement = () => {
 	const [patchData, setPatchData] = React.useState(null);
 
 	React.useEffect(() => {
-		getAdvertisements(user.id);
+		console.log(user.data.id);
+		getAdvertisements(user.data.id);
 	}, []);
 
 	React.useEffect(() => {
@@ -67,7 +68,7 @@ const Advertisement = () => {
 				</div>
 			</div>
 			<Modal
-				userId={user.id}
+				userId={user.data.id}
 				display={modalDisplay}
 				setDisplay={setModalDisplay}
 				patchData={patchData}

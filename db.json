@@ -7,6 +7,12 @@
 			"password": "",
 			"bio": "",
 			"attribute_id": ""
+		},
+		{
+			"email": "test@live.se",
+			"password": "AAbbcc123!",
+			"id": "eTjK8h2",
+			"attribute_id": "1"
 		}
 	],
 	"link": [
@@ -28,34 +34,47 @@
 	],
 	"advertisement": [
 		{
-			"id": "",
-			"user_id": "",
-			"attribute_id": ""
+			"user_id": "eTjK8h2",
+			"attribute_id": "lpNC-5m",
+			"id": "g0Wj37k"
 		}
 	],
 	"applicant": [
 		{
-      "id":"",
+			"id": "",
 			"advertisement_id": "",
 			"user_id": "",
-			"accepted":"", 
-      "cooldown":""
+			"accepted": "",
+			"cooldown": ""
 		}
 	],
 	"attribute": [
 		{
-			"id": "",
+			"id": "1",
 			"period": ["", ""],
 			"profession": "",
 			"badges": [""],
 			"location": "",
 			"work_type": "",
 			"school": "",
-			"type": "",
+			"type": "company",
 			"decline_rate": "0.5",
 			"response_time": "0.1",
 			"openings": 2,
 			"is_active": true
+		},
+		{
+			"profession": "Backend",
+			"location": "Stockholm",
+			"period": ["2022-11-09", "2022-11-09"],
+			"badges": ["ASd"],
+			"work_type": "location",
+			"openings": "1",
+			"type": "advertisement",
+			"is_active": true,
+			"decline_rate": "0.0",
+			"response_time": "0.0",
+			"id": "lpNC-5m"
 		}
 	]
 }
