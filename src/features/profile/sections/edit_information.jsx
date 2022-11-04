@@ -11,6 +11,8 @@ import { useEffect } from "react";
 const EditInformation = ({ user }) => {
 	const { data, update } = user;
 
+	const [radioCheck, setRadioCheck] = useState(null);
+
 	const [sendData, setSendData] = useState({
 		school: "",
 		email: "",
@@ -62,9 +64,7 @@ const EditInformation = ({ user }) => {
 						? sendData.location
 						: data.attribute.location,
 				work_type:
-					sendData.work_type.length > 0
-						? sendData.work_type
-						: data.attribute.work_type,
+					sendData.work_type,
 				school:
 					sendData.school.length > 0 ? sendData.school : data.attribute.school,
 				type: data.attribute.type,
@@ -79,15 +79,15 @@ const EditInformation = ({ user }) => {
 	};
 
 	const handleRadio = (e) => {
-		setSendData((state) => ({
-			...state,
-			work_type: e.target.value,
-		}));
+		setRadioCheck(e.target.value);
 	};
 
 	useEffect(() => {
-		console.log(sendData.work_type)
-	}, [sendData.work_type])
+		setSendData((state) => ({
+			...state,
+			work_type: radioCheck,
+		}));
+	}, [radioCheck])
 
 	return (
 		<>
@@ -219,7 +219,7 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={1}
 								name="work_type"
-								checked={sendData.work_type === 'Remote'}
+								checked={radioCheck === 'Remote'}
 								type="radio"
 								value="Remote"
 								label="Remote"
@@ -229,7 +229,7 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={2}
 								name="work_type"
-								checked={sendData.work_type === 'På plats'}
+								checked={radioCheck === 'På plats'}
 								type="radio"
 								value="På plats"
 								label="På plats"
@@ -239,7 +239,7 @@ const EditInformation = ({ user }) => {
 							<InputButton
 								id={3}
 								name="work_type"
-								checked={sendData.work_type === 'Hybrid'}
+								checked={radioCheck === 'Hybrid'}
 								type="radio"
 								value="Hybrid"
 								label="Hybrid"
