@@ -64,27 +64,19 @@ function StudentApplicationContainer({ user }) {
 	}
 
 	function renderApplicationCard(item, index, array) {
-		return (
-			<ApplicationCard
-				key={item.id}
-				index={index}
-				array={array}
-				attribute={item.advertisement.attribute}
-				readMoreButtonOnClick={readMoreButtonOnClick}
-				buttons={[
-					{
-						icon: <X />,
-						onClick: () => {
-							denyButtonOnClick(index, array);
-						},
-						color: "white",
-						bgColor: "red",
-						className: "text-white w-full text-sm",
-						children: "Ta bort",
-					},
-				]}
-			/>
-		);
+		const buttons = [
+			{
+				icon: <X />,
+				onClick: () => {
+					denyButtonOnClick(index, array);
+				},
+				color: "white",
+				bgColor: "red",
+				className: "text-white w-full text-sm",
+				children: "Ta bort",
+			},
+		];
+		return <ApplicationCard key={item.id} index={index} array={array} attribute={item.advertisement.attribute} readMoreButtonOnClick={readMoreButtonOnClick} buttons={buttons} />;
 	}
 
 	useEffect(() => {

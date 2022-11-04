@@ -97,42 +97,33 @@ const CompanyApplicationsContainer = ({ id }) => {
 	}
 
 	function renderApplicationCard(item, index, array) {
-		return (
-			<ApplicationCard
-				key={item.applicant.id}
-				index={index}
-				array={array}
-				attribute={item.attribute}
-				readMoreButtonOnClick={readMoreButtonOnClick}
-				buttons={[
-					{
-						icon: <X />,
-						onClick: () => {
-							denyButtonOnClick(index, array);
+		const buttons = [
+			{
+				icon: <X />,
+				onClick: () => {
+					denyButtonOnClick(index, array);
+				},
+				color: "white",
+				bgColor: "red",
+				className: "text-white w-full text-sm",
+				children: array === toReview ? "Tacka nej" : "Ta bort",
+			},
+			...(array === toReview
+				? [
+						{
+							icon: <Check />,
+							onClick: () => {
+								acceptButtonOnClick(index, array);
+							},
+							color: "white",
+							bgColor: "green",
+							className: "text-white w-full text-sm",
+							children: "Kontakta",
 						},
-						color: "white",
-						bgColor: "red",
-						className: "text-white w-full text-sm",
-						children: array === toReview ? "Tacka nej" : "Ta bort",
-					},
-
-					...(array === toReview
-						? [
-								{
-									icon: <Check />,
-									onClick: () => {
-										acceptButtonOnClick(index, array);
-									},
-									color: "white",
-									bgColor: "green",
-									className: "text-white w-full text-sm",
-									children: "Kontakta",
-								},
-						  ]
-						: []),
-				]}
-			/>
-		);
+				  ]
+				: []),
+		];
+		return <ApplicationCard key={item.applicant.id} index={index} array={array} attribute={item.attribute} readMoreButtonOnClick={readMoreButtonOnClick} buttons={buttons} />;
 	}
 
 	return (
