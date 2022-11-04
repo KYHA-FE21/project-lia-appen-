@@ -7,6 +7,7 @@ function FlexContainer({
 	gap = "1",
 	className = "",
 	children,
+	innerRef,
 	...restProps
 }) {
 	let dirClasses = "flex-" + direction;
@@ -18,6 +19,7 @@ function FlexContainer({
 	return (
 		<div
 			className={`flex ${dirClasses} gap-${gap} ${className}`}
+			ref={innerRef}
 			{...restProps}
 		>
 			{children}

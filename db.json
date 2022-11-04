@@ -1,202 +1,61 @@
 {
-  "user": [
-    {
-      "id": "",
-      "name": "",
-      "email": "",
-      "password": "",
-      "bio": "",
-      "attribute_id": ""
-    }
-  ],
-  "link": [
-    {
-      "id": "",
-      "title": "",
-      "url": "",
-      "user_id": ""
-    }
-  ],
-  "questionnaire": [
-    {
-      "id": "",
-      "advertisement_id": "",
-      "body": "",
-      "alternatives": [
-        ""
-      ],
-      "correct_alternatives": [
-        0
-      ]
-    }
-  ],
-  "advertisement": [
-    {
-      "id": "",
-      "user_id": "",
-      "attribute_id": ""
-    },
-    {
-      "id": "1",
-      "user_id": "123",
-      "attribute_id": "1"
-    },
-    {
-      "id": "2",
-      "user_id": "123",
-      "attribute_id": "2"
-    },
-    {
-      "user_id": "123",
-      "attribute_id": "6EGGr5I",
-      "id": "LhFVy5H"
-    },
-    {
-      "user_id": "123",
-      "attribute_id": "UcX6Wwk",
-      "id": "drlHm4z"
-    },
-    {
-      "user_id": "123",
-      "attribute_id": "l2u8NpB",
-      "id": "1gt9vde"
-    }
-  ],
-  "applicant": [
-    {
-      "id": "",
-      "advertisement_id": "",
-      "user_id": "",
-      "accepted": "",
-      "date": ""
-    }
-  ],
-  "attribute": [
-    {
-      "id": "",
-      "period": [
-        "",
-        ""
-      ],
-      "profession": "",
-      "badges": [
-        ""
-      ],
-      "location": "",
-      "work_type": "",
-      "school": "",
-      "type": "",
-      "decline_rate": "0.5",
-      "response_time": "0.1",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "1",
-      "period": [
-        "2022-10-15",
-        "2022-11-15"
-      ],
-      "profession": "Frontend",
-      "badges": [
-        "JS",
-        "TS",
-        "SQL",
-        "React"
-      ],
-      "location": "Stockholm",
-      "work_type": "Hybrid",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0",
-      "response_time": "0",
-      "openings": 1,
-      "is_active": true,
-      "isActive": null
-    },
-    {
-      "id": "2",
-      "period": [
-        "2022-05-23",
-        "2022-06-23"
-      ],
-      "profession": "Systemutvecklare",
-      "badges": [
-        "React",
-        "C#",
-        "Angular"
-      ],
-      "location": "Örebro",
-      "work_type": "location",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0",
-      "response_time": "0",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "profession": "Backend",
-      "location": "Västerås",
-      "period": [
-        "2022-08-14",
-        "2022-09-10"
-      ],
-      "badges": [
-        "TS",
-        "JS",
-        "SQL",
-        "Angular"
-      ],
-      "work_type": "location",
-      "openings": "2",
-      "type": "advertisement",
-      "is_active": true,
-      "decline_rate": "0.0",
-      "response_time": "0.0",
-      "id": "6EGGr5I"
-    },
-    {
-      "profession": "Backend",
-      "location": "Stockholm",
-      "period": [
-        "2022-10-23",
-        "2023-11-23"
-      ],
-      "badges": [
-        "TS",
-        "JS",
-        "NODE",
-        "Angular"
-      ],
-      "work_type": "location",
-      "openings": "3",
-      "type": "advertisement",
-      "is_active": true,
-      "decline_rate": "0.0",
-      "response_time": "0.0",
-      "id": "UcX6Wwk",
-      "isActive": null
-    },
-    {
-      "profession": "Backend",
-      "location": "Malmö",
-      "period": [
-        "2022-11-15",
-        "2022-11-15"
-      ],
-      "badges": [
-        "TS",
-        "JS"
-      ],
-      "work_type": "hybrid",
-      "openings": "2",
-      "type": "advertisement",
-      "is_active": true,
-      "decline_rate": "0.0",
-      "response_time": "0.0",
-      "id": "l2u8NpB",
-      "isActive": null
-    }
-  ]
+	"user": [
+		{
+			"id": "",
+			"name": "",
+			"email": "",
+			"password": "",
+			"bio": "",
+			"attribute_id": ""
+		}
+	],
+	"link": [
+		{
+			"id": "",
+			"title": "",
+			"url": "",
+			"user_id": ""
+		}
+	],
+	"questionnaire": [
+		{
+			"id": "",
+			"advertisement_id": "",
+			"body": "",
+			"alternatives": [""],
+			"correct_alternatives": [0]
+		}
+	],
+	"advertisement": [
+		{
+			"id": "",
+			"user_id": "",
+			"attribute_id": ""
+		}
+	],
+	"applicant": [
+		{
+			"id": "",
+			"advertisement_id": "",
+			"user_id": "",
+			"accepted": "",
+			"cooldown": ""
+		}
+	],
+	"attribute": [
+		{
+			"id": "",
+			"period": ["", ""],
+			"profession": "",
+			"badges": [""],
+			"location": "",
+			"work_type": "",
+			"school": "",
+			"type": "",
+			"decline_rate": "0.5",
+			"response_time": "0.1",
+			"openings": 2,
+			"is_active": true
+		}
+	]
 }
