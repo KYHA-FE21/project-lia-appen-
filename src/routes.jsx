@@ -24,7 +24,7 @@ const AppRoutes = () => {
 	useEffect(() => {
 		const store = userStorage.data;
 
-		if (!store) return
+		if (!store) return;
 
 		if (store.id) {
 			user.loadByID(store.id);
@@ -32,15 +32,15 @@ const AppRoutes = () => {
 	}, [userStorage.data]);
 
 	const userContext = useMemo(() => {
-		if (userStorage.data === null) return null
+		if (userStorage.data === null) return null;
 
 		if (userStorage.data?.id) {
-			if (user.state?.error) userStorage.empty()
-			return user.state
+			if (user.state?.error) userStorage.empty();
+			return user.state;
 		}
 
-		if (userStorage.data.id === undefined) return { unauthenticated: true }
-	}, [user.state, userStorage])
+		if (userStorage.data.id === undefined) return { unauthenticated: true };
+	}, [user.state, userStorage]);
 
 	return (
 		<AuthContext.Provider value={{ user: userContext }}>
