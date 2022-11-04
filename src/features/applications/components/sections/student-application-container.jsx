@@ -1,6 +1,7 @@
 import { Loader, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import patchApplicant from "../../api/patch-applicant";
+import renderSection from "../../helpers/render-section";
 import useApplications from "../../hooks/applications";
 import ApplicationCard from "../application-card";
 import Modal from "../modal";
@@ -109,10 +110,8 @@ function StudentApplicationContainer({ user }) {
 					{error && error}
 					{!error && (
 						<>
-							<h1>Att kontakta - {toContact.length}</h1>
-							<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
-							<h1>Väntar på svar - {toReview.length}</h1>
-							<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
+							{renderSection("Att kontakta", toContact, renderApplicationCard)}
+							{renderSection("Väntar på svar", toReview, renderApplicationCard)}
 						</>
 					)}
 					{openModal && (

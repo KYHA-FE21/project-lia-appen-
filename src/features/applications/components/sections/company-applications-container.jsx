@@ -8,6 +8,7 @@ import ApplicationCard from "../application-card";
 import Modal from "../modal";
 
 import patchApplicant from "../../api/patch-applicant";
+import renderSection from "../../helpers/render-section";
 
 const CompanyApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
@@ -140,13 +141,10 @@ const CompanyApplicationsContainer = ({ id }) => {
 			{!loading && (
 				<>
 					{error && error}
-
 					{!error && (
 						<>
-							<h1>Att kontakta - {toContact.length}</h1>
-							<div className="flex flex-wrap gap-3 justify-center">{toContact.map(renderApplicationCard)}</div>
-							<h1>Att granska - {toReview.length}/10</h1>
-							<div className="flex flex-wrap gap-3 justify-center">{toReview.map(renderApplicationCard)}</div>
+							{renderSection("Att kontakta", toContact, renderApplicationCard)}
+							{renderSection("Att granska", toReview, renderApplicationCard)}
 							{openModal && (
 								<Modal
 									setOpenModal={setOpenModal}
