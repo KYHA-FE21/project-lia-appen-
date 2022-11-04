@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/index.scss";
 import Button from "../../../components/buttons";
-import { useParams } from "react-router-dom";
 import Modal from "../components/modal";
 import useAdvertisementController from "../api/adv-controller";
 import Card, { CardHeader, CardBadges, CardButtons } from "../../../components/card";
@@ -9,16 +8,17 @@ import InfoStats from "../../../components/info-stats/info-stats";
 import Badges from "../../../components/badge";
 import InfoGrid from "../../../components/info-grid";
 import { CalendarDays, MapPin, CheckCircle } from "lucide-react";
+import AuthContext from "../../../context";
 
 const Advertisement = () => {
 	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes, removeAdvertisements } =
 		useAdvertisementController();
-	const { id } = useParams();
+	const { user } = React.useContext(AuthContext);
 	const [modalDisplay, setModalDisplay] = React.useState(true);
 	const [patchData, setPatchData] = React.useState(null);
 
 	React.useEffect(() => {
-		getAdvertisements(id);
+		getAdvertisements(user.id);
 	}, []);
 
 	React.useEffect(() => {
@@ -111,7 +111,7 @@ const Advertisement = () => {
 				</div>
 			</div>
 			<Modal
-				userId={id}
+				userId={user.id}
 				display={modalDisplay}
 				setDisplay={setModalDisplay}
 				patchData={patchData}
