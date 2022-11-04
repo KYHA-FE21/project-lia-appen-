@@ -3,7 +3,7 @@ import "../styles/index.scss";
 import Modal from "../components/modal";
 import useAdvertisementController from "../api/adv-controller";
 import AuthContext from "../../../context";
-import AdvCard from "../components/advCard";
+import AdvCard from "../components/adv-card";
 import Button from "../../../components/buttons";
 
 const Advertisement = () => {
