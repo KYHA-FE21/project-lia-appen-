@@ -7,6 +7,27 @@ import useQuestionnaires from "../hooks/use-questionnaires";
 import i18n from "../i18n";
 import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
 
+const QuestionnaireRedirectButton = ({ entry, index }) => {
+	return (
+		<Link
+			className="no-underline text-white"
+			key={entry.id}
+			to={`/questionnaire/editor/${entry.id}`}
+		>
+			<BtnSecondary
+				icon={<Edit />}
+				className="w-full bg-primary"
+				color="white"
+				bgColor="primary"
+			>
+				{i18n()
+					["Question %1 - %2 alternatives"].replace("%1", index + 1)
+					.replace("%2", entry.alternatives.length)}
+			</BtnSecondary>
+		</Link>
+	);
+};
+
 const Overview = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -52,23 +73,8 @@ const Overview = () => {
 								["%1/%2 questions"].replace("%1", questionnaires.length)
 								.replace("%2", MAX_QUESTIONNAIRES)}
 						</h2>
-						{questionnaires.map((item, i) => (
-							<Link
-								className="no-underline text-white"
-								key={item.id}
-								to={`/questionnaire/editor/${item.id}`}
-							>
-								<BtnSecondary
-									icon={<Edit />}
-									className="w-full bg-primary"
-									color="white"
-									bgColor="primary"
-								>
-									{i18n()
-										["Question %1 - %2 alternatives"].replace("%1", i + 1)
-										.replace("%2", item.alternatives.length)}
-								</BtnSecondary>
-							</Link>
+						{questionnaires.map((entry, i) => (
+							<QuestionnaireRedirectButton entry={entry} index={i} />
 						))}
 					</div>
 				</div>
