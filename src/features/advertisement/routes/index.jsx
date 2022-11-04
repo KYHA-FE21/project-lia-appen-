@@ -11,7 +11,8 @@ import InfoGrid from "../../../components/info-grid";
 import { CalendarDays, MapPin, CheckCircle } from "lucide-react";
 
 const Advertisement = () => {
-	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes } = useAdvertisementController();
+	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes, removeAdvertisements } =
+		useAdvertisementController();
 	const { id } = useParams();
 	const [modalDisplay, setModalDisplay] = React.useState(true);
 	const [patchData, setPatchData] = React.useState(null);
@@ -116,6 +117,7 @@ const Advertisement = () => {
 				patchData={patchData}
 				postAdvertisement={postAdvertisement}
 				patchAttributes={patchAttributes}
+				removeAdvertisements={removeAdvertisements}
 			/>
 		</>
 	);

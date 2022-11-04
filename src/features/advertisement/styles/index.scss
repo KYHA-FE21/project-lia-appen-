@@ -53,8 +53,11 @@
 		}
 
 		input[type="date"]::-webkit-calendar-picker-indicator {
-			display: none;
-			-webkit-appearance: none;
+			filter: invert(60%);
+			position: absolute;
+			left: 4%;
+			width: 20px;
+			height: 20px;
 		}
 
 		select {
@@ -74,3 +77,5 @@
 .divider {
 	border-top: 1px solid rgba(128, 128, 128, 0.5);
 }
+
+// Fixa icon på date

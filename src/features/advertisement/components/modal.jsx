@@ -5,7 +5,16 @@ import Select from "./option";
 import Badges from "../../../components/badge";
 import { User, MapPin, CalendarDays, Wrench, Globe2, Users, Plus, X } from "lucide-react";
 
-const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patchAttributes, loading }) => {
+const Modal = ({
+	userId,
+	display,
+	setDisplay,
+	patchData,
+	postAdvertisement,
+	patchAttributes,
+	loading,
+	removeAdvertisements,
+}) => {
 	const [profession, setProfession] = React.useState("");
 	const [location, setLocation] = React.useState("");
 	const [period, setPeriod] = React.useState(["", ""]);
@@ -58,6 +67,8 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 		setStates();
 	};
 
+	const handleRemove = () => removeAdvertisements(userId, patchData.attribute.id);
+
 	return (
 		<div className={`advertisement-modal-container ${display ? "flex" : "hidden"}`}>
 			<div className="content bg-white my-6 rounded-md p-8">
@@ -93,7 +104,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 								<InputField
 									required
 									type="date"
-									icon={<CalendarDays size={22} className="text-grey" />}
+									icon={<CalendarDays size={22} className="text-grey hidden" />}
 									className={`${!period[0] ? "text-grey" : "text-black"}`}
 									value={period[0]}
 									handleChange={(e) => setPeriod([e.target.value, period[1]])}
@@ -101,6 +112,7 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 								<InputField
 									required
 									type="date"
+									icon={<CalendarDays size={22} className="text-grey hidden" />}
 									className={`${!period[1] ? "text-grey" : "text-black"}`}
 									value={period[1]}
 									handleChange={(e) => setPeriod([period[0], e.target.value])}
@@ -156,7 +168,20 @@ const Modal = ({ userId, display, setDisplay, patchData, postAdvertisement, patc
 							/>
 						</div>
 					</div>
-					<Button className="w-full mt-8" children={loading ? "Loading..." : patchData ? "Updatera" : "Skapa annons"} />
+					{loading ? (
+						<div className="text-center mt-8">Loading...</div>
+					) : (
+						<>
+							<Button className="w-full mt-8" children={patchData ? "Updatera" : "Skapa annons"} />
+							{patchData && (
+								<Button
+									onClick={handleRemove}
+									className="w-full mt-4 bg-red"
+									children={loading ? "Loading..." : "Ta bort"}
+								/>
+							)}
+						</>
+					)}
 				</form>
 			</div>
 		</div>

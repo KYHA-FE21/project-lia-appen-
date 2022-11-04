@@ -55,6 +55,11 @@
       "user_id": "123",
       "attribute_id": "UcX6Wwk",
       "id": "drlHm4z"
+    },
+    {
+      "user_id": "123",
+      "attribute_id": "l2u8NpB",
+      "id": "1gt9vde"
     }
   ],
   "applicant": [
@@ -106,7 +111,8 @@
       "decline_rate": "0",
       "response_time": "0",
       "openings": 1,
-      "is_active": true
+      "is_active": true,
+      "isActive": null
     },
     {
       "id": "2",
@@ -116,13 +122,12 @@
       ],
       "profession": "Systemutvecklare",
       "badges": [
-        "GraphQL",
         "React",
         "C#",
         "Angular"
       ],
       "location": "Örebro",
-      "work_type": "Remote",
+      "work_type": "location",
       "school": "",
       "type": "advertisement",
       "decline_rate": "0",
@@ -170,7 +175,28 @@
       "is_active": true,
       "decline_rate": "0.0",
       "response_time": "0.0",
-      "id": "UcX6Wwk"
+      "id": "UcX6Wwk",
+      "isActive": null
+    },
+    {
+      "profession": "Backend",
+      "location": "Malmö",
+      "period": [
+        "2022-11-15",
+        "2022-11-15"
+      ],
+      "badges": [
+        "TS",
+        "JS"
+      ],
+      "work_type": "hybrid",
+      "openings": "2",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "l2u8NpB",
+      "isActive": null
     }
   ]
 }

@@ -53,9 +53,11 @@ const useAdvertisementController = () => {
 		);
 
 		const attributes = await Promise.all(promises);
-		return advertisements.map((item) => {
+		const combined = advertisements.map((item) => {
 			return { ...item, attribute: attributes.filter((attribute) => attribute.id === item.attribute_id)[0] };
 		});
+
+		return combined.filter((item) => item.attribute.isActive !== null);
 	};
 
 	const getAdvertisements = async (user_id) => {
@@ -78,7 +80,15 @@ const useAdvertisementController = () => {
 		});
 	};
 
-	return { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes };
+	const removeAdvertisements = async (user_id, attribute_id) => {
+		return await processHandler(async () => {
+			const url = attributeUrl + `/${attribute_id}`;
+			await _fetch(url, "PATCH", { isActive: null });
+			return await initAdvertisements(user_id);
+		});
+	};
+
+	return { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes, removeAdvertisements };
 };
 
 export default useAdvertisementController;
