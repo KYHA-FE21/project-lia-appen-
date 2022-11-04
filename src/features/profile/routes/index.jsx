@@ -9,11 +9,11 @@ import "./index.scss";
 import Button from "../../../components/buttons";
 import { Edit2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import useUser from "../hooks/use-user";
+import { useContext } from "react";
+import AuthContext from "../../../context";
 
 const Index = () => {
-	const user = useUser({ id: 1 });
-
+	const { user } = useContext(AuthContext);
 
 	return (
 		<main>
