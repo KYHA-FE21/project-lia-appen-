@@ -40,14 +40,14 @@ export default function useUser(id) {
 		async function getUserAndAttributes() {
 			const user = await getUserByID(userID);
 
-			if (!user.data) {
+			if (user.error) {
 				setState({ error: user.error, data: null, loading: false });
 				return;
 			}
 
 			const attribute = await getAttributeByID(user.data.attribute_id);
 
-			if (!attribute.data) {
+			if (attribute.error) {
 				setState({ error: attribute.error, data: null, loading: false });
 				return;
 			}
