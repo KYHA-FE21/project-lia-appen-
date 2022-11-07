@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import getApplicant from "../api/get-applicant";
-import getAdvertisementByID from "../helpers/get-advertisement-by-id";
-import getAttributeByID from "../helpers/get-attribute-by-id";
-import getUserByID from "../helpers/get-user-by-id";
+import { getAdvertisementByIDs } from "../helpers/get-advertisement-by-id";
+import { getAttributeByIDs } from "../helpers/get-attribute-by-id";
+import { getUserByIDs } from "../helpers/get-user-by-id";
 
 function useApplications(user) {
 	const [loading, setLoading] = useState(true);
@@ -14,16 +14,14 @@ function useApplications(user) {
 			try {
 				setLoading(true);
 				setError(false);
-				const applicants = await (
-					await getApplicant([
-						["user_id", user.id],
-						["accepted", true],
-						["accepted", false],
-					])
-				).json();
-				const advertisements = await getAdvertisementByID(Array.from(applicants).map((item) => item.advertisement_id));
-				const attributes = await getAttributeByID(Array.from(advertisements).map((item) => item.attribute_id));
-				const users = await getUserByID(Array.from(advertisements).map((item) => item.user_id));
+				const applicant = await getApplicant([
+					["user_id", user.id],
+					["accepted", true],
+					["accepted", false],
+				]);
+				const applicants = applicant.json();
+				const advertisements = await getAdvertisementByIDs(Array.from(applicants).map((item) => item.advertisement_id));
+				const [attributes, users] = await Promise.all([getAttributeByIDs(Array.from(advertisements).map((item) => item.attribute_id)), getUserByIDs(Array.from(advertisements).map((item) => item.user_id))]);
 				applicants.forEach((applicant, index, array) => {
 					const advertisement = advertisements.find((advertisement) => advertisement.id === applicant.advertisement_id);
 					const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);

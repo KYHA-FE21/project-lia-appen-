@@ -1,18 +1,24 @@
 import getApplicant from "../api/get-applicant";
-import getAttributeByID from "./get-attribute-by-id";
-import getLinksByUserID from "./get-link-by-user-id";
-import getUserByID from "./get-user-by-id";
+import { getAttributeByIDs } from "./get-attribute-by-id";
+import { getLinksByUserIDs } from "./get-link-by-user-id";
+import { getUserByIDs } from "./get-user-by-id";
 
-async function getApplicantByAdvertisementID(id) {
+/**
+ *
+ * @param {String} id
+ * @returns {Array}
+ */
+async function getApplicantByAdvertisementID(id = "") {
 	const searchParams = new URLSearchParams();
 	searchParams.set("advertisement_id", id);
 	searchParams.append("accepted", true);
 	searchParams.append("accepted", false);
-	const applicant = await (await getApplicant(searchParams)).json();
+	const data = await getApplicant(searchParams);
+	const applicant = await data.json();
 	if (!applicant.length) return [];
-	const user = await getUserByID(Array.from(applicant).map((item) => item.user_id));
-	const link = await getLinksByUserID(Array.from(user).map((item) => item.id));
-	const attribute = await getAttributeByID(Array.from(user).map((item) => item.attribute_id));
+	const user = await getUserByIDs(Array.from(applicant).map((item) => item.user_id));
+	const link = await getLinksByUserIDs(Array.from(user).map((item) => item.id));
+	const attribute = await getAttributeByIDs(Array.from(user).map((item) => item.attribute_id));
 	return Array.from(user).map((user, index) => ({ ...user, applicant: applicant[index], attribute: attribute[index], link: link.filter((item) => item.user_id === user.id) }));
 }
 

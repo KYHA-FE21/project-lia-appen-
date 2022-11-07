@@ -1,19 +1,26 @@
 import getAttribute from "../api/get-attribute";
 
 /**
- * @param {String | Array} id
+ * @param {String} id
  */
 async function getAttributeByID(id = "") {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		for (const item of id) {
-			searchParams.append("id", item);
-		}
-	} else {
-		searchParams.set("id", id);
-	}
-	const json = await (await getAttribute(searchParams)).json();
+	const searchParams = new URLSearchParams(`id=${id}`);
+	const data = await getAttribute(searchParams);
+	const json = await data.json();
 	return json;
 }
 
-export default getAttributeByID;
+/**
+ * @param {Array} ids
+ */
+async function getAttributeByIDs(ids = []) {
+	const searchParams = new URLSearchParams();
+	for (const id of ids) {
+		searchParams.append("id", id);
+	}
+	const data = await getAttribute(searchParams);
+	const json = await data.json();
+	return json;
+}
+
+export { getAttributeByID, getAttributeByIDs };

@@ -1,19 +1,26 @@
 import getUser from "../api/get-user";
 
 /**
- * @param {String | Array} id
+ * @param {String} id
  */
 async function getUserByID(id = "") {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		for (const item of id) {
-			searchParams.append("id", item);
-		}
-	} else {
-		searchParams.set("id", id);
-	}
-	const json = await (await getUser(searchParams)).json();
+	const searchParams = new URLSearchParams(`id=${id}`);
+	const data = await getUser(searchParams);
+	const json = await data.json();
 	return json;
 }
 
-export default getUserByID;
+/**
+ * @param {Array} ids
+ */
+async function getUserByIDs(ids = "") {
+	const searchParams = new URLSearchParams();
+	for (const id of ids) {
+		searchParams.append("id", id);
+	}
+	const data = await getUser(searchParams);
+	const json = await data.json();
+	return json;
+}
+
+export { getUserByID, getUserByIDs };

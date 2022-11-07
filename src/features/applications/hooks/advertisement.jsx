@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import getAdvertisementByID from "../helpers/get-advertisement-by-id";
+import { getAdvertisementByID } from "../helpers/get-advertisement-by-id";
 import getApplicantByAdvertisementID from "../helpers/get-applicant-by-advertisement-id";
-import getAttributeByID from "../helpers/get-attribute-by-id";
+import { getAttributeByID } from "../helpers/get-attribute-by-id";
 
 function useAdvertisement(id) {
 	const [loading, setLoading] = useState(false);
