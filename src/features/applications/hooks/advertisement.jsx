@@ -13,21 +13,19 @@ function useAdvertisement(id) {
 		(async () => {
 			setLoading(true);
 			setError(false);
-			setTimeout(async () => {
-				try {
-					const [ad] = await getAdvertisementByID(id);
-					if (!ad) throw new Error("404 (Sidan kunde ej hittas)");
-					const [attribute] = await getAttributeByID(ad.attribute_id);
-					const applicants = await getApplicantByAdvertisementID(id);
-					if (controller.signal.aborted) return;
-					setAdvertisement({ ...ad, attribute, applicants });
-				} catch (error) {
-					setError(error.toString());
-				} finally {
-					if (controller.signal.aborted) return;
-					setLoading(false);
-				}
-			}, 1_000);
+			try {
+				const [ad] = await getAdvertisementByID(id);
+				if (!ad) throw new Error("404 (Sidan kunde ej hittas)");
+				const [attribute] = await getAttributeByID(ad.attribute_id);
+				const applicants = await getApplicantByAdvertisementID(id);
+				if (controller.signal.aborted) return;
+				setAdvertisement({ ...ad, attribute, applicants });
+			} catch (error) {
+				setError(error.toString());
+			} finally {
+				if (controller.signal.aborted) return;
+				setLoading(false);
+			}
 		})();
 		return () => {
 			controller.abort();
