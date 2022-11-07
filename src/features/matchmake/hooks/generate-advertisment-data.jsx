@@ -27,6 +27,16 @@ async function getApplicantByAdvertisementID(id = []) {
 	return json;
 }
 
+function sortAdvertisements(a, b, attributes, badges) {
+	const aBadges = [...attributes.find((attribute) => attribute.id === a.attribute_id).badges].filter((item) => badges.includes(item));
+	const bBadges = [...attributes.find((attribute) => attribute.id === b.attribute_id).badges].filter((item) => badges.includes(item));
+	if (aBadges.length > bBadges.length) {
+		return -1;
+	}
+	if (aBadges.length < bBadges.length) {
+		return 1;
+	}
+	return 0;
 }
 
 /**
@@ -69,17 +79,7 @@ function useGenerateAdvertisementData(user) {
 				const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
 				if (!filteredAdvertisements.length) return setAdvertisementData(false);
 				const badges = [...user.attribute.badges].map((item) => item.toUpperCase());
-				filteredAdvertisements.sort((a, b) => {
-					const aBadges = [...attributes.find((attribute) => attribute.id === a.attribute_id).badges].filter((item) => badges.includes(item));
-					const bBadges = [...attributes.find((attribute) => attribute.id === b.attribute_id).badges].filter((item) => badges.includes(item));
-					if (aBadges.length > bBadges.length) {
-						return -1;
-					}
-					if (aBadges.length < bBadges.length) {
-						return 1;
-					}
-					return 0;
-				});
+				filteredAdvertisements.sort((a, b) => sortAdvertisements(a, b, attributes, badges));
 				const [advertisement] = filteredAdvertisements;
 				const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
 				const questionnaire = await getQuestionnairesByAdvertisementID(advertisement.id);
