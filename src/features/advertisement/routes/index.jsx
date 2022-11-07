@@ -29,7 +29,7 @@ const Advertisement = () => {
 				<div>
 					<div className="flex justify-center">
 						<div className="header mb-14">
-							<h1 className="text-2xl text-center mb-4">LIA-rekrytering</h1>
+							<h1 className="text-2xl text-center mb-4">LIA-annonser</h1>
 							<p className="text-center mb-6">
 								Här kan du som företagsanvändare se dina befintliga rekryteringar, redigera dessa samt skapa nya.
 							</p>
