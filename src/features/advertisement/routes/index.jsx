@@ -31,7 +31,7 @@ const Advertisement = () => {
 						<div className="header mb-14">
 							<h1 className="text-2xl text-center mb-4">LIA-annonser</h1>
 							<p className="text-center mb-6">
-								Här kan du som företagsanvändare se dina befintliga rekryteringar, redigera dessa samt skapa nya.
+								Här kan du som företagsanvändare se dina befintliga annonser, redigera dessa samt skapa nya.
 							</p>
 							<Button
 								className="w-full"
