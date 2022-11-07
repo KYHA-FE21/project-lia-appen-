@@ -19,7 +19,7 @@ function useApplications(user) {
 					["accepted", true],
 					["accepted", false],
 				]);
-				const applicants = applicant.json();
+				const applicants = await applicant.json();
 				const advertisements = await getAdvertisementByIDs(Array.from(applicants).map((item) => item.advertisement_id));
 				const [attributes, users] = await Promise.all([getAttributeByIDs(Array.from(advertisements).map((item) => item.attribute_id)), getUserByIDs(Array.from(advertisements).map((item) => item.user_id))]);
 				applicants.forEach((applicant, index, array) => {
