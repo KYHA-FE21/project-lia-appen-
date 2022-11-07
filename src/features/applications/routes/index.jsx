@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AuthContext from "../../../context";
 import CompanyApplicationsContainer from "../components/sections/company-applications-container";
 import StudentApplicationContainer from "../components/sections/student-application-container";
