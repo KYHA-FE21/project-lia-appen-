@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
-import getApplicant from "../api/get-applicant";
 import deleteApplicant from "../api/delete-applicant";
 import { getQuestionnairesByAdvertisementID } from "../../questionnaire/api/questionnaire";
+import getApplicant from "../../applications/api/get-applicant";
 
 async function getAdvertisementByAttributeID(id = []) {
 	const searchParams = new URLSearchParams();
