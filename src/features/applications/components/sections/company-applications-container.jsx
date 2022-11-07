@@ -108,21 +108,20 @@ const CompanyApplicationsContainer = ({ id }) => {
 				className: "text-white w-full text-sm",
 				children: array === toReview ? "Tacka nej" : "Ta bort",
 			},
-			...(array === toReview
-				? [
-						{
-							icon: <Check />,
-							onClick: () => {
-								acceptButtonOnClick(index, array);
-							},
-							color: "white",
-							bgColor: "green",
-							className: "text-white w-full text-sm",
-							children: "Kontakta",
-						},
-				  ]
-				: []),
 		];
+		if (array === toReview) {
+			buttons.push({
+				icon: <Check />,
+				onClick: () => {
+					acceptButtonOnClick(index, array);
+				},
+				color: "white",
+				bgColor: "green",
+				className: "text-white w-full text-sm",
+				children: "Kontakta",
+			});
+		}
+
 		return <ApplicationCard key={item.applicant.id} index={index} array={array} attribute={item.attribute} readMoreButtonOnClick={readMoreButtonOnClick} buttons={buttons} />;
 	}
 
