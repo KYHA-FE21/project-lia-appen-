@@ -65,7 +65,7 @@ const Signup = () => {
 						required
 					/>
 					<InputError error={localError} type="email" />
-					<div className="authSignupPasswordContainer">
+					<div className="authSignupPasswordContainer flex flex-col gap-3">
 						<InputField
 							className={localError?.type === "password" && "globalInputFieldError"}
 							icon={<Lock strokeWidth={1} />}
