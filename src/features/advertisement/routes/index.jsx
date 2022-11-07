@@ -5,6 +5,7 @@ import useAdvertisementController from "../api/adv-controller";
 import AuthContext from "../../../context";
 import AdvCard from "../components/adv-card";
 import Button from "../../../components/buttons";
+import { Link } from "react-router-dom";
 
 const Advertisement = () => {
 	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes, removeAdvertisements } =
@@ -14,7 +15,6 @@ const Advertisement = () => {
 	const [patchData, setPatchData] = React.useState(null);
 
 	React.useEffect(() => {
-		console.log(user.data.id);
 		getAdvertisements(user.data.id);
 	}, []);
 
@@ -59,6 +59,15 @@ const Advertisement = () => {
 										>
 											Editera
 										</Button>
+										<div className="flex gap-4">
+											<Link to={`/applicants/${add.id}`} className="w-full no-underline">
+												<Button className="w-full bg-grey">Ansökningar</Button>
+											</Link>
+
+											<Link to={`/questionnaire/overview/${add.id}`} className="no-underline w-full">
+												<Button className="w-full bg-grey">Frågeformulär</Button>
+											</Link>
+										</div>
 									</AdvCard>
 								))}
 							</div>

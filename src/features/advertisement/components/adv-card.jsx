@@ -50,7 +50,7 @@ const AdvCard = ({ add, children }) => {
 				}}
 			/>
 			<div className="divider" />
-			<CardButtons>{children}</CardButtons>
+			<CardButtons className="flex-col">{children}</CardButtons>
 		</Card>
 	);
 };

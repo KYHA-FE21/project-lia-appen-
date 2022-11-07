@@ -22,11 +22,13 @@ const Modal = ({
 	const [badges, setBadges] = React.useState([]);
 	const [workType, setWorkType] = React.useState("");
 	const [openings, setOpenings] = React.useState(0);
+	const [badgeErr, setBadgeErr] = React.useState("");
 
 	const setStates = (profession = "", location = "", period = ["", ""], badges = [], workType = "", openings = 0) => {
 		setProfession(profession);
 		setLocation(location);
 		setPeriod(period);
+		setBadge("");
 		setBadges(badges);
 		setWorkType(workType);
 		setOpenings(openings);
@@ -47,6 +49,10 @@ const Modal = ({
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		if (badge) return setBadgeErr("Glöm inte att lägg till dina ändringar!");
+		setBadgeErr("");
+
 		let data = {
 			profession,
 			location,
@@ -123,16 +129,21 @@ const Modal = ({
 							<InputLabel>Kunskaper</InputLabel>
 							<div className="flex">
 								<InputField
+									isError={badgeErr}
 									placeholder="Typescript"
 									icon={<Wrench size={22} className="text-grey" />}
 									value={badge}
-									handleChange={(e) => setBadge(e.target.value)}
+									handleChange={(e) => {
+										setBadge(e.target.value);
+										if (!e.target.value) setBadgeErr("");
+									}}
 								/>
 								<Button
 									onClick={() => {
 										if (badges.length === 5) return;
 										setBadges([...badges, badge]);
 										setBadge("");
+										setBadgeErr("");
 									}}
 									type="button"
 									className="ml-2 mt-3"
@@ -140,6 +151,7 @@ const Modal = ({
 									<Plus size={20} className="text-white" />
 								</Button>
 							</div>
+							<p className="text-red text-center mt-4 text-sm">{badgeErr}</p>
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
 								{badges.map((item, i) => (
 									<div key={item + i} onClick={() => setBadges(badges.filter((badge) => badge !== item))}>
