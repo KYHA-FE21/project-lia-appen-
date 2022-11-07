@@ -1,16 +1,15 @@
 import React from "react";
 import Wrapper from "../components/wrapper";
 import Title from "../components/title";
-import { Phone, MapPin, CalendarDays } from "lucide-react";
+import {  MapPin, CalendarDays } from "lucide-react";
 
 const Information = ({
 	name,
 	profession,
 	school,
-	date,
+	period,
 	bio,
 	location,
-	phone,
 }) => {
 	return (
 		<Wrapper
@@ -24,21 +23,23 @@ const Information = ({
 			</Title>
 
 			<Wrapper wrap="wrap" gap={[1]} styleDirection="center">
-				<Title size={[1]} img={<MapPin color="black" size={18} />}>
-					{location}
-				</Title>
+				{location === undefined && (
+					<Title size={[1]} img={<MapPin color="black" size={18} />}>
+						{location}
+					</Title>
+				)}
 
-				<Title size={[1]} img={<Phone color="black" size={18} />}>
-					{phone}
-				</Title>
+				{school === undefined && (
+					<Title size={[1]} img={<MapPin color="black" size={18} />}>
+						{school}
+					</Title>
+				)}
 
-				<Title size={[1]} img={<MapPin color="black" size={18} />}>
-					{school}
-				</Title>
-
-				<Title size={[1]} img={<CalendarDays color="black" size={18} />}>
-					{date}
-				</Title>
+				{period === undefined && (
+					<Title size={[1]} img={<CalendarDays color="black" size={18} />}>
+						{period}
+					</Title>
+				)}
 			</Wrapper>
 
 			<Wrapper maxWidth="800px" lineHeight={[1.5]} padding={[0, 1]}>

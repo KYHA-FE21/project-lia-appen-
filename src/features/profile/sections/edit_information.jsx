@@ -44,33 +44,26 @@ const EditInformation = ({ user }) => {
 			name: data.name,
 			email: sendData.email.length > 0 ? sendData.email : data.email,
 			password: data.password,
-			bio: sendData.bio.length > 0 ? sendData.bio : data.bio,
+			bio: sendData.bio,
 			attribute_id: data.attribute.id,
 			attribute: {
 				id: data.attribute.id,
-				period:
-					sendData.period[0].length > 0 && sendData.period[1].length > 0
-						? sendData.period
-						: data.attribute.period,
+				period: sendData.period,
 				profession:
 					sendData.profession.length > 0
 						? sendData.profession
 						: data.attribute.profession,
-				badges:
-					sendData.badgesRaw.length > 0
-						? [
-								...new Set(
-									sendData.badgesRaw.split(",").map((badge) => badge.trim())
-								),
-						  ].filter(Boolean)
-						: data.attribute.badges,
+				badges: [
+					...new Set(
+						sendData.badgesRaw.split(",").map((badge) => badge.trim())
+					),
+				].filter(Boolean),
 				location:
 					sendData.location.length > 0
 						? sendData.location
 						: data.attribute.location,
 				work_type: sendData.work_type,
-				school:
-					sendData.school.length > 0 ? sendData.school : data.attribute.school,
+				school: sendData.school,
 				type: data.attribute.type,
 				decline_rate: data.attribute.decline_rate,
 				response_time: data.attribute.response_time,

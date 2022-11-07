@@ -31,16 +31,17 @@ const Index = () => {
 					name={user.data.name}
 					profession={user.data.attribute.profession}
 					school={user.data.attribute.school}
-					date={user.data.attribute.period}
-					phone={user.data.phone}
+					period={
+						user.data.attribute.type !== "company" && user.data.attribute.period
+					}
 					bio={user.data.bio}
 					location={user.data.attribute.location}
 				/>
 
 				{user.data.attribute.type === "company" ? (
-					<Link to="/questionnaire/overview/*" className="place-self-center">
+					<Link to="/advertisement" className="place-self-center no-underline">
 						<Button icon={<Edit2 />} className="gap-4">
-							Redigera frågor
+							Redigera annonser
 						</Button>
 					</Link>
 				) : (
