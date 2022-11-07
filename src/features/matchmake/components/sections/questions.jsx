@@ -26,7 +26,7 @@ function Questions({ advertisementData, answers, setAnswers, setAction, apply, q
 				<>
 					<CardHeader className="text-2xl px-3">
 						<h2>Frågor</h2>
-						<XCircle className="cursor-pointer" color="black" size="30" onClick={apply.deny} />
+						<XCircle className="cursor-pointer" color="black" size="30" onClick={() => apply.deny()} />
 					</CardHeader>
 					<HorizontalRow className="px-3 opacity-3" />
 					<Container display="grid" className="gap-3">

@@ -42,7 +42,7 @@ function Verification({ user, advertisementData, answers, setAction, getNew, set
 						<>
 							<CardHeader className="text-2xl px-3">
 								<h2>Bekräfta</h2>
-								<XCircle className="cursor-pointer" color="black" size="30" onClick={apply.deny} />
+								<XCircle className="cursor-pointer" color="black" size="30" onClick={() => apply.deny()} />
 							</CardHeader>
 							<Container type="p" className="px-3 text-center ">
 								{`Besvarade frågor ${Object.entries(answers).length}/${questionnaire.length}`}

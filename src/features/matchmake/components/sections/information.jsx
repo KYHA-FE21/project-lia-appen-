@@ -41,7 +41,7 @@ function Information({ advertisementData, setAction, user, apply }) {
 			<InfoStats statistics={{ decline_rate, response_time, openings }} />
 			<HorizontalRow className="px-3 opacity-3" />
 			<CardButtons className="px-3 text-white mt-auto">
-				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={apply.deny}>
+				<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={() => apply.deny()}>
 					Ny annons
 				</SecondaryButton>
 				<SecondaryButton

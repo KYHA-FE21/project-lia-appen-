@@ -26,10 +26,10 @@ function Verified({ getNew, apply }) {
 								</p>
 							</Container>
 							<CardButtons className="px-3 text-white mt-auto">
-								<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={apply.deny}>
+								<SecondaryButton icon={<X color="white" />} bgColor="red" className="w-full text-sm" onClick={() => apply.deny()}>
 									Ny annons
 								</SecondaryButton>
-								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={apply.accept}>
+								<SecondaryButton icon={<Check color="white" />} bgColor="green" className="w-full text-sm" onClick={() => apply.accept()}>
 									Ansök
 								</SecondaryButton>
 							</CardButtons>

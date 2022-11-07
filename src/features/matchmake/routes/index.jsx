@@ -34,10 +34,10 @@ const Index = () => {
 	const apply = {
 		...useApply(),
 		async accept() {
-			await apply.apply(advertisementData, user, true);
+			await this.apply(advertisementData, user, true);
 		},
 		async deny() {
-			await apply.apply(advertisementData, user, false);
+			await this.apply(advertisementData, user, false);
 			getNew();
 		},
 	};
