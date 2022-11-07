@@ -15,29 +15,26 @@ function useVerify() {
 	async function verify(advertisementData, answers, user) {
 		setLoading(true);
 		setError(null);
-		setTimeout(async () => {
-			try {
-				const { questionnaire } = advertisementData;
-				const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
-				setVerified(succeded);
-				if (!succeded) {
-					const cooldown = Date.now();
-					const body = JSON.stringify({
-						advertisement_id: advertisementData.id,
-						user_id: user.id,
-						accepted: null,
-						cooldown,
-					});
-					await postApplicant(body);
-				}
-			} catch (error) {
-				setError(error.toString());
-			} finally {
-				setLoading(false);
+		try {
+			const { questionnaire } = advertisementData;
+			const succeded = questionnaire.every((question) => question.correct_alternatives.includes(answers[question.id]));
+			setVerified(succeded);
+			if (!succeded) {
+				const cooldown = Date.now();
+				const body = JSON.stringify({
+					advertisement_id: advertisementData.id,
+					user_id: user.id,
+					accepted: null,
+					cooldown,
+				});
+				await postApplicant(body);
 			}
-		}, 1_000);
+		} catch (error) {
+			setError(error.toString());
+		} finally {
+			setLoading(false);
+		}
 	}
-
 	return { loading, error, verified, verify };
 }
 

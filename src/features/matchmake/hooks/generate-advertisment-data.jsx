@@ -52,55 +52,50 @@ function useGenerateAdvertisementData(user) {
 		setLoading(true);
 		setError(null);
 		if (!user.id) return;
-		return setTimeout(async () => {
-			try {
-				const searchParams = new URLSearchParams();
-				searchParams.set("profession", user.attribute.profession);
-				searchParams.set("type", "advertisement");
-				searchParams.set("is_active", true);
-				const attributes = await (await getAttribute(searchParams)).json();
-				const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
-				const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
-				const toFilter = [];
-				for (const applicant of applicants) {
-					const date = new Date();
-					date.setDate(date.getDate() - 30);
-					if (applicant.user_id === user.id) {
-						if (applicant.accepted === null && applicant.cooldown < date.getTime()) {
-							const res = await deleteApplicant(applicant.id);
-							if (res.status !== 200) {
-								throw new Error(`${res.status} (${res.statusText})`);
-							}
-						} else {
-							toFilter.push(applicant.advertisement_id);
+		try {
+			const searchParams = new URLSearchParams();
+			searchParams.set("profession", user.attribute.profession);
+			searchParams.set("type", "advertisement");
+			searchParams.set("is_active", true);
+			const attributes = await (await getAttribute(searchParams)).json();
+			const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
+			const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
+			const toFilter = [];
+			for (const applicant of applicants) {
+				const date = new Date();
+				date.setDate(date.getDate() - 30);
+				if (applicant.user_id === user.id) {
+					if (applicant.accepted === null && applicant.cooldown < date.getTime()) {
+						const res = await deleteApplicant(applicant.id);
+						if (res.status !== 200) {
+							throw new Error(`${res.status} (${res.statusText})`);
 						}
+					} else {
+						toFilter.push(applicant.advertisement_id);
 					}
 				}
-				const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
-				if (!filteredAdvertisements.length) return setAdvertisementData(false);
-				const badges = [...user.attribute.badges].map((item) => item.toUpperCase());
-				filteredAdvertisements.sort((a, b) => sortAdvertisements(a, b, attributes, badges));
-				const [advertisement] = filteredAdvertisements;
-				const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
-				const questionnaire = await getQuestionnairesByAdvertisementID(advertisement.id);
-				setAdvertisementData(() => ({
-					...advertisement,
-					attribute,
-					questionnaire: questionnaire.data,
-				}));
-			} catch (error) {
-				setError(error.toString());
-			} finally {
-				setLoading(false);
 			}
-		}, 1_000);
+			const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
+			if (!filteredAdvertisements.length) return setAdvertisementData(false);
+			const badges = [...user.attribute.badges].map((item) => item.toUpperCase());
+			filteredAdvertisements.sort((a, b) => sortAdvertisements(a, b, attributes, badges));
+			const [advertisement] = filteredAdvertisements;
+			const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
+			const questionnaire = await getQuestionnairesByAdvertisementID(advertisement.id);
+			setAdvertisementData(() => ({
+				...advertisement,
+				attribute,
+				questionnaire: questionnaire.data,
+			}));
+		} catch (error) {
+			setError(error.toString());
+		} finally {
+			setLoading(false);
+		}
 	}
 
 	useEffect(() => {
-		const timer = getNewAdvertisement(user);
-		return () => {
-			clearTimeout(timer);
-		};
+		getNewAdvertisement(user);
 	}, [user]);
 
 	return { advertisementData, loading, error, getNewAdvertisement };
