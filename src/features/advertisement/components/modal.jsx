@@ -76,7 +76,7 @@ const Modal = ({
 	const handleRemove = () => removeAdvertisements(userId, patchData.attribute.id);
 
 	return (
-		<div className={`advertisement-modal-container ${display ? "flex" : "hidden"}`}>
+		<div className={`adver-modal-container ${display ? "flex" : "hidden"}`}>
 			<div className="content bg-white my-6 rounded-md p-8">
 				<div className="exitIcon" onClick={() => setDisplay(false)}>
 					<X />
@@ -155,7 +155,7 @@ const Modal = ({
 							<div className={`flex flex-wrap justify-center ${badges.length && "mt-3"}`}>
 								{badges.map((item, i) => (
 									<div key={item + i} onClick={() => setBadges(badges.filter((badge) => badge !== item))}>
-										<Badges className="text-white m-2 adv-badges">
+										<Badges className="text-white m-2 adver-badges">
 											<div className="flex items-center gap-1">
 												{item} <XCircle size={"0.8rem"} />
 											</div>
