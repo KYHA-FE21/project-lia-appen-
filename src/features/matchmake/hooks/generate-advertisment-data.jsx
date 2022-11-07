@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import getAttribute from "../api/get-attribute";
 import getAdvertisement from "../api/get-advertisement";
-import getQuestionnaire from "../api/get-questionnaires";
 import getApplicant from "../api/get-applicant";
 import deleteApplicant from "../api/delete-applicant";
+import { getQuestionnairesByAdvertisementID } from "../../questionnaire/api/questionnaire";
 
 async function getAdvertisementByAttributeID(id = []) {
 	const searchParams = new URLSearchParams();
@@ -27,10 +27,6 @@ async function getApplicantByAdvertisementID(id = []) {
 	return json;
 }
 
-async function getQuestionnaireByAdvertisementID(id) {
-	const searchParams = new URLSearchParams(`advertisement_id=${id}`);
-	const json = await (await getQuestionnaire(searchParams)).json();
-	return json;
 }
 
 /**
@@ -86,11 +82,11 @@ function useGenerateAdvertisementData(user) {
 				});
 				const [advertisement] = filteredAdvertisements;
 				const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
-				const questionnaire = await getQuestionnaireByAdvertisementID(advertisement.id);
+				const questionnaire = await getQuestionnairesByAdvertisementID(advertisement.id);
 				setAdvertisementData(() => ({
 					...advertisement,
 					attribute,
-					questionnaire,
+					questionnaire: questionnaire.data,
 				}));
 			} catch (error) {
 				setError(error.toString());
