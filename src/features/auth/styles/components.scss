@@ -7,10 +7,6 @@ $color-secondary: rgba(250, 250, 250, 0.5);
 	height: auto;
 }
 
-//-------------------------------Password container
-.authSignupPasswordContainer {
-	position: relative;
-}
 //-------------------------------Password info
 .passwordInfo-container {
 	position: absolute;
@@ -24,14 +20,10 @@ $color-secondary: rgba(250, 250, 250, 0.5);
 
 @media only screen and (min-width: 400px) {
 	.authSignupPasswordContainer {
-		display: flex;
+		flex-direction: row;
 
 		.globalInputContainer {
 			width: 50%;
-		}
-
-		.globalInputContainer:first-child {
-			margin-right: 0.5rem;
 		}
 	}
 }
