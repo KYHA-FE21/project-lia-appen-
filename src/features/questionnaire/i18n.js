@@ -17,6 +17,7 @@ export const dictionary = {
 		"Overview.pitch":
 			"Med vårt verktyg för att skapa ansökningsformulär kan du enkelt skapa verifieringsfrågor för din annons. Varje sökande tilldelas sedan detta formulär under sin ansökningsprocess.",
 		"%1/%2 questions": "%1/%2 frågor",
+		InputCorrect: "Anger om det är rätt svar",
 	},
 };
 
