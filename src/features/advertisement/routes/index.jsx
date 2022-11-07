@@ -40,7 +40,7 @@ const Advertisement = () => {
 									setModalDisplay(true);
 								}}
 							>
-								NY REKRYTERING
+								NY ANNONS
 							</Button>
 						</div>
 					</div>
