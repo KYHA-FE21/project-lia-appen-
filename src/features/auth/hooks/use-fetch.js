@@ -1,5 +1,8 @@
 import React from "react";
 import AuthService from "../api/auth-service";
+import postAttribute from "../api/post-attribute";
+import { defaultUser } from "../../profile/hooks/use-user";
+import handleResponse from "../../../utils/handle-response";
 
 const useFetch = () => {
 	const [data, setData] = React.useState(null);
@@ -12,21 +15,46 @@ const useFetch = () => {
 		setLoading(true);
 		try {
 			const serverValidation = await auth.controller(url, body);
+			debugger;
 			if (serverValidation.error) return setError(serverValidation.error);
 
-			const endpoint = process.env.REACT_APP_BACKEND_ENDPOINT + "/user" + params;
+			const endpoint =
+				process.env.REACT_APP_BACKEND_ENDPOINT + "/user" + params;
+
+			const userAttributes = { ...defaultUser.attribute, type: body.type };
+			delete userAttributes.id;
+
+			const attributeResponse = await handleResponse(
+				await postAttribute(userAttributes)
+			);
+
+			// TODO: Handle errors
+			const attributeID = attributeResponse.data.id;
+
+			const userBody = {
+				...defaultUser,
+				attribute_id: attributeID,
+				email: body.email,
+				password: body.password,
+			};
+			delete userBody.attribute;
+
+			debugger;
 
 			const response = await fetch(endpoint, {
 				method,
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: method !== "GET" ? JSON.stringify(body) : undefined,
+				body: method !== "GET" ? JSON.stringify(userBody) : undefined,
 			});
 
 			const status = response.status;
 
-			if (!response.headers.get("content-type") && !(status === 200 || status === 201))
+			if (
+				!response.headers.get("content-type") &&
+				!(status === 200 || status === 201)
+			)
 				throw new Error("Unknown Error, update page and try again!");
 
 			setData(await response.json());
