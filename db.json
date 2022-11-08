@@ -1,59 +1,12 @@
 {
   "user": [
     {
-      "id": "",
+      "id": "1",
       "name": "",
       "email": "",
       "password": "",
       "bio": "",
-      "attribute_id": ""
-    },
-    {
-      "id": "2",
-      "name": "Student 1",
-      "email": "",
-      "password": "",
-      "bio": "I'm accepted",
-      "attribute_id": "2"
-    },
-    {
-      "id": "3",
-      "name": "Student 2",
-      "email": "",
-      "password": "",
-      "bio": "I'm applying",
-      "attribute_id": "3"
-    },
-    {
-      "id": "4",
-      "name": "Student 3",
-      "email": "",
-      "password": "",
-      "bio": "I failed",
       "attribute_id": "4"
-    },
-    {
-      "id": "5",
-      "name": "Company 5",
-      "email": "",
-      "password": "",
-      "bio": "I'm a buss",
-      "attribute_id": "5"
-    },
-    {
-      "id": "1",
-      "name": "Company 1",
-      "email": "",
-      "password": "",
-      "bio": "I'm a buss",
-      "attribute_id": "9"
-    },
-    {
-      "email": "a@b.c",
-      "password": "Abcdef-1",
-      "id": "VnTrlBE",
-      "bio": "I'm a buss",
-      "attribute_id": "5"
     }
   ],
   "link": [
@@ -62,18 +15,6 @@
       "title": "",
       "url": "",
       "user_id": ""
-    },
-    {
-      "id": "1",
-      "title": "Lorem",
-      "url": "https://www.google.se/",
-      "user_id": "2"
-    },
-    {
-      "id": "2",
-      "title": "Lorem ipsum",
-      "url": "https://www.google.se/",
-      "user_id": "2"
     }
   ],
   "questionnaire": [
@@ -105,7 +46,7 @@
     },
     {
       "id": "3",
-      "advertisement_id": "2",
+      "advertisement_id": "3",
       "body": "Question 1",
       "alternatives": [
         "Alt 1",
@@ -125,18 +66,13 @@
     },
     {
       "id": "2",
-      "user_id": "5",
-      "attribute_id": "6"
+      "user_id": "2",
+      "attribute_id": "2"
     },
     {
       "id": "3",
-      "user_id": "5",
-      "attribute_id": "7"
-    },
-    {
-      "id": "4",
-      "user_id": "5",
-      "attribute_id": "8"
+      "user_id": "3",
+      "attribute_id": "3"
     }
   ],
   "applicant": [
@@ -144,50 +80,8 @@
       "id": "",
       "advertisement_id": "",
       "user_id": "",
-      "cooldown": "",
-      "accepted": true
-    },
-    {
-      "advertisement_id": "1",
-      "user_id": "2",
-      "id": "gyqssAo",
-      "cooldown": 1667403267239,
-      "accepted": true
-    },
-    {
-      "advertisement_id": "1",
-      "user_id": "3",
-      "id": "gyqssBo",
-      "cooldown": "",
-      "accepted": false
-    },
-    {
-      "advertisement_id": "1",
-      "user_id": "4",
-      "id": "gyqssCo",
-      "cooldown": "",
-      "accepted": false
-    },
-    {
-      "advertisement_id": "2",
-      "user_id": "VnTrlBE",
-      "id": "gyqssDo",
-      "cooldown": "",
-      "accepted": true
-    },
-    {
-      "advertisement_id": "3",
-      "user_id": "VnTrlBE",
-      "id": "gyqssEo",
-      "cooldown": "",
-      "accepted": false
-    },
-    {
-      "advertisement_id": "4",
-      "user_id": "VnTrlBE",
-      "id": "gyqssFo",
-      "cooldown": "",
-      "accepted": false
+      "accepted": false,
+      "cooldown": ""
     }
   ],
   "attribute": [
@@ -199,12 +93,10 @@
       ],
       "profession": "Systemutvecklare",
       "badges": [
-        "html",
-        "css",
-        "js",
-        "react"
+        "JS",
+        "REACT"
       ],
-      "location": "Göteborg",
+      "location": "Göteborg 1",
       "work_type": "Remote",
       "school": "",
       "type": "advertisement",
@@ -214,46 +106,24 @@
       "is_active": true
     },
     {
-      "id": "2",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Systemutvecklare",
-      "badges": [
-        "REACT",
-        "JS",
-        "CSS",
-        "HTML"
-      ],
-      "location": "Stockholm",
-      "work_type": "Remote",
-      "school": "",
-      "type": "student",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": "",
-      "is_active": true
-    },
-    {
       "id": "3",
       "period": [
-        "123",
-        "456"
+        "456",
+        "123"
       ],
       "profession": "Systemutvecklare",
       "badges": [
+        "JS",
         "HTML",
-        "REACT",
         "CSS"
       ],
-      "location": "Gävleborg",
-      "work_type": "Hybrid",
+      "location": "Stockholm 3",
+      "work_type": "Hybird",
       "school": "",
-      "type": "student",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": "",
+      "type": "advertisement",
+      "decline_rate": "0.2",
+      "response_time": "1",
+      "openings": 5,
       "is_active": true
     },
     {
@@ -264,121 +134,18 @@
       ],
       "profession": "Systemutvecklare",
       "badges": [
-        "js",
+        "JS",
         "HTML",
-        "REACT",
-        "CSS"
+        "CSS",
+        "React"
       ],
       "location": "Göteborg",
       "work_type": "Remote",
-      "school": "",
+      "school": "KYH",
       "type": "student",
-      "decline_rate": "0.5",
-      "response_time": "0.1",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "5",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Frontendutvecklare",
-      "badges": [
-        "JS",
-        "HTML",
-        "CSS"
-      ],
-      "location": "Göteborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "company",
-      "decline_rate": "0.5",
-      "response_time": "0.1",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "6",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Systemutvecklare 1",
-      "badges": [
-        "html",
-        "css"
-      ],
-      "location": "Göteborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "7",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Systemutvecklare 2",
-      "badges": [
-        "html",
-        "css"
-      ],
-      "location": "Göteborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "8",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Systemutvecklare 3",
-      "badges": [
-        "html",
-        "css",
-        "js"
-      ],
-      "location": "Göteborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "9",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Frontendutvecklare",
-      "badges": [
-        "JS",
-        "HTML",
-        "CSS"
-      ],
-      "location": "Göteborg",
-      "work_type": "Remote",
-      "school": "",
-      "type": "company",
-      "decline_rate": "0.5",
-      "response_time": "0.1",
-      "openings": 2,
+      "decline_rate": "",
+      "response_time": "1",
+      "openings": "",
       "is_active": true
     }
   ]
