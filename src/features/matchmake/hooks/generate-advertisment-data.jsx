@@ -1,31 +1,9 @@
 import { useEffect, useState } from "react";
-import getAttribute from "../api/get-attribute";
-import getAdvertisement from "../api/get-advertisement";
 import deleteApplicant from "../api/delete-applicant";
 import { getQuestionnairesByAdvertisementID } from "../../questionnaire/api/questionnaire";
-import getApplicant from "../../applications/api/get-applicant";
-
-async function getAdvertisementByAttributeID(id = []) {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		id.forEach((item) => searchParams.append("attribute_id", item));
-	} else {
-		searchParams.set("attribute_id", id);
-	}
-	const json = await (await getAdvertisement(searchParams)).json();
-	return json;
-}
-
-async function getApplicantByAdvertisementID(id = []) {
-	const searchParams = new URLSearchParams();
-	if (Array.isArray(id)) {
-		id.forEach((item) => searchParams.append("advertisement_id", item));
-	} else {
-		searchParams.set("advertisement_id", id);
-	}
-	const json = await (await getApplicant(searchParams)).json();
-	return json;
-}
+import { getAdvertisementByAttributeIDs } from "../helpers/get-advertisement-by-attribute-id";
+import { getApplicantByAdvertisementIDs } from "../helpers/get-applicant-by-advertisement-id";
+import { getAdvertisementAttributeByProfession } from "../helpers/get-advertisement-attribute-by-profession";
 
 function sortAdvertisements(a, b, attributes, badges) {
 	const aBadges = [...attributes.find((attribute) => attribute.id === a.attribute_id).badges].filter((item) => badges.includes(item));
@@ -53,13 +31,9 @@ function useGenerateAdvertisementData(user) {
 		setError(null);
 		if (!user.id) return;
 		try {
-			const searchParams = new URLSearchParams();
-			searchParams.set("profession", user.attribute.profession);
-			searchParams.set("type", "advertisement");
-			searchParams.set("is_active", true);
-			const attributes = await (await getAttribute(searchParams)).json();
-			const advertisements = await getAdvertisementByAttributeID(Array.from(attributes).map((attribute) => attribute.id));
-			const applicants = await getApplicantByAdvertisementID(Array.from(advertisements).map((advertisement) => advertisement.id));
+			const attributes = await getAdvertisementAttributeByProfession(user.attribute.profession, true);
+			const advertisements = await getAdvertisementByAttributeIDs(Array.from(attributes).map((attribute) => attribute.id));
+			const applicants = await getApplicantByAdvertisementIDs(Array.from(advertisements).map((advertisement) => advertisement.id));
 			const toFilter = [];
 			for (const applicant of applicants) {
 				const date = new Date();
