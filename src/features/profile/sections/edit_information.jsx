@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Title from "../components/title";
 import Wrapper from "../components/wrapper";
 import InputField, { InputLabel } from "../../../components/input-field";
@@ -6,7 +6,6 @@ import PrimaryButton from "../../../components/buttons/index";
 import TextArea from "../components/text-area";
 import { Mail, GraduationCap, MapPin, Tags, Award } from "lucide-react";
 import InputButton from "../components/input-button";
-import { useEffect } from "react";
 
 const EditInformation = ({ user }) => {
 	const { data, update } = user;
