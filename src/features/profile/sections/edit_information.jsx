@@ -4,7 +4,7 @@ import Wrapper from "../components/wrapper";
 import InputField, { InputLabel } from "../../../components/input-field";
 import PrimaryButton from "../../../components/buttons/index";
 import TextArea from "../components/text-area";
-import { Mail, GraduationCap, Star, Calendar } from "lucide-react";
+import { Mail, GraduationCap, Star, CalendarDays } from "lucide-react";
 import InputButton from "../components/input-button";
 import { useEffect } from "react";
 
@@ -189,7 +189,7 @@ const EditInformation = ({ user }) => {
 								period: [e.target.value, state.period[1]],
 							}))
 						}
-						icon={<Calendar strokeWidth={1} />}
+						icon={<span/>}
 						type="date"
 					/>
 
@@ -202,7 +202,7 @@ const EditInformation = ({ user }) => {
 								period: [state.period[0], e.target.value],
 							}))
 						}
-						icon={<Calendar strokeWidth={1} />}
+						icon={<span/>}
 						type="date"
 					/>
 

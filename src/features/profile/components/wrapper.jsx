@@ -39,7 +39,7 @@ const Wrapper = ({ children, gap, type, direction, styleDirection, margin, paddi
         lineHeight: styleLineHeight,
         maxWidth: maxWidth
       }} 
-      className='container'>
+      className='container profile'>
       {children} 
     </div>
   )
