@@ -12,7 +12,7 @@ const TextArea = ({ prefix, value, onChange, placeholder }) => {
 
 	return (
 		<div className="textArea">
-			<span>{`${(400-limitCheck)}/400`}</span>
+			<span>{`${limitCheck}/400`}</span>
 			<textarea 
 				maxLength={400}
 				id={prefix}
