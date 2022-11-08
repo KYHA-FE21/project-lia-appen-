@@ -37,7 +37,7 @@ const Signin = () => {
 
 	return (
 		<div className="authContainer flex justify-center items-center">
-			<div className="authContent w-full p-12">
+			<div className="authContent w-full p-12 flex flex-col gap-8">
 				<Logo />
 				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
 					<InputField
@@ -54,7 +54,9 @@ const Signin = () => {
 					/>
 					<InputError error={localError} type="email" />
 					<InputField
-						className={localError?.type === "password" && "globalInputFieldError"}
+						className={
+							localError?.type === "password" && "globalInputFieldError"
+						}
 						icon={<Lock strokeWidth={1} />}
 						type="password"
 						placeholder="Lösenord"
@@ -66,15 +68,19 @@ const Signin = () => {
 						required
 					/>
 					<InputError error={localError} type="password" />
-					<Button children={loading ? "..." : "LOGGA IN"} disabled={loading} className="w-full" />
+					<Button
+						children={loading ? "..." : "LOGGA IN"}
+						disabled={loading}
+						className="w-full"
+					/>
 				</form>
+				<External />
 				<Path
 					links={[
-						{ path: "/signup", title: "Skapa Konto" },
-						{ path: "/reset/*", title: "Glöm Lösenord?" },
+						{ path: "/signup", title: "Skapa konto" },
+						{ path: "/reset/*", title: "Glömt lösenordet?" },
 					]}
 				/>
-				<External />
 			</div>
 		</div>
 	);
