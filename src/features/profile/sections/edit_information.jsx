@@ -4,7 +4,7 @@ import Wrapper from "../components/wrapper";
 import InputField, { InputLabel } from "../../../components/input-field";
 import PrimaryButton from "../../../components/buttons/index";
 import TextArea from "../components/text-area";
-import { Mail, GraduationCap, Star, CalendarDays } from "lucide-react";
+import { Mail, GraduationCap, MapPin, Tags, Award } from "lucide-react";
 import InputButton from "../components/input-button";
 import { useEffect } from "react";
 
@@ -117,7 +117,7 @@ const EditInformation = ({ user }) => {
 					onChange={(e) =>
 						setSendData((state) => ({ ...state, location: e.target.value }))
 					}
-					icon={<GraduationCap strokeWidth={1} />}
+					icon={<MapPin strokeWidth={1} />}
 					type="text"
 					placeholder={`${
 						data.attribute.type === "company"
@@ -136,7 +136,7 @@ const EditInformation = ({ user }) => {
 									profession: e.target.value,
 								}))
 							}
-							icon={<GraduationCap strokeWidth={1} />}
+							icon={<Award strokeWidth={1} />}
 							type="text"
 							placeholder="Din yrkesinriktning?"
 						/>
@@ -149,7 +149,7 @@ const EditInformation = ({ user }) => {
 									badgesRaw: e.target.value,
 								}))
 							}
-							icon={<Star strokeWidth={1} />}
+							icon={<Tags strokeWidth={1} />}
 							type="text"
 							placeholder="Kompentenser"
 						/>
