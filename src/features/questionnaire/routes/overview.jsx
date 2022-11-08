@@ -1,11 +1,32 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/quest.scss";
-import { Edit } from "lucide-react";
+import { ArrowLeftCircle, Edit } from "lucide-react";
 import Button from "../../../components/buttons";
 import BtnSecondary from "../../../components/buttons/secondary-button";
 import useQuestionnaires from "../hooks/use-questionnaires";
 import i18n from "../i18n";
 import { MAX_QUESTIONNAIRES } from "../api/questionnaire";
+import IconLink from "../components/icon-link";
+
+const QuestionnaireRedirectButton = ({ entry, index }) => {
+	return (
+		<Link
+			className="no-underline text-white"
+			to={`/questionnaire/editor/${entry.id}`}
+		>
+			<BtnSecondary
+				icon={<Edit />}
+				className="w-full bg-primary"
+				color="white"
+				bgColor="primary"
+			>
+				{i18n()
+					["Question %1 - %2 alternatives"].replace("%1", index + 1)
+					.replace("%2", entry.alternatives.length)}
+			</BtnSecondary>
+		</Link>
+	);
+};
 
 const Overview = () => {
 	const { id } = useParams();
@@ -24,10 +45,13 @@ const Overview = () => {
 
 	return (
 		<div className="flex justify-center h-full">
-			<div className="questionnaireContent questionnaire-cards-max-width-md flex flex-col justify-between p-12">
+			<div className="questionnaireContent questionnaire-cards-max-width-md flex flex-col gap-3 justify-between p-12">
 				<div className="overviewUpperContent">
 					<div className="mb-8 flex justify-center">
 						<div>
+							<IconLink to="/advertisement" icon={<ArrowLeftCircle />}>
+								{i18n()["Go back"]}
+							</IconLink>
 							<h1 className="text-2xl mb-3 text-center">
 								{i18n()["Advertisement questions"]}
 							</h1>
@@ -52,35 +76,14 @@ const Overview = () => {
 								["%1/%2 questions"].replace("%1", questionnaires.length)
 								.replace("%2", MAX_QUESTIONNAIRES)}
 						</h2>
-						{questionnaires.map((item, i) => (
-							<Link
-								className="no-underline text-white"
-								key={item.id}
-								to={`/questionnaire/editor/${item.id}`}
-							>
-								<BtnSecondary
-									icon={<Edit />}
-									className="w-full bg-primary"
-									color="white"
-									bgColor="primary"
-								>
-									{i18n()
-										["Question %1 - %2 alternatives"].replace("%1", i + 1)
-										.replace("%2", item.alternatives.length)}
-								</BtnSecondary>
-							</Link>
+						{questionnaires.map((entry, i) => (
+							<QuestionnaireRedirectButton
+								key={entry.id}
+								entry={entry}
+								index={i}
+							/>
 						))}
 					</div>
-				</div>
-				<div className="overviewLowerContent flex mb-4">
-					<Link className="no-underline mr-1" to="/profile">
-						<Button className="w-full">{i18n()["Go back"]}</Button>
-					</Link>
-					<Link className="no-underline ml-1" to="/profile">
-						<Button disabled={true} className="w-full">
-							{i18n().Continue}
-						</Button>
-					</Link>
 				</div>
 			</div>
 		</div>
