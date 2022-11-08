@@ -143,7 +143,6 @@ const EditInformation = ({ user }) => {
 
 						<InputField
 							value={sendData.badgesRaw}
-							list="badges-list"
 							onChange={(e) =>
 								setSendData((state) => ({
 									...state,
@@ -156,14 +155,6 @@ const EditInformation = ({ user }) => {
 						/>
 					</>
 				)}
-
-				<datalist id="badges-list">
-					<option value="HTML" />
-					<option value="JavaScript" />
-					<option value="ReactJs" />
-					<option value="CSS" />
-					<option value="PHP" />
-				</datalist>
 
 				<TextArea
 					value={sendData.bio}

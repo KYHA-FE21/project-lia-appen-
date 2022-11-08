@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.scss";
 
-const InputField = ({ icon = null, isError = false, value, handleChange, list, className = "", ...restProps }) => {
+const InputField = ({ icon = null, isError = false, value, handleChange, className = "", ...restProps }) => {
 	const ref = useRef(null);
 	const [error, setError] = useState(null);
 
