@@ -29,7 +29,7 @@ const Signup = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		execute("/user/signup", { email, password });
+		execute("/user/signup", { email, password, type });
 	};
 
 	const navigate = useNavigate();
@@ -69,7 +69,7 @@ const Signup = () => {
 						required
 					/>
 					<InputError error={localError} type="email" />
-					<div className="authSignupPasswordContainer flex flex-col gap-3">
+					<div className="authSignupPasswordContainer relative flex flex-col gap-3">
 						<InputField
 							className={
 								localError?.type === "password" && "globalInputFieldError"
