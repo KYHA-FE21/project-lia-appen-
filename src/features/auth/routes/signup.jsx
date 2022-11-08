@@ -8,7 +8,7 @@ import InputField from "../../../components/input-field";
 import External from "../components/external";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
@@ -20,6 +20,10 @@ const Signup = () => {
 	const [password, setPassword] = React.useState("");
 	const [password2, setPassword2] = React.useState("");
 	const [notSame, setNotSame] = React.useState(false);
+
+	const [searchParams] = useSearchParams();
+	const [typeParam] = React.useState(searchParams.get("type"));
+	const [type, setType] = React.useState(typeParam || "student");
 
 	const userStorage = useLocalStorage("user");
 
@@ -49,7 +53,7 @@ const Signup = () => {
 
 	return (
 		<div className="authContainer flex justify-center items-center">
-			<div className="authContent w-full p-12">
+			<div className="authContent w-full p-12 flex flex-col gap-8">
 				<Logo />
 				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
 					<InputField
@@ -67,7 +71,9 @@ const Signup = () => {
 					<InputError error={localError} type="email" />
 					<div className="authSignupPasswordContainer flex flex-col gap-3">
 						<InputField
-							className={localError?.type === "password" && "globalInputFieldError"}
+							className={
+								localError?.type === "password" && "globalInputFieldError"
+							}
 							icon={<Lock strokeWidth={1} />}
 							type="password"
 							placeholder="Lösenord"
@@ -91,10 +97,38 @@ const Signup = () => {
 						<PasswordInfo password={password} ref={infoRef} />
 					</div>
 					<InputError error={localError} type="password" />
-					<Button children={loading ? "..." : "BLI MEDLEM"} disabled={notSame | loading} className="w-full" />
+					<div className="flex items-start gap-3 text-white">
+						<label className="flex gap-3">
+							<InputField
+								type="radio"
+								value="student"
+								checked={type === "student"}
+								onChange={(e) => setType(e.target.value)}
+								handleChange={console.log}
+								required
+							/>
+							<span>Student</span>
+						</label>
+						<label className="flex gap-3">
+							<InputField
+								type="radio"
+								value="company"
+								checked={type === "company"}
+								onChange={(e) => setType(e.target.value)}
+								handleChange={console.log}
+								required
+							/>
+							<span>Företag</span>
+						</label>
+					</div>
+					<Button
+						children={loading ? "..." : "BLI MEDLEM"}
+						disabled={notSame | loading}
+						className="w-full"
+					/>
 				</form>
-				<Path links={[{ path: "/signin", title: "Redan Medlem?" }]} />
 				<External />
+				<Path links={[{ path: "/signin", title: "Redan medlem?" }]} />
 			</div>
 		</div>
 	);
