@@ -2,10 +2,43 @@
   "user": [
     {
       "id": "1",
-      "name": "",
+      "name": "Sofie Larsson",
+      "email": "test@test.com",
+      "password": "123456",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
+      "attribute_id": "2"
+    },
+    {
+      "id": "2",
+      "name": "Albert",
+      "email": "test@test.com",
+      "phone": "+4670 - 16 71 245",
+      "password": "123456",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
+      "attribute_id": "3"
+    },
+    {
+      "id": "2",
+      "name": "Student 1",
       "email": "",
       "password": "",
-      "bio": "",
+      "bio": "I'm accepted",
+      "attribute_id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Student 2",
+      "email": "",
+      "password": "",
+      "bio": "I'm applying",
+      "attribute_id": "3"
+    },
+    {
+      "id": "4",
+      "name": "Student 3",
+      "email": "",
+      "password": "",
+      "bio": "I failed",
       "attribute_id": "4"
     }
   ],
