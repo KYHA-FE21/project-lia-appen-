@@ -15,7 +15,6 @@ const useFetch = () => {
 		setLoading(true);
 		try {
 			const serverValidation = await auth.controller(url, body);
-			debugger;
 			if (serverValidation.error) return setError(serverValidation.error);
 
 			const endpoint =
