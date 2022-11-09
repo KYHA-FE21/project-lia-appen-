@@ -31,8 +31,8 @@ function useGenerateAdvertisementData(user) {
 		if (!user.id) return;
 		try {
 			const attributes = await getAdvertisementAttributeByProfession(user.attribute.profession, true);
-			const advertisements = await getAdvertisementByAttributeIDs(Array.from(attributes).map((attribute) => attribute.id));
-			const applicants = await getApplicantByAdvertisementIDs(Array.from(advertisements).map((advertisement) => advertisement.id));
+			const advertisements = await getAdvertisementByAttributeIDs(attributes.map((attribute) => attribute.id));
+			const applicants = await getApplicantByAdvertisementIDs(advertisements.map((advertisement) => advertisement.id));
 			const toFilter = [];
 			for (const applicant of applicants) {
 				if (applicant.user_id !== user.id) continue;
