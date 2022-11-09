@@ -32,6 +32,7 @@ const useFetch = () => {
 
 			const userBody = {
 				...defaultUser,
+				name: body.name,
 				attribute_id: attributeID,
 				email: body.email,
 				password: body.password,

@@ -23,13 +23,13 @@ const Signup = () => {
 
 	const [searchParams] = useSearchParams();
 	const [typeParam] = React.useState(searchParams.get("type"));
-	const [type, setType] = React.useState(typeParam || "student");
+	const [name, setName] = React.useState("");
 
 	const userStorage = useLocalStorage("user");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		execute("/user/signup", { email, password, type });
+		execute("/user/signup", { email, password, type, name });
 	};
 
 	const navigate = useNavigate();
@@ -56,6 +56,18 @@ const Signup = () => {
 			<div className="authContent w-full p-12 flex flex-col gap-8">
 				<Logo />
 				<form onSubmit={handleSubmit} className="flex gap-3 flex-col">
+					<InputField
+						icon={<User strokeWidth={1} />}
+						className={localError?.type === "name" && "globalInputFieldError"}
+						type="text"
+						placeholder="Förnamn Efternamn"
+						value={name}
+						handleChange={(e) => {
+							if (localError?.type === "name") setLocalError(null);
+							setName(e.target.value);
+						}}
+						required
+					/>
 					<InputField
 						icon={<Mail strokeWidth={1} />}
 						className={localError?.type === "email" && "globalInputFieldError"}
