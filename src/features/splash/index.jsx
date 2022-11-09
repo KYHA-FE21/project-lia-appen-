@@ -43,7 +43,7 @@ function Splash() {
 								<LinkButton className="text-base p-4" href="/signup">
 									Student
 								</LinkButton>
-								<LinkButton className="text-base p-4" href="/signup">
+								<LinkButton className="text-base p-4" href="/signup?type=company">
 									Företag
 								</LinkButton>
 							</FlexContainer>
