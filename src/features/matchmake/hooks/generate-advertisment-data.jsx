@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import deleteApplicant from "../api/delete-applicant";
 import { getQuestionnairesByAdvertisementID } from "../../questionnaire/api/questionnaire";
 import { getAdvertisementByAttributeIDs } from "../helpers/get-advertisement-by-attribute-id";
 import { getApplicantByAdvertisementIDs } from "../helpers/get-applicant-by-advertisement-id";
@@ -36,18 +35,11 @@ function useGenerateAdvertisementData(user) {
 			const applicants = await getApplicantByAdvertisementIDs(Array.from(advertisements).map((advertisement) => advertisement.id));
 			const toFilter = [];
 			for (const applicant of applicants) {
+				if (applicant.user_id !== user.id) continue;
 				const date = new Date();
 				date.setDate(date.getDate() - 30);
-				if (applicant.user_id === user.id) {
-					if (applicant.accepted === null && applicant.cooldown < date.getTime()) {
-						const res = await deleteApplicant(applicant.id);
-						if (res.status !== 200) {
-							throw new Error(`${res.status} (${res.statusText})`);
-						}
-					} else {
-						toFilter.push(applicant.advertisement_id);
-					}
-				}
+				if (applicant.accepted === null && applicant.cooldown < date.getTime()) continue;
+				toFilter.push(applicant.advertisement_id);
 			}
 			const filteredAdvertisements = advertisements.filter((advertisement) => !toFilter.includes(advertisement.id));
 			if (!filteredAdvertisements.length) return setAdvertisementData(false);
@@ -60,6 +52,7 @@ function useGenerateAdvertisementData(user) {
 				...advertisement,
 				attribute,
 				questionnaire: questionnaire.data,
+				applicants: applicants.filter((applicant) => applicant.advertisement_id === advertisement.id),
 			}));
 		} catch (error) {
 			setError(error.toString());
