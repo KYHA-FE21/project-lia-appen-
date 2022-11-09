@@ -77,7 +77,7 @@ const Modal = ({
 
 	return (
 		<div className={`adver-modal-container ${display ? "flex" : "hidden"}`}>
-			<div className="content bg-white my-6 rounded-md p-8">
+			<div className="content bg-white rounded-md p-8">
 				<div className="exitIcon" onClick={() => setDisplay(false)}>
 					<X />
 				</div>
