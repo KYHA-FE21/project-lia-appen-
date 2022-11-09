@@ -60,9 +60,9 @@ body:has(#root):has(.adver-modal-container:not(.hidden)) {
 		input[type="date"]::-webkit-calendar-picker-indicator {
 			filter: invert(60%);
 			position: absolute;
-			left: 4%;
-			width: 20px;
-			height: 20px;
+			left: 8px;
+			width: 24px;
+			height: 24px;
 		}
 
 		select {
