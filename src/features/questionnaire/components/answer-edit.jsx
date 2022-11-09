@@ -1,3 +1,4 @@
+import i18n from "../i18n";
 import "../styles/components.scss";
 
 const AnswerEditTextArea = ({
@@ -14,9 +15,11 @@ const AnswerEditTextArea = ({
 
 	return (
 		<div className="my-6">
-			<label htmlFor={labelID} className="block mb-2">{label}</label>
-			<div className="flex gap-4 items-center">
-				<div className="textareaContainer shadow p-2 flex-1">
+			<label htmlFor={labelID} className="block mb-2">
+				{label}
+			</label>
+			<div className="flex items-stretch shadow blur overflow-hidden rounded-md">
+				<div className="blur shadow textareaContainer p-2 flex-1">
 					<textarea
 						className="w-full"
 						id={labelID}
@@ -26,15 +29,17 @@ const AnswerEditTextArea = ({
 						{...restProps}
 					></textarea>
 				</div>
-				<input
-					type="radio"
-					id={'answer'}
-					name={id + "-answer-radio"}
-					value={index}
-					checked={correct}
-					onChange={handleRadioChange}
-					className="place-self-center"
-				/>
+				<label className={`${correct ? 'bg-green' : 'bg-red'} opacity-7 p-4 flex`} title={i18n().InputCorrect}>
+					<input
+						type="radio"
+						id={id + "-answer-radio"}
+						name={id + "-answer-radio"}
+						value={index}
+						checked={correct}
+						onChange={handleRadioChange}
+						className="place-self-center p-4 bg-black"
+					/>
+				</label>
 			</div>
 		</div>
 	);

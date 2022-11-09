@@ -1,7 +1,7 @@
-const iconBtn = ({ icon, onClick, disabled }) => {
+const IconBtn = ({ icon, onClick, disabled }) => {
 	return (
 		<button
-			className="questIconBtn shadow bg-primary mx-2 p-2"
+			className="questIconBtn text-white shadow bg-primary mx-2 p-2 rounded-md"
 			type="button"
 			onClick={onClick}
 			disabled={disabled}
@@ -11,4 +11,4 @@ const iconBtn = ({ icon, onClick, disabled }) => {
 	);
 };
 
-export default iconBtn;
+export default IconBtn;

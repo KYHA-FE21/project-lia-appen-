@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { LogIn } from "lucide-react";
+import { Loader, LogIn, User } from "lucide-react";
 import "./index.scss";
 
-import logo from './logo.svg'
+import logo from "./logo.svg";
 
-const Header = () => {
+const Header = ({ user }) => {
 	return (
 		<header className="main-header h-max">
 			<div className="header-container max-w-screen-xl mx-auto">
@@ -12,10 +12,23 @@ const Header = () => {
 					<img className="logo" src={logo} alt="LIA-appen logo" />
 				</Link>
 
-				{/* TODO: Replace button with logout if already logged in. */}
-				<Link to="/signin" title="Signin" className="p-2 login rounded-md">
-					<LogIn size={24} color="#4d243d" />
-				</Link>
+				{user?.loading && (
+					<div className="p-2 login rounded-md">
+						<Loader size={24} className="text-primary" />
+					</div>
+				)}
+
+				{user?.data && !user.loading && (
+					<Link to="/profile" title="Profile" className="p-2 login rounded-md">
+						<User size={24} className="text-primary" />
+					</Link>
+				)}
+
+				{user?.unauthenticated && (
+					<Link to="/signin" title="Signin" className="p-2 login rounded-md">
+						<LogIn size={24} className="text-primary" />
+					</Link>
+				)}
 			</div>
 		</header>
 	);

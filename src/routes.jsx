@@ -49,7 +49,7 @@ const AppRoutes = () => {
 	}, [user.state, userStorage]);
 
 	return (
-		<AuthContext.Provider value={{ user: userContext }}>
+		<AuthContext.Provider value={{ user: userContext, update: user.update }}>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Layout />}>
@@ -57,7 +57,15 @@ const AppRoutes = () => {
 						<Route
 							path="/applications"
 							element={
-								<ProtectedRoutes allowedTypes={["student", "company"]}>
+								<ProtectedRoutes allowedTypes={["student"]}>
+									<Applications />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path="/applications/:id"
+							element={
+								<ProtectedRoutes allowedTypes={["company"]}>
 									<Applications />
 								</ProtectedRoutes>
 							}
@@ -87,7 +95,7 @@ const AppRoutes = () => {
 							}
 						/>
 						<Route
-							path="/questionnaire/create/:id"
+							path="/questionnaire/editor/:id"
 							element={
 								<ProtectedRoutes allowedTypes={["company"]}>
 									<QuestionnaireEditor />
