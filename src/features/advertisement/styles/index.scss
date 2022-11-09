@@ -1,7 +1,6 @@
 .adver-container {
 	.header {
 		max-width: 25rem;
-
 		p {
 			line-height: 1.3;
 		}
@@ -26,8 +25,6 @@ body:has(#root):has(.adver-modal-container:not(.hidden)) {
 	align-items: center;
 	width: 100%;
 	min-height: 100%;
-	/* padding: 1rem; */
-
 
 	.content {
 		position: relative;
@@ -56,10 +53,6 @@ body:has(#root):has(.adver-modal-container:not(.hidden)) {
 		}
 
 		@media only screen and (max-width: 639px) {
-			top: 0px;
-			right: 0px;
-			bottom: 0px;
-			left: 0px;
 			min-height: 100%;
 			max-width: 100%;
 		}
