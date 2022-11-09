@@ -10,8 +10,11 @@ import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
+import AuthContext from "../../../context";
 
 const Signin = () => {
+	const { user } = React.useContext(AuthContext);
+
 	const [localError, setLocalError] = React.useState(null);
 	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
@@ -27,13 +30,19 @@ const Signin = () => {
 	React.useEffect(() => {
 		if (data) {
 			userStorage.update({ id: data.id });
-			navigate("/profile");
+			window.location.reload();
 		}
 	}, [data]);
 
 	React.useEffect(() => {
 		setLocalError(error);
 	}, [error]);
+
+	React.useEffect(() => {
+		if (user?.data && !user?.loading) {
+			navigate("/profile");
+		}
+	}, [user]);
 
 	return (
 		<div className="authContainer flex justify-center items-center">

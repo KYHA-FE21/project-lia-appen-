@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/auth.scss";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, User } from "lucide-react";
 import Logo from "../components/logo";
 import Path from "../components/path";
 import Button from "../../../components/buttons";
@@ -12,8 +12,11 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
+import AuthContext from "../../../context";
 
 const Signup = () => {
+	const { user } = React.useContext(AuthContext);
+
 	const [localError, setLocalError] = React.useState(null);
 	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
@@ -23,6 +26,10 @@ const Signup = () => {
 
 	const [searchParams] = useSearchParams();
 	const [typeParam] = React.useState(searchParams.get("type"));
+	const [type, setType] = React.useState(
+		["student", "company"].includes(typeParam) ? typeParam : "student"
+	);
+
 	const [name, setName] = React.useState("");
 
 	const userStorage = useLocalStorage("user");
@@ -36,7 +43,7 @@ const Signup = () => {
 	React.useEffect(() => {
 		if (data) {
 			userStorage.update({ id: data.id });
-			navigate("/profile");
+			window.location.reload();
 		}
 	}, [data]);
 
@@ -48,6 +55,12 @@ const Signup = () => {
 	React.useEffect(() => {
 		setLocalError(error);
 	}, [error]);
+
+	React.useEffect(() => {
+		if (user?.data && !user?.loading) {
+			navigate("/profile");
+		}
+	}, [user]);
 
 	const { infoRef, handlePasswordFocus, handlePasswordBlur } = useFocus();
 
