@@ -38,7 +38,6 @@ const useFetch = () => {
 			};
 			delete userBody.attribute;
 
-			debugger;
 
 			const response = await fetch(endpoint, {
 				method,
