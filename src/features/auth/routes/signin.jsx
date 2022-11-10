@@ -29,7 +29,7 @@ const Signin = () => {
 	const navigate = useNavigate();
 	React.useEffect(() => {
 		if (data) {
-			userStorage.update({ id: data.id });
+			userStorage.update({ id: data[0].id });
 			window.location.reload();
 		}
 	}, [data]);
@@ -63,9 +63,7 @@ const Signin = () => {
 					/>
 					<InputError error={localError} type="email" />
 					<InputField
-						className={
-							localError?.type === "password" && "globalInputFieldError"
-						}
+						className={localError?.type === "password" && "globalInputFieldError"}
 						icon={<Lock strokeWidth={1} />}
 						type="password"
 						placeholder="Lösenord"
@@ -77,11 +75,7 @@ const Signin = () => {
 						required
 					/>
 					<InputError error={localError} type="password" />
-					<Button
-						children={loading ? "..." : "LOGGA IN"}
-						disabled={loading}
-						className="w-full"
-					/>
+					<Button children={loading ? "..." : "LOGGA IN"} disabled={loading} className="w-full" />
 				</form>
 				<External />
 				<Path

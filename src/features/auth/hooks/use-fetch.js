@@ -17,44 +17,35 @@ const useFetch = () => {
 			const serverValidation = await auth.controller(url, body);
 			if (serverValidation.error) return setError(serverValidation.error);
 
-			const endpoint =
-				process.env.REACT_APP_BACKEND_ENDPOINT + "/user" + params;
+			const endpoint = process.env.REACT_APP_BACKEND_ENDPOINT + "/user" + params;
+			if (url === "/user/signup") {
+				const userAttributes = { ...defaultUser.attribute, type: body.type };
 
-			const userAttributes = { ...defaultUser.attribute, type: body.type };
-			delete userAttributes.id;
+				const attributeResponse = await handleResponse(await postAttribute(userAttributes));
 
-			const attributeResponse = await handleResponse(
-				await postAttribute(userAttributes)
-			);
+				// TODO: Handle errors
+				const attributeID = attributeResponse.data.id;
 
-			// TODO: Handle errors
-			const attributeID = attributeResponse.data.id;
-
-			const userBody = {
-				...defaultUser,
-				name: body.name,
-				attribute_id: attributeID,
-				email: body.email,
-				password: body.password,
-			};
-			delete userBody.attribute;
-
+				body = {
+					...defaultUser,
+					attribute_id: attributeID,
+					...body,
+				};
+				delete body.attribute;
+				delete body.type;
+			}
 
 			const response = await fetch(endpoint, {
 				method,
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: method !== "GET" ? JSON.stringify(userBody) : undefined,
+				body: method !== "GET" ? JSON.stringify(body) : undefined,
 			});
 
 			const status = response.status;
 
-			if (
-				!response.headers.get("content-type") &&
-				!(status === 200 || status === 201)
-			)
-				throw new Error("Unknown Error, update page and try again!");
+			if (!response.headers.get("content-type") && !(status === 200 || status === 201)) throw new Error("Unknown Error, update page and try again!");
 
 			setData(await response.json());
 		} catch (err) {
