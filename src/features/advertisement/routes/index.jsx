@@ -60,7 +60,7 @@ const Advertisement = () => {
 											Editera
 										</Button>
 										<div className="flex gap-4">
-											<Link to={`/applicants/${add.id}`} className="w-full no-underline">
+											<Link to={`/applications/${add.id}`} className="w-full no-underline">
 												<Button className="w-full bg-grey">Ansökningar</Button>
 											</Link>
 

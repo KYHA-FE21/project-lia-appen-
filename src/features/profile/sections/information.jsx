@@ -1,16 +1,9 @@
 import React from "react";
 import Wrapper from "../components/wrapper";
 import Title from "../components/title";
-import {  MapPin, CalendarDays } from "lucide-react";
+import { MapPin, CalendarDays } from "lucide-react";
 
-const Information = ({
-	name,
-	profession,
-	school,
-	period,
-	bio,
-	location,
-}) => {
+const Information = ({ name, profession, school, period, bio, location }) => {
 	return (
 		<Wrapper
 			padding={[5, 0, 0, 0]}
@@ -23,20 +16,32 @@ const Information = ({
 			</Title>
 
 			<Wrapper wrap="wrap" gap={[1]} styleDirection="center">
-				{location !== undefined && (
-					<Title className="items-center justify-center" size={[1]} img={<MapPin color="black" size={18} />}>
+				{location && (
+					<Title
+						className="items-center justify-center"
+						size={[1]}
+						img={<MapPin color="black" size={18} />}
+					>
 						{location}
 					</Title>
 				)}
 
-				{school !== undefined && (
-					<Title className="items-center justify-center" size={[1]} img={<MapPin color="black" size={18} />}>
+				{school && (
+					<Title
+						className="items-center justify-center"
+						size={[1]}
+						img={<MapPin color="black" size={18} />}
+					>
 						{school}
 					</Title>
 				)}
 
-				{period !== undefined && (
-					<Title className="items-center justify-center" size={[1]} img={<CalendarDays color="black" size={18} />}>
+				{period.join("").length > 0 && (
+					<Title
+						className="items-center justify-center"
+						size={[1]}
+						img={<CalendarDays color="black" size={18} />}
+					>
 						{period.join(" till ")}
 					</Title>
 				)}

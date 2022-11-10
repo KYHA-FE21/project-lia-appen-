@@ -12,7 +12,6 @@ export const defaultUser = {
 	attribute: {
 		id: "",
 		school: "",
-		bio: "",
 		badges: [],
 		period: ["", ""],
 		profession: "",

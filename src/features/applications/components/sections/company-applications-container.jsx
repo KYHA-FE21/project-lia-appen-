@@ -20,9 +20,15 @@ const CompanyApplicationsContainer = ({ id }) => {
 	const [toReview, setToReview] = useState([]);
 
 	function sortByBadges(a, b) {
-		const badges = [...advertisement.attribute.badges].map((item) => item.toUpperCase());
-		const aBadges = [...a.attribute.badges].map((item) => item.toUpperCase()).filter((item) => badges.includes(item));
-		const bBadges = [...b.attribute.badges].map((item) => item.toUpperCase()).filter((item) => badges.includes(item));
+		const badges = [...advertisement.attribute.badges].map((item) =>
+			item.toUpperCase()
+		);
+		const aBadges = [...a.attribute.badges]
+			.map((item) => item.toUpperCase())
+			.filter((item) => badges.includes(item));
+		const bBadges = [...b.attribute.badges]
+			.map((item) => item.toUpperCase())
+			.filter((item) => badges.includes(item));
 		if (aBadges.length < bBadges.length) {
 			return 1;
 		}
@@ -37,10 +43,14 @@ const CompanyApplicationsContainer = ({ id }) => {
 		if (advertisement && !controller.signal.aborted) {
 			const { applicants } = advertisement;
 			setToContact(() => {
-				return applicants.filter((applicant) => applicant.applicant.accepted).sort(sortByBadges);
+				return applicants
+					.filter((applicant) => applicant.applicant.accepted)
+					.sort(sortByBadges);
 			});
 			setToReview(() => {
-				return applicants.filter((applicant) => !applicant.applicant.accepted).sort(sortByBadges);
+				return applicants
+					.filter((applicant) => !applicant.applicant.accepted)
+					.sort(sortByBadges);
 			});
 		}
 		return () => {
@@ -96,7 +106,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 		setOpenModal(true);
 	}
 
-	function renderApplicationCard(item, index, array) {
+	function renderApplicationCard(item, index, array, type) {
 		const buttons = [
 			{
 				icon: <X />,
@@ -122,7 +132,17 @@ const CompanyApplicationsContainer = ({ id }) => {
 			});
 		}
 
-		return <ApplicationCard key={item.applicant.id} index={index} array={array} attribute={item.attribute} readMoreButtonOnClick={readMoreButtonOnClick} buttons={buttons} />;
+		return (
+			<ApplicationCard
+				contact={type === "contact" && item}
+				key={item.applicant.id}
+				index={index}
+				array={array}
+				attribute={item.attribute}
+				readMoreButtonOnClick={readMoreButtonOnClick}
+				buttons={buttons}
+			/>
+		);
 	}
 
 	return (
@@ -133,8 +153,14 @@ const CompanyApplicationsContainer = ({ id }) => {
 					{error && error}
 					{!error && (
 						<>
-							<ApplicationSection title={`Att kontakta - ${toContact.length}`}>{toContact.map(renderApplicationCard)}</ApplicationSection>
-							<ApplicationSection title={`Att granska - ${toReview.length}/10`}>{toReview.map(renderApplicationCard)}</ApplicationSection>
+							<ApplicationSection title={`Att kontakta - ${toContact.length}`}>
+								{toContact.map((item, index, array) =>
+									renderApplicationCard(item, index, array, "contact")
+								)}
+							</ApplicationSection>
+							<ApplicationSection title={`Att granska - ${toReview.length}/10`}>
+								{toReview.map(renderApplicationCard)}
+							</ApplicationSection>
 							{openModal && (
 								<Modal
 									setOpenModal={setOpenModal}
@@ -148,7 +174,8 @@ const CompanyApplicationsContainer = ({ id }) => {
 											color: "white",
 											bgColor: "red",
 											className: "text-white w-full text-sm",
-											children: current.array === toReview ? "Tacka nej" : "Ta bort",
+											children:
+												current.array === toReview ? "Tacka nej" : "Ta bort",
 										},
 
 										...(current.array === toReview

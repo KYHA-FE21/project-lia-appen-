@@ -1,11 +1,23 @@
+import userEvent from "@testing-library/user-event";
 import { CalendarDays, CheckCircle, Info, MapPin } from "lucide-react";
 import Badge from "../../../components/badge";
 import PrimaryButton from "../../../components/buttons";
 import SecondaryButton from "../../../components/buttons/secondary-button";
-import Card, { CardBadges, CardButtons, CardHeader } from "../../../components/card";
+import Card, {
+	CardBadges,
+	CardButtons,
+	CardHeader,
+} from "../../../components/card";
 import InfoGrid from "../../../components/info-grid";
 
-function ApplicationCard({ index, array, attribute, buttons, readMoreButtonOnClick }) {
+function ApplicationCard({
+	index,
+	array,
+	attribute,
+	buttons,
+	readMoreButtonOnClick,
+	contact,
+}) {
 	const { badges, profession, period, location, work_type } = attribute;
 	const [fromDate, toDate] = period;
 	return (
@@ -33,6 +45,13 @@ function ApplicationCard({ index, array, attribute, buttons, readMoreButtonOnCli
 					{ icon: <CheckCircle size="20" />, children: work_type },
 				]}
 			/>
+			{contact && (
+				<div className="flex flex-col gap-2">
+					<span className="text-lg">Kontaktuppgifter</span>
+					<span>{contact.name}</span>
+					<span>{contact.email}</span>
+				</div>
+			)}
 			<CardBadges>
 				{badges.map((badge) => (
 					<Badge key={badge} className="flex-1">
