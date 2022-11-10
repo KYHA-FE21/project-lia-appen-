@@ -1,5 +1,3 @@
-/** @format */
-
 import { useContext } from "react";
 import { Edit2 } from "lucide-react";
 import { Link } from "react-router-dom";
