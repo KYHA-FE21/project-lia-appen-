@@ -146,8 +146,6 @@ const Editor = () => {
 					<h1 className="text-2xl mb-3 text-center">
 						{i18n()["Question Editor"]}
 					</h1>
-					<span className="text-sm my-3 block">ID: {questionnaire.id}</span>
-
 					<TextArea
 						label={i18n()["Question body"]}
 						rows="12"

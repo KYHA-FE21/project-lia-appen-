@@ -55,7 +55,6 @@ const Overview = () => {
 							<h1 className="text-2xl mb-3 text-center">
 								{i18n()["Advertisement questions"]}
 							</h1>
-							<span className="text-sm my-3 block">ID: {id}</span>
 							<p className="text-justify leading-normal">
 								{i18n()["Overview.pitch"]}
 							</p>
