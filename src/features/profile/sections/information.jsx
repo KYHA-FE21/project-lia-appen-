@@ -23,21 +23,21 @@ const Information = ({
 			</Title>
 
 			<Wrapper wrap="wrap" gap={[1]} styleDirection="center">
-				{location === undefined && (
-					<Title size={[1]} img={<MapPin color="black" size={18} />}>
+				{location !== undefined && (
+					<Title className="items-center justify-center" size={[1]} img={<MapPin color="black" size={18} />}>
 						{location}
 					</Title>
 				)}
 
-				{school === undefined && (
-					<Title size={[1]} img={<MapPin color="black" size={18} />}>
+				{school !== undefined && (
+					<Title className="items-center justify-center" size={[1]} img={<MapPin color="black" size={18} />}>
 						{school}
 					</Title>
 				)}
 
-				{period === undefined && (
-					<Title size={[1]} img={<CalendarDays color="black" size={18} />}>
-						{period}
+				{period !== undefined && (
+					<Title className="items-center justify-center" size={[1]} img={<CalendarDays color="black" size={18} />}>
+						{period.join(" till ")}
 					</Title>
 				)}
 			</Wrapper>
