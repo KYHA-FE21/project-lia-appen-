@@ -1,45 +1,20 @@
 {
   "user": [
     {
-      "id": "1",
-      "name": "Sofie Larsson",
-      "email": "test@test.com",
-      "password": "123456",
-      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
-      "attribute_id": "2"
+      "id": "Sav_vBW",
+      "name": "Acme AB",
+      "email": "admin@acme.se",
+      "password": "test",
+      "bio": "En kort beskrivning om företaget.",
+      "attribute_id": "biUy_SJ"
     },
     {
-      "id": "2",
-      "name": "Albert",
-      "email": "test@test.com",
-      "phone": "+4670 - 16 71 245",
-      "password": "123456",
-      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat urna risus, vel tincidunt quam lobortis varius. Ut metus mi, lacinia luctus eros eu, vestibulum luctus metus. Maecenas luctus leo nec facilisis consectetur. Phasellus tincidunt felis urna, vitae consectetur lorem iaculis sit amet. Quisque porta dapibus tempus. In volutpat mattis blandit.",
-      "attribute_id": "3"
-    },
-    {
-      "id": "2",
-      "name": "Student 1",
-      "email": "",
-      "password": "",
-      "bio": "I'm accepted",
-      "attribute_id": "2"
-    },
-    {
-      "id": "3",
-      "name": "Student 2",
-      "email": "",
-      "password": "",
-      "bio": "I'm applying",
-      "attribute_id": "3"
-    },
-    {
-      "id": "4",
-      "name": "Student 3",
-      "email": "",
-      "password": "",
-      "bio": "I failed",
-      "attribute_id": "4"
+      "id": "qW2OQ1w",
+      "name": "Student",
+      "email": "student@kyh.se",
+      "password": "test",
+      "bio": "En kort beskrivning.",
+      "attribute_id": "JfF7L_M"
     }
   ],
   "link": [
@@ -52,134 +27,91 @@
   ],
   "questionnaire": [
     {
-      "id": "1",
-      "advertisement_id": "1",
-      "body": "Question 1",
+      "advertisement_id": "pNncaHJ",
+      "body": "Det här är en kodfråga.",
       "alternatives": [
-        "Alt 1",
-        "Alt 2",
-        "Alt 3"
+        "Svar 1 (rätt svar)",
+        "Svar 2",
+        "Svar 3"
       ],
       "correct_alternatives": [
         0
-      ]
+      ],
+      "id": "1EQxKgE"
     },
     {
-      "id": "2",
-      "advertisement_id": "1",
-      "body": "Question 2",
+      "advertisement_id": "pNncaHJ",
+      "body": "Det här är en till fråga.",
       "alternatives": [
-        "Alt 1",
-        "Alt 2",
-        "Alt 3"
+        "Svar 1",
+        "Svar 2 (det här är rätt svar)"
       ],
       "correct_alternatives": [
-        0
-      ]
-    },
-    {
-      "id": "3",
-      "advertisement_id": "3",
-      "body": "Question 1",
-      "alternatives": [
-        "Alt 1",
-        "Alt 2",
-        "Alt 3"
+        1
       ],
-      "correct_alternatives": [
-        0
-      ]
+      "id": "qhwscmJ"
     }
   ],
   "advertisement": [
     {
-      "id": "1",
-      "user_id": "1",
-      "attribute_id": "1"
-    },
-    {
-      "id": "2",
-      "user_id": "2",
-      "attribute_id": "2"
-    },
-    {
-      "id": "3",
-      "user_id": "3",
-      "attribute_id": "3"
+      "user_id": "Sav_vBW",
+      "attribute_id": "_Ut4vVB",
+      "id": "pNncaHJ"
     }
   ],
   "applicant": [
     {
-      "id": "",
-      "advertisement_id": "",
-      "user_id": "",
-      "accepted": false,
-      "cooldown": ""
+      "id": ""
     }
   ],
   "attribute": [
     {
-      "id": "1",
+      "id": "biUy_SJ",
       "period": [
-        "123",
-        "456"
+        "",
+        ""
       ],
-      "profession": "Systemutvecklare",
-      "badges": [
-        "JS",
-        "REACT"
-      ],
-      "location": "Göteborg 1",
-      "work_type": "Remote",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.5",
-      "response_time": "61",
-      "openings": 2,
-      "is_active": true
-    },
-    {
-      "id": "3",
-      "period": [
-        "456",
-        "123"
-      ],
-      "profession": "Systemutvecklare",
-      "badges": [
-        "JS",
-        "HTML",
-        "CSS"
-      ],
-      "location": "Stockholm 3",
-      "work_type": "Hybird",
-      "school": "",
-      "type": "advertisement",
-      "decline_rate": "0.2",
-      "response_time": "1",
-      "openings": 5,
-      "is_active": true
-    },
-    {
-      "id": "4",
-      "period": [
-        "123",
-        "456"
-      ],
-      "profession": "Systemutvecklare",
-      "badges": [
-        "JS",
-        "HTML",
-        "CSS",
-        "React"
-      ],
+      "profession": "",
+      "badges": [],
       "location": "Göteborg",
-      "work_type": "Remote",
+      "work_type": "",
+      "school": "",
+      "type": "company"
+    },
+    {
+      "id": "JfF7L_M",
+      "period": [
+        "2022-11-17",
+        "2022-12-03"
+      ],
+      "profession": "Frontendutvecklare",
+      "badges": [
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
+      "location": "Stockholm",
+      "work_type": "remote",
       "school": "KYH",
-      "type": "student",
-      "decline_rate": "",
-      "response_time": "1",
-      "openings": "",
-      "is_active": true
+      "type": "student"
+    },
+    {
+      "profession": "Frontendutvecklare",
+      "location": "Örebro",
+      "period": [
+        "2022-11-11",
+        "2022-12-10"
+      ],
+      "badges": [
+        "JavaScript"
+      ],
+      "work_type": "remote",
+      "openings": "3",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "_Ut4vVB"
     }
   ]
 }

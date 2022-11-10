@@ -128,8 +128,7 @@ const Signup = () => {
 								type="radio"
 								value="student"
 								checked={type === "student"}
-								onChange={(e) => setType(e.target.value)}
-								handleChange={console.log}
+								handleChange={(e) => setType(e.target.value)}
 								required
 							/>
 							<span>Student</span>
@@ -139,8 +138,7 @@ const Signup = () => {
 								type="radio"
 								value="company"
 								checked={type === "company"}
-								onChange={(e) => setType(e.target.value)}
-								handleChange={console.log}
+								handleChange={(e) => setType(e.target.value)}
 								required
 							/>
 							<span>Företag</span>

@@ -1,3 +1,5 @@
+/** @format */
+
 import { useContext } from "react";
 import { Edit2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,7 +18,6 @@ import AuthContext from "../../../context";
 
 const Index = () => {
 	const { user, update } = useContext(AuthContext);
-
 	return (
 		<main>
 			{user.data.attribute.type === "company" && <Avatar />}
@@ -32,7 +33,9 @@ const Index = () => {
 					profession={user.data.attribute.profession}
 					school={user.data.attribute.school}
 					period={
-						user.data.attribute.type !== "company" && user.data.attribute.period
+						user.data.attribute.type !== "company"
+							? user.data.attribute.period
+							: []
 					}
 					bio={user.data.bio}
 					location={user.data.attribute.location}
