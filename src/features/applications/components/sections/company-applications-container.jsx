@@ -96,9 +96,11 @@ const CompanyApplicationsContainer = ({ id }) => {
 				if (res.status === 200) {
 					setToContact((prev) => [...prev, array[index]]);
 					removeApplication(index, array);
+				} else {
+					throw new Error(`Unexpected response code: ${res.status}`);
 				}
 			})
-			.catch((err) => alert("Something went wrong..."));
+			.catch((err) => console.error(err));
 	}
 
 	function readMoreButtonOnClick(index, array) {
