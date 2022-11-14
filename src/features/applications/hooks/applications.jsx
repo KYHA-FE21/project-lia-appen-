@@ -22,6 +22,7 @@ function useApplications(user) {
 				const applicants = await applicant.json();
 				const advertisements = await getAdvertisementByIDs(Array.from(applicants).map((item) => item.advertisement_id));
 				const [attributes, users] = await Promise.all([getAttributeByIDs(Array.from(advertisements).map((item) => item.attribute_id)), getUserByIDs(Array.from(advertisements).map((item) => item.user_id))]);
+				if (!advertisements.length) return setApplication([]);
 				applicants.forEach((applicant, index, array) => {
 					const advertisement = advertisements.find((advertisement) => advertisement.id === applicant.advertisement_id);
 					const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
