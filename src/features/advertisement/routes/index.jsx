@@ -6,6 +6,7 @@ import AuthContext from "../../../context";
 import AdvCard from "../components/adv-card";
 import Button from "../../../components/buttons";
 import { Link } from "react-router-dom";
+import { getQuestionnairesByAdvertisementID } from "../../questionnaire/api/questionnaire";
 
 const Advertisement = () => {
 	const {
@@ -17,9 +18,12 @@ const Advertisement = () => {
 		patchAttributes,
 		removeAdvertisements,
 	} = useAdvertisementController();
+
 	const { user } = React.useContext(AuthContext);
 	const [modalDisplay, setModalDisplay] = React.useState(true);
 	const [patchData, setPatchData] = React.useState(null);
+
+	const [advertisements, setAdvertisements] = React.useState(null);
 
 	React.useEffect(() => {
 		getAdvertisements(user.data.id);
@@ -29,6 +33,25 @@ const Advertisement = () => {
 		if (loading) return;
 		setModalDisplay(false);
 	}, [loading]);
+
+	React.useEffect(() => {
+		async function getQuestionnaires() {
+			let ads = [];
+
+			for (let index = 0; index < data.length; index++) {
+				const ad = data[index];
+				const questionnaires = await getQuestionnairesByAdvertisementID(ad.id);
+
+				console.log(questionnaires);
+
+				ads.push({ ...ad, questionnaires: questionnaires.data });
+			}
+
+			setAdvertisements(ads);
+		}
+
+		getQuestionnaires();
+	}, [data]);
 
 	return (
 		<>
@@ -56,8 +79,16 @@ const Advertisement = () => {
 						<h2 className="text-xl text-center mb-4">Mina annonser</h2>
 						{!error && (
 							<div className="flex flex-wrap justify-center gap-6">
-								{data.map((add) => (
+								{advertisements?.map((add) => (
 									<AdvCard key={add.id} add={add}>
+										{add.questionnaires.length === 0 && (
+											<p className="p-4 rounded-lg bg-red">
+												<span>
+													Denna annons är inte offentlig till studenter ännu!
+												</span>{" "}
+												<strong>Lägg till frågor!</strong>
+											</p>
+										)}
 										<Button
 											className="w-full"
 											onClick={() => {
