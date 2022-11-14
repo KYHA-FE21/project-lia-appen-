@@ -32,7 +32,17 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 				}}
 			></div>
 			<div className="applications-modal flex flex-col gap-3 rounded-md bg-white p-3 m-auto fixed inset-0 z-1">
-				<Heading className="text-lg" heading={profession} icon={<X size="30" onClick={() => setOpenModal(false)} className="cursor-pointer" />} />
+				<Heading
+					className="text-lg"
+					heading={profession}
+					icon={
+						<X
+							size="30"
+							onClick={() => setOpenModal(false)}
+							className="cursor-pointer"
+						/>
+					}
+				/>
 				<CardBadges className="flex text-white justify-center">
 					{badges.map((badge) => (
 						<Badge key={badge} className="flex-1">
@@ -52,8 +62,12 @@ const Modal = ({ setOpenModal, current, buttons }) => {
 						{ icon: <CheckCircle size="20" />, children: work_type },
 					]}
 				/>
-				{link.length > 0 && <LinkGrid className="text-tiny" iconSize="20" entries={link} />}
-				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">{bio}</div>
+				{link.length > 0 && (
+					<LinkGrid className="text-tiny" iconSize="20" entries={link} />
+				)}
+				<div className="applications-bio p-2 flex flex-col gap-4 overflow-auto">
+					{bio}
+				</div>
 				<CardButtons className="flex mt-auto">
 					{buttons.map((button, index) => (
 						<SecondaryButton key={button + index} {...button} />

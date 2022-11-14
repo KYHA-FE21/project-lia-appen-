@@ -1,4 +1,5 @@
 import { useState } from "react";
+import patchApplicant from "../../applications/api/patch-applicant";
 import postApplicant from "../api/post-applicant";
 
 function useApply() {
@@ -17,10 +18,16 @@ function useApply() {
 				accepted: bool === true ? !bool : null,
 				cooldown,
 			});
-			await postApplicant(body);
+			const applicant = advertisementData.applicants.find((applicant) => applicant.user_id === user.id);
+			if (applicant) {
+				await patchApplicant(applicant.id, body);
+			} else {
+				await postApplicant(body);
+			}
 			setApplied(bool);
 		} catch (error) {
 			setError(error.toString());
+			console.error(error);
 		} finally {
 			setLoading(false);
 		}

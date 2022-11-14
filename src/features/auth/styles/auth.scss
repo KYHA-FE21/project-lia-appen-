@@ -15,7 +15,6 @@
 		}
 
 		button {
-			margin-bottom: 2rem;
 			font-size: 0.9rem;
 		}
 
@@ -44,5 +43,11 @@
 		.authContent {
 			padding: 1rem;
 		}
+	}
+}
+
+@media (min-width: 768px) {
+	.md\:flex-row {
+		flex-direction: row;
 	}
 }

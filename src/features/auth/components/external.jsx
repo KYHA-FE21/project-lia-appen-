@@ -4,7 +4,7 @@ import { Facebook, Linkedin, Twitter } from "lucide-react";
 
 const ExternalAuth = () => {
 	return (
-		<div className="authExternalContainer w-full text-white text-center">
+		<div className="authExternalContainer w-full text-white text-center gap-3 flex flex-col">
 			<p className="flex flex-row mb-4 text-sm">eller</p>
 			<div className="flex justify-center">
 				<Link to="/">
