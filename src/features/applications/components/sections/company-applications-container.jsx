@@ -83,9 +83,11 @@ const CompanyApplicationsContainer = ({ id }) => {
 			.then((res) => {
 				if (res.status === 200) {
 					removeApplication(index, array);
+				} else {
+					throw new Error(`Unexpected response code: ${res.status}`);
 				}
 			})
-			.catch((err) => alert("Something went wrong..."));
+			.catch((err) => console.error(err));
 	}
 
 	function acceptButtonOnClick(index, array) {
