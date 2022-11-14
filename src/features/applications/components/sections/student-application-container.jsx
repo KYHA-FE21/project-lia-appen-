@@ -50,6 +50,7 @@ function StudentApplicationContainer({ user }) {
 	}
 
 	function denyButtonOnClick(index, array) {
+		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].id;
 		const cooldown = Date.now();
 		const body = JSON.stringify({ accepted: null, cooldown });

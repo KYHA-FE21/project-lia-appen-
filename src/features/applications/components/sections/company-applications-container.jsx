@@ -76,6 +76,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 	}
 
 	function denyButtonOnClick(index, array) {
+		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].applicant.id;
 		const cooldown = Date.now();
 		const body = JSON.stringify({ accepted: null, cooldown });
@@ -91,6 +92,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 	}
 
 	function acceptButtonOnClick(index, array) {
+		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].applicant.id;
 		const body = JSON.stringify({ accepted: true });
 		patchApplicant(id, body)
