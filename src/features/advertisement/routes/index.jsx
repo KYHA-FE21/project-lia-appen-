@@ -8,8 +8,15 @@ import Button from "../../../components/buttons";
 import { Link } from "react-router-dom";
 
 const Advertisement = () => {
-	const { data, loading, error, getAdvertisements, postAdvertisement, patchAttributes, removeAdvertisements } =
-		useAdvertisementController();
+	const {
+		data,
+		loading,
+		error,
+		getAdvertisements,
+		postAdvertisement,
+		patchAttributes,
+		removeAdvertisements,
+	} = useAdvertisementController();
 	const { user } = React.useContext(AuthContext);
 	const [modalDisplay, setModalDisplay] = React.useState(true);
 	const [patchData, setPatchData] = React.useState(null);
@@ -31,7 +38,8 @@ const Advertisement = () => {
 						<div className="header mb-14">
 							<h1 className="text-2xl text-center mb-4">LIA-annonser</h1>
 							<p className="text-center mb-6">
-								Här kan du som företagsanvändare se dina befintliga annonser, redigera dessa samt skapa nya.
+								Här kan du som företagsanvändare se dina befintliga annonser,
+								redigera dessa samt skapa nya.
 							</p>
 							<Button
 								className="w-full"
@@ -60,12 +68,20 @@ const Advertisement = () => {
 											Redigera
 										</Button>
 										<div className="flex gap-4">
-											<Link to={`/applications/${add.id}`} className="w-full no-underline">
+											<Link
+												to={`/applications/${add.id}`}
+												className="w-full no-underline"
+											>
 												<Button className="w-full bg-grey">Ansökningar</Button>
 											</Link>
 
-											<Link to={`/questionnaire/overview/${add.id}`} className="no-underline w-full">
-												<Button className="w-full bg-grey">Frågeformulär</Button>
+											<Link
+												to={`/questionnaire/overview/${add.id}`}
+												className="no-underline w-full"
+											>
+												<Button className="w-full bg-grey">
+													Frågeformulär
+												</Button>
 											</Link>
 										</div>
 									</AdvCard>
