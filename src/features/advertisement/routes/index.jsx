@@ -57,7 +57,7 @@ const Advertisement = () => {
 												setModalDisplay(true);
 											}}
 										>
-											Editera
+											Redigera
 										</Button>
 										<div className="flex gap-4">
 											<Link to={`/applications/${add.id}`} className="w-full no-underline">
