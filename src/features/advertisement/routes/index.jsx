@@ -42,8 +42,6 @@ const Advertisement = () => {
 				const ad = data[index];
 				const questionnaires = await getQuestionnairesByAdvertisementID(ad.id);
 
-				console.log(questionnaires);
-
 				ads.push({ ...ad, questionnaires: questionnaires.data });
 			}
 
