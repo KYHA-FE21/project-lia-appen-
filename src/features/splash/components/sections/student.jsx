@@ -20,7 +20,16 @@ import ProseParagraph from "../prose-paragraph";
 const companyCard = {
 	badges: ["HTML", "CSS", "JavaScript", "Git"],
 	infoGridEntries: [
-		{ icon: <Calendar />, children: "2022-11 - 2023-06" },
+		{
+			icon: <Calendar />,
+			children: (
+				<>
+					2022-11-01
+					<br />
+					2023-06-31
+				</>
+			),
+		},
 		{ icon: <CheckCircle />, children: "Hybrid" },
 		{ icon: <MapPin />, children: "Gävleborgslän" },
 	],
