@@ -207,7 +207,7 @@ const EditInformation = ({ user }) => {
 									type="radio"
 									key={option}
 									value={option}
-									label={translate(option, true)}
+									label={translate(option)}
 									onChange={handleRadio}
 								/>
 							))}

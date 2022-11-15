@@ -33,7 +33,7 @@ const Select = ({
 					</option>
 					{["hybrid", "location", "remote"].map((option) => (
 						<option key={option} value={option}>
-							{translate(option, true)}
+							{translate(option)}
 						</option>
 					))}
 				</select>

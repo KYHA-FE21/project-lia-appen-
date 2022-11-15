@@ -18,7 +18,7 @@ function InfoGrid({
 		>
 			{entries.map((entry, index) => (
 				<InfoGridEntry key={index + entry.children} icon={entry.icon}>
-					{translate(entry.children, true)}
+					{translate(entry.children)}
 				</InfoGridEntry>
 			))}
 		</div>
