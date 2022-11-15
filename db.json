@@ -23,18 +23,6 @@
       "title": "",
       "url": "",
       "user_id": ""
-    },
-    {
-      "id": "1",
-      "title": "Lorem",
-      "url": "https://www.google.se/",
-      "user_id": "2"
-    },
-    {
-      "id": "2",
-      "title": "Lorem ipsum",
-      "url": "https://www.google.se/",
-      "user_id": "2"
     }
   ],
   "questionnaire": [
