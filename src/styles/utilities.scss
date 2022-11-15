@@ -154,7 +154,9 @@ $sizes: (
 		font-size: #{$size};
 	}
 }
-
+.capitalize {
+	text-transform: capitalize;
+}
 .rounded-md {
 	border-radius: 8px;
 }
@@ -248,7 +250,12 @@ $fractions: (
 }
 
 .gradient {
-	background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.1) 10%, hsla(0, 0%, 0%, 0.05) 50%, hsla(0, 0%, 0%, 0.1) 90%);
+	background: linear-gradient(
+		180deg,
+		hsla(0, 0%, 0%, 0.1) 10%,
+		hsla(0, 0%, 0%, 0.05) 50%,
+		hsla(0, 0%, 0%, 0.1) 90%
+	);
 }
 
 .blur {
@@ -345,7 +352,11 @@ $weights: (
 }
 
 .gradient-bg {
-	background: linear-gradient(180deg, rgba(80, 35, 60, 0.25) 0%, rgba(80, 35, 60, 0.8) 100%);
+	background: linear-gradient(
+		180deg,
+		rgba(80, 35, 60, 0.25) 0%,
+		rgba(80, 35, 60, 0.8) 100%
+	);
 }
 
 .ml-auto {

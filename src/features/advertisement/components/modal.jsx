@@ -171,6 +171,7 @@ const Modal = ({
 								icon={<Globe2 size={22} className="text-grey" />}
 								value={workType}
 								handleChange={(e) => setWorkType(e.target.value)}
+								className="capitalize"
 							/>
 						</div>
 						<div className="mt-8">

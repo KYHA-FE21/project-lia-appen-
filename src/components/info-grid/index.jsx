@@ -10,7 +10,7 @@ function InfoGrid({
 }) {
 	return (
 		<div
-			className={`info-container text-${color} ${className}`}
+			className={`info-container capitalize text-${color} ${className}`}
 			style={{
 				width: width,
 				fontSize: fontSize,
