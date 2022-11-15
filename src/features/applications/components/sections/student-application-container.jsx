@@ -1,9 +1,10 @@
 import { Loader, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import patchApplicant from "../../api/patch-applicant";
 import useApplications from "../../hooks/applications";
 import ApplicationCard from "../application-card";
 import ApplicationSection from "../application-section";
+import ConfirmDialog from "../confirm-dialog";
 import Modal from "../modal";
 
 function StudentApplicationContainer({ user }) {
@@ -14,6 +15,9 @@ function StudentApplicationContainer({ user }) {
 
 	const [toContact, setToContact] = useState([]);
 	const [toReview, setToReview] = useState([]);
+
+	const dialogRef = useRef();
+	const [currentAction, setCurrentAction] = useState([]);
 
 	function sortByBadges(a, b) {
 		const badges = [...user.attribute.badges].map((item) => item.toUpperCase());
@@ -49,8 +53,13 @@ function StudentApplicationContainer({ user }) {
 		setOpenModal(false);
 	}
 
+	function openDialog(callback, ...args) {
+		setCurrentAction([callback, ...args]);
+		dialogRef.current.showModal();
+		dialogRef.current.classList.remove("hidden");
+	}
+
 	function denyButtonOnClick(index, array) {
-		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].id;
 		const cooldown = Date.now();
 		const body = JSON.stringify({ accepted: null, cooldown });
@@ -59,7 +68,7 @@ function StudentApplicationContainer({ user }) {
 				if (res.status === 200) {
 					removeApplication(index, array);
 				} else {
-					throw new Error(`Unexpected response code: ${res.status}`)
+					throw new Error(`Unexpected response code: ${res.status}`);
 				}
 			})
 			.catch((err) => console.error(err));
@@ -75,7 +84,7 @@ function StudentApplicationContainer({ user }) {
 			{
 				icon: <X />,
 				onClick: () => {
-					denyButtonOnClick(index, array);
+					openDialog(denyButtonOnClick, index, array);
 				},
 				color: "white",
 				bgColor: "red",
@@ -95,6 +104,25 @@ function StudentApplicationContainer({ user }) {
 			/>
 		);
 	}
+
+	useEffect(() => {
+		function handleClose() {
+			if (dialogRef.current.returnValue === "true") {
+				const copyCurrentAction = [...currentAction];
+				const callback = copyCurrentAction.shift();
+				callback(...copyCurrentAction);
+			}
+			dialogRef.current.classList.add("hidden");
+		}
+		if (dialogRef.current) {
+			dialogRef.current.addEventListener("close", handleClose);
+		}
+		return () => {
+			if (dialogRef.current) {
+				dialogRef.current.removeEventListener("close", handleClose);
+			}
+		};
+	});
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -141,7 +169,7 @@ function StudentApplicationContainer({ user }) {
 								{
 									icon: <X />,
 									onClick: () => {
-										denyButtonOnClick(current.index, current.array);
+										openDialog(denyButtonOnClick, current.index, current.array);
 									},
 									color: "white",
 									bgColor: "red",
@@ -151,6 +179,10 @@ function StudentApplicationContainer({ user }) {
 							]}
 						/>
 					)}
+					<ConfirmDialog
+						ref={dialogRef}
+						className="flex flex-col gap-4 rounded-md hidden"
+					/>
 				</>
 			)}
 		</>

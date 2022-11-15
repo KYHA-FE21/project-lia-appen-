@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import useAdvertisement from "../../hooks/advertisement";
 
@@ -9,6 +9,7 @@ import Modal from "../modal";
 
 import patchApplicant from "../../api/patch-applicant";
 import ApplicationSection from "../application-section";
+import ConfirmDialog from "../confirm-dialog";
 
 const CompanyApplicationsContainer = ({ id }) => {
 	const [openModal, setOpenModal] = useState(false);
@@ -18,6 +19,9 @@ const CompanyApplicationsContainer = ({ id }) => {
 
 	const [toContact, setToContact] = useState([]);
 	const [toReview, setToReview] = useState([]);
+
+	const dialogRef = useRef();
+	const [currentAction, setCurrentAction] = useState({});
 
 	function sortByBadges(a, b) {
 		const badges = [...advertisement.attribute.badges].map((item) =>
@@ -38,26 +42,6 @@ const CompanyApplicationsContainer = ({ id }) => {
 		return 0;
 	}
 
-	useEffect(() => {
-		const controller = new AbortController();
-		if (advertisement && !controller.signal.aborted) {
-			const { applicants } = advertisement;
-			setToContact(() => {
-				return applicants
-					.filter((applicant) => applicant.applicant.accepted)
-					.sort(sortByBadges);
-			});
-			setToReview(() => {
-				return applicants
-					.filter((applicant) => !applicant.applicant.accepted)
-					.sort(sortByBadges);
-			});
-		}
-		return () => {
-			controller.abort();
-		};
-	}, [advertisement]);
-
 	function removeApplication(index, array) {
 		function filterArray(prev) {
 			return prev.filter((_, i) => i !== index);
@@ -75,8 +59,13 @@ const CompanyApplicationsContainer = ({ id }) => {
 		setOpenModal(false);
 	}
 
+	function openDialog(callback, ...args) {
+		setCurrentAction([callback, ...args]);
+		dialogRef.current.showModal();
+		dialogRef.current.classList.remove("hidden");
+	}
+
 	function denyButtonOnClick(index, array) {
-		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].applicant.id;
 		const cooldown = Date.now();
 		const body = JSON.stringify({ accepted: null, cooldown });
@@ -92,7 +81,6 @@ const CompanyApplicationsContainer = ({ id }) => {
 	}
 
 	function acceptButtonOnClick(index, array) {
-		if (!window.confirm("Är du säker?")) return;
 		const id = array[index].applicant.id;
 		const body = JSON.stringify({ accepted: true });
 		patchApplicant(id, body)
@@ -117,7 +105,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 			{
 				icon: <X />,
 				onClick: () => {
-					denyButtonOnClick(index, array);
+					openDialog(denyButtonOnClick, index, array);
 				},
 				color: "white",
 				bgColor: "red",
@@ -129,7 +117,7 @@ const CompanyApplicationsContainer = ({ id }) => {
 			buttons.push({
 				icon: <Check />,
 				onClick: () => {
-					acceptButtonOnClick(index, array);
+					openDialog(acceptButtonOnClick, index, array);
 				},
 				color: "white",
 				bgColor: "green",
@@ -150,6 +138,45 @@ const CompanyApplicationsContainer = ({ id }) => {
 			/>
 		);
 	}
+
+	useEffect(() => {
+		function handleClose() {
+			if (dialogRef.current.returnValue === "true") {
+				const copyCurrentAction = [...currentAction];
+				const callback = copyCurrentAction.shift();
+				callback(...copyCurrentAction);
+			}
+			dialogRef.current.classList.add("hidden");
+		}
+		if (dialogRef.current) {
+			dialogRef.current.addEventListener("close", handleClose);
+		}
+		return () => {
+			if (dialogRef.current) {
+				dialogRef.current.removeEventListener("close", handleClose);
+			}
+		};
+	});
+
+	useEffect(() => {
+		const controller = new AbortController();
+		if (advertisement && !controller.signal.aborted) {
+			const { applicants } = advertisement;
+			setToContact(() => {
+				return applicants
+					.filter((applicant) => applicant.applicant.accepted)
+					.sort(sortByBadges);
+			});
+			setToReview(() => {
+				return applicants
+					.filter((applicant) => !applicant.applicant.accepted)
+					.sort(sortByBadges);
+			});
+		}
+		return () => {
+			controller.abort();
+		};
+	}, [advertisement]);
 
 	return (
 		<>
@@ -175,7 +202,11 @@ const CompanyApplicationsContainer = ({ id }) => {
 										{
 											icon: <X />,
 											onClick: () => {
-												denyButtonOnClick(current.index, current.array);
+												openDialog(
+													denyButtonOnClick,
+													current.index,
+													current.array
+												);
 											},
 											color: "white",
 											bgColor: "red",
@@ -189,7 +220,11 @@ const CompanyApplicationsContainer = ({ id }) => {
 													{
 														icon: <Check />,
 														onClick: () => {
-															acceptButtonOnClick(current.index, current.array);
+															openDialog(
+																acceptButtonOnClick,
+																current.index,
+																current.array
+															);
 														},
 														color: "white",
 														bgColor: "green",
@@ -201,6 +236,10 @@ const CompanyApplicationsContainer = ({ id }) => {
 									]}
 								/>
 							)}
+							<ConfirmDialog
+								ref={dialogRef}
+								className="flex flex-col gap-4 rounded-md hidden"
+							/>
 						</>
 					)}
 				</>
