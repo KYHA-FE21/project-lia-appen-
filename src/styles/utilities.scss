@@ -182,6 +182,12 @@ $colors: (
 	}
 }
 
+:root {
+	@each $color, $value in $colors {
+		--color-#{$color}: #{$value};
+	}
+}
+
 $leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
 
 @each $size in $leading-sizes {
