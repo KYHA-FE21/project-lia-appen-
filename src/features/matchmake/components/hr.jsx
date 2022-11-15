@@ -2,7 +2,7 @@ import Container from "./container";
 
 function HorizontalRow({ className, style }) {
 	return (
-		<Container className={className} style={{ borderColor: "#4d243d", ...style }}>
+		<Container className={className} style={{ borderColor: "var(--color-primary)", ...style }}>
 			<hr className="w-full" style={{ borderColor: "inherit" }} />
 		</Container>
 	);
