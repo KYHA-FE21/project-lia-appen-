@@ -1,6 +1,13 @@
+import translate from "../../translate";
 import "./index.scss";
 
-function InfoGrid({ entries = [], width, fontSize, color = "black", className = "" }) {
+function InfoGrid({
+	entries = [],
+	width,
+	fontSize,
+	color = "black",
+	className = "",
+}) {
 	return (
 		<div
 			className={`info-container text-${color} ${className}`}
@@ -9,10 +16,14 @@ function InfoGrid({ entries = [], width, fontSize, color = "black", className = 
 				fontSize: fontSize,
 			}}
 		>
-			{entries.map((entry, index) => <InfoGridEntry key={index + entry.children} icon={entry.icon} children={entry.children} />)}
+			{entries.map((entry, index) => (
+				<InfoGridEntry key={index + entry.children} icon={entry.icon}>
+					{translate(entry.children, true)}
+				</InfoGridEntry>
+			))}
 		</div>
 	);
-};
+}
 
 export function InfoGridEntry({ icon, children }) {
 	return (

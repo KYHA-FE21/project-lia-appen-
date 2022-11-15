@@ -59,7 +59,7 @@ const Modal = ({
 			period,
 			badges,
 			work_type: workType,
-			openings,
+			openings: parseInt(openings),
 			type: "advertisement",
 		};
 		if (patchData) {

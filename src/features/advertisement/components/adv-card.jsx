@@ -1,5 +1,9 @@
 import React from "react";
-import Card, { CardHeader, CardBadges, CardButtons } from "../../../components/card";
+import Card, {
+	CardHeader,
+	CardBadges,
+	CardButtons,
+} from "../../../components/card";
 import InfoStats from "../../../components/info-stats/info-stats";
 import Badges from "../../../components/badge";
 import InfoGrid from "../../../components/info-grid";
@@ -12,24 +16,26 @@ const AdvCard = ({ add, children }) => {
 				<h2>{add.attribute.profession}</h2>
 			</CardHeader>
 			<InfoGrid
-				className="px-3"
+				className="px-3 text-tiny"
 				color="black"
 				entries={[
 					{
 						icon: <CalendarDays size="20" />,
 						children: (
-							<span className="text-tiny">
-								{add.attribute.period[0]} <br /> {add.attribute.period[1]}
-							</span>
+							<>
+								{add.attribute.period[0]}
+								<br />
+								{add.attribute.period[1]}
+							</>
 						),
 					},
 					{
 						icon: <MapPin size="20" />,
-						children: <span className="text-tiny">{add.attribute.location}</span>,
+						children: add.attribute.location,
 					},
 					{
 						icon: <CheckCircle size="20" />,
-						children: <span className="text-tiny">{add.attribute.work_type}</span>,
+						children: add.attribute.work_type,
 					},
 				]}
 			/>

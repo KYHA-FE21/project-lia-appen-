@@ -39,7 +39,13 @@ function ApplicationCard({
 				entries={[
 					{
 						icon: <CalendarDays size="20" />,
-						children: `${fromDate} till ${toDate}`,
+						children: (
+							<>
+								{fromDate}
+								<br />
+								{toDate}
+							</>
+						),
 					},
 					{ icon: <MapPin size="20" />, children: location },
 					{ icon: <CheckCircle size="20" />, children: work_type },
