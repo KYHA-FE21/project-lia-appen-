@@ -6,6 +6,7 @@ import PrimaryButton from "../../../components/buttons/index";
 import TextArea from "../components/text-area";
 import { Mail, GraduationCap, MapPin, Tags, Award } from "lucide-react";
 import InputButton from "../components/input-button";
+import translate from "../../../translate";
 
 const EditInformation = ({ user }) => {
 	const { data, update } = user;
@@ -179,7 +180,7 @@ const EditInformation = ({ user }) => {
 								period: [e.target.value, state.period[1]],
 							}))
 						}
-						icon={<span/>}
+						icon={<span />}
 						type="date"
 					/>
 
@@ -192,41 +193,24 @@ const EditInformation = ({ user }) => {
 								period: [state.period[0], e.target.value],
 							}))
 						}
-						icon={<span/>}
+						icon={<span />}
 						type="date"
 					/>
 
 					<Wrapper direction="column" gap={[1]}>
 						<Wrapper gap={[1]} styleDirection="center">
-							<InputButton
-								id={1}
-								name="work_type"
-								checked={radioCheck === "remote"}
-								type="radio"
-								value="remote"
-								label="Remote"
-								onChange={handleRadio}
-							/>
-
-							<InputButton
-								id={2}
-								name="work_type"
-								checked={radioCheck === "location"}
-								type="radio"
-								value="location"
-								label="På plats"
-								onChange={handleRadio}
-							/>
-
-							<InputButton
-								id={3}
-								name="work_type"
-								checked={radioCheck === "hybrid"}
-								type="radio"
-								value="hybrid"
-								label="Hybrid"
-								onChange={handleRadio}
-							/>
+							{["hybrid", "location", "remote"].map((option, index) => (
+								<InputButton
+									id={index + 1}
+									name="work_type"
+									checked={radioCheck === option}
+									type="radio"
+									key={option}
+									value={option}
+									label={translate(option)}
+									onChange={handleRadio}
+								/>
+							))}
 						</Wrapper>
 					</Wrapper>
 				</Wrapper>

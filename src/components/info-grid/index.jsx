@@ -1,18 +1,29 @@
+import translate from "../../translate";
 import "./index.scss";
 
-function InfoGrid({ entries = [], width, fontSize, color = "black", className = "" }) {
+function InfoGrid({
+	entries = [],
+	width,
+	fontSize,
+	color = "black",
+	className = "",
+}) {
 	return (
 		<div
-			className={`info-container text-${color} ${className}`}
+			className={`info-container capitalize text-${color} ${className}`}
 			style={{
 				width: width,
 				fontSize: fontSize,
 			}}
 		>
-			{entries.map((entry, index) => <InfoGridEntry key={index + entry.children} icon={entry.icon} children={entry.children} />)}
+			{entries.map((entry, index) => (
+				<InfoGridEntry key={index + entry.children} icon={entry.icon}>
+					{translate(entry.children)}
+				</InfoGridEntry>
+			))}
 		</div>
 	);
-};
+}
 
 export function InfoGridEntry({ icon, children }) {
 	return (

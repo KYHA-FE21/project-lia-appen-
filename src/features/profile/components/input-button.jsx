@@ -27,7 +27,7 @@ const InputButton = ({
 			/>
 
 			{label !== undefined && (
-				<label htmlFor={id} className="flex center evenly">
+				<label htmlFor={id} className="flex center evenly capitalize">
 					{label}
 				</label>
 			)}

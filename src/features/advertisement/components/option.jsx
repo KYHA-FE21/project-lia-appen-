@@ -1,6 +1,14 @@
 import React from "react";
+import translate from "../../../translate";
 
-const Select = ({ icon = null, isError = false, value, handleChange, className = "", ...restProps }) => {
+const Select = ({
+	icon = null,
+	isError = false,
+	value,
+	handleChange,
+	className = "",
+	...restProps
+}) => {
 	const ref = React.useRef(null);
 
 	const handleClick = () => {
@@ -13,17 +21,21 @@ const Select = ({ icon = null, isError = false, value, handleChange, className =
 				{icon && <span className="globalInputIcon">{icon}</span>}
 				<select
 					ref={ref}
-					className={`globalInputContent globalInputField ${!value ? "text-grey" : "text-black"}  ${className}`}
+					className={`globalInputContent globalInputField ${
+						!value ? "text-grey" : "text-black"
+					}  ${className}`}
 					value={value}
 					onChange={handleChange}
 					{...restProps}
 				>
 					<option value="" disabled defaultValue hidden>
-						Hybrid
+						{translate("hybrid", true)}
 					</option>
-					<option value="hybrid">Hybrid</option>
-					<option value="location">På plats</option>
-					<option value="remote">Remote</option>
+					{["hybrid", "location", "remote"].map((option) => (
+						<option key={option} value={option}>
+							{translate(option)}
+						</option>
+					))}
 				</select>
 			</div>
 		</div>
