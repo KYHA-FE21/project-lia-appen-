@@ -110,6 +110,7 @@ const Modal = ({
 								<InputField
 									required
 									type="date"
+									max={period[1]}
 									icon={<CalendarDays size={22} className="text-grey hidden" />}
 									className={`${!period[0] ? "text-grey" : "text-black"}`}
 									value={period[0]}
@@ -118,6 +119,7 @@ const Modal = ({
 								<InputField
 									required
 									type="date"
+									min={period[0]}
 									icon={<CalendarDays size={22} className="text-grey hidden" />}
 									className={`${!period[1] ? "text-grey" : "text-black"}`}
 									value={period[1]}
