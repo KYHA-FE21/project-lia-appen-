@@ -9,16 +9,23 @@ const ProtectedRoutes = ({ allowedTypes, children }) => {
 
 	return (
 		<>
-			{user?.loading && <Loader className="spin" />}
+			{user?.loading && (
+				<div className="flex justify-center items-center h-full">
+					<Loader size={50} className="spin" />
+				</div>
+			)}
 
-			{user?.data && !user.loading &&
+			{user?.data &&
+				!user.loading &&
 				(allowedTypes.includes(user.data?.attribute?.type) ? (
 					children
 				) : (
 					<Navigate to="/" state={{ from: location }} replace />
 				))}
 
-			{user?.unauthenticated && <Navigate to="/signin" state={{ from: location }} replace />}
+			{user?.unauthenticated && (
+				<Navigate to="/signin" state={{ from: location }} replace />
+			)}
 		</>
 	);
 };
