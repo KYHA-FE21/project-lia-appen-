@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { Loader, LogIn, User } from "lucide-react";
+
 import "./index.scss";
 
-import logo from "./logo.svg";
+import { ReactComponent as Logo } from "./logo.svg";
 
 const Header = ({ user }) => {
 	return (
 		<header className="main-header h-max">
 			<div className="header-container max-w-screen-xl mx-auto">
 				<Link to="/" className="p-3 -ml-7">
-					<img className="logo" src={logo} alt="LIA-appen logo" />
+					<Logo className="logo" />
 				</Link>
 
 				{user?.loading && (

@@ -1,6 +1,9 @@
+@use "sass:map";
+@use "../../../styles/variables";
+
 .authContainer {
 	min-height: 100vh;
-	background: linear-gradient(to bottom, #111318, #4d243d);
+	background: linear-gradient(to bottom, #111318, var(--color-primary));
 
 	.authContent {
 		max-width: 35rem;
@@ -19,7 +22,7 @@
 		}
 
 		button:disabled {
-			background-color: #4d243d7a;
+			background-color: #{rgba(map.get(variables.$colors, "primary"), 0.478)};
 			color: rgba(250, 250, 250, 0.5);
 		}
 	}

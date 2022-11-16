@@ -1,5 +1,7 @@
 @use "sass:math";
 
+@use "variables";
+
 .flex {
 	display: flex;
 }
@@ -138,18 +140,7 @@
 	}
 }
 
-$sizes: (
-	"tiny": 0.75rem,
-	"sm": 0.875rem,
-	"base": 1rem,
-	"lg": 1.125rem,
-	"xl": 1.25rem,
-	"2xl": 1.5rem,
-	"3xl": 1.875rem,
-	"6xl": 3.75rem,
-);
-
-@each $name, $size in $sizes {
+@each $name, $size in variables.$sizes {
 	.text-#{$name} {
 		font-size: #{$size};
 	}
@@ -165,16 +156,7 @@ $sizes: (
 	border-radius: 16px;
 }
 
-$colors: (
-	"white": white,
-	"black": black,
-	"primary": #4d243d,
-	"green": #32ba78,
-	"red": #fd6d6d,
-	"grey": grey,
-);
-
-@each $color, $value in $colors {
+@each $color, $value in variables.$colors {
 	.text-#{$color} {
 		color: $value;
 	}
@@ -184,10 +166,14 @@ $colors: (
 	}
 }
 
-$leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
+:root {
+	@each $color, $value in variables.$colors {
+		--color-#{$color}: #{$value};
+	}
+}
 
-@each $size in $leading-sizes {
-	$index: index($leading-sizes, $size);
+@each $size in variables.$leading-sizes {
+	$index: index(variables.$leading-sizes, $size);
 
 	.leading-#{$size} {
 		line-height: #{1 * (math.div($index - 1, 5)) + 1};
@@ -202,12 +188,9 @@ $leading-sizes: "none", "tight", "snug", "normal", "relaxed", "loose";
 	font-family: "Cousine", monospace;
 }
 
-$tracking-sizes: (
-	"tighter": -0.075em,
-	"normal": 0em,
-);
 
-@each $name, $size in $tracking-sizes {
+
+@each $name, $size in variables.$tracking-sizes {
 	.tracking-#{$name} {
 		letter-spacing: $size;
 	}
@@ -219,16 +202,7 @@ $tracking-sizes: (
 	}
 }
 
-$fractions: (
-	"1\\/2": 50%,
-	"1\\/3": #{math.percentage(math.div(1, 3))},
-	"2\\/3": #{math.percentage(math.div(2, 3))},
-	"1\\/4": 25%,
-	"1\\/5": 20%,
-	"3\\/4": 75%,
-);
-
-@each $name, $val in $fractions {
+@each $name, $val in variables.$fractions {
 	.w-#{$name} {
 		width: $val;
 	}
@@ -306,12 +280,7 @@ $fractions: (
 	border-radius: 100vw;
 }
 
-$weights: (
-	"normal": 400,
-	"bold": 700,
-);
-
-@each $weight, $val in $weights {
+@each $weight, $val in variables.$weights {
 	.font-#{$weight} {
 		font-weight: $val;
 	}
