@@ -20,13 +20,26 @@ function useApplications(user) {
 					["accepted", false],
 				]);
 				const applicants = await applicant.json();
-				const advertisements = await getAdvertisementByIDs(Array.from(applicants).map((item) => item.advertisement_id));
-				const [attributes, users] = await Promise.all([getAttributeByIDs(Array.from(advertisements).map((item) => item.attribute_id)), getUserByIDs(Array.from(advertisements).map((item) => item.user_id))]);
+				const advertisements = await getAdvertisementByIDs(
+					applicants.map((item) => item.advertisement_id)
+				);
+				if (!advertisements.length) return setApplication([]);
+				const [attributes, users] = await Promise.all([
+					getAttributeByIDs(advertisements.map((item) => item.attribute_id)),
+					getUserByIDs(advertisements.map((item) => item.user_id)),
+				]);
 				applicants.forEach((applicant, index, array) => {
-					const advertisement = advertisements.find((advertisement) => advertisement.id === applicant.advertisement_id);
-					const attribute = attributes.find((attribute) => attribute.id === advertisement.attribute_id);
+					const advertisement = advertisements.find(
+						(advertisement) => advertisement.id === applicant.advertisement_id
+					);
+					const attribute = attributes.find(
+						(attribute) => attribute.id === advertisement.attribute_id
+					);
 					const user = users.find((user) => user.id === advertisement.user_id);
-					array[index] = { ...applicant, advertisement: { ...advertisement, attribute, user } };
+					array[index] = {
+						...applicant,
+						advertisement: { ...advertisement, attribute, user },
+					};
 				});
 				setApplication(applicants);
 			} catch (error) {
