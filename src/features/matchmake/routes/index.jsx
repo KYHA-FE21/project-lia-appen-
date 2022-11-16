@@ -43,7 +43,7 @@ const Index = () => {
 	};
 
 	return (
-		<Container type="main" display="flex" className="p-3 h-full items-center justify-center">
+		<Container type="main" className="flex p-3 h-full items-center justify-center matchmake-bg">
 			<Card className="matchmake-cardfix max-w-screen-sm matchmake-min-height h-max w-full">
 				{loading && <Loading />}
 				{!loading && error && <Container className="p-3">{error}</Container>}

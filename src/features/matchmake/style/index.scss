@@ -1,9 +1,16 @@
 .matchmake-cardfix {
-	> div {
+	>div {
 		padding: 12px 0;
 	}
 }
 
 .matchmake-min-height {
-	min-height: 520px!important;
+	min-height: 520px !important;
+}
+
+.matchmake-bg {
+	background: url(../../../../public/background_3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
