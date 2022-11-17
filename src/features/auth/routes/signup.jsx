@@ -73,7 +73,9 @@ const Signup = () => {
 						icon={<User strokeWidth={1} />}
 						className={localError?.type === "name" && "globalInputFieldError"}
 						type="text"
-						placeholder="Förnamn Efternamn"
+						placeholder={
+							type === "student" ? "Förnamn Efternamn" : "Företagsnamn AB"
+						}
 						value={name}
 						handleChange={(e) => {
 							if (localError?.type === "name") setLocalError(null);
