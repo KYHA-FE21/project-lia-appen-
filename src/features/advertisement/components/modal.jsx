@@ -180,7 +180,7 @@ const Modal = ({
 							<InputLabel>Antal</InputLabel>
 							<InputField
 								required
-								min='0'
+								min="0"
 								placeholder="0"
 								type="number"
 								icon={<Users size={22} className="text-grey" />}
