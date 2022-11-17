@@ -37,7 +37,7 @@ function Splash() {
 
 						<FlexContainer direction="col" className="w-full md:px-16" gap="4">
 							<CardHeader className="text-2xl text-center place-self-center font-display">
-								Jag letar efter
+								Jag är
 							</CardHeader>
 							<FlexContainer gap="4" className="items-stretch">
 								<LinkButton className="text-base p-4" href="/signup">
