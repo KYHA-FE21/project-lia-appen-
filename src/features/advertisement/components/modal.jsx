@@ -142,7 +142,7 @@ const Modal = ({
 								/>
 								<Button
 									onClick={() => {
-										if (badges.length === 5 || badge.trim() === '' || badges.indexOf(badge) > -1) return;
+										if (badges.length === 5 || badge.trim() === '' || badges.includes(badge)) return;
 										setBadges([...badges, badge]);
 										setBadge("");
 										setBadgeErr("");
