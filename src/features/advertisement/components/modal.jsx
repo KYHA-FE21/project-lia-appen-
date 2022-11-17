@@ -142,7 +142,7 @@ const Modal = ({
 								/>
 								<Button
 									onClick={() => {
-										if (badges.length === 5) return;
+										if (badges.length === 5 || badge.trim() === '' || badges.indexOf(badge) > -1) return;
 										setBadges([...badges, badge]);
 										setBadge("");
 										setBadgeErr("");
@@ -180,6 +180,7 @@ const Modal = ({
 							<InputLabel>Antal</InputLabel>
 							<InputField
 								required
+								min='0'
 								placeholder="0"
 								type="number"
 								icon={<Users size={22} className="text-grey" />}
