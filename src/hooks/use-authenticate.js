@@ -1,12 +1,12 @@
 export function getStorage(key) {
 	const str = window.localStorage.getItem(key);
 
-	let storageObj = {};
+	let data = {};
 	if (str) {
 		try {
-			storageObj = JSON.parse(str);
+			data = JSON.parse(str);
 		} catch (error) {
-			storageObj = null;
+			data = null;
 		}
 	}
 
@@ -18,5 +18,5 @@ export function getStorage(key) {
 		window.localStorage.removeItem(key);
 	}
 
-	return { data: storageObj, update, empty };
+	return { data, update, empty };
 }
