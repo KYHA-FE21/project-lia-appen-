@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import ProtectedRoutes from "./protected-routes";
@@ -14,39 +13,29 @@ import Reset from "./features/auth/routes/reset";
 import QuestionnaireEditor from "./features/questionnaire/routes/editor";
 import QuestionnaireOverview from "./features/questionnaire/routes/overview";
 import Advertisement from "./features/advertisement/routes";
-import useLocalStorage from "./hooks/use-local-storage";
 import useUser from "./features/profile/hooks/use-user";
 import AuthContext from "./context";
-import { useMemo } from "react";
+import { getStorage } from "./hooks/use-authenticate";
 
 const AppRoutes = () => {
-	const userStorage = useLocalStorage("user");
-	const user = useUser();
+	const userStorage = getStorage("user")
+	const user = useUser(userStorage.data?.id);
 
-	useEffect(() => {
-		const store = userStorage.data;
+	let userContext = {}
+	if (!userStorage.data?.id) {
+		// Some kind of error with getting the user.
+		userStorage.empty();
+		userContext = { unauthenticated: true }
+	}
 
-		if (!store) return;
-
-		if (store.id) {
-			user.loadByID(store.id);
-		}
-	}, [userStorage.data]);
-
-	const userContext = useMemo(() => {
-		if (userStorage.data === null) return null;
-
-		if (userStorage.data?.id) {
-			if (user.state?.error) {
-				userStorage.empty();
-				window.location.pathname = "/signin";
-			}
-
-			return user.state;
+	if (userStorage.data?.id) {
+		if (user.state?.error) {
+			userStorage.empty();
+			window.location.pathname = "/signin";
 		}
 
-		if (userStorage.data.id === undefined) return { unauthenticated: true };
-	}, [user.state, userStorage]);
+		userContext = user.state;
+	}
 
 	return (
 		<AuthContext.Provider value={{ user: userContext, update: user.update }}>

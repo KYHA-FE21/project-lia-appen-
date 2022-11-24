@@ -9,10 +9,10 @@ import External from "../components/external";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import useLocalStorage from "../../../hooks/use-local-storage";
 import PasswordInfo from "../components/password-info";
 import useFocus from "../hooks/use-focus";
 import AuthContext from "../../../context";
+import { getStorage } from "../../../hooks/use-authenticate";
 
 const Signup = () => {
 	const { user } = React.useContext(AuthContext);
@@ -32,7 +32,7 @@ const Signup = () => {
 
 	const [name, setName] = React.useState("");
 
-	const userStorage = useLocalStorage("user");
+	const userStorage = getStorage("user");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

@@ -7,10 +7,10 @@ import External from "../components/external";
 import Button from "../../../components/buttons";
 import InputField from "../../../components/input-field";
 import { useNavigate } from "react-router-dom";
-import useLocalStorage from "../../../hooks/use-local-storage";
 import InputError from "../components/input-error";
 import useFetch from "../hooks/use-fetch";
 import AuthContext from "../../../context";
+import { getStorage } from "../../../hooks/use-authenticate";
 
 const Signin = () => {
 	const { user } = React.useContext(AuthContext);
@@ -19,7 +19,7 @@ const Signin = () => {
 	const { data, loading, error, execute } = useFetch();
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
-	const userStorage = useLocalStorage("user");
+	const userStorage = getStorage("user");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
