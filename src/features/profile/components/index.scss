@@ -1,0 +1,133 @@
+@use "sass:map";
+@use "sass:color";
+@use "../../../styles/variables";
+
+.container {
+	background-color: #fff;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.padding-inline-4 {
+	padding-inline: 1em;
+}
+
+.center {
+	align-items: center;
+	justify-content: center;
+}
+
+.evenly {
+	justify-content: space-evenly;
+}
+
+.border-b {
+	border-bottom: 1px solid #fff;
+}
+
+.padding-b-05 {
+	padding-bottom: 0.5em;
+}
+
+.size-1 {
+	font-size: 0.8rem;
+}
+
+.size-2 {
+	font-size: 1.2rem;
+}
+
+.size-3 {
+	font-size: 1.3rem;
+}
+
+.textArea {
+	position: relative;
+
+	textarea {
+		width: 100%;
+		height: 8em;
+		border-radius: 1.5em;
+		padding: 1em;
+		font-size: 0.8rem;
+		resize: none;
+	}
+
+	span {
+		position: absolute;
+		right: 1em;
+		bottom: 1em;
+		font-size: 0.7rem;
+		color: grey
+	}
+}
+
+.title {
+	display: flex;
+	gap: 0.5em;
+}
+
+.subTitle {
+	font-size: 0.8rem;
+	font-weight: 400;
+}
+
+.bgBlur {
+	background-image: url(https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 30vh;
+	clip-path: polygon(0 0, 100% 0%, 100% 53%, 0 100%);
+	overflow: hidden;
+	padding: 0 51%;
+}
+
+.avatar {
+	position: absolute;
+	top: 15vh;
+	border-radius: 100%;
+	background-image: url(https://images.pexels.com/photos/1337380/pexels-photo-1337380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 8em;
+	height: 8em;
+	box-shadow: 0 0 5px #000;
+}
+
+.selectorHeader,
+.selectorHeaderReverse {
+	display: flex;
+	background: linear-gradient(to bottom, var(--color-primary) 0%, #{color.scale(map.get(variables.$colors, "primary"), $saturation: 100%)} 100%);
+	width: 100%;
+	height: 20vh;
+	clip-path: polygon(0 -1%, 100% -1%, 100% 100%, 0 80%);
+	color: white;
+	align-items: center;
+	justify-content: center;
+
+	h2 {
+		line-height: 0;
+	}
+}
+
+.selectorHeaderReverse {
+	clip-path: polygon(0 -1%, 100% 20%, 100% 80%, 0 100%);
+	margin: 2em 0;
+}
+
+.profile {
+	input[type="date"]::-webkit-calendar-picker-indicator {
+		filter: invert(60%);
+		position: absolute;
+		left: 8px;
+		width: 24px;
+		height: 24px;
+	}
+}

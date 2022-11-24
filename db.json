@@ -1,0 +1,117 @@
+{
+  "user": [
+    {
+      "id": "Sav_vBW",
+      "name": "Acme AB",
+      "email": "admin@acme.se",
+      "password": "test",
+      "bio": "En kort beskrivning om företaget.",
+      "attribute_id": "biUy_SJ"
+    },
+    {
+      "id": "qW2OQ1w",
+      "name": "Student",
+      "email": "student@kyh.se",
+      "password": "test",
+      "bio": "En kort beskrivning.",
+      "attribute_id": "JfF7L_M"
+    }
+  ],
+  "link": [
+    {
+      "id": "",
+      "title": "",
+      "url": "",
+      "user_id": ""
+    }
+  ],
+  "questionnaire": [
+    {
+      "advertisement_id": "pNncaHJ",
+      "body": "Det här är en kodfråga.",
+      "alternatives": [
+        "Svar 1 (rätt svar)",
+        "Svar 2",
+        "Svar 3"
+      ],
+      "correct_alternatives": [
+        0
+      ],
+      "id": "1EQxKgE"
+    },
+    {
+      "advertisement_id": "pNncaHJ",
+      "body": "Det här är en till fråga.",
+      "alternatives": [
+        "Svar 1",
+        "Svar 2 (det här är rätt svar)"
+      ],
+      "correct_alternatives": [
+        1
+      ],
+      "id": "qhwscmJ"
+    }
+  ],
+  "advertisement": [
+    {
+      "user_id": "Sav_vBW",
+      "attribute_id": "_Ut4vVB",
+      "id": "pNncaHJ"
+    }
+  ],
+  "applicant": [
+    {
+      "id": ""
+    }
+  ],
+  "attribute": [
+    {
+      "id": "biUy_SJ",
+      "period": [
+        "",
+        ""
+      ],
+      "profession": "",
+      "badges": [],
+      "location": "Göteborg",
+      "work_type": "",
+      "school": "",
+      "type": "company"
+    },
+    {
+      "id": "JfF7L_M",
+      "period": [
+        "2022-11-17",
+        "2022-12-03"
+      ],
+      "profession": "Frontendutvecklare",
+      "badges": [
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
+      "location": "Stockholm",
+      "work_type": "remote",
+      "school": "KYH",
+      "type": "student"
+    },
+    {
+      "profession": "Frontendutvecklare",
+      "location": "Örebro",
+      "period": [
+        "2022-11-11",
+        "2022-12-10"
+      ],
+      "badges": [
+        "JavaScript"
+      ],
+      "work_type": "remote",
+      "openings": "3",
+      "type": "advertisement",
+      "is_active": true,
+      "decline_rate": "0.0",
+      "response_time": "0.0",
+      "id": "_Ut4vVB"
+    }
+  ]
+}

@@ -1,13 +1,46 @@
-/*
-    create react app - This will import normalize css which will reset it
-*/
-@import-normalize; 
-@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Cousine&family=Open+Sans&display=swap');
 
-* {
-    font-family: 'Open Sans', sans-serif;
+/* create react app - This will import normalize css */
+@import-normalize;
+
+/* Dennis CSS reset */
+@import './styles/reset.scss';
+
+:root {
+	font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cousine', monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Cousine', monospace;
+}
+
+strong {
+	font-weight: 700;
+}
+
+i {
+	font-style: italic;
+}
+
+button {
+	cursor: pointer;
+}
+
+@import "./styles/utilities.scss";
+
+#root {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	flex: 1 1 0%;
+}
+
+body {
+	display: flex;
+	min-height: 100%;
 }
