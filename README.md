@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# LIA-Appen
+
+**Miro:**
+https://miro.com/app/board/uXjVPUTKWBw=/?share_link_id=424264167575
+
+**Figma:**
+https://www.figma.com/file/pvmwSbRon6jVQkH5rsFoCx/LOFI?node-id=1%3A2&t=i6EjNzbNsOrsr7rO-1
+
+**GitHub:**
+https://github.com/KYHA-FE21/project-lia-appen-
+
+**GitHub Kanban:**
+https://github.com/orgs/KYHA-FE21/projects/3
+
+**Presentation manus:**
+https://docs.google.com/document/d/1NrClStsPkM2HBQAji1D6tYG-oeJX4CVFu1QDBwgGRhY/view
+
+**Presentation slides:**
+https://docs.google.com/presentation/d/1pmHmgkjdaoY6MKIjjsxRm5fC30KZWrPT03UOkbuTN2Q/view
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
